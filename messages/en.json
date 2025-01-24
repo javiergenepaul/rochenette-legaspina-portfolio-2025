@@ -1,0 +1,10 @@
+{
+  "HomePage": {
+    "title": "English Page!",
+    "about": "Go to the dwabout page"
+  },
+  "aboutPage": {
+    "title": "About Page!",
+    "home": "Go to the home page"
+  }
+}

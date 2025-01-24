@@ -1,0 +1,10 @@
+{
+  "HomePage": {
+    "title": "French World!",
+    "about": "Go to the about page"
+  },
+  "aboutPage": {
+    "title": "France About Page!",
+    "home": "Go to the home page"
+  }
+}
