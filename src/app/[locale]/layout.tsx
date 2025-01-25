@@ -1,3 +1,4 @@
+import { Footer, Navigation } from "@/components";
 import "../globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -16,7 +17,9 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <div className="antialiased pb-[32px] font-inter bg-scorpion-50">
+            <Navigation />
             {children}
+            <Footer />
           </div>
         </NextIntlClientProvider>
       </body>

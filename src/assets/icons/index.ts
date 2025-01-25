@@ -3,5 +3,13 @@ import DarkMode from "./dark-mode.svg";
 import LinkedInIcon from "./linkedin-icon.svg";
 import DribbleIcon from "./dribble-icon.svg";
 import WhatsAppIcon from "./whatsapp-icon.svg";
+import MenuIcon from "./menu-icon.svg";
 
-export { LightMode, DarkMode, LinkedInIcon, DribbleIcon, WhatsAppIcon };
+export {
+  LightMode,
+  DarkMode,
+  LinkedInIcon,
+  DribbleIcon,
+  WhatsAppIcon,
+  MenuIcon,
+};
