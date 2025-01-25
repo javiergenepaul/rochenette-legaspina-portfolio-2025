@@ -2,6 +2,7 @@ import { Footer, Navigation } from "@/components";
 import "../globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { ThemeProviders } from "./theme-providers";
 export default async function LocaleLayout({
   children,
   params,
@@ -13,14 +14,16 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <div className="antialiased pb-[32px] font-inter bg-scorpion-50">
-            <Navigation />
-            {children}
-            <Footer />
-          </div>
+          <ThemeProviders>
+            <div className="antialiased pb-[32px] font-inter bg-scorpion-50">
+              <Navigation />
+              {children}
+              <Footer />
+            </div>
+          </ThemeProviders>
         </NextIntlClientProvider>
       </body>
     </html>
