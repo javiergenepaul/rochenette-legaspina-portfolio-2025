@@ -4,10 +4,14 @@ import { useTranslations } from "next-intl";
 /**
  * Translates text.
  *
+ * @param t The translation function.
  * @param key The i18n key.
  * @param options The options object containing dynamic values.
  */
-export const translate = (key: TxKeyPath, options?: Record<string, any>) => {
-  const t = useTranslations();
+export const translate = (
+  t: ReturnType<typeof useTranslations>,
+  key: TxKeyPath,
+  options?: Record<string, any>
+) => {
   return key ? t(key, options) : "";
 };

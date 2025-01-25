@@ -11,7 +11,6 @@ export default {
     extend: {
       colors: {
         // CUSTOM COLORS
-        // CUSTOM COLORS
         amethyst: {
           950: "#39074B",
           900: "#5C1E71",
@@ -84,11 +83,11 @@ export default {
         inter: ["Inter", "sans-serif"],
       },
       screens: {
-        xl: "120rem",
-        lg: "90rem",
-        md: "64rem",
-        sm: "48rem",
-        xs: "40rem",
+        XS: "40rem",
+        SM: "48rem",
+        MD: "64rem",
+        LG: "90rem",
+        XL: "120rem",
       },
       fontSize: {
         h1: "4.188rem",

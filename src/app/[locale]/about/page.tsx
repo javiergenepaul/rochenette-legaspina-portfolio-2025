@@ -1,5 +1,21 @@
-import { translate } from "@/lib";
+import {
+  CertificationSection,
+  EducationSection,
+  IntroSection,
+  LetsTalkSection,
+  SkillsAndToolsSection,
+  WorkSection,
+} from "./sections";
 
 export default function Page() {
-  return <div>{translate("aboutPage.title")}</div>;
+  return (
+    <>
+      <IntroSection />
+      <WorkSection />
+      <SkillsAndToolsSection />
+      <EducationSection />
+      <CertificationSection />
+      <LetsTalkSection />
+    </>
+  );
 }

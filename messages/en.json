@@ -1,10 +1,74 @@
 {
-  "HomePage": {
-    "title": "English Page!",
-    "about": "Go to the dwabout page"
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "project": "Project",
+    "contact": "Contact"
   },
-  "aboutPage": {
-    "title": "About Page!",
-    "home": "Go to the home page"
+  "about": {
+    "intro": {
+      "title": "Journey Highlights",
+      "paragraph": {
+        "1": "I’m Rochenette Legaspina, a UI/UX designer based in Philippines with a Bachelor’s degree in Bachelor of Science in Computer Engineering. My approach to design combines creativity and always driven by a desire to create meaningful, user-centered solutions.",
+        "2": "My path into UI/UX design started back in college, when I joined an organization of talented students with a shared passion for the gaming industry. I initially began as a 3D modeler, diving into the world of 3D design. Over time, my interest deepened, and I expanded my skillset to include 3D texturing and retopology. The creativity and technical challenge fascinated me, and I grew more eager to learn.",
+        "3": "One of the pivotal moments in my journey was meeting a mentor, a leader in the organization who introduced me to the world of UI/UX design. Inspired by their guidance, I transitioned into the field, focusing on designing user interfaces and experiences that were not only visually compelling but also highly functional.",
+        "4": "After graduating, my first role as a UI/UX designer at a software company gave me invaluable real-world experience. However, I wanted to deepen my understanding of the entire development process, so I took on a role as a Systems Analyst. This allowed me to collaborate more closely with both clients and team members, and gain insights into the broader project dynamics. In addition to my work as a UI/UX designer, I embraced the challenge of bridging the gap between design and development.",
+        "5": "Today, I’m excited to continue my journey in UI/UX design, always eager to take on inspiring projects that leave a meaningful impact. My goal is to create designs that not only look good but also serve a greater purpose, solving real problems and enhancing user experiences along the way."
+      }
+    },
+    "work": {
+      "title": "Work Experience",
+      "experience": {
+        "alliance": {
+          "title": "System Analyst and a UI/UX Desginer",
+          "companyName": "Alliance Software Inc.",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "imageAlt": "Alliance Logo"
+        },
+        "mach95": {
+          "title": "UI/UX Designer",
+          "companyName": "Mach95 Software Development Inc.",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "imageAlt": "Mach 95 Logo"
+        },
+        "exodia": {
+          "title": "3D Modeller & Substance Painter",
+          "companyName": "Exodia Game Development Outsourcing",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "imageAlt": "Exodia Game Development Outsourcing Logo"
+        }
+      }
+    },
+    "education": {
+      "title": "Education",
+      "degree": {
+        "computerEngineering": {
+          "title": "Bachelor of Science in Computer Engineering",
+          "school": "University of Cebu",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "imageAlt": "University of Cebu Logo"
+        }
+      }
+    },
+    "certificate": {
+      "title": "Certificates",
+      "certificates": {
+        "dataAnalytics": {
+          "title": "Data Analytics Course",
+          "organization": "Speaker: CIT-U",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "imageAlt": "CIT Logo"
+        },
+        "systemAnalyst": {
+          "title": "System Analyst and a UI/UX Desginer",
+          "organization": "Udemy",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "imageAlt": "Udemy Logo"
+        }
+      }
+    },
+    "skillAndTools": {
+      "title": "Skills & Tools"
+    }
   }
 }
