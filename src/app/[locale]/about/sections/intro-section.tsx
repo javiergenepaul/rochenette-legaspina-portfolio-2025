@@ -11,10 +11,7 @@ export default function IntroSection() {
   return (
     <section
       id="intro-section"
-      className={twMerge(
-        "w-full h-full flex flex-col LG:gap-10 gap-8",
-        style.sectionContainerPaddingX
-      )}
+      className="w-full h-full flex flex-col LG:gap-10 gap-8 XL:px-[200px] LG:px-[150px] MD:px-[100px] SM:px-[80px] XS:px-[32px] px-[16px]"
     >
       <h2 className="XL:text-h1 LG:text-h2 SM:text-h3 text-h4 font-bold text-scorpion-600 text-center">
         {translate(t, "about.intro.title")}

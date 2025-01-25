@@ -18,6 +18,7 @@ import { translate } from "@/lib";
 import { createTranslator } from "next-intl";
 import { EN } from "../../messages";
 import { StaticImageData } from "next/image";
+import { PATH } from "./path";
 
 const locale = "en";
 
@@ -158,5 +159,29 @@ export const SOCIAL_LINKS: SocialLinksInterface[] = [
     image: WhatsAppIcon,
     url: "https://www.linkedin.com/in/rochenette-legaspina-677a64263/",
     alt: "WhatsApp Icon",
+  },
+];
+
+interface NavLinksInterface {
+  label: string;
+  to: string;
+}
+
+export const NavLinks: NavLinksInterface[] = [
+  {
+    label: PATH.HOME.name,
+    to: PATH.HOME.path,
+  },
+  {
+    label: PATH.ABOUT.name,
+    to: PATH.ABOUT.path,
+  },
+  {
+    label: PATH.PROJECT.name,
+    to: PATH.PROJECT.path,
+  },
+  {
+    label: PATH.CONTACT.name,
+    to: PATH.CONTACT.path,
   },
 ];
