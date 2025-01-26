@@ -1,4 +1,3 @@
-import LetsTalkSection from "@/components/common/lets-talk-section";
 import {
   CertificationSection,
   EducationSection,
@@ -9,13 +8,12 @@ import {
 
 export default function Page() {
   return (
-    <>
+    <main>
       <IntroSection />
       <WorkSection />
       <SkillsAndToolsSection />
       <EducationSection />
       <CertificationSection />
-      <LetsTalkSection />
-    </>
+    </main>
   );
 }

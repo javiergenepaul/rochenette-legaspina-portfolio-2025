@@ -1,6 +1,6 @@
 "use client";
 
-import { NavLinks, SOCIAL_LINKS, style } from "@/config";
+import { NAV_LINKS, SOCIAL_LINKS, style } from "@/config";
 import { twMerge } from "tailwind-merge";
 import Image from "next/image";
 import Link from "next/link";
@@ -40,7 +40,7 @@ export default function Footer() {
           </ul>
         </div>
         <ul id="nav-link" className="flex justify-between w-4/12 mx-auto">
-          {NavLinks.map((link, index) => (
+          {NAV_LINKS.map((link, index) => (
             <li key={index}>
               <Link
                 href={link.to}

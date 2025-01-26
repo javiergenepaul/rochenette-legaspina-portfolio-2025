@@ -1,6 +1,6 @@
 "use client";
 
-import { NavLinks, style } from "@/config";
+import { NAV_LINKS, style } from "@/config";
 import { twMerge } from "tailwind-merge";
 import { usePathname } from "next/navigation";
 import { MenuIcon } from "@/assets";
@@ -34,7 +34,7 @@ export default function Navigation() {
           </div>
         </div>
         <ul className="flex gap-6">
-          {NavLinks.map((link, index) => (
+          {NAV_LINKS.map((link, index) => (
             <li key={index}>
               <Link
                 href={link.to}
