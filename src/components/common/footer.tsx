@@ -5,6 +5,8 @@ import { twMerge } from "tailwind-merge";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { translate } from "@/lib";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -19,8 +21,8 @@ export default function Footer() {
       <div className="h-12 w-12 rounded-full bg-amethyst-200" />
       <div className="flex flex-col gap-10">
         <div id="social-links" className="flex justify-between">
-          <h3 className="text-h3 font-semibold text-scorpion-700">
-            Transforming Ideas into Impactful Designs
+          <h3 className="text-h3 font-semibold text-scorpion-700 dark:text-woodsmoke-50">
+            {translate(useTranslations(), "footer.slogan")}
           </h3>
           <ul className="flex gap-6">
             {SOCIAL_LINKS.map((link, index) => (
@@ -46,7 +48,7 @@ export default function Footer() {
                   "text-large transition-transform ease-in-out",
                   pathname === link.to
                     ? "text-amethyst-500 font-bold"
-                    : "text-scorpion-300 font-normal"
+                    : "text-scorpion-300 dark:text-woodsmoke-200 font-normal"
                 )}
               >
                 {link.label}
@@ -54,8 +56,8 @@ export default function Footer() {
             </li>
           ))}
         </ul>
-        <p id="copyright" className="text-center text-scorpion-500 text-normal">
-          © 2025 Rochenette Legaspina
+        <p id="copyright" className="text-center text-scorpion-500 dark:text-woodsmoke-300 text-normal">
+          {translate(useTranslations(), "footer.copyright")}
         </p>
       </div>
     </footer>
