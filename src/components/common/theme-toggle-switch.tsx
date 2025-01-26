@@ -11,7 +11,7 @@ const ThemeToggleSwitch = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SwitchPrimitives.Root
     className={cn(
-      "peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-scorpion-50 data-[state=unchecked]:bg-amethyst-500",
+      "peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-woodsmoke-50 data-[state=unchecked]:bg-amethyst-500",
       className
     )}
     {...props}
@@ -19,7 +19,7 @@ const ThemeToggleSwitch = React.forwardRef<
   >
     <SwitchPrimitives.Thumb
       className={cn(
-        "pointer-events-none flex items-center justify-center h-5 w-5 rounded-full data-[state=checked]:bg-amethyst-950 data-[state=unchecked]:bg-scorpion-50 shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
+        "pointer-events-none flex items-center justify-center h-5 w-5 rounded-full data-[state=checked]:bg-woodsmoke-950 data-[state=unchecked]:bg-scorpion-50 shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
       )}
     >
       {props.checked ? (
