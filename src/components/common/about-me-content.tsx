@@ -1,12 +1,5 @@
-import Image, { StaticImageData } from "next/image";
-
-export interface AboutMeContentProps {
-  title: string;
-  subTitle: string;
-  description: string;
-  image: StaticImageData;
-  imageAlt: string;
-}
+import { AboutMeContentInterface } from "@/config";
+import Image from "next/image";
 
 export default function AboutMeContent({
   title,
@@ -14,7 +7,7 @@ export default function AboutMeContent({
   description,
   image,
   imageAlt,
-}: AboutMeContentProps) {
+}: AboutMeContentInterface) {
   return (
     <div className="flex flex-col SM:flex-row gap-6 py-6 items-center">
       <Image

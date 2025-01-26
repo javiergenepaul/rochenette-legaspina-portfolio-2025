@@ -1,25 +1,25 @@
 export interface PathInterface {
   [key: string]: {
     name: string;
-    path: string;
+    getPath: (locale: string) => string;
   };
 }
 
 export const PATH: PathInterface = {
   HOME: {
     name: "Home",
-    path: "/",
+    getPath: (locale: string) => `/${locale}/`,
   },
   ABOUT: {
     name: "About",
-    path: "/about",
+    getPath: (locale: string) => `/${locale}/about`,
   },
   PROJECT: {
     name: "Project",
-    path: "/project",
+    getPath: (locale: string) => `/${locale}/project`,
   },
   CONTACT: {
     name: "Contact",
-    path: "/contact",
+    getPath: (locale: string) => `/${locale}/contact`,
   },
 };
