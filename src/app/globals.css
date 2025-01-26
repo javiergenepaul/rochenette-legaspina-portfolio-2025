@@ -1,4 +1,4 @@
-@import '@fontsource/inter';
+@import "@fontsource/inter";
 
 @tailwind base;
 @tailwind components;
@@ -6,6 +6,43 @@
 
 @layer base {
   :root {
+    --amethyst-50: #fbf4ff;
+    --amethyst-100: #f5e9fe;
+    --amethyst-200: #ebd2fc;
+    --amethyst-300: #dfaef9;
+    --amethyst-400: #cc7ef4;
+    --amethyst-500: #ae3ee6;
+    --amethyst-600: #9a2dcc;
+    --amethyst-700: #8222a9;
+    --amethyst-800: #6c1e8a;
+    --amethyst-900: #5c1e71;
+    --amethyst-950: #39074b;
+
+    --scorpion-50: #f7f7f8;
+    --scorpion-100: #efefef;
+    --scorpion-200: #dbdbdc;
+    --scorpion-300: #bdbbbe;
+    --scorpion-400: #9a959b;
+    --scorpion-500: #7d787f;
+    --scorpion-600: #5d595e;
+    --scorpion-700: #535054;
+    --scorpion-800: #474448;
+    --scorpion-900: #3e3c3e;
+    --scorpion-950: #282829;
+
+    --woodsmoke-50: #f7f7f8;
+    --woodsmoke-100: #efeef0;
+    --woodsmoke-200: #dcd9de;
+    --woodsmoke-300: #bbb7c2;
+    --woodsmoke-400: #978fa1;
+    --woodsmoke-500: #7a7285;
+    --woodsmoke-600: #645c6d;
+    --woodsmoke-700: #514b59;
+    --woodsmoke-800: #45404c;
+    --woodsmoke-900: #3d3941;
+    --woodsmoke-950: #0e0d0f;
+
+    /* SHADCN */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
