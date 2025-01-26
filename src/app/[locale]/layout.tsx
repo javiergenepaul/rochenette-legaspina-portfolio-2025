@@ -1,8 +1,16 @@
-import { Footer, Navigation } from "@/components";
 import "../globals.css";
+
+import { Footer, Navigation } from "@/components";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { ThemeProviders } from "./theme-providers";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Rochenette Legaspina - Home",
+  description: "Rochenette Home",
+};
+
 export default async function LocaleLayout({
   children,
   params,

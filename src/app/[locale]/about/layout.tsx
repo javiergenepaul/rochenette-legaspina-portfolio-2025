@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Rochenette Legaspina",
+  title: "Rochenette Legaspina - About Me",
   description: "Rochenette About Me",
 };
 
