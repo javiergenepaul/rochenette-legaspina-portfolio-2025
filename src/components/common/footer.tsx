@@ -24,7 +24,7 @@ export default function Footer() {
       <div className="h-12 w-12 rounded-full bg-amethyst-200" />
       <div className="flex flex-col gap-10">
         <div id="social-links" className="flex justify-between">
-          <h3 className="text-h3 font-semibold text-scorpion-700 dark:text-woodsmoke-50">
+          <h3 className="XL:text-h2 LG:text-h3 SM:text-h4 MD:font-semibold font-semibold text-scorpion-700 dark:text-woodsmoke-50">
             {translate(useTranslations(), "footer.slogan")}
           </h3>
           <ul className="flex gap-6">
@@ -70,7 +70,7 @@ export default function Footer() {
             <LinkPreview
               target="_blank"
               url="https://paul-javier-portfolio.netlify.app"
-              className="font-bold text-amethyst-500"
+              className="font-bold text-amethyst-500 dark:text-amethyst-500"
               theme={resolvedTheme}
             >
               Gene Paul Mar Javier
