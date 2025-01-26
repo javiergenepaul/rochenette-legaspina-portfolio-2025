@@ -7,14 +7,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
+import { LinkPreview } from "../ui/link-preview";
+import { useTheme } from "next-themes";
 
 export default function Footer() {
   const pathname = usePathname();
+  const { resolvedTheme } = useTheme();
 
   return (
     <footer
       className={twMerge(
-        "mt-20 flex flex-col gap-8",
+        "mt-20 flex flex-col gap-8 pb-7",
         style.sectionContainerPaddingX
       )}
     >
@@ -56,9 +59,24 @@ export default function Footer() {
             </li>
           ))}
         </ul>
-        <p id="copyright" className="text-center text-scorpion-500 dark:text-woodsmoke-300 text-normal">
-          {translate(useTranslations(), "footer.copyright")}
-        </p>
+        <div className="flex justify-center gap-2">
+          <p
+            id="copyright"
+            className="text-center text-scorpion-500 dark:text-woodsmoke-300 text-normal"
+          >
+            {translate(useTranslations(), "footer.copyright")}
+          </p>
+          <span>
+            <LinkPreview
+              target="_blank"
+              url="https://paul-javier-portfolio.netlify.app"
+              className="font-bold text-amethyst-500"
+              theme={resolvedTheme}
+            >
+              Gene Paul Mar Javier
+            </LinkPreview>
+          </span>
+        </div>
       </div>
     </footer>
   );
