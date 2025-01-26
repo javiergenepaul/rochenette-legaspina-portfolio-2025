@@ -8,7 +8,7 @@ export interface PathInterface {
 export const PATH: PathInterface = {
   HOME: {
     name: "Home",
-    getPath: (locale: string) => `/${locale}/`,
+    getPath: (locale: string) => `/${locale}`,
   },
   ABOUT: {
     name: "About",

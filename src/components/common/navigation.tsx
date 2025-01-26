@@ -24,7 +24,7 @@ export default function Navigation() {
   return (
     <>
       {/* Navigation Links */}
-      <nav className="bg-scorpion-50 dark:bg-black justify-self-center w-8/12 justify-between px-8 py-2 rounded-full items-center shadow-[0_0_14px_rgba(57,7,75,0.14)] sticky top-[32px] z-50 sm:flex hidden">
+      <nav className="bg-scorpion-50 dark:bg-woodsmoke-900 justify-self-center w-8/12 justify-between px-8 py-2 rounded-full items-center shadow-[0_0_14px_rgba(57,7,75,0.14)] sticky top-[32px] z-50 sm:flex hidden">
         <div className="flex gap-2 items-center">
           <div
             aria-label="dot image"
@@ -41,8 +41,8 @@ export default function Navigation() {
                 className={twMerge(
                   "xl:text-large lg:text-normal transition-transform ease-in-out",
                   pathname === link.to
-                    ? "text-scorpion-950 font-bold translate-y-[-0.125rem]"
-                    : "text-scorpion-500 font-normal"
+                    ? "text-scorpion-950 dark:text-amethyst-500 font-bold translate-y-[-0.125rem]"
+                    : "text-scorpion-500 dark:text-woodsmoke-200 font-normal"
                 )}
               >
                 {link.label}
