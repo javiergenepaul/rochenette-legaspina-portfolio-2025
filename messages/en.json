@@ -5,6 +5,21 @@
     "project": "Project",
     "contact": "Contact"
   },
+  "home": {
+    "hero": {
+      "slogan": {
+        "title": {
+          "1": "Designing with Purpose",
+          "2": ",Creating with Passion."
+        },
+        "subtitle": "Hi, I’m Rochenette Legaspina! 😊 I’m passionate about creating meaningful and user-friendly design experiences. Explore my portfolio to see how I bring innovative design solutions to life!",
+        "button": "About Me"
+      },
+      "banner": {
+        "title": "CREATIVITY"
+      }
+    }
+  },
   "about": {
     "intro": {
       "title": "Journey Highlights",
