@@ -25,3 +25,14 @@ export interface AboutMeContentInterface {
   image: StaticImageData;
   imageAlt: string;
 }
+
+export interface ProjectInterface {
+  title: string;
+  role: string;
+  desciption: string;
+  contribution: string;
+  tools: string;
+  challange: string;
+  // image: [StaticImageData];
+  sectionId: string;
+}

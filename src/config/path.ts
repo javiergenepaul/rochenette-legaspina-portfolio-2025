@@ -16,7 +16,7 @@ export const PATH: PathInterface = {
   },
   PROJECT: {
     name: "Project",
-    getPath: (locale: string) => `/${locale}/project`,
+    getPath: (locale: string) => `/${locale}/projects`,
   },
   CONTACT: {
     name: "Contact",
