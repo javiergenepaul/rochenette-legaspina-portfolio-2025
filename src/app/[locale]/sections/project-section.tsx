@@ -1,3 +1,7 @@
 export default function ProjectSection() {
-  return <div className="h-screen">ProjectSection</div>;
+  return (
+    <section id="project-section" className="h-screen relative">
+      test
+    </section>
+  );
 }

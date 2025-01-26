@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { ThemeProviders } from "./theme-providers";
 import { Metadata } from "next";
+import BackgroundPattern from "@/components/common/background-pattern";
 
 export const metadata: Metadata = {
   title: "Rochenette Legaspina - Home",
@@ -26,11 +27,14 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <ThemeProviders>
-            <div className="antialiased pb-[32px] font-inter bg-scorpion-50 dark:bg-woodsmoke-950 selection:bg-amethyst-400 selection:text-amethyst-50 dark:selection:bg-amethyst-800">
-              <Navigation />
-              {children}
-              <LetstalkSection />
-              <Footer />
+            <div className="antialiased pb-[32px] relative font-inter bg-scorpion-50 dark:bg-woodsmoke-950 selection:bg-amethyst-400 selection:text-amethyst-50 dark:selection:bg-amethyst-800">
+              <BackgroundPattern />
+              <main className="z-30 absolute">
+                <Navigation />
+                {children}
+                <LetstalkSection />
+                <Footer />
+              </main>
             </div>
           </ThemeProviders>
         </NextIntlClientProvider>
