@@ -1,4 +1,6 @@
 import { SKILLS_AND_TOOLS, style } from "@/config";
+import { translate } from "@/lib";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 
@@ -11,8 +13,8 @@ export default function SkillsAndToolsSection() {
         style.sectionContainerPaddingX
       )}
     >
-      <h3 className="xl:text-h2 lg:text-h3 md:text-h4 text-h5 font-semibold text-scorpion-600 text-center">
-        Skills and Tools
+      <h3 className="xl:text-h2 lg:text-h3 md:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center">
+        {translate(useTranslations(), "about.skillAndTools.title")}
       </h3>
       <div className="flex gap-6 mx-auto">
         {SKILLS_AND_TOOLS.map((skill, index) => (
