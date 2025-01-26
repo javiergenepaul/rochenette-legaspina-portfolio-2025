@@ -1,14 +1,17 @@
-import { Button } from "@/components/ui/button";
-import { translate } from "@/lib";
-import { useTranslations } from "next-intl";
+import LetsTalkSection from "@/components/common/lets-talk-section";
+import { HeroSection, ProjectSection } from "./sections";
 
 export default function Home() {
-  const t = useTranslations();
   return (
-    <div>
-      <main className="flex flex-col gap-8 row-start-2 items-center SM:items-start">
-        <Button>{translate(t, "about.work.title")}</Button>
-      </main>
-    </div>
+    <main>
+      <HeroSection />
+      <ProjectSection />
+      <LetsTalkSection />
+    </main>
+    // <div>
+    //   <main className="flex flex-col gap-8 row-start-2 items-center SM:items-start">
+    //     <Button>{translate(t, "about.work.title")}</Button>
+    //   </main>
+    // </div>
   );
 }
