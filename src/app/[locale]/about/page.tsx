@@ -1,8 +1,8 @@
+import LetsTalkSection from "@/components/common/lets-talk-section";
 import {
   CertificationSection,
   EducationSection,
   IntroSection,
-  LetsTalkSection,
   SkillsAndToolsSection,
   WorkSection,
 } from "./sections";
