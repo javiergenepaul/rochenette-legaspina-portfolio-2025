@@ -13,14 +13,19 @@ import {
   WhatsAppIcon,
   WordLogo,
 } from "@/assets";
-import { AboutMeContentProps } from "@/components";
 import { translate } from "@/lib";
 import { createTranslator } from "next-intl";
 import { EN } from "../../messages";
-import { StaticImageData } from "next/image";
 import { PATH } from "./path";
+import {
+  AboutMeContentInterface,
+  NavLinksInterface,
+  SkillsAndToolsInterface,
+  SocialLinksInterface,
+} from "./types";
 
-const locale = "en";
+const locale =
+  typeof window !== "undefined" ? navigator.language.split("-")[0] : "en";
 
 const getTranslations = () => {
   const t = createTranslator({ locale, messages: EN });
@@ -45,12 +50,65 @@ const getTranslations = () => {
         imageAlt: translate(t, "about.work.experience.exodia.imageAlt"),
       },
     },
+    education: {
+      title: translate(t, "about.education.degree.computerEngineering.title"),
+      subTitle: translate(
+        t,
+        "about.education.degree.computerEngineering.school"
+      ),
+      description: translate(
+        t,
+        "about.education.degree.computerEngineering.description"
+      ),
+      imageAlt: translate(
+        t,
+        "about.education.degree.computerEngineering.imageAlt"
+      ),
+    },
+    certification: {
+      dataAnalytics: {
+        title: translate(
+          t,
+          "about.certificate.certificates.dataAnalytics.title"
+        ),
+        subTitle: translate(
+          t,
+          "about.certificate.certificates.dataAnalytics.organization"
+        ),
+        description: translate(
+          t,
+          "about.certificate.certificates.dataAnalytics.description"
+        ),
+        imageAlt: translate(
+          t,
+          "about.certificate.certificates.dataAnalytics.imageAlt"
+        ),
+      },
+      systemAnalyst: {
+        title: translate(
+          t,
+          "about.certificate.certificates.systemAnalyst.title"
+        ),
+        subTitle: translate(
+          t,
+          "about.certificate.certificates.systemAnalyst.organization"
+        ),
+        description: translate(
+          t,
+          "about.certificate.certificates.systemAnalyst.description"
+        ),
+        imageAlt: translate(
+          t,
+          "about.certificate.certificates.systemAnalyst.imageAlt"
+        ),
+      },
+    },
   };
 };
 
 const translations = getTranslations();
 
-export const WORK_EXPERIENCE: AboutMeContentProps[] = [
+export const WORK_EXPERIENCE: AboutMeContentInterface[] = [
   {
     title: translations.work.alliance.title,
     subTitle: translations.work.alliance.companyName,
@@ -73,19 +131,6 @@ export const WORK_EXPERIENCE: AboutMeContentProps[] = [
     imageAlt: translations.work.exodia.imageAlt,
   },
 ];
-
-interface SkillsAndToolsInterface {
-  image: StaticImageData;
-  title: string;
-  url: string;
-  alt: string;
-}
-
-interface SocialLinksInterface {
-  image: StaticImageData;
-  url: string;
-  alt: string;
-}
 
 export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
   {
@@ -114,33 +159,30 @@ export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
   },
 ];
 
-export const EDUCATION_EXPERIENCE: AboutMeContentProps[] = [
+export const EDUCATION_EXPERIENCE: AboutMeContentInterface[] = [
   {
-    title: "Bachelor of Science in Computer Engineering",
-    subTitle: "University of Cebu",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title: translations.education.title,
+    subTitle: translations.education.subTitle,
+    description: translations.education.description,
     image: UCLogo,
-    imageAlt: "University of Cebu Logo",
+    imageAlt: translations.education.imageAlt,
   },
 ];
 
-export const CERTIFICATION_EXPERIENCE: AboutMeContentProps[] = [
+export const CERTIFICATION_EXPERIENCE: AboutMeContentInterface[] = [
   {
-    title: "Data Analytics Course",
-    subTitle: "Speaker: CIT-U",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title: translations.certification.dataAnalytics.title,
+    subTitle: translations.certification.dataAnalytics.subTitle,
+    description: translations.certification.dataAnalytics.description,
     image: UdemyLogo,
-    imageAlt: "CIT Logo",
+    imageAlt: translations.certification.dataAnalytics.imageAlt,
   },
   {
-    title: "System Analyst and a UI/UX Desginer",
-    subTitle: "Udemy",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title: translations.certification.systemAnalyst.title,
+    subTitle: translations.certification.systemAnalyst.subTitle,
+    description: translations.certification.systemAnalyst.description,
     image: CITLogo,
-    imageAlt: "Udemy Logo",
+    imageAlt: translations.certification.systemAnalyst.imageAlt,
   },
 ];
 
@@ -162,26 +204,21 @@ export const SOCIAL_LINKS: SocialLinksInterface[] = [
   },
 ];
 
-interface NavLinksInterface {
-  label: string;
-  to: string;
-}
-
 export const NavLinks: NavLinksInterface[] = [
   {
     label: PATH.HOME.name,
-    to: PATH.HOME.path,
+    to: PATH.HOME.getPath(locale),
   },
   {
     label: PATH.ABOUT.name,
-    to: PATH.ABOUT.path,
+    to: PATH.ABOUT.getPath(locale),
   },
   {
     label: PATH.PROJECT.name,
-    to: PATH.PROJECT.path,
+    to: PATH.PROJECT.getPath(locale),
   },
   {
     label: PATH.CONTACT.name,
-    to: PATH.CONTACT.path,
+    to: PATH.CONTACT.getPath(locale),
   },
 ];
