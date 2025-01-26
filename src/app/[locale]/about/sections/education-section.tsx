@@ -1,5 +1,7 @@
 import { AboutMeContent } from "@/components";
 import { EDUCATION_EXPERIENCE, style } from "@/config";
+import { translate } from "@/lib";
+import { useTranslations } from "next-intl";
 import { twMerge } from "tailwind-merge";
 
 export default function EducationSection() {
@@ -11,8 +13,8 @@ export default function EducationSection() {
         style.sectionContainerPaddingX
       )}
     >
-      <h3 className="xl:text-h2 lg:text-h3 sm:text-h4 text-h5 font-semibold text-scorpion-600 text-center">
-        Education
+      <h3 className="xl:text-h2 lg:text-h3 sm:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center">
+        {translate(useTranslations(), "about.education.title")}
       </h3>
       <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
         {EDUCATION_EXPERIENCE.map((work, index) => (
