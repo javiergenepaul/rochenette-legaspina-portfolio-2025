@@ -16,13 +16,13 @@ export default function AboutMeContent({
         alt={imageAlt}
       />
       <div className="flex flex-col gap-2 items-center SM:items-start">
-        <span className="XL:text-large text-normal font-bold text-scorpion-700">
+        <span className="XL:text-large text-normal font-bold text-scorpion-700 dark:text-woodsmoke-50">
           {title}
         </span>
-        <span className="XL:text-large text-normal font-medium text-scorpion-600 leading-[1.1875rem]">
+        <span className="XL:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-[1.1875rem]">
           {subTitle}
         </span>
-        <p className="XL:text-large text-normal text-scorpion-500 leading-[1.1875rem] text-center SM:text-left">
+        <p className="XL:text-large text-normal text-scorpion-500 dark:text-woodsmoke-300 leading-[1.1875rem] text-center SM:text-left">
           {description}
         </p>
       </div>
