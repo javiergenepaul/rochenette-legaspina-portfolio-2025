@@ -69,6 +69,16 @@
     },
     "skillAndTools": {
       "title": "Skills & Tools"
+    },
+    "letsTalk": {
+      "title": {
+        "1": "Have a concept in mind!",
+        "2": "Connect with me."
+      },
+      "button": {
+        "letsTalk": "Let's Talk",
+        "downloadMyCV": "Download My CV"
+      }
     }
   }
 }
