@@ -24,7 +24,7 @@ export default function Navigation() {
   return (
     <>
       {/* Navigation Links */}
-      <nav className="bg-scorpion-50 dark:bg-woodsmoke-900 justify-self-center w-8/12 justify-between px-8 py-2 rounded-full items-center shadow-[0_0_14px_rgba(57,7,75,0.14)] sticky top-[32px] z-50 sm:flex hidden">
+      <nav className="bg-scorpion-50 dark:bg-woodsmoke-900 justify-self-center w-8/12 justify-between px-8 py-2 rounded-full items-center shadow-[0_0_14px_rgba(57,7,75,0.14)] sticky top-[32px] z-[9999] sm:flex hidden">
         <div className="flex gap-2 items-center">
           <div
             aria-label="dot image"
