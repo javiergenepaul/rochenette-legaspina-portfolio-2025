@@ -8,7 +8,8 @@ import OrbitComponent from "./components/orbit-component";
 
 export default function HeroSection() {
   return (
-    <div
+    <section
+      id="hero-section"
       className={twMerge(
         "h-[100dvh] XS:pt-0 pt-48 items-center flex",
         style.sectionContainerPaddingX
@@ -208,6 +209,6 @@ export default function HeroSection() {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
