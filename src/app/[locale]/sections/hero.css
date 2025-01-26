@@ -1,27 +1,31 @@
 #orbit-XL .stroke-1 {
   stroke-width: 30px;
   stroke: var(--amethyst-100);
-  z-index: -9999;
+  z-index: -99;
 }
 
 #orbit-LG .stroke-1 {
   stroke-width: 24px;
   stroke: var(--amethyst-100);
+  z-index: -99;
 }
 
 #orbit-MD .stroke-1 {
   stroke-width: 18px;
   stroke: var(--amethyst-100);
+  z-index: -99;
 }
 
 #orbit-SM .stroke-1 {
   stroke-width: 15px;
   stroke: var(--amethyst-100);
+  z-index: -99;
 }
 
 #orbit-XS .stroke-1 {
   stroke-width: 12px;
   stroke: var(--amethyst-100);
+  z-index: -99;
 }
 
 html.dark #orbit-XL .stroke-1,
