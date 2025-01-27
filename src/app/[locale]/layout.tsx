@@ -27,14 +27,11 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <ThemeProviders>
-            <div className="antialiased pb-[32px] relative font-inter bg-scorpion-50 dark:bg-woodsmoke-950 selection:bg-amethyst-400 selection:text-amethyst-50 dark:selection:bg-amethyst-800">
-              <BackgroundPattern />
-              <main className="z-30 absolute">
-                <Navigation />
-                {children}
-                <LetstalkSection />
-                <Footer />
-              </main>
+            <div className="antialiased pb-[32px] font-inter bg-scorpion-50 dark:bg-woodsmoke-950 selection:bg-amethyst-400 selection:text-amethyst-50 dark:selection:bg-amethyst-800">
+              <Navigation />
+              {children}
+              <LetstalkSection />
+              <Footer />
             </div>
           </ThemeProviders>
         </NextIntlClientProvider>
