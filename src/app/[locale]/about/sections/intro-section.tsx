@@ -11,7 +11,7 @@ export default function IntroSection() {
       id="intro-section"
       className="w-full h-full flex flex-col LG:gap-10 gap-8 XL:px-[200px] LG:px-[150px] MD:px-[100px] SM:px-[80px] XS:px-[32px] px-[16px]"
     >
-      <h2 className="XL:text-h1 LG:text-h2 SM:text-h3 text-h4 font-bold text-scorpion-600 dark:text-woodsmoke-50 text-center">
+      <h2 className="XL:text-h1 LG:text-h2 SM:text-h3 text-h4 font-bold text-woodsmoke-600 dark:text-woodsmoke-50 text-center">
         {translate(t, "about.intro.title")}
       </h2>
       <div className="flex LG:flex-row flex-col gap-4 items-center">
@@ -28,7 +28,7 @@ export default function IntroSection() {
           ).map((paragraph, index) => (
             <p
               key={index}
-              className="mb-6 text-justify LG:text-normal XL:text-large text-scorpion-600 dark:text-woodsmoke-300 LG:leading-[1.21rem] XL:leading-[1.375rem]"
+              className="mb-6 text-justify LG:text-normal XL:text-large text-woodsmoke-500 dark:text-woodsmoke-300 LG:leading-[1.21rem] XL:leading-[1.375rem]"
             >
               {paragraph}
             </p>
