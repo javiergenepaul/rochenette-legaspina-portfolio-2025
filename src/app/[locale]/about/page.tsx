@@ -8,12 +8,12 @@ import {
 
 export default function Page() {
   return (
-    <main>
+    <>
       <IntroSection />
       <WorkSection />
       <SkillsAndToolsSection />
       <EducationSection />
       <CertificationSection />
-    </main>
+    </>
   );
 }

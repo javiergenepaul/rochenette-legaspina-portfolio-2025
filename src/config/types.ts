@@ -21,9 +21,10 @@ export interface SocialLinksInterface {
 export interface AboutMeContentInterface {
   title: string;
   subTitle: string;
-  description: string;
+  description: string[];
   image: StaticImageData;
   imageAlt: string;
+  backgroundColor?: string;
 }
 
 export interface ProjectInterface {
