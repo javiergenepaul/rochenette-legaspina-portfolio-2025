@@ -164,7 +164,7 @@ export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
     url: "https://www.figma.com/",
     alt: "Figma Logo",
     name: "UI/UX Design",
-    designation: "Figma"
+    designation: "Figma",
   },
   {
     image: BlenderLogo,
@@ -172,7 +172,7 @@ export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
     url: "https://www.blender.org/",
     alt: "Blender Logo",
     name: "3D Modeling",
-    designation: "Blender"
+    designation: "Blender",
   },
   {
     image: WordLogo,
@@ -180,7 +180,7 @@ export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
     url: "https://www.microsoft.com/en-us/microsoft-365/word",
     alt: "MS Word Logo",
     name: "Document Editing",
-    designation: "MS Word"
+    designation: "MS Word",
   },
   {
     image: ExcelLogo,
@@ -188,7 +188,7 @@ export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
     url: "https://www.microsoft.com/en-us/microsoft-365/excel",
     alt: "Excel Logo",
     name: "Data Management",
-    designation: "MS Excel"
+    designation: "MS Excel",
   },
 ];
 
@@ -196,8 +196,11 @@ export const EDUCATION_EXPERIENCE: AboutMeContentInterface[] = [
   {
     title: translations.education.title,
     subTitle: translations.education.subTitle,
-    // description: translations.education.description,
-    description: [],
+    description: [
+      "Graduated with a Bachelor of Science in Computer Engineering.",
+      "Approved thesis project focused on VR for condos and townhouses.",
+      "Contributed to a game development startup, creating VR experiences for Casa Gorordo Museum.",
+    ],
     image: UCLogo,
     imageAlt: translations.education.imageAlt,
   },
@@ -208,7 +211,13 @@ export const CERTIFICATION_EXPERIENCE: AboutMeContentInterface[] = [
     title: translations.certification.dataAnalytics.title,
     subTitle: translations.certification.dataAnalytics.subTitle,
     // description: translations.certification.dataAnalytics.description,
-    description: [],
+    description: [
+      "Completed a UI/UX Design course focused on fundamentals and principles.",
+      "Applied course concepts to create mobile and web designs.",
+      "Gained hands-on experience in user-centered design processes.",
+      "Developed skills in wireframing, prototyping, and user flow creation.",
+      "Enhanced understanding of visual design, usability, and interaction principles.",
+    ],
     image: UdemyLogo,
     imageAlt: translations.certification.dataAnalytics.imageAlt,
   },
@@ -216,7 +225,13 @@ export const CERTIFICATION_EXPERIENCE: AboutMeContentInterface[] = [
     title: translations.certification.systemAnalyst.title,
     subTitle: translations.certification.systemAnalyst.subTitle,
     // description: translations.certification.systemAnalyst.description,
-    description: [],
+    description: [
+      "Attended an 8-hour seminar at Alliance Software focused on Data Analytics.",
+      "Contributed to team discussions and translated insights into dashboard analytics.",
+      "Gained practical skills in data visualization and analysis.",
+      "Collaborated on creating impactful, data-driven dashboards for business solutions.",
+      "Enhanced understanding of analytics tools and their application in real-world scenarios.",
+    ],
     image: CITLogo,
     imageAlt: translations.certification.systemAnalyst.imageAlt,
   },
