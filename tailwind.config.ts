@@ -132,6 +132,9 @@ export default {
           },
         },
       },
+      boxShadow: {
+        'content-card': '0 0 7.4px rgba(13, 8, 8, 0.12)',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
