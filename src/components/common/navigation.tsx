@@ -24,7 +24,7 @@ export default function Navigation() {
   return (
     <>
       {/* Navigation Links */}
-      <nav className="bg-scorpion-50 dark:bg-woodsmoke-900 justify-self-center w-8/12 justify-between px-8 py-2 rounded-full items-center shadow-[0_0_14px_rgba(57,7,75,0.14)] sticky top-[32px] z-[9999] sm:flex hidden">
+      <nav className="bg-scorpion-50 dark:bg-woodsmoke-900 justify-self-center w-8/12 justify-between px-8 py-2 rounded-full items-center shadow-[0_0_14px_rgba(57,7,75,0.14)] sticky top-[32px] z-[9999] SM:flex hidden">
         <div className="flex gap-2 items-center">
           <div
             aria-label="dot image"
@@ -39,7 +39,7 @@ export default function Navigation() {
               <Link
                 href={link.to}
                 className={twMerge(
-                  "xl:text-large lg:text-normal transition-transform ease-in-out",
+                  "XL:text-large LG:text-normal transition-transform ease-in-out",
                   pathname === link.to
                     ? "text-scorpion-950 dark:text-amethyst-500 font-bold translate-y-[-0.125rem]"
                     : "text-scorpion-500 dark:text-woodsmoke-200 font-normal"
@@ -60,7 +60,7 @@ export default function Navigation() {
       {/* Burger Menu */}
       <nav
         className={twMerge(
-          "sm:hidden flex justify-between items-center sticky top-0 py-2 bg-amethyst-300/60 backdrop-blur-lg",
+          "SM:hidden flex justify-between items-center sticky top-0 py-2 bg-amethyst-300/60 backdrop-blur-lg",
           style.sectionContainerPaddingX
         )}
       >

@@ -23,7 +23,7 @@ export default function IntroSection() {
           />
         </div>
         <div className="LG:basis-7/12 XL:basis-9/12">
-          {Array.from({ length: 5 }, (_, i) =>
+          {Array.from({ length: 2 }, (_, i) =>
             translate(t, `about.intro.paragraph.${i + 1}` as TxKeyPath)
           ).map((paragraph, index) => (
             <p

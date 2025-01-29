@@ -18,7 +18,7 @@ export default function HeroSection() {
       <div className="flex MD:flex-row flex-col items-center gap-6">
         <div
           id="test"
-          className="md:basis-1/2 flex flex-col SM:items-start items-center justify-center h-full w-full"
+          className="MD:basis-1/2 flex flex-col SM:items-start items-center justify-center h-full w-full"
         >
           <h1 className="font-bold SM:text-start text-center">
             <span className="text-amethyst-500 XL:text-h1 LG:text-h2 XS:text-h3 text-h4">
@@ -39,7 +39,7 @@ export default function HeroSection() {
         </div>
 
         {/* Orbbiting Circle */}
-        <div className="md:basis-1/2 basis-full">
+        <div className="MD:basis-1/2 basis-full">
           {/* XL */}
           <OrbitComponent
             id={"orbit-XL"}
