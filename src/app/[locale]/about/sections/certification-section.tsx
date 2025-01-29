@@ -18,59 +18,40 @@ export default function CertificationSection() {
         {translate(useTranslations(), "about.certificate.title")}
       </h3>
       <div className="grid MD:grid-cols-2 grid-cols-1 gap-6">
-        {/* System Analyst */}
-        <div className="flex flex-col SM:flex-row gap-6 p-6 items-start rounded-lg dark:bg-woodsmoke-900 bg-[#EFCFFC] shadow-content-card">
-          <Image
-            className="object-contain XL:h-36 XL:w-36 LG:h-28 LG:w-28 MD:h-24 MD:w-24 SM:h-20 SM:w-20 w-16 h-16 shadow-[0_0_14.98px_rgba(0,0,0,0.14)] rounded-2xl bg-scorpion-50 leading-[1.1875rem]"
-            src={CERTIFICATION_EXPERIENCE[0].image}
-            alt={CERTIFICATION_EXPERIENCE[0].imageAlt}
-          />
-          <div className="flex flex-col gap-2 items-center SM:items-start mt-6">
-            <span className="XL:text-large text-normal font-bold text-scorpion-700 dark:text-woodsmoke-50">
-              {CERTIFICATION_EXPERIENCE[0].title}
-            </span>
-            <span className="XL:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-[1.1875rem]">
-              {CERTIFICATION_EXPERIENCE[0].subTitle}
-            </span>
-            <ul className="list-disc pl-6 flex flex-col gap-2">
-              {CERTIFICATION_EXPERIENCE[0].description.map((item, index) => (
-                <li
-                  className="XL:text-large text-normal text-scorpion-500 dark:text-woodsmoke-300 leading-[1.1875rem] text-center SM:text-left"
-                  key={index}
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
+        {CERTIFICATION_EXPERIENCE.map((cert, index) => (
+          <div
+            key={index}
+            className={`flex flex-col SM:flex-row gap-6 p-6 items-start rounded-lg dark:bg-woodsmoke-900 ${
+              index === 0
+                ? "bg-[#EFCFFC]"
+                : "bg-[#FDEEBA]"
+            } shadow-content-card`}
+          >
+            <Image
+              className="object-contain XL:h-36 XL:w-36 LG:h-28 LG:w-28 MD:h-24 MD:w-24 SM:h-20 SM:w-20 w-16 h-16 shadow-[0_0_14.98px_rgba(0,0,0,0.14)] rounded-2xl bg-scorpion-50 leading-[1.1875rem]"
+              src={cert.image}
+              alt={cert.imageAlt}
+            />
+            <div className="flex flex-col gap-2 items-center SM:items-start mt-6">
+              <span className="XL:text-large text-normal font-bold text-scorpion-700 dark:text-woodsmoke-50">
+                {cert.title}
+              </span>
+              <span className="XL:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-[1.1875rem]">
+                {cert.subTitle}
+              </span>
+              <ul className="list-disc pl-6 flex flex-col gap-2">
+                {cert.description.map((item, descIndex) => (
+                  <li
+                    className="XL:text-large text-normal text-scorpion-500 dark:text-woodsmoke-300 leading-[1.1875rem] text-center SM:text-left"
+                    key={descIndex}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-
-        {/* System Analyst */}
-        <div className="flex flex-col SM:flex-row gap-6 p-6 items-start rounded-lg dark:bg-woodsmoke-900 bg-[#FDEEBA] shadow-content-card">
-          <Image
-            className="object-contain XL:h-36 XL:w-36 LG:h-28 LG:w-28 MD:h-24 MD:w-24 SM:h-20 SM:w-20 w-16 h-16 shadow-[0_0_14.98px_rgba(0,0,0,0.14)] rounded-2xl bg-scorpion-50 leading-[1.1875rem]"
-            src={CERTIFICATION_EXPERIENCE[1].image}
-            alt={CERTIFICATION_EXPERIENCE[1].imageAlt}
-          />
-          <div className="flex flex-col gap-2 items-center SM:items-start mt-6">
-            <span className="XL:text-large text-normal font-bold text-scorpion-700 dark:text-woodsmoke-50">
-              {CERTIFICATION_EXPERIENCE[1].title}
-            </span>
-            <span className="XL:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-[1.1875rem]">
-              {CERTIFICATION_EXPERIENCE[1].subTitle}
-            </span>
-            <ul className="list-disc pl-6 flex flex-col gap-2">
-              {CERTIFICATION_EXPERIENCE[1].description.map((item, index) => (
-                <li
-                  className="XL:text-large text-normal text-scorpion-500 dark:text-woodsmoke-300 leading-[1.1875rem] text-center SM:text-left"
-                  key={index}
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
