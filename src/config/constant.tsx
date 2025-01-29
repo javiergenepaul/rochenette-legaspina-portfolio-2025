@@ -110,26 +110,50 @@ const getTranslations = () => {
 const translations = getTranslations();
 
 export const WORK_EXPERIENCE: AboutMeContentInterface[] = [
+  // Alliance
   {
     title: translations.work.alliance.title,
     subTitle: translations.work.alliance.companyName,
-    description: translations.work.alliance.description,
+    description: [
+      "Documented Functional Specifications (FSD) and ensured complete requirements capture.",
+      "Delivered effective solutions to enhance user experience and functionality.",
+      "Analyzed client needs and new feature requirements.",
+      "Provided detailed functionality to the development team.",
+      "Ensured timely resolution of support requests.",
+    ],
     image: AllianceLogo,
     imageAlt: translations.work.alliance.imageAlt,
+    backgroundColor: "bg-[#ffdada]",
   },
+  // Mach95
   {
     title: translations.work.mach95.title,
     subTitle: translations.work.mach95.companyName,
-    description: translations.work.mach95.description,
+    // description: translations.work.mach95.description,
+    description: [
+      "Designed UI/UX for e-commerce platforms, web apps, and logistics systems.",
+      "Created user-centric, visually appealing designs to enhance functionality and user experience.",
+      "Developed logos and branding materials to align with company identities.",
+      "Collaborated closely with clients to understand and meet design requirements.",
+    ],
     image: Mach95Logo,
     imageAlt: translations.work.mach95.imageAlt,
+    backgroundColor: "bg-[#D0CFFF]",
   },
+  // Exodia
   {
     title: translations.work.exodia.title,
     subTitle: translations.work.exodia.companyName,
-    description: translations.work.exodia.description,
+    // description: translations.work.exodia.description,
+    description: [
+      "Created 3D models of various objects for use in a VR platform",
+      "Learned and applied retopology techniques to optimize models for performance",
+      "Utilized Substance Painter for 3D texturing to enhance visual quality team.",
+      "Ensured timely resolution of support requests.",
+    ],
     image: ExodiaLogo,
     imageAlt: translations.work.exodia.imageAlt,
+    backgroundColor: "bg-[#FBCBB2]",
   },
 ];
 
@@ -164,7 +188,8 @@ export const EDUCATION_EXPERIENCE: AboutMeContentInterface[] = [
   {
     title: translations.education.title,
     subTitle: translations.education.subTitle,
-    description: translations.education.description,
+    // description: translations.education.description,
+    description: [],
     image: UCLogo,
     imageAlt: translations.education.imageAlt,
   },
@@ -174,14 +199,16 @@ export const CERTIFICATION_EXPERIENCE: AboutMeContentInterface[] = [
   {
     title: translations.certification.dataAnalytics.title,
     subTitle: translations.certification.dataAnalytics.subTitle,
-    description: translations.certification.dataAnalytics.description,
+    // description: translations.certification.dataAnalytics.description,
+    description: [],
     image: UdemyLogo,
     imageAlt: translations.certification.dataAnalytics.imageAlt,
   },
   {
     title: translations.certification.systemAnalyst.title,
     subTitle: translations.certification.systemAnalyst.subTitle,
-    description: translations.certification.systemAnalyst.description,
+    // description: translations.certification.systemAnalyst.description,
+    description: [],
     image: CITLogo,
     imageAlt: translations.certification.systemAnalyst.imageAlt,
   },
