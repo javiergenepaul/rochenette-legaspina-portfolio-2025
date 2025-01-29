@@ -1,16 +1,10 @@
 "use client";
 
-import {
-  ComponentIcon,
-  CopyLinkIcon,
-  CropIcon,
-  EditIcon,
-  MoveIcon,
-  RulerIcon,
-  TextIcon,
-} from "@/assets";
+import * as Icon from "@/assets";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+import { FlipWords } from "@/components/ui/flip-words";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
+import { TxKeyPath } from "@/i18n";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
 import React from "react";
@@ -45,9 +39,19 @@ interface OrbitComponentInterface {
 }
 
 const BannerTitle = () => {
+  const words = [];
+  for (let i = 1; i <= 6; i++) {
+    words.push(
+      translate(useTranslations(), `home.hero.banner.title.${i}` as TxKeyPath)
+    );
+  }
+
   return (
     <span className="pointer-events-none select-none whitespace-pre-wrap bg-clip-text text-center XL:text-[89.25px] LG:text-[66.76px] XS:text-[48.03px] text-[39.26px] font-semibold text-woodsmoke-400 dark:text-woodsmoke-300 z-30">
-      {translate(useTranslations(), "home.hero.banner.title")}
+      <FlipWords
+        className="text-center XL:text-[89.25px] LG:text-[66.76px] XS:text-[48.03px] text-[39.26px] font-semibold text-woodsmoke-400 dark:text-woodsmoke-300"
+        words={words}
+      />
     </span>
   );
 };
@@ -83,7 +87,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                   useTranslations(),
                   "home.hero.banner.icons.edit.designation"
                 ),
-                image: EditIcon,
+                image: Icon.EditIcon,
                 height: orbitProperties[1].iconSize,
                 width: orbitProperties[1].iconSize,
               },
@@ -109,9 +113,15 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
             items={[
               {
                 id: 1,
-                name: translate(useTranslations(), "home.hero.banner.icons.crop.title"),
-                designation: translate(useTranslations(), "home.hero.banner.icons.crop.designation"),
-                image: CropIcon,
+                name: translate(
+                  useTranslations(),
+                  "home.hero.banner.icons.crop.title"
+                ),
+                designation: translate(
+                  useTranslations(),
+                  "home.hero.banner.icons.crop.designation"
+                ),
+                image: Icon.CropIcon,
                 height: orbitProperties[3].iconSize,
                 width: orbitProperties[3].iconSize,
               },
@@ -123,9 +133,15 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
             items={[
               {
                 id: 1,
-                name: translate(useTranslations(), "home.hero.banner.icons.copyLink.title"),
-                designation: translate(useTranslations(), "home.hero.banner.icons.copyLink.designation"),
-                image: CopyLinkIcon,
+                name: translate(
+                  useTranslations(),
+                  "home.hero.banner.icons.copyLink.title"
+                ),
+                designation: translate(
+                  useTranslations(),
+                  "home.hero.banner.icons.copyLink.designation"
+                ),
+                image: Icon.CopyLinkIcon,
                 height: orbitProperties[3].iconSize,
                 width: orbitProperties[3].iconSize,
               },
@@ -137,9 +153,15 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
             items={[
               {
                 id: 1,
-                name: translate(useTranslations(), "home.hero.banner.icons.component.title"),
-                designation: translate(useTranslations(), "home.hero.banner.icons.component.designation"),
-                image: ComponentIcon,
+                name: translate(
+                  useTranslations(),
+                  "home.hero.banner.icons.component.title"
+                ),
+                designation: translate(
+                  useTranslations(),
+                  "home.hero.banner.icons.component.designation"
+                ),
+                image: Icon.ComponentIcon,
                 height: orbitProperties[3].iconSize,
                 width: orbitProperties[3].iconSize,
               },
@@ -158,9 +180,15 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
             items={[
               {
                 id: 1,
-                name: translate(useTranslations(), "home.hero.banner.icons.move.title"),
-                designation: translate(useTranslations(), "home.hero.banner.icons.move.designation"),
-                image: MoveIcon,
+                name: translate(
+                  useTranslations(),
+                  "home.hero.banner.icons.move.title"
+                ),
+                designation: translate(
+                  useTranslations(),
+                  "home.hero.banner.icons.move.designation"
+                ),
+                image: Icon.MoveIcon,
                 height: orbitProperties[4].iconSize,
                 width: orbitProperties[4].iconSize,
               },
@@ -172,9 +200,15 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
             items={[
               {
                 id: 1,
-                name: translate(useTranslations(), "home.hero.banner.icons.text.title"),
-                designation: translate(useTranslations(), "home.hero.banner.icons.text.designation"),
-                image: TextIcon,
+                name: translate(
+                  useTranslations(),
+                  "home.hero.banner.icons.text.title"
+                ),
+                designation: translate(
+                  useTranslations(),
+                  "home.hero.banner.icons.text.designation"
+                ),
+                image: Icon.TextIcon,
                 height: orbitProperties[4].iconSize,
                 width: orbitProperties[4].iconSize,
               },
@@ -186,9 +220,15 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
             items={[
               {
                 id: 1,
-                name: translate(useTranslations(), "home.hero.banner.icons.ruler.title"),
-                designation: translate(useTranslations(), "home.hero.banner.icons.ruler.designation"),
-                image: RulerIcon,
+                name: translate(
+                  useTranslations(),
+                  "home.hero.banner.icons.ruler.title"
+                ),
+                designation: translate(
+                  useTranslations(),
+                  "home.hero.banner.icons.ruler.designation"
+                ),
+                image: Icon.RulerIcon,
                 height: orbitProperties[4].iconSize,
                 width: orbitProperties[4].iconSize,
               },

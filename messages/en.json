@@ -16,7 +16,14 @@
         "button": "About Me"
       },
       "banner": {
-        "title": "CREATIVITY",
+        "title": {
+          "1": "CREATIVITY",
+          "2": "INNOVATION",
+          "3": "SIMPLICITY",
+          "4": "IMPACT",
+          "5": "EXPERIENCE",
+          "6": "INSPIRATION"
+        },
         "icons": {
           "edit": {
             "title": "Edit",
