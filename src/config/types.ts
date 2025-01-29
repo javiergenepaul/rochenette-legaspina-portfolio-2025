@@ -10,6 +10,8 @@ export interface SkillsAndToolsInterface {
   title: string;
   url: string;
   alt: string;
+  name: string;
+  designation: string;
 }
 
 export interface SocialLinksInterface {

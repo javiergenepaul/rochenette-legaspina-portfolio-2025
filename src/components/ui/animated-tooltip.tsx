@@ -9,6 +9,8 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
+import { cn } from "@/lib";
+import { twMerge } from "tailwind-merge";
 
 export const AnimatedTooltip = ({
   items,
@@ -18,8 +20,11 @@ export const AnimatedTooltip = ({
     name: string;
     designation: string;
     image: string;
-    height: number;
-    width: number;
+    imageAlt: string;
+    className?: string;
+    height?: number;
+    width?: number;
+    leftClass?: string;
   }[];
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -69,23 +74,23 @@ export const AnimatedTooltip = ({
                   rotate: rotate,
                   whiteSpace: "nowrap",
                 }}
-                className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs  flex-col items-center justify-center rounded-lg bg-woodsmoke-600 z-50 shadow-xl px-4 py-2"
+                className={twMerge("absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-[8px] bg-amethyst-200 dark:bg-woodsmoke-600 z-50 shadow-xl px-4 py-2", item.leftClass)}
               >
-                <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px " />
-                <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px " />
-                <div className="font-bold text-white relative z-30 text-base">
+                <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-amethyst-300 to-transparent h-px " />
+                <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-amethyst-700 to-transparent h-px " />
+                <div className="font-bold dark:text-woodsmoke-50 text-woodsmoke-500 relative z-30 text-base">
                   {item.name}
                 </div>
-                <div className="text-white text-xs">{item.designation}</div>
+                <div className="dark:text-woodsmoke-50 text-woodsmoke-500 text-xs">{item.designation}</div>
               </motion.div>
             )}
           </AnimatePresence>
           <Image
             onMouseMove={handleMouseMove}
             src={item.image}
-            alt={item.name}
+            alt={item.imageAlt}
             style={{ height: `${item.height}px`, width: `${item.width}px` }}
-            className={`object-cover !m-0 !p-0 object-top rounded-full group-hover:scale-105 group-hover:z-30 relative transition duration-500`}
+            className={cn(`object-cover !m-0 !p-0 object-top group-hover:scale-105 group-hover:z-30 relative transition duration-500`, item.className)}
           />
         </div>
       ))}
