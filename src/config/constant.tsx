@@ -163,24 +163,32 @@ export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
     title: "figma",
     url: "https://www.figma.com/",
     alt: "Figma Logo",
+    name: "UI/UX Design",
+    designation: "Figma"
   },
   {
     image: BlenderLogo,
     title: "Belnder",
     url: "https://www.blender.org/",
     alt: "Blender Logo",
+    name: "3D Modeling",
+    designation: "Blender"
   },
   {
     image: WordLogo,
     title: "Microsoft Word",
     url: "https://www.microsoft.com/en-us/microsoft-365/word",
     alt: "MS Word Logo",
+    name: "Document Editing",
+    designation: "MS Word"
   },
   {
     image: ExcelLogo,
     title: "Excel",
     url: "https://www.microsoft.com/en-us/microsoft-365/excel",
     alt: "Excel Logo",
+    name: "Data Management",
+    designation: "MS Excel"
   },
 ];
 
