@@ -27,7 +27,7 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <ThemeProviders>
-            <div className="antialiased overflow-x-hidden pb-[32px] font-inter bg-scorpion-50 dark:bg-woodsmoke-950 selection:bg-amethyst-400 selection:text-amethyst-50 dark:selection:bg-amethyst-800">
+            <div className="antialiased pb-[32px] font-inter bg-scorpion-50 dark:bg-woodsmoke-950 selection:bg-amethyst-400 selection:text-amethyst-50 dark:selection:bg-amethyst-800">
               <Navigation />
               {children}
               <LetstalkSection />
