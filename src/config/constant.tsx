@@ -220,6 +220,7 @@ export const CERTIFICATION_EXPERIENCE: AboutMeContentInterface[] = [
     ],
     image: UdemyLogo,
     imageAlt: translations.certification.dataAnalytics.imageAlt,
+    backgroundColor: "#EFCFFC",
   },
   {
     title: translations.certification.systemAnalyst.title,
@@ -234,6 +235,7 @@ export const CERTIFICATION_EXPERIENCE: AboutMeContentInterface[] = [
     ],
     image: CITLogo,
     imageAlt: translations.certification.systemAnalyst.imageAlt,
+    backgroundColor: "#FDEEBA",
   },
 ];
 
