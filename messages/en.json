@@ -16,7 +16,37 @@
         "button": "About Me"
       },
       "banner": {
-        "title": "CREATIVITY"
+        "title": "CREATIVITY",
+        "icons": {
+          "edit": {
+            "title": "Edit",
+            "designation": "Elevate Design"
+          },
+          "crop": {
+            "title": "Crop",
+            "designation": "Focus the Vision"
+          },
+          "copyLink": {
+            "title": "Copy Link",
+            "designation": "Effortless Sharing"
+          },
+          "component": {
+            "title": "Component",
+            "designation": "Build Reusability"
+          },
+          "move": {
+            "title": "Move",
+            "designation": "Shift with Ease"
+          },
+          "text": {
+            "title": "Text",
+            "designation": "Craft Your Message"
+          },
+          "ruler": {
+            "title": "Ruler",
+            "designation": "Perfect Alignment"
+          }
+        }
       }
     }
   },
