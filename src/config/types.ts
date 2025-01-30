@@ -15,6 +15,7 @@ export interface SkillsAndToolsInterface {
 }
 
 export interface SocialLinksInterface {
+  name: string;
   image: StaticImageData;
   url: string;
   alt: string;
