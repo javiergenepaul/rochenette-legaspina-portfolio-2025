@@ -11,7 +11,7 @@ export default function AboutLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex flex-col LG:pt-28 XS:pt-16 pt-16 pb-20 gap-20">
+    <main className="flex flex-col SM:pt-52 pt-12 pb-20 gap-20">
       {children}
     </main>
   );

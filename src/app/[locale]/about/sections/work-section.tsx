@@ -1,9 +1,8 @@
-import { AboutMeContent } from "@/components";
 import { style, WORK_EXPERIENCE } from "@/config";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import { twMerge } from "tailwind-merge";
+import Image from "next/image";
 
 export default function WorkSection() {
   return (
@@ -21,7 +20,7 @@ export default function WorkSection() {
         {WORK_EXPERIENCE.map((experience, index) => (
           <div
             key={index}
-            className={`flex flex-col SM:flex-row gap-6 p-6 items-start rounded-lg dark:bg-woodsmoke-900 shadow-content-card ${
+            className={`flex XL:flex-row LG:flex-row MD:flex-col SM:flex-row XS:flex-col flex-col SM:items-start items-center gap-6 p-6 rounded-lg dark:bg-woodsmoke-900 shadow-content-card ${
               index === 0
                 ? "bg-[#ffdada]"
                 : index === 1
@@ -34,7 +33,7 @@ export default function WorkSection() {
               src={experience.image}
               alt={experience.imageAlt}
             />
-            <div className="flex flex-col gap-2 items-center SM:items-start mt-6">
+            <div className="flex flex-col gap-2 items-center MD:items-start mt-6">
               <span className="XL:text-large text-normal font-bold text-scorpion-700 dark:text-woodsmoke-50">
                 {experience.title}
               </span>
@@ -44,7 +43,7 @@ export default function WorkSection() {
               <ul className="list-disc pl-6 flex flex-col gap-2">
                 {experience.description.map((item, itemIndex) => (
                   <li
-                    className="XL:text-large text-normal text-scorpion-500 dark:text-woodsmoke-300 leading-[1.1875rem] text-center SM:text-left"
+                    className="XL:text-large text-normal text-scorpion-500 dark:text-woodsmoke-300 leading-[1.1875rem] text-center XS:text-left"
                     key={itemIndex}
                   >
                     {item}

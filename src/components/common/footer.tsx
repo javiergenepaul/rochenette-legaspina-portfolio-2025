@@ -1,14 +1,16 @@
 "use client";
 
-import { NAV_LINKS, SOCIAL_LINKS, style } from "@/config";
-import { twMerge } from "tailwind-merge";
 import Image from "next/image";
 import Link from "next/link";
+
+import { NAV_LINKS, SOCIAL_LINKS, style } from "@/config";
+import { twMerge } from "tailwind-merge";
 import { usePathname } from "next/navigation";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
 import { LinkPreview } from "../ui/link-preview";
 import { useTheme } from "next-themes";
+import { Separator } from "../ui/separator";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -21,10 +23,13 @@ export default function Footer() {
         style.sectionContainerPaddingX
       )}
     >
-      <div className="h-12 w-12 rounded-full bg-amethyst-200" />
+      <div className="h-12 w-12 rounded-full bg-amethyst-500" />
       <div className="flex flex-col gap-10">
-        <div id="social-links" className="flex justify-between">
-          <h3 className="XL:text-h2 LG:text-h3 SM:text-h4 MD:font-semibold font-semibold text-scorpion-700 dark:text-woodsmoke-50">
+        <div
+          id="social-links"
+          className="flex SM:flex-row flex-col SM:justify-between gap-6 justify-start SM:items-center items-start"
+        >
+          <h3 className="XL:text-h2 LG:text-h3 SM:text-h4 text-h5 MD:font-semibold SM:w-[347px] MD:w-full font-semibold text-scorpion-500 dark:text-woodsmoke-50">
             {translate(useTranslations(), "footer.slogan")}
           </h3>
           <ul className="flex gap-6">
@@ -42,7 +47,14 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-        <ul id="nav-link" className="flex justify-between w-4/12 mx-auto">
+        <Separator className="SM:hidden block" />
+        <ul
+          id="nav-link"
+          className="flex justify-between SM:flex-row gap-2 flex-col SM:w-6/12 XL:w-4/12 MD:w-5/12 SM:mx-auto"
+        >
+          <strong className="text-large font-medium text-[#464646] dark:text-woodsmoke-50 pt-2 SM:hidden block">
+            {translate(useTranslations(), "navigation.menu")}
+          </strong>
           {NAV_LINKS.map((link, index) => (
             <li key={index}>
               <Link
@@ -51,7 +63,7 @@ export default function Footer() {
                   "text-large transition-transform ease-in-out",
                   pathname === link.to
                     ? "text-amethyst-500 font-bold"
-                    : "text-scorpion-300 dark:text-woodsmoke-200 font-normal"
+                    : "text-woodsmoke-500 dark:text-woodsmoke-200 font-normal"
                 )}
               >
                 {link.label}
@@ -59,10 +71,10 @@ export default function Footer() {
             </li>
           ))}
         </ul>
-        <div className="flex justify-center gap-2">
+        <div className="flex MD:flex-row flex-col items-center justify-center gap-2">
           <p
             id="copyright"
-            className="text-center text-scorpion-500 dark:text-woodsmoke-300 text-normal"
+            className="text-center text-woodsmoke-400 dark:text-woodsmoke-300 text-normal"
           >
             {translate(useTranslations(), "footer.copyright")}
           </p>
@@ -73,7 +85,7 @@ export default function Footer() {
               className="font-bold text-amethyst-500 dark:text-amethyst-500"
               theme={resolvedTheme}
             >
-              Gene Paul Mar Javier
+              {translate(useTranslations(), "footer.developer")}
             </LinkPreview>
           </span>
         </div>

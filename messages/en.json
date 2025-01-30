@@ -3,7 +3,8 @@
     "home": "Home",
     "about": "About",
     "project": "Project",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menu": "Menu"
   },
   "home": {
     "hero": {
@@ -70,19 +71,19 @@
       "experience": {
         "alliance": {
           "title": "System Analyst and a UI/UX Desginer",
-          "companyName": "Alliance Software Inc.",
+          "companyName": "Alliance",
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           "imageAlt": "Alliance Logo"
         },
         "mach95": {
           "title": "UI/UX Designer",
-          "companyName": "Mach95 Software Development Inc.",
+          "companyName": "Mach95",
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           "imageAlt": "Mach 95 Logo"
         },
         "exodia": {
           "title": "3D Modeller & Substance Painter",
-          "companyName": "Exodia Game Development Outsourcing",
+          "companyName": "Exodia",
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           "imageAlt": "Exodia Game Development Outsourcing Logo"
         }
@@ -132,6 +133,7 @@
   },
   "footer": {
     "slogan": "Transforming Ideas into Impactful Designs",
-    "copyright": "© 2025 Rochenette Legaspina | Developed by"
+    "copyright": "© 2025 Rochenette Legaspina | Developed by",
+    "developer": "Gene Paul Mar Javier"
   }
 }
