@@ -241,16 +241,19 @@ export const CERTIFICATION_EXPERIENCE: AboutMeContentInterface[] = [
 
 export const SOCIAL_LINKS: SocialLinksInterface[] = [
   {
+    name: "LinkedIn",
     image: LinkedInIcon,
     url: "https://www.linkedin.com/in/rochenette-legaspina-677a64263/",
     alt: "LinkedIn Icon",
   },
   {
+    name: "Dribble",
     image: DribbleIcon,
     url: "https://www.linkedin.com/in/rochenette-legaspina-677a64263/",
     alt: "Dribble Icon",
   },
   {
+    name: "WhatsApp",
     image: WhatsAppIcon,
     url: "https://www.linkedin.com/in/rochenette-legaspina-677a64263/",
     alt: "WhatsApp Icon",
