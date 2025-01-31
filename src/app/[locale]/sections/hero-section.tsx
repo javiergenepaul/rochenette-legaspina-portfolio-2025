@@ -1,3 +1,5 @@
+"use client";
+
 import "./hero.css";
 
 import { translate } from "@/lib";
@@ -6,6 +8,7 @@ import { twMerge } from "tailwind-merge";
 import { style } from "@/config";
 import { Button } from "@/components/ui/button";
 import OrbitComponent from "./components/orbit-component";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
@@ -17,8 +20,14 @@ export default function HeroSection() {
       )}
     >
       <div className="flex MD:flex-row flex-col items-center gap-6">
-        <div
-          id="test"
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.8,
+            type: "spring",
+            bounce: 0.5,
+          }}
           className="MD:basis-1/2 flex flex-col SM:items-start items-center justify-center h-full w-full"
         >
           <h1 className="font-bold SM:text-start text-center">
@@ -37,10 +46,19 @@ export default function HeroSection() {
               {translate(useTranslations(), "home.hero.slogan.button")}
             </span>
           </Button>
-        </div>
+        </motion.div>
 
         {/* Orbbiting Circle */}
-        <div className="MD:basis-1/2 basis-full">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.8,
+            type: "spring",
+            bounce: 0.5,
+          }}
+          className="MD:basis-1/2 basis-full"
+        >
           {/* XL */}
           <OrbitComponent
             id={"orbit-XL"}
@@ -208,7 +226,7 @@ export default function HeroSection() {
               },
             }}
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
