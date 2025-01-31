@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib";
 import { InteractiveGridPattern } from "../ui/interactive-grid-pattern";
 
 export default function BackgroundPattern() {

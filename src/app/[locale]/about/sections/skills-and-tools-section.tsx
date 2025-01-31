@@ -2,7 +2,6 @@ import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { SKILLS_AND_TOOLS, style } from "@/config";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 
 export default function SkillsAndToolsSection() {
