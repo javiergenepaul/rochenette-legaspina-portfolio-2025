@@ -29,6 +29,7 @@ export const AnimatedTooltip = ({
   }[];
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isGrabbed, setIsGrabbed] = useState<boolean>(false);
   const springConfig = { stiffness: 100, damping: 5 };
   const x = useMotionValue(0); // going to set this value on mouse move
   // rotate the tooltip
@@ -49,15 +50,20 @@ export const AnimatedTooltip = ({
   return (
     <>
       {items.map((item) => (
-        <div
+        <motion.div
+          drag
+          dragSnapToOrigin
           className={twJoin(
-            "-mr-4 relative group",
-            item.url && "cursor-pointer"
+            "-mr-4 relative group select-none cursor-grab",
+            item.url && "cursor-pointer",
+            isGrabbed ? "cursor-grabbing" : "cursor-grab"
           )}
           key={item.name}
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
           onClick={() => item.url && window.open(item.url, "_blank")}
+          onDragStart={() => setIsGrabbed(true)}
+          onDragEnd={() => setIsGrabbed(false)}
         >
           <AnimatePresence mode="popLayout">
             {hoveredIndex === item.id && (
@@ -95,17 +101,18 @@ export const AnimatedTooltip = ({
               </motion.div>
             )}
           </AnimatePresence>
-          <Image 
+          <Image
+            draggable={false}
             onMouseMove={handleMouseMove}
             src={item.image}
             alt={item.imageAlt}
             style={{ height: `${item.height}px`, width: `${item.width}px` }}
             className={cn(
-              `object-cover !m-0 !p-0 object-top group-hover:scale-105 group-hover:z-30 relative transition duration-500`,
+              `object-cover select-none !m-0 !p-0 object-top group-hover:scale-105 group-hover:z-30 relative transition duration-500`,
               item.className
             )}
           />
-        </div>
+        </motion.div>
       ))}
     </>
   );
