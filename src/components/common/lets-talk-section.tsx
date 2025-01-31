@@ -6,6 +6,7 @@ import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { twMerge } from "tailwind-merge";
+import { motion } from "framer-motion";
 
 export default function LetsTalkSection() {
   const { resolvedTheme } = useTheme();
@@ -17,7 +18,16 @@ export default function LetsTalkSection() {
         style.sectionContainerPaddingX
       )}
     >
-      <div className="flex flex-col gap-16 items-center w-full ">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.8,
+          type: "spring",
+          bounce: 0.5,
+        }}
+        className="flex flex-col gap-16 items-center w-full "
+      >
         <div className="flex flex-col">
           <h2 className="XL:text-h1 LG:text-h2 SM:text-h3 text-h4 font-bold text-scorpion-400 dark:text-woodsmoke-50 text-center">
             {translate(useTranslations(), "about.letsTalk.title.1")}
@@ -63,7 +73,7 @@ export default function LetsTalkSection() {
             </span>
           </Button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
