@@ -1,3 +1,5 @@
+"use client";
+
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { SKILLS_AND_TOOLS, style } from "@/config";
 import { translate } from "@/lib";
@@ -18,7 +20,11 @@ export default function SkillsAndToolsSection() {
       </h3>
       <div className="flex gap-6 mx-auto">
         {SKILLS_AND_TOOLS.map((skill, index) => (
-          <div key={index} className="flex items-center justify-center">
+          <div
+            key={index}
+            className="flex items-center justify-center cursor-pointer"
+            onClick={() => window.open(skill.url, "_blank")}
+          >
             <AnimatedTooltip
               items={[
                 {
@@ -28,16 +34,11 @@ export default function SkillsAndToolsSection() {
                   image: skill.image as unknown as string,
                   className:
                     "XL:h-28 XL:w-28 MD:h-20 MD:w-20 SM:h-16 SM:w-16 h-14 w-14 object-contain",
-                  leftClass: "left-[-15]",
+                  leftClass: "left-[-15px]",
                   imageAlt: skill.alt,
                 },
               ]}
             />
-            {/* <Image
-              className="XL:h-28 XL:w-28 MD:h-20 MD:w-20 SM:h-16 SM:w-16 h-14 w-14 object-contain"
-              src={skill.image}
-              alt={skill.alt}
-            /> */}
           </div>
         ))}
       </div>

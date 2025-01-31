@@ -20,8 +20,10 @@ export default function CertificationSection() {
         {CERTIFICATION_EXPERIENCE.map((cert, index) => (
           <div
             key={index}
-            className={`flex XL:flex-row LG:flex-row MD:flex-col SM:flex-row XS:flex-col flex-col SM:items-start items-center gap-6 p-6 rounded-lg dark:bg-woodsmoke-900 shadow-content-card ${
-              index === 0 ? "bg-[#EFCFFC]" : "bg-[#FDEEBA]"
+            className={`flex XL:flex-row LG:flex-row MD:flex-col SM:flex-row XS:flex-col flex-col SM:items-start items-center gap-6 p-6 rounded-lg dark:bg-woodsmoke-900 shadow-content-card hover:border-amethyst-500 dark:border-woodsmoke-900 cursor-pointer hover:dark:border-amethyst-50 ${
+              index === 0
+                ? "bg-[#EFCFFC] border border-[#EFCFFC]"
+                : "bg-[#FDEEBA] border border-[#FDEEBA]"
             }`}
           >
             <Image

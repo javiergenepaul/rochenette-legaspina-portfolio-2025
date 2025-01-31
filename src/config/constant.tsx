@@ -24,6 +24,7 @@ import {
   SkillsAndToolsInterface,
   SocialLinksInterface,
 } from "./types";
+import Link from "next/link";
 
 const locale =
   typeof window !== "undefined" ? navigator.language.split("-")[0] : "en";
@@ -109,6 +110,20 @@ const getTranslations = () => {
 
 const translations = getTranslations();
 
+export const LINK_URL = {
+  linkedIn: "https://www.linkedin.com/in/rochenette-legaspina-677a64263/",
+  dribble: "https://dribbble.com/",
+  whatsapp: "https://wa.me/639773007233",
+  UC: "https://www.universityofcebu.net/",
+  alliance: "https://www.alliance.com.ph/",
+  mach95: "https://mach95.com/",
+  exodia: "https://exodiagamedev.com/",
+  figma: "https://www.figma.com/",
+  blender: "https://www.blender.org/",
+  word: "https://www.microsoft.com/en-us/microsoft-365/word",
+  excel: "https://www.microsoft.com/en-us/microsoft-365/excel",
+};
+
 export const WORK_EXPERIENCE: AboutMeContentInterface[] = [
   // Alliance
   {
@@ -124,12 +139,12 @@ export const WORK_EXPERIENCE: AboutMeContentInterface[] = [
     image: AllianceLogo,
     imageAlt: translations.work.alliance.imageAlt,
     backgroundColor: "bg-[#ffdada]",
+    url: LINK_URL.alliance,
   },
   // Mach95
   {
     title: translations.work.mach95.title,
     subTitle: translations.work.mach95.companyName,
-    // description: translations.work.mach95.description,
     description: [
       "Designed UI/UX for e-commerce platforms, web apps, and logistics systems.",
       "Created user-centric, visually appealing designs to enhance functionality and user experience.",
@@ -139,12 +154,12 @@ export const WORK_EXPERIENCE: AboutMeContentInterface[] = [
     image: Mach95Logo,
     imageAlt: translations.work.mach95.imageAlt,
     backgroundColor: "bg-[#D0CFFF]",
+    url: LINK_URL.mach95,
   },
   // Exodia
   {
     title: translations.work.exodia.title,
     subTitle: translations.work.exodia.companyName,
-    // description: translations.work.exodia.description,
     description: [
       "Created 3D models of various objects for use in a VR platform",
       "Learned and applied retopology techniques to optimize models for performance",
@@ -154,14 +169,15 @@ export const WORK_EXPERIENCE: AboutMeContentInterface[] = [
     image: ExodiaLogo,
     imageAlt: translations.work.exodia.imageAlt,
     backgroundColor: "bg-[#FBCBB2]",
+    url: LINK_URL.exodia,
   },
 ];
 
 export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
   {
     image: FigmaLogo,
-    title: "figma", 
-    url: "https://www.figma.com/",
+    title: "figma",
+    url: LINK_URL.figma,
     alt: "Figma Logo",
     name: "UI/UX Design",
     designation: "Figma",
@@ -169,7 +185,7 @@ export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
   {
     image: BlenderLogo,
     title: "Belnder",
-    url: "https://www.blender.org/",
+    url: LINK_URL.blender,
     alt: "Blender Logo",
     name: "3D Modeling",
     designation: "Blender",
@@ -177,7 +193,7 @@ export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
   {
     image: WordLogo,
     title: "Microsoft Word",
-    url: "https://www.microsoft.com/en-us/microsoft-365/word",
+    url: LINK_URL.word,
     alt: "MS Word Logo",
     name: "Document Editing",
     designation: "MS Word",
@@ -185,7 +201,7 @@ export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
   {
     image: ExcelLogo,
     title: "Excel",
-    url: "https://www.microsoft.com/en-us/microsoft-365/excel",
+    url: LINK_URL.excel,
     alt: "Excel Logo",
     name: "Data Management",
     designation: "MS Excel",

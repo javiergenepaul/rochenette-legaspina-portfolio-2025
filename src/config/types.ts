@@ -28,6 +28,7 @@ export interface AboutMeContentInterface {
   image: StaticImageData;
   imageAlt: string;
   backgroundColor?: string;
+  url?: string;
 }
 
 export interface ProjectInterface {
