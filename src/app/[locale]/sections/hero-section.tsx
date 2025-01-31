@@ -49,7 +49,7 @@ export default function HeroSection() {
             hiddenClass={"XL:flex LG:hidden hidden"}
             orbitProperties={{
               1: {
-                iconSize: 40,
+                iconSize: 50,
                 radius: 65,
                 speed: 2,
               },
@@ -59,13 +59,13 @@ export default function HeroSection() {
                 speed: 1.2,
               },
               3: {
-                iconSize: 50,
+                iconSize: 60,
                 radius: 270,
                 speed: 1.4,
               },
               4: {
-                iconSize: 60,
-                radius: 350,
+                iconSize: 70,
+                radius: 359,
                 speed: 1.6,
               },
             }}

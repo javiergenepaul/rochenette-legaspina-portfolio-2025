@@ -1,10 +1,14 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { style } from "@/config";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
 import { twMerge } from "tailwind-merge";
 
 export default function LetsTalkSection() {
+  const { resolvedTheme } = useTheme();
   return (
     <section
       id="lets-talk-section"
@@ -26,6 +30,12 @@ export default function LetsTalkSection() {
           <Button
             className="XL:px-20 LG:px-14 MD:px-20 w-full XL:py-5 SM:py-3.5 bg-amethyst-500 text-normal text-scorpion-50"
             variant={"default"}
+            onClick={() => {
+              window.open(
+                "https://calendar.app.google/t3SJ1W9s6HMtSPiK9",
+                "_blank"
+              );
+            }}
           >
             <span className="XL:text-large xs:text-normal text-button">
               {translate(useTranslations(), "about.letsTalk.button.letsTalk")}
@@ -34,6 +44,16 @@ export default function LetsTalkSection() {
           <Button
             className="XL:px-14 px-5 MD:px-14 XL:py-5 xs:py-3.5 w-full text-normal text-scorpion-700 border-scorpion-700 dark:border-amethyst-500 bg-transparent"
             variant={"outline"}
+            onClick={() => {
+              const resumeFile =
+                resolvedTheme === "dark"
+                  ? "rochenette-legaspina-2024-resume-dark.pdf"
+                  : "rochenette-legaspina-2024-resume-light.pdf";
+              window.open(
+                `${window.location.origin}/2025/resume/${resumeFile}`,
+                "_blank"
+              );
+            }}
           >
             <span className="XL:text-large xs:text-normal text-button dark:text-woodsmoke-50">
               {translate(

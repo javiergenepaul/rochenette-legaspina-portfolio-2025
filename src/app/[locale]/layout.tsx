@@ -5,7 +5,6 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { ThemeProviders } from "./theme-providers";
 import { Metadata } from "next";
-import BackgroundPattern from "@/components/common/background-pattern";
 
 export const metadata: Metadata = {
   title: "Rochenette Legaspina - Home",

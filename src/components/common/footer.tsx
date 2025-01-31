@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import { NAV_LINKS, SOCIAL_LINKS, style } from "@/config";
