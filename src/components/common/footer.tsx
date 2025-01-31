@@ -11,19 +11,37 @@ import { LinkPreview } from "../ui/link-preview";
 import { useTheme } from "next-themes";
 import { Separator } from "../ui/separator";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Footer() {
   const pathname = usePathname();
   const { resolvedTheme } = useTheme();
+  const [grabbingIcon, setGrabbingIcon] = useState<boolean>(false);
 
   return (
-    <footer
+    <motion.footer
+      initial={{ opacity: 0, scale: 0.5 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        type: "spring",
+        bounce: 0.5,
+      }}
       className={twMerge(
         "mt-20 flex flex-col gap-8 pb-7",
         style.sectionContainerPaddingX
       )}
     >
-      <div className="h-12 w-12 rounded-full bg-amethyst-500" />
+      <motion.div
+        drag
+        className={twMerge(
+          "h-12 w-12 rounded-full bg-amethyst-500",
+          grabbingIcon ? "cursor-grabbing" : "cursor-grab"
+        )}
+        onDragStart={() => setGrabbingIcon(true)}
+        onDragEnd={() => setGrabbingIcon(false)}
+      />
       <div className="flex flex-col gap-10">
         <div
           id="social-links"
@@ -100,6 +118,6 @@ export default function Footer() {
           </span>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
