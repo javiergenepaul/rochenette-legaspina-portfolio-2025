@@ -25,7 +25,7 @@ export default function SkillsAndToolsSection() {
                   id: 5,
                   name: skill.name,
                   designation: skill.designation,
-                  image: skill.image as any,
+                  image: skill.image as unknown as string,
                   className:
                     "XL:h-28 XL:w-28 MD:h-20 MD:w-20 SM:h-16 SM:w-16 h-14 w-14 object-contain",
                   leftClass: "left-[-15]",
