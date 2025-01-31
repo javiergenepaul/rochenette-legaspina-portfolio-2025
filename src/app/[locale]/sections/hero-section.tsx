@@ -65,7 +65,7 @@ export default function HeroSection() {
               },
               4: {
                 iconSize: 70,
-                radius: 350,
+                radius: 355,
                 speed: 1.6,
               },
             }}

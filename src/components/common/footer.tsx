@@ -46,7 +46,7 @@ export default function Footer() {
                         image: link.image,
                         imageAlt: link.alt,
                         className:
-                          "h-10 w-10 rounded-full bg-amethyst-400 flex items-center justify-center",
+                          "h-11 w-auto flex items-center justify-center object-contain",
                         leftClass: "left-[-30]",
                         url: link.url,
                       },
@@ -54,17 +54,6 @@ export default function Footer() {
                   />
                 </a>
               </li>
-
-              // <li key={index}>
-              //   <a
-              //     className="h-10 w-10 rounded-full bg-amethyst-400 flex items-center justify-center"
-              //     href={link.url}
-              //     target="_blank"
-              //     rel="noreferrer"
-              //   >
-              //     <Image src={link.image} alt={link.alt} />
-              //   </a>
-              // </li>
             ))}
           </ul>
         </div>
