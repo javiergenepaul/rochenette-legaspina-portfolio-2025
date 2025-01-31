@@ -72,19 +72,35 @@
         "alliance": {
           "title": "System Analyst and a UI/UX Desginer",
           "companyName": "Alliance",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": {
+            "1": "Documented Functional Specifications (FSD) and ensured complete requirements capture.",
+            "2": "Delivered effective solutions to enhance user experience and functionality.",
+            "3": "Analyzed client needs and new feature requirements.",
+            "4": "Provided detailed functionality to the development team.",
+            "5": "Ensured timely resolution of support requests."
+          },
           "imageAlt": "Alliance Logo"
         },
         "mach95": {
           "title": "UI/UX Designer",
           "companyName": "Mach95",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": {
+            "1": "Designed UI/UX for e-commerce platforms, web apps, and logistics systems.",
+            "2": "Created user-centric, visually appealing designs to enhance functionality and user experience.",
+            "3": "Developed logos and branding materials to align with company identities.",
+            "4": "Collaborated closely with clients to understand and meet design requirements."
+          },
           "imageAlt": "Mach 95 Logo"
         },
         "exodia": {
           "title": "3D Modeller & Substance Painter",
           "companyName": "Exodia",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": {
+            "1": "Created 3D models of various objects for use in a VR platform",
+            "2": "Learned and applied retopology techniques to optimize models for performance",
+            "3": "Utilized Substance Painter for 3D texturing to enhance visual quality team.",
+            "4": "Ensured timely resolution of support requests."
+          },
           "imageAlt": "Exodia Game Development Outsourcing Logo"
         }
       }
@@ -95,7 +111,11 @@
         "computerEngineering": {
           "title": "Bachelor of Science in Computer Engineering",
           "school": "University of Cebu",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": {
+            "1": "Graduated with a Bachelor of Science in Computer Engineering.",
+            "2": "Approved thesis project focused on VR for condos and townhouses.",
+            "3": "Contributed to a game development startup, creating VR experiences for Casa Gorordo Museum."
+          },
           "imageAlt": "University of Cebu Logo"
         }
       }
@@ -106,13 +126,25 @@
         "dataAnalytics": {
           "title": "Data Analytics Course",
           "organization": "Speaker: CIT-U",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": {
+            "1": "Completed a UI/UX Design course focused on fundamentals and principles.",
+            "2": "Applied course concepts to create mobile and web designs.",
+            "3": "Gained hands-on experience in user-centered design processes.",
+            "4": "Developed skills in wireframing, prototyping, and user flow creation.",
+            "5": "Enhanced understanding of visual design, usability, and interaction principles."
+          },
           "imageAlt": "CIT Logo"
         },
         "systemAnalyst": {
           "title": "System Analyst and a UI/UX Desginer",
           "organization": "Udemy",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "description": {
+            "1": "Attended an 8-hour seminar at Alliance Software focused on Data Analytics.",
+            "2": "Contributed to team discussions and translated insights into dashboard analytics.",
+            "3": "Gained practical skills in data visualization and analysis.",
+            "4": "Collaborated on creating impactful, data-driven dashboards for business solutions.",
+            "5": "Enhanced understanding of analytics tools and their application in real-world scenarios."
+          },
           "imageAlt": "Udemy Logo"
         }
       }
