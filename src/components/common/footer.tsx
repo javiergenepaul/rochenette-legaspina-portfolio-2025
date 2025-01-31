@@ -30,7 +30,7 @@ export default function Footer() {
           className="flex SM:flex-row flex-col SM:justify-between gap-6 justify-start SM:items-center items-start"
         >
           <h3 className="XL:text-h2 LG:text-h3 SM:text-h4 text-h5 MD:font-semibold SM:w-[347px] MD:w-full font-semibold text-scorpion-500 dark:text-woodsmoke-50">
-            {translate(useTranslations(), "footer.slogan")}
+            {translate(useTranslations(), "footer.slogan")} + test
           </h3>
           <ul className="flex gap-8">
             {SOCIAL_LINKS.map((link, index) => (
