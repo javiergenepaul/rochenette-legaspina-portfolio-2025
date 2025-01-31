@@ -8,8 +8,13 @@ const nextConfig: NextConfig = {
   /* config options here */
   basePath: "/2025",
   images: {
-    domains: [
-      "api.microlink.io", // Microlink Image Preview
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api.microlink.io",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
