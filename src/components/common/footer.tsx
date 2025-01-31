@@ -47,7 +47,7 @@ export default function Footer() {
                         imageAlt: link.alt,
                         className:
                           "h-11 w-auto flex items-center justify-center object-contain",
-                        leftClass: "left-[-160px]",
+                        leftClass: "left-[-30px]",
                         url: link.url,
                       },
                     ]}
