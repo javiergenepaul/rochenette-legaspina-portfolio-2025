@@ -11,6 +11,7 @@ import { LinkPreview } from "../ui/link-preview";
 import { useTheme } from "next-themes";
 import { Separator } from "../ui/separator";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
+import Image from "next/image";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -32,38 +33,24 @@ export default function Footer() {
           <h3 className="XL:text-h2 LG:text-h3 SM:text-h4 text-h5 MD:font-semibold SM:w-[347px] MD:w-full font-semibold text-scorpion-500 dark:text-woodsmoke-50">
             {translate(useTranslations(), "footer.slogan")}
           </h3>
-          <ul className="flex gap-8">
+          <ul className="flex gap-8 items-center justify-center">
             {SOCIAL_LINKS.map((link, index) => (
-              <li key={index}>
-                <a href={link.url} target="_blank" rel="noreferrer">
-                  <AnimatedTooltip
-                    key={index}
-                    items={[
-                      {
-                        id: 1,
-                        name: link.name,
-                        designation: "",
-                        image: link.image,
-                        imageAlt: link.alt,
-                        className:
-                          "h-10 w-10 rounded-full bg-amethyst-400 flex items-center justify-center",
-                        leftClass: "left-[-30]",
-                      },
-                    ]}
-                  />
-                </a>
-              </li>
-
-              // <li key={index}>
-              //   <a
-              //     className="h-10 w-10 rounded-full bg-amethyst-400 flex items-center justify-center"
-              //     href={link.url}
-              //     target="_blank"
-              //     rel="noreferrer"
-              //   >
-              //     <Image src={link.image} alt={link.alt} />
-              //   </a>
-              // </li>
+              <AnimatedTooltip
+                key={index}
+                items={[
+                  {
+                    id: 1,
+                    name: link.name,
+                    designation: "",
+                    image: link.image,
+                    imageAlt: link.alt,
+                    className:
+                      "h-10 w-10 rounded-full flex justify-center object-contain",
+                    leftClass: "left-[-30]",
+                    url: link.url,
+                  },
+                ]}
+              />
             ))}
           </ul>
         </div>
