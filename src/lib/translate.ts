@@ -11,7 +11,7 @@ import { useTranslations } from "next-intl";
 export const translate = (
   t: ReturnType<typeof useTranslations>,
   key: TxKeyPath,
-  options?: Record<string, any>
+  options?: Record<string, string | number>
 ) => {
   return key ? t(key, options) : "";
 };

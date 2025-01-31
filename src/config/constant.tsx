@@ -160,7 +160,7 @@ export const WORK_EXPERIENCE: AboutMeContentInterface[] = [
 export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
   {
     image: FigmaLogo,
-    title: "figma",
+    title: "figma", 
     url: "https://www.figma.com/",
     alt: "Figma Logo",
     name: "UI/UX Design",

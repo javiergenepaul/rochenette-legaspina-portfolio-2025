@@ -39,12 +39,15 @@ interface OrbitComponentInterface {
 }
 
 const BannerTitle = () => {
+  const t = useTranslations();
+
   const words = [];
-  for (let i = 1; i <= 6; i++) {
-    words.push(
-      translate(useTranslations(), `home.hero.banner.title.${i}` as TxKeyPath)
-    );
-  }
+  words.push(translate(t, `home.hero.banner.title.1` as TxKeyPath));
+  words.push(translate(t, `home.hero.banner.title.2` as TxKeyPath));
+  words.push(translate(t, `home.hero.banner.title.3` as TxKeyPath));
+  words.push(translate(t, `home.hero.banner.title.4` as TxKeyPath));
+  words.push(translate(t, `home.hero.banner.title.5` as TxKeyPath));
+  words.push(translate(t, `home.hero.banner.title.6` as TxKeyPath));
 
   return (
     <span className="pointer-events-none select-none whitespace-pre-wrap bg-clip-text text-center XL:text-[89.25px] LG:text-[66.76px] XS:text-[48.03px] text-[39.26px] font-semibold text-woodsmoke-400 dark:text-woodsmoke-300 z-30">
@@ -91,7 +94,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 height: orbitProperties[1].iconSize,
                 width: orbitProperties[1].iconSize,
                 leftClass: "left-[-38]",
-                imageAlt: "Edit Icon Logo"
+                imageAlt: "Edit Icon Logo",
               },
             ]}
           />
@@ -127,7 +130,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 height: orbitProperties[3].iconSize,
                 width: orbitProperties[3].iconSize,
                 leftClass: "left-[-40]",
-                imageAlt: "Crop Icon"
+                imageAlt: "Crop Icon",
               },
             ]}
           />
@@ -149,7 +152,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 height: orbitProperties[3].iconSize,
                 width: orbitProperties[3].iconSize,
                 leftClass: "left-[-50]",
-                imageAlt: "Copy Link Icon"
+                imageAlt: "Copy Link Icon",
               },
             ]}
           />
@@ -171,7 +174,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 height: orbitProperties[3].iconSize,
                 width: orbitProperties[3].iconSize,
                 leftClass: "left-[-40]",
-                imageAlt: "Component Icon"
+                imageAlt: "Component Icon",
               },
             ]}
           />
@@ -200,7 +203,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 height: orbitProperties[4].iconSize,
                 width: orbitProperties[4].iconSize,
                 leftClass: "left-[-30]",
-                imageAlt: "Move Icon"
+                imageAlt: "Move Icon",
               },
             ]}
           />
@@ -222,7 +225,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 height: orbitProperties[4].iconSize,
                 width: orbitProperties[4].iconSize,
                 leftClass: "left-[-40]",
-                imageAlt: "Text Icon"
+                imageAlt: "Text Icon",
               },
             ]}
           />
@@ -244,7 +247,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 height: orbitProperties[4].iconSize,
                 width: orbitProperties[4].iconSize,
                 leftClass: "left-[-40]",
-                imageAlt: "Ruler icon"
+                imageAlt: "Ruler icon",
               },
             ]}
           />

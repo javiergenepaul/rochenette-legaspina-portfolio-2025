@@ -43,7 +43,7 @@ export default function Footer() {
                         id: 1,
                         name: link.name,
                         designation: "",
-                        image: link.image as any,
+                        image: link.image,
                         imageAlt: link.alt,
                         className:
                           "h-10 w-10 rounded-full bg-amethyst-400 flex items-center justify-center",

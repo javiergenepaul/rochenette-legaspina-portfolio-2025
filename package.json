@@ -6,7 +6,8 @@
     "start": "concurrently \"pnpm run dev\" \"node start.js\"",
     "dev": "next dev --turbopack",
     "build": "next build",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@fontsource/inter": "^5.1.1",
