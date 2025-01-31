@@ -48,6 +48,7 @@ export default function Footer() {
                         className:
                           "h-10 w-10 rounded-full bg-amethyst-400 flex items-center justify-center",
                         leftClass: "left-[-30]",
+                        url: link.url,
                       },
                     ]}
                   />
