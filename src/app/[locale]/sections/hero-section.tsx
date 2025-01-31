@@ -12,7 +12,7 @@ export default function HeroSection() {
     <section
       id="hero-section"
       className={twMerge(
-        "h-[100dvh] flex flex-col SM:pt-52 pt-12 pb-20 gap-20 items-center",
+        "h-full min-h-dvh flex flex-col SM:pt-52 pt-12 pb-20 gap-20 items-center",
         style.sectionContainerPaddingX
       )}
     >
