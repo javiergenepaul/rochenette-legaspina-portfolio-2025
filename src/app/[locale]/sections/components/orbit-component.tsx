@@ -9,6 +9,8 @@ import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
 import React from "react";
 
+import motion from "framer-motion";
+
 interface OrbitComponentInterface {
   id: string;
   height: string;

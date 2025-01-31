@@ -31,6 +31,7 @@ export default function Navigation() {
         <div className="flex gap-2 items-center">
           <motion.div
             drag
+            dragSnapToOrigin
             aria-label="dot image"
             className={twMerge("h-[2.75rem] w-[2.75rem] bg-amethyst-500 rounded-full justify-center flex items-center text-scorpion-200 text-large font-bold cursor-grab", grabbingIcon ? "cursor-grabbing" : "cursor-grab")}
             onDragStart={() => setGrabbingIcon(true)}

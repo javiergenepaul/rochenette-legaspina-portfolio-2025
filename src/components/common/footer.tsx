@@ -35,6 +35,7 @@ export default function Footer() {
     >
       <motion.div
         drag
+        dragSnapToOrigin
         className={twMerge(
           "h-12 w-12 rounded-full bg-amethyst-500",
           grabbingIcon ? "cursor-grabbing" : "cursor-grab"
@@ -53,7 +54,7 @@ export default function Footer() {
           <ul className="flex gap-8">
             {SOCIAL_LINKS.map((link, index) => (
               <li key={index}>
-                <a href={link.url} target="_blank" rel="noreferrer">
+                <a draggable={false} href={link.url} target="_blank" rel="noreferrer">
                   <AnimatedTooltip
                     key={index}
                     items={[
