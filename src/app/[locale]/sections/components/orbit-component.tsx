@@ -93,7 +93,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 image: Icon.EditIcon,
                 height: orbitProperties[1].iconSize,
                 width: orbitProperties[1].iconSize,
-                leftClass: "left-[-38]",
+                leftClass: "left-[-35px]",
                 imageAlt: "Edit Icon Logo",
               },
             ]}
@@ -129,7 +129,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 image: Icon.CropIcon,
                 height: orbitProperties[3].iconSize,
                 width: orbitProperties[3].iconSize,
-                leftClass: "left-[-40]",
+                leftClass: "left-[-30px]",
                 imageAlt: "Crop Icon",
               },
             ]}
@@ -151,7 +151,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 image: Icon.CopyLinkIcon,
                 height: orbitProperties[3].iconSize,
                 width: orbitProperties[3].iconSize,
-                leftClass: "left-[-50]",
+                leftClass: "left-[-30px]",
                 imageAlt: "Copy Link Icon",
               },
             ]}
@@ -173,7 +173,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 image: Icon.ComponentIcon,
                 height: orbitProperties[3].iconSize,
                 width: orbitProperties[3].iconSize,
-                leftClass: "left-[-40]",
+                leftClass: "left-[-30px]",
                 imageAlt: "Component Icon",
               },
             ]}
@@ -202,7 +202,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 image: Icon.MoveIcon,
                 height: orbitProperties[4].iconSize,
                 width: orbitProperties[4].iconSize,
-                leftClass: "left-[-30]",
+                leftClass: "left-[-20px]",
                 imageAlt: "Move Icon",
               },
             ]}
@@ -224,7 +224,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 image: Icon.TextIcon,
                 height: orbitProperties[4].iconSize,
                 width: orbitProperties[4].iconSize,
-                leftClass: "left-[-40]",
+                leftClass: "left-[-20px]",
                 imageAlt: "Text Icon",
               },
             ]}
@@ -246,7 +246,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
                 image: Icon.RulerIcon,
                 height: orbitProperties[4].iconSize,
                 width: orbitProperties[4].iconSize,
-                leftClass: "left-[-40]",
+                leftClass: "left-[-20px]",
                 imageAlt: "Ruler icon",
               },
             ]}

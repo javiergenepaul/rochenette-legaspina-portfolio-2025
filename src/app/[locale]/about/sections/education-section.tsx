@@ -1,4 +1,6 @@
-import { EDUCATION_EXPERIENCE, style } from "@/config";
+"use client";
+
+import { EDUCATION_EXPERIENCE, LINK_URL, style } from "@/config";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -17,7 +19,10 @@ export default function EducationSection() {
         {translate(useTranslations(), "about.education.title")}
       </h3>
       <div className="grid MD:grid-cols-2 grid-cols-1 gap-6">
-        <div className="bg-[#D2E3F9] flex XL:flex-row LG:flex-row MD:flex-col SM:flex-row XS:flex-col flex-col SM:items-start items-center gap-6 p-6 rounded-lg dark:bg-woodsmoke-900 shadow-content-card">
+        <div
+          onClick={() => window.open(LINK_URL.UC, "_blank")}
+          className="bg-[#D2E3F9] border dark:border-woodsmoke-900 hover:dark:border-amethyst-50 border-[#D2E3F9] hover:border-amethyst-500 flex XL:flex-row LG:flex-row MD:flex-col SM:flex-row XS:flex-col flex-col SM:items-start items-center gap-6 p-6 rounded-lg dark:bg-woodsmoke-900 shadow-content-card cursor-pointer"
+        >
           <Image
             className="object-contain XL:h-36 XL:w-36 LG:h-28 LG:w-28 MD:h-24 MD:w-24 SM:h-20 SM:w-20 w-16 h-16 shadow-[0_0_14.98px_rgba(0,0,0,0.14)] rounded-2xl bg-scorpion-50 leading-[1.1875rem]"
             src={EDUCATION_EXPERIENCE[0].image}

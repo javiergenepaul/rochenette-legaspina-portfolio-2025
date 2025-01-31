@@ -1,3 +1,5 @@
+"use client"
+
 import { style, WORK_EXPERIENCE } from "@/config";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
@@ -20,13 +22,14 @@ export default function WorkSection() {
         {WORK_EXPERIENCE.map((experience, index) => (
           <div
             key={index}
-            className={`flex XL:flex-row LG:flex-row MD:flex-col SM:flex-row XS:flex-col flex-col SM:items-start items-center gap-6 p-6 rounded-lg dark:bg-woodsmoke-900 shadow-content-card ${
+            className={`flex XL:flex-row LG:flex-row MD:flex-col SM:flex-row XS:flex-col flex-col SM:items-start items-center gap-6 p-6 rounded-lg hover:border hover:dark:border-amethyst-50 dark:bg-woodsmoke-900 border dark:border-woodsmoke-900 shadow-content-card cursor-pointer ${
               index === 0
-                ? "bg-[#ffdada]"
+                ? "bg-[#ffdada] border border-[#ffdada] hover:border-amethyst-500"
                 : index === 1
-                ? "bg-[#D0CFFF]"
-                : "bg-[#FBCBB2]"
+                ? "bg-[#D0CFFF] border border-[#D0CFFF] hover:border-amethyst-500"
+                : "bg-[#FBCBB2] border border-[#FBCBB2] hover:border-amethyst-500"
             }`}
+            onClick={() => window.open(experience.url, "_blank")}
           >
             <Image
               className="object-contain XL:h-36 XL:w-36 LG:h-28 LG:w-28 MD:h-24 MD:w-24 SM:h-20 SM:w-20 w-16 h-16 shadow-[0_0_14.98px_rgba(0,0,0,0.14)] rounded-2xl bg-scorpion-50 leading-[1.1875rem]"
