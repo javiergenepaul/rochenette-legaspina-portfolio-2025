@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { style } from "@/config";
 import { twMerge } from "tailwind-merge";
 import ProjectContainer from "./components/project-container";
