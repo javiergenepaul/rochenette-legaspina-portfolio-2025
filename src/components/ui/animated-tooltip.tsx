@@ -12,24 +12,23 @@ import {
 import { cn } from "@/lib";
 import { twJoin, twMerge } from "tailwind-merge";
 
-export const AnimatedTooltip = ({
-  items,
-}: {
-  items: {
-    id: number;
-    name: string;
-    designation: string;
-    image: string | StaticImageData;
-    imageAlt: string;
-    className?: string;
-    height?: number;
-    width?: number;
-    leftClass?: string;
-    url?: string;
-  }[];
-}) => {
+interface TooltipItem {
+  id: number;
+  name: string;
+  designation: string;
+  image: string | StaticImageData;
+  imageAlt: string;
+  className?: string;
+  height?: number;
+  width?: number;
+  leftClass?: string;
+  url?: string;
+}
+
+export const AnimatedTooltip = ({ items }: { items: TooltipItem[] }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isGrabbed, setIsGrabbed] = useState<boolean>(false);
+  const [isDragged, setIsDragged] = useState<boolean>(false);
   const springConfig = { stiffness: 100, damping: 5 };
   const x = useMotionValue(0); // going to set this value on mouse move
   // rotate the tooltip
@@ -47,6 +46,12 @@ export const AnimatedTooltip = ({
     x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
   };
 
+  const onClickEvent = (item: TooltipItem) => {
+    if (!isDragged && item.url) {
+      window.open(item.url, "_blank");
+    }
+  };
+
   return (
     <>
       {items.map((item) => (
@@ -61,9 +66,15 @@ export const AnimatedTooltip = ({
           key={item.name}
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
-          onClick={() => item.url && window.open(item.url, "_blank")}
-          onDragStart={() => setIsGrabbed(true)}
-          onDragEnd={() => setIsGrabbed(false)}
+          onClick={() => onClickEvent(item)}
+          onDragStart={() => {
+            setIsGrabbed(true);
+            setIsDragged(true);
+          }}
+          onDragEnd={() => {
+            setIsGrabbed(false);
+            setTimeout(() => setIsDragged(false), 300);
+          }}
         >
           <AnimatePresence mode="popLayout">
             {hoveredIndex === item.id && (

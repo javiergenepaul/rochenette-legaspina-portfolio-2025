@@ -54,24 +54,22 @@ export default function Footer() {
           <ul className="flex gap-8">
             {SOCIAL_LINKS.map((link, index) => (
               <li key={index}>
-                <a draggable={false} href={link.url} target="_blank" rel="noreferrer">
-                  <AnimatedTooltip
-                    key={index}
-                    items={[
-                      {
-                        id: 1,
-                        name: link.name,
-                        designation: "",
-                        image: link.image,
-                        imageAlt: link.alt,
-                        className:
-                          "h-11 w-auto flex items-center justify-center object-contain",
-                        leftClass: "left-[-30px]",
-                        url: link.url,
-                      },
-                    ]}
-                  />
-                </a>
+                <AnimatedTooltip
+                  key={index}
+                  items={[
+                    {
+                      id: 1,
+                      name: link.name,
+                      designation: "",
+                      image: link.image,
+                      imageAlt: link.alt,
+                      className:
+                        "h-11 w-auto flex items-center justify-center object-contain",
+                      leftClass: "left-[-30px]",
+                      url: link.url,
+                    },
+                  ]}
+                />
               </li>
             ))}
           </ul>

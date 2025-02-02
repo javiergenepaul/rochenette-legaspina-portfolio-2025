@@ -23,7 +23,6 @@ export default function SkillsAndToolsSection() {
           <div
             key={index}
             className="flex items-center justify-center cursor-pointer"
-            onClick={() => window.open(skill.url, "_blank")}
           >
             <AnimatedTooltip
               items={[
@@ -36,6 +35,7 @@ export default function SkillsAndToolsSection() {
                     "XL:h-28 XL:w-28 MD:h-20 MD:w-20 SM:h-16 SM:w-16 h-14 w-14 object-contain",
                   leftClass: "left-[-15px]",
                   imageAlt: skill.alt,
+                  url: skill.url,
                 },
               ]}
             />
