@@ -37,12 +37,12 @@ export default function ProjectContainer({
             }}
           />
           {/* Text Component */}
-          <div className="basis-1/2 space-y-12 bg-amethyst-100 p-8 rounded-2xl h-fit">
+          <div className="basis-1/2 space-y-12 bg-amethyst-100 dark:bg-woodsmoke-900 p-8 rounded-2xl h-fit">
             <div className="space-y-4">
-              <h2 className="text-h3 font-semibold text-woodsmoke-600">
+              <h2 className="text-h3 font-semibold text-woodsmoke-600 dark:text-woodsmoke-50">
                 {title}
               </h2>
-              <p className="text-large font-normal text-woodsmoke-500">
+              <p className="text-large font-normal text-woodsmoke-500 dark:text-woodsmoke-300">
                 {description}
               </p>
             </div>
@@ -61,12 +61,12 @@ export default function ProjectContainer({
           className="flex gap-6"
         >
           {/* Text Component */}
-          <div className="basis-1/2 space-y-12 bg-amethyst-100 p-8 rounded-2xl h-fit mt-auto">
+          <div className="basis-1/2 space-y-12 bg-amethyst-100 dark:bg-woodsmoke-900 p-8 rounded-2xl h-fit mt-auto">
             <div className="space-y-4">
-              <h2 className="text-h3 font-semibold text-woodsmoke-600">
+              <h2 className="text-h3 font-semibold text-woodsmoke-600 dark:text-woodsmoke-50">
                 {title}
               </h2>
-              <p className="text-large font-normal text-woodsmoke-500">
+              <p className="text-large font-normal text-woodsmoke-500 dark:text-woodsmoke-300">
                 {description}
               </p>
             </div>
