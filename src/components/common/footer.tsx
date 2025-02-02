@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-
 import { NAV_LINKS, SOCIAL_LINKS, style } from "@/config";
 import { twMerge } from "tailwind-merge";
 import { usePathname } from "next/navigation";
