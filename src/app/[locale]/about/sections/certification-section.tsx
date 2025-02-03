@@ -1,8 +1,11 @@
+"use client";
+
 import { CERTIFICATION_EXPERIENCE, style } from "@/config";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
 import { twMerge } from "tailwind-merge";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function CertificationSection() {
   return (
@@ -13,12 +16,28 @@ export default function CertificationSection() {
         style.sectionContainerPaddingX
       )}
     >
-      <h3 className="XL:text-h2 LG:text-h3 SM:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center">
+      <motion.h3
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.8,
+          type: "spring",
+          bounce: 0.5,
+        }}
+        className="XL:text-h2 LG:text-h3 SM:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center"
+      >
         {translate(useTranslations(), "about.certificate.title")}
-      </h3>
+      </motion.h3>
       <div className="grid MD:grid-cols-2 grid-cols-1 gap-6">
         {CERTIFICATION_EXPERIENCE.map((cert, index) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.5,
+              type: "spring",
+              bounce: 0.2,
+            }}
             key={index}
             className={`flex XL:flex-row LG:flex-row MD:flex-col SM:flex-row XS:flex-col flex-col SM:items-start items-center gap-6 p-6 rounded-lg dark:bg-woodsmoke-900 shadow-content-card hover:border-amethyst-500 dark:border-woodsmoke-900 cursor-pointer hover:dark:border-amethyst-50 ${
               index === 0
@@ -49,7 +68,7 @@ export default function CertificationSection() {
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

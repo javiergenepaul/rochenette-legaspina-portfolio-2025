@@ -3,6 +3,7 @@
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { SKILLS_AND_TOOLS, style } from "@/config";
 import { translate } from "@/lib";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { twMerge } from "tailwind-merge";
 
@@ -15,15 +16,30 @@ export default function SkillsAndToolsSection() {
         style.sectionContainerPaddingX
       )}
     >
-      <h3 className="XL:text-h2 LG:text-h3 MD:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center">
+      <motion.h3
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.8,
+          type: "spring",
+          bounce: 0.5,
+        }}
+        className="XL:text-h2 LG:text-h3 MD:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center"
+      >
         {translate(useTranslations(), "about.skillAndTools.title")}
-      </h3>
+      </motion.h3>
       <div className="flex gap-6 mx-auto">
         {SKILLS_AND_TOOLS.map((skill, index) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              type: "spring",
+              bounce: 0.5,
+            }}
             key={index}
             className="flex items-center justify-center cursor-pointer"
-            onClick={() => window.open(skill.url, "_blank")}
           >
             <AnimatedTooltip
               items={[
@@ -36,10 +52,11 @@ export default function SkillsAndToolsSection() {
                     "XL:h-28 XL:w-28 MD:h-20 MD:w-20 SM:h-16 SM:w-16 h-14 w-14 object-contain",
                   leftClass: "left-[-15px]",
                   imageAlt: skill.alt,
+                  url: skill.url,
                 },
               ]}
             />
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

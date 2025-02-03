@@ -2,6 +2,7 @@
 
 import { EDUCATION_EXPERIENCE, LINK_URL, style } from "@/config";
 import { translate } from "@/lib";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
@@ -15,11 +16,18 @@ export default function EducationSection() {
         style.sectionContainerPaddingX
       )}
     >
-      <h3 className="XL:text-h2 LG:text-h3 SM:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center">
+      <motion.h3 className="XL:text-h2 LG:text-h3 SM:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center">
         {translate(useTranslations(), "about.education.title")}
-      </h3>
+      </motion.h3>
       <div className="grid MD:grid-cols-2 grid-cols-1 gap-6">
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.5,
+            type: "spring",
+            bounce: 0.2,
+          }}
           onClick={() => window.open(LINK_URL.UC, "_blank")}
           className="bg-[#D2E3F9] border dark:border-woodsmoke-900 hover:dark:border-amethyst-50 border-[#D2E3F9] hover:border-amethyst-500 flex XL:flex-row LG:flex-row MD:flex-col SM:flex-row XS:flex-col flex-col SM:items-start items-center gap-6 p-6 rounded-lg dark:bg-woodsmoke-900 shadow-content-card cursor-pointer"
         >
@@ -46,7 +54,7 @@ export default function EducationSection() {
               ))}
             </ul>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
