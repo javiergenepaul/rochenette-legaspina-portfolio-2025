@@ -14,7 +14,7 @@ export default function ContactLayout({
   return (
     <main
       className={twMerge(
-        "flex h-fit w-full SM:pt-48 gap-6 pt-12 pb-20 items-center",
+        "h-fit w-full SM:pt-48 pt-12 pb-20",
         style.sectionContainerPaddingX
       )}
     >
