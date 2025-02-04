@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -14,44 +14,110 @@ import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
-const FormSchema = z.object({
-  email: z
-    .string()
-    .email({ message: "Invalid email address." })
-    .min(10, {
-      message: "Email must be at least 10 characters.",
-    })
-    .max(50, {
-      message: "Email must not be longer than 50 characters.",
-    })
-    .nonempty({ message: "Email is required." }),
-  firstName: z
-    .string({ message: "First name is required." })
-    .min(2, {
-      message: "First name must be at least 2 characters.",
-    })
-    .max(50, {
-      message: "First name must not be longer than 50 characters.",
-    }),
-  lastName: z
-    .string({ message: "Last name is required." })
-    .min(2, {
-      message: "Last name must be at least 2 characters.",
-    })
-    .max(50, {
-      message: "Last name must not be longer than 50 characters.",
-    })
-    .nonempty({ message: "Last name is required." }),
-  message: z
-    .string()
-    .max(200, {
-      message: "Message must not be longer than 200 characters.",
-    })
-    .nonempty({ message: "Message is required." }),
-});
+import { useToast } from "@/hooks/use-toast";
+import { translate } from "@/lib";
+import { useTranslations } from "next-intl";
 
 export default function ContactForm() {
+  const { toast } = useToast();
+
+  const FormSchema = z.object({
+    email: z
+      .string({
+        message: translate(
+          useTranslations(),
+          "contact.form.input.email.error.required"
+        ),
+      })
+      .email({
+        message: translate(
+          useTranslations(),
+          "contact.form.input.email.error.email"
+        ),
+      })
+      .min(10, {
+        message: translate(
+          useTranslations(),
+          "contact.form.input.email.error.min"
+        ),
+      })
+      .max(50, {
+        message: translate(
+          useTranslations(),
+          "contact.form.input.email.error.max"
+        ),
+      })
+      .nonempty({
+        message: translate(
+          useTranslations(),
+          "contact.form.input.email.error.required"
+        ),
+      }),
+    firstName: z
+      .string({
+        message: translate(
+          useTranslations(),
+          "contact.form.input.firstName.error.required"
+        ),
+      })
+      .min(2, {
+        message: translate(
+          useTranslations(),
+          "contact.form.input.firstName.error.min"
+        ),
+      })
+      .max(50, {
+        message: translate(
+          useTranslations(),
+          "contact.form.input.firstName.error.max"
+        ),
+      }),
+    lastName: z
+      .string({
+        message: translate(
+          useTranslations(),
+          "contact.form.input.lastName.error.required"
+        ),
+      })
+      .min(2, {
+        message: translate(
+          useTranslations(),
+          "contact.form.input.lastName.error.min"
+        ),
+      })
+      .max(50, {
+        message: translate(
+          useTranslations(),
+          "contact.form.input.lastName.error.max"
+        ),
+      })
+      .nonempty({
+        message: translate(
+          useTranslations(),
+          "contact.form.input.lastName.error.required"
+        ),
+      }),
+    message: z
+      .string({
+        message: translate(
+          useTranslations(),
+          "contact.form.input.message.error.required"
+        ),
+      })
+      .max(250, {
+        message: translate(
+          useTranslations(),
+          "contact.form.input.message.error.max"
+        ),
+      })
+      .nonempty({
+        message: translate(
+          useTranslations(),
+          "contact.form.input.message.error.required"
+        ),
+      }),
+  });
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -63,7 +129,13 @@ export default function ContactForm() {
   });
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    console.log(data);
+    toast({
+      title: translate(useTranslations(), "contact.form.toast.success.title"),
+      description: translate(
+        useTranslations(),
+        "contact.form.toast.success.message"
+      ),
+    });
   };
 
   return (
@@ -78,6 +150,7 @@ export default function ContactForm() {
                 <FormItem className="w-full">
                   <FormControl>
                     <Input
+                      maxLength={50}
                       className={
                         fieldState.invalid
                           ? "border-destructive text-destructive placeholder:text-destructive focus-visible:ring-destructive"
@@ -85,7 +158,10 @@ export default function ContactForm() {
                       }
                       type="text"
                       {...field}
-                      placeholder="First Name"
+                      placeholder={translate(
+                        useTranslations(),
+                        "contact.form.input.firstName.placeholder"
+                      )}
                     />
                   </FormControl>
                   <FormMessage />
@@ -99,6 +175,7 @@ export default function ContactForm() {
                 <FormItem className="w-full">
                   <FormControl>
                     <Input
+                      maxLength={50}
                       className={
                         fieldState.invalid
                           ? "border-destructive text-destructive placeholder:text-destructive focus-visible:ring-destructive"
@@ -106,7 +183,10 @@ export default function ContactForm() {
                       }
                       type="text"
                       {...field}
-                      placeholder="Last Name"
+                      placeholder={translate(
+                        useTranslations(),
+                        "contact.form.input.lastName.placeholder"
+                      )}
                     />
                   </FormControl>
                   <FormMessage />
@@ -121,6 +201,7 @@ export default function ContactForm() {
               <FormItem className="w-full">
                 <FormControl>
                   <Input
+                    maxLength={50}
                     className={
                       fieldState.invalid
                         ? "border-destructive text-destructive placeholder:text-destructive focus-visible:ring-destructive"
@@ -128,7 +209,10 @@ export default function ContactForm() {
                     }
                     type="email"
                     {...field}
-                    placeholder="Email"
+                    placeholder={translate(
+                      useTranslations(),
+                      "contact.form.input.email.placeholder"
+                    )}
                   />
                 </FormControl>
                 <FormMessage />
@@ -142,13 +226,20 @@ export default function ContactForm() {
               <FormItem className="w-full">
                 <FormControl>
                   <Textarea
+                    maxLength={255}
                     className={
                       fieldState.invalid
-                        ? "border-destructive text-destructive placeholder:text-destructive focus-visible:ring-destructive"
-                        : "caret-primary"
+                        ? "border-destructive h-24 text-destructive placeholder:text-destructive focus-visible:ring-destructive"
+                        : "caret-primary h-24"
                     }
                     {...field}
-                    placeholder="Type your message here"
+                    placeholder={translate(
+                      useTranslations(),
+                      "contact.form.input.message.placeholder"
+                    )}
+                    autoCapitalize="none"
+                    autoComplete="off"
+                    autoCorrect="off"
                   />
                 </FormControl>
                 <FormMessage />
@@ -156,7 +247,9 @@ export default function ContactForm() {
             )}
           />
         </div>
-        <Button className="w-full" type="submit">Send message</Button>
+        <Button className="w-full" type="submit">
+          {translate(useTranslations(), "contact.form.button")}
+        </Button>
       </form>
     </Form>
   );

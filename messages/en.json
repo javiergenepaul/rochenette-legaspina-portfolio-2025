@@ -184,6 +184,58 @@
       }
     }
   },
+  "contact": {
+    "banner": {
+      "title": "Your thoughts matter to me!",
+      "subtitle": "Whether you’re looking for information or have a project in mind, drop me a message below, and I’ll get back to you as soon as I can."
+    },
+    "form": {
+      "title": "Get In Touch",
+      "subtitle": "Reach me anytime",
+      "input": {
+        "firstName": {
+          "placeholder": "First Name",
+          "error": {
+            "required": "First name is required.",
+            "min": "First name must be at least 2 characters.",
+            "max": "First name must not be longer than 50 characters."
+          }
+        },
+        "lastName": {
+          "placeholder": "Last Name",
+          "error": {
+            "required": "Last name is required.",
+            "min": "Last name must be at least 2 characters.",
+            "max": "Last name must not be longer than 50 characters."
+          }
+        },
+        "message": {
+          "placeholder": "First Name",
+          "error": {
+            "required": "Message is required.",
+            "max": "Message must be at most 250 characters"
+          }
+        },
+        "email": {
+          "placeholder": "Type your message here",
+          "error": {
+            "required": "Email is required.",
+            "email": "Invalid email address.",
+            "min": "Email must be at least 10 characters.",
+            "max": "Email must not be longer than 50 characters."
+          }
+        }
+      },
+      "toast": {
+        "success": {
+          "title": "Email Sent!",
+          "message": "Your message has been delivered."
+        },
+        "error": "An error occurred. Please try again."
+      },
+      "button": "Send Message"
+    }
+  },
   "footer": {
     "slogan": "Transforming Ideas into Impactful Designs",
     "copyright": "© 2025 Rochenette Legaspina | Developed by",
