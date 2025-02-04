@@ -1,10 +1,22 @@
+"use client";
+
 import { translate } from "@/lib";
 import ContactForm from "./components/contact-form";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 
 export default function Page() {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        type: "spring",
+        bounce: 0.5,
+      }}
+      className="flex gap-6 items-center"
+    >
       <section
         id="contact-banner"
         className="bg-amethyst-200 flex flex-col basis-1/2 p-4 justify-end gap-4 rounded-lg h-[724px]"
@@ -27,6 +39,6 @@ export default function Page() {
         </div>
         <ContactForm />
       </section>
-    </>
+    </motion.div>
   );
 }
