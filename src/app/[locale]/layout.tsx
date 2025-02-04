@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { ThemeProviders } from "./theme-providers";
 import { Metadata } from "next";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Rochenette Legaspina - Home",
@@ -30,6 +31,7 @@ export default async function LocaleLayout({
               <Navigation />
               {children}
               <Footer />
+              <Toaster />
             </div>
           </ThemeProviders>
         </NextIntlClientProvider>
