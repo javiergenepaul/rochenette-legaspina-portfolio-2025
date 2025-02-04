@@ -1,3 +1,4 @@
+import { LetstalkSection } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,8 +12,9 @@ export default function AboutLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex flex-col SM:pt-52 pt-12 pb-20 gap-20">
+    <main className="flex flex-col SM:pt-32 pt-12 pb-20 gap-20">
       {children}
+      <LetstalkSection />
     </main>
   );
 }
