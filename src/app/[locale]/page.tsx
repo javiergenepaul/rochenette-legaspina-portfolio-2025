@@ -1,3 +1,4 @@
+import { LetstalkSection } from "@/components";
 import { HeroSection, ProjectSection } from "./sections";
 
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <div className="flex flex-col gap-20 pb-20">
       <HeroSection />
       <ProjectSection />
+      <LetstalkSection />
     </div>
   );
 }
