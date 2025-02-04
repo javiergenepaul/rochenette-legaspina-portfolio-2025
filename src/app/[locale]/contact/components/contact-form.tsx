@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useTransition } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -20,101 +20,57 @@ import { useTranslations } from "next-intl";
 
 export default function ContactForm() {
   const { toast } = useToast();
+  const t = useTranslations();
 
   const FormSchema = z.object({
     email: z
       .string({
-        message: translate(
-          useTranslations(),
-          "contact.form.input.email.error.required"
-        ),
+        message: translate(t, "contact.form.input.email.error.required"),
       })
       .email({
-        message: translate(
-          useTranslations(),
-          "contact.form.input.email.error.email"
-        ),
+        message: translate(t, "contact.form.input.email.error.email"),
       })
       .min(10, {
-        message: translate(
-          useTranslations(),
-          "contact.form.input.email.error.min"
-        ),
+        message: translate(t, "contact.form.input.email.error.min"),
       })
       .max(50, {
-        message: translate(
-          useTranslations(),
-          "contact.form.input.email.error.max"
-        ),
+        message: translate(t, "contact.form.input.email.error.max"),
       })
       .nonempty({
-        message: translate(
-          useTranslations(),
-          "contact.form.input.email.error.required"
-        ),
+        message: translate(t, "contact.form.input.email.error.required"),
       }),
     firstName: z
       .string({
-        message: translate(
-          useTranslations(),
-          "contact.form.input.firstName.error.required"
-        ),
+        message: translate(t, "contact.form.input.firstName.error.required"),
       })
       .min(2, {
-        message: translate(
-          useTranslations(),
-          "contact.form.input.firstName.error.min"
-        ),
+        message: translate(t, "contact.form.input.firstName.error.min"),
       })
       .max(50, {
-        message: translate(
-          useTranslations(),
-          "contact.form.input.firstName.error.max"
-        ),
+        message: translate(t, "contact.form.input.firstName.error.max"),
       }),
     lastName: z
       .string({
-        message: translate(
-          useTranslations(),
-          "contact.form.input.lastName.error.required"
-        ),
+        message: translate(t, "contact.form.input.lastName.error.required"),
       })
       .min(2, {
-        message: translate(
-          useTranslations(),
-          "contact.form.input.lastName.error.min"
-        ),
+        message: translate(t, "contact.form.input.lastName.error.min"),
       })
       .max(50, {
-        message: translate(
-          useTranslations(),
-          "contact.form.input.lastName.error.max"
-        ),
+        message: translate(t, "contact.form.input.lastName.error.max"),
       })
       .nonempty({
-        message: translate(
-          useTranslations(),
-          "contact.form.input.lastName.error.required"
-        ),
+        message: translate(t, "contact.form.input.lastName.error.required"),
       }),
     message: z
       .string({
-        message: translate(
-          useTranslations(),
-          "contact.form.input.message.error.required"
-        ),
+        message: translate(t, "contact.form.input.message.error.required"),
       })
       .max(250, {
-        message: translate(
-          useTranslations(),
-          "contact.form.input.message.error.max"
-        ),
+        message: translate(t, "contact.form.input.message.error.max"),
       })
       .nonempty({
-        message: translate(
-          useTranslations(),
-          "contact.form.input.message.error.required"
-        ),
+        message: translate(t, "contact.form.input.message.error.required"),
       }),
   });
 
@@ -129,13 +85,12 @@ export default function ContactForm() {
   });
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    toast({
-      title: translate(useTranslations(), "contact.form.toast.success.title"),
-      description: translate(
-        useTranslations(),
-        "contact.form.toast.success.message"
-      ),
-    });
+    if (data.email && data.message) {
+      toast({
+        title: translate(t, "contact.form.toast.success.title"),
+        description: translate(t, "contact.form.toast.success.message"),
+      });
+    }
   };
 
   return (
@@ -159,7 +114,7 @@ export default function ContactForm() {
                       type="text"
                       {...field}
                       placeholder={translate(
-                        useTranslations(),
+                        t,
                         "contact.form.input.firstName.placeholder"
                       )}
                     />
@@ -184,7 +139,7 @@ export default function ContactForm() {
                       type="text"
                       {...field}
                       placeholder={translate(
-                        useTranslations(),
+                        t,
                         "contact.form.input.lastName.placeholder"
                       )}
                     />
@@ -210,7 +165,7 @@ export default function ContactForm() {
                     type="email"
                     {...field}
                     placeholder={translate(
-                      useTranslations(),
+                      t,
                       "contact.form.input.email.placeholder"
                     )}
                   />
@@ -234,7 +189,7 @@ export default function ContactForm() {
                     }
                     {...field}
                     placeholder={translate(
-                      useTranslations(),
+                      t,
                       "contact.form.input.message.placeholder"
                     )}
                     autoCapitalize="none"
@@ -248,7 +203,7 @@ export default function ContactForm() {
           />
         </div>
         <Button className="w-full" type="submit">
-          {translate(useTranslations(), "contact.form.button")}
+          {translate(t, "contact.form.button")}
         </Button>
       </form>
     </Form>
