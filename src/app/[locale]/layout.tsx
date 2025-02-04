@@ -1,6 +1,6 @@
 import "../globals.css";
 
-import { Footer, LetstalkSection, Navigation } from "@/components";
+import { Footer, Navigation } from "@/components";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { ThemeProviders } from "./theme-providers";
