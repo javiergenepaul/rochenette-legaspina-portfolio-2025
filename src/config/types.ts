@@ -31,13 +31,15 @@ export interface AboutMeContentInterface {
   url?: string;
 }
 
+export interface InfoInterface {
+  title: string;
+  description: string;
+}
+
 export interface ProjectInterface {
   title: string;
   role: string;
   desciption: string;
-  contribution: string;
-  tools: string;
-  challange: string;
-  // image: [StaticImageData];
+  information: InfoInterface[];
   sectionId: string;
 }

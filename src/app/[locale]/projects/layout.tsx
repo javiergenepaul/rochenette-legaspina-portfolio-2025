@@ -1,4 +1,6 @@
+import { style } from "@/config";
 import { Metadata } from "next";
+import { twMerge } from "tailwind-merge";
 
 export const metadata: Metadata = {
   title: "Rochenette Legaspina - Projects",
@@ -11,8 +13,13 @@ export default function ProjectLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex flex-col LG:pt-28 XS:pt-16 pt-16 gap-20">
+    <main
+      className={twMerge(
+        "flex flex-col SM:pt-32 pt-12 pb-20 gap-20",
+        style.sectionContainerPaddingX
+      )}
+    >
       {children}
-    </div>
+    </main>
   );
 }
