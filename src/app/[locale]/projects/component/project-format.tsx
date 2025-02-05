@@ -111,7 +111,7 @@ export default function ProjectFormat({
           variant={"default"}
           className="bg-amethyst-500 px-20 py-4 dark:text-white"
         >
-          Let's Talk
+          Let’s Talk
         </Button>
       </div>
     </section>
