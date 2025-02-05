@@ -210,14 +210,14 @@
           }
         },
         "message": {
-          "placeholder": "First Name",
+          "placeholder": "Type your message here",
           "error": {
             "required": "Message is required.",
             "max": "Message must be at most 250 characters"
           }
         },
         "email": {
-          "placeholder": "Type your message here",
+          "placeholder": "Email Address",
           "error": {
             "required": "Email is required.",
             "email": "Invalid email address.",
