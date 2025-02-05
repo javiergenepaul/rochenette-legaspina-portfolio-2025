@@ -202,7 +202,7 @@ export default function ContactForm() {
             )}
           />
         </div>
-        <Button className="w-full" type="submit">
+        <Button className="w-full py-5 bg-amethyst-500 dark:text-white" type="submit">
           {translate(t, "contact.form.button")}
         </Button>
       </form>
