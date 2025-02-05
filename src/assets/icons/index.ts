@@ -11,6 +11,7 @@ import ComponentIcon from "./component-icon.svg";
 import RulerIcon from "./ruler-icon.svg";
 import MoveIcon from "./move-icon.svg";
 import TextIcon from "./text-icon.svg";
+import FrenchFriesIcon from "./french-fries-icon.svg";
 
 export {
   LightMode,
@@ -25,5 +26,6 @@ export {
   ComponentIcon,
   RulerIcon,
   MoveIcon,
-  TextIcon
+  TextIcon,
+  FrenchFriesIcon
 };
