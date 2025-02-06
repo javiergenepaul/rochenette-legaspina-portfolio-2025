@@ -152,6 +152,89 @@ const getTranslations = () => {
         ),
       },
     },
+    projects: {
+      information: {
+        title: {
+          contribution: translate(t, "project.information.title.contribution"),
+          tools: translate(t, "project.information.title.tools"),
+          challenge: translate(t, "project.information.title.challenge"),
+          solution: translate(t, "project.information.title.solution"),
+        },
+        countryScape: {
+          contribution: translate(
+            t,
+            "project.information.countryScape.contribution"
+          ),
+          tools: translate(t, "project.information.countryScape.tools"),
+          challenge: translate(t, "project.information.countryScape.challenge"),
+          solution: translate(t, "project.information.countryScape.solution"),
+        },
+        foodDeliveryApp: {
+          contribution: translate(
+            t,
+            "project.information.foodDeliveryApp.contribution"
+          ),
+          tools: translate(t, "project.information.foodDeliveryApp.tools"),
+          challenge: translate(
+            t,
+            "project.information.foodDeliveryApp.challenge"
+          ),
+          solution: translate(
+            t,
+            "project.information.foodDeliveryApp.solution"
+          ),
+        },
+        iqmk: {
+          contribution: translate(t, "project.information.iqmk.contribution"),
+          tools: translate(t, "project.information.iqmk.tools"),
+          challenge: translate(t, "project.information.iqmk.challenge"),
+        },
+        logistic: {
+          contribution: translate(
+            t,
+            "project.information.logistic.contribution"
+          ),
+          tools: translate(t, "project.information.logistic.tools"),
+          challenge: translate(t, "project.information.logistic.challenge"),
+        },
+        scClaims: {
+          contribution: translate(
+            t,
+            "project.information.scClaims.contribution"
+          ),
+          tools: translate(t, "project.information.scClaims.tools"),
+          challenge: translate(t, "project.information.scClaims.challenge"),
+        },
+      },
+      countryScape: {
+        title: translate(t, "project.projects.countryScape.title"),
+        role: translate(t, "project.projects.countryScape.role"),
+        description: translate(t, "project.projects.countryScape.description"),
+      },
+      foodDeliveryApp: {
+        title: translate(t, "project.projects.foodDeliveryApp.title"),
+        role: translate(t, "project.projects.foodDeliveryApp.role"),
+        description: translate(
+          t,
+          "project.projects.foodDeliveryApp.description"
+        ),
+      },
+      iqmk: {
+        title: translate(t, "project.projects.iqmk.title"),
+        role: translate(t, "project.projects.iqmk.role"),
+        description: translate(t, "project.projects.iqmk.description"),
+      },
+      logistic: {
+        title: translate(t, "project.projects.logistic.title"),
+        role: translate(t, "project.projects.logistic.role"),
+        description: translate(t, "project.projects.logistic.description"),
+      },
+      scClaims: {
+        title: translate(t, "project.projects.scClaims.title"),
+        role: translate(t, "project.projects.scClaims.role"),
+        description: translate(t, "project.projects.scClaims.description"),
+      },
+    },
   };
 };
 
@@ -343,136 +426,121 @@ export const NAV_LINKS: NavLinksInterface[] = [
 export const PROJECTS: ProjectInterface[] = [
   // Country Scapes
   {
-    title: "Country Scapes",
-    role: "UI/UX Designer",
-    desciption:
-      "The SC Claims App is a desktop-based solution that automates the validation and computation of senior citizen discounts on products sold to eligible customers. By streamlining this process, the app helps ensure accuracy and efficiency, reducing the time and effort previously required for manual computations.The new solution consolidates multiple files into a single, easy-to-manage system, improving both efficiency and accuracy, while ensuring timely reimbursements for senior citizen discounts.",
+    title: translations.projects.countryScape.title,
+    role: translations.projects.countryScape.role,
+    desciption: translations.projects.countryScape.description,
     information: [
       {
-        title: "Contributions",
+        title: translations.projects.information.title.contribution,
         description:
-          "As the UI/UX Designer, I was responsible for gathering the requirements and specifications to ensure the platform's user interface aligned with the target user needs. I worked closely with stakeholders to identify key user pain points and organized the design process for a smooth user journey. Additionally, I ensured that the interface was intuitive and aesthetically pleasing while facilitating easy navigation.",
+          translations.projects.information.countryScape.contribution,
       },
       {
-        title: "Tools",
-        description:
-          "For this project, I utilized Figma to design the user interface and create wireframes that captured the seamless experience for the users",
+        title: translations.projects.information.title.tools,
+        description: translations.projects.information.countryScape.tools,
       },
 
       {
-        title: "Challenge",
-        description:
-          "Many online booking websites can be difficult to navigate and often provide limited information on hotels, which can frustrate users. Additionally, the overwhelming amount of options and the cluttered design on some platforms can make the booking process feel cumbersome. Users often struggle to find detailed, relevant information when making decisions about their stays.",
+        title: translations.projects.information.title.challenge,
+        description: translations.projects.information.countryScape.challenge,
       },
       {
-        title: "Solution",
-        description:
-          "To tackle these challenges, I focused on creating a clean and user-friendly interface that highlighted key hotel details in an easily digestible format. By simplifying the booking process and ensuring clear, concise information about each property, users could make decisions with confidence. A robust filtering system was introduced to allow users to quickly find accommodations that best matched their preferences. I also incorporated visually striking imagery and engaging content to enhance the user’s experience. Ultimately, the new design empowered users to make informed decisions quickly and efficiently, improving overall satisfaction.",
+        title: translations.projects.information.title.solution,
+        description: translations.projects.information.countryScape.solution,
       },
     ],
     sectionId: "sc-claims",
   },
   // Transport service and Food Delivery App
   {
-    title: "Transport service and Food Delivery App",
-    role: "UI/UX Designer",
-    desciption:
-      "The SC Claims App is a desktop-based solution that automates the validation and computation of senior citizen discounts on products sold to eligible customers. By streamlining this process, the app helps ensure accuracy and efficiency, reducing the time and effort previously required for manual computations.The new solution consolidates multiple files into a single, easy-to-manage system, improving both efficiency and accuracy, while ensuring timely reimbursements for senior citizen discounts.",
+    title: translations.projects.foodDeliveryApp.title,
+    role: translations.projects.foodDeliveryApp.role,
+    desciption: translations.projects.foodDeliveryApp.description,
     information: [
       {
-        title: "Contribution",
+        title: translations.projects.information.title.contribution,
         description:
-          "As the UI/UX Designer, I was responsible for gathering project specifications and understanding user requirements to ensure the app was intuitive and user-friendly. I collaborated with stakeholders to refine the design, focusing on ease of use and efficient navigation for both food delivery and transportation services. Additionally, I created wireframes and prototypes to communicate the design vision and supported the development team in implementing the app’s features.",
+          translations.projects.information.foodDeliveryApp.contribution,
       },
       {
-        title: "Tools",
+        title: translations.projects.information.title.tools,
+        description: translations.projects.information.foodDeliveryApp.tools,
+      },
+
+      {
+        title: translations.projects.information.title.challenge,
         description:
-          "For this project, I used Figma to create wireframes, design prototypes, and refine the user interface for both food delivery and transportation services.",
+          translations.projects.information.foodDeliveryApp.challenge,
       },
       {
-        title: "Challange",
-        description:
-          "Many online booking websites can be difficult to navigate and often provide limited information on hotels, which can frustrate users. Additionally, the overwhelming amount of options and the cluttered design on some platforms can make the booking process feel cumbersome. Users often struggle to find detailed, relevant information when making decisions about their stays.",
-      },
-      {
-        title: "Solution",
-        description:
-          "To overcome these challenges, I focused on simplifying the app’s design and creating a user-friendly experience for both food delivery and transportation services. I introduced clear, easily navigable sections for each service, reducing clutter and improving access to information. Real-time tracking was integrated, providing users with live updates about their food delivery or transportation status. The interface was optimized for mobile devices, ensuring that users could quickly view and select their options without feeling overwhelmed. By consolidating food delivery and transportation services under a unified platform, the app offers a seamless experience that saves time and improves satisfaction.",
+        title: translations.projects.information.title.solution,
+        description: translations.projects.information.foodDeliveryApp.solution,
       },
     ],
     sectionId: "food-delivery-app",
   },
   // IQMK
   {
-    title: "IQMK",
-    role: "UI/UX Designer",
-    desciption:
-      "The website offers a curated collection of premium herbal medicines, exclusively available through the platform. With a focus on holistic health, each product is thoughtfully selected to enhance well-being and support a balanced lifestyle. Users can discover a wide range of natural remedies, supplements, and wellness tools, ensuring they have access to high-quality, plant-based resources for optimal health.",
+    title: translations.projects.iqmk.title,
+    role: translations.projects.iqmk.role,
+    desciption: translations.projects.iqmk.description,
     information: [
       {
-        title: "Contributions",
-        description:
-          "As the UI/UX Designer, I worked with stakeholders to gather user needs and simplify the design process. My goal was to create a clean, user-friendly interface with easy navigation for a smooth overall experience.",
+        title: translations.projects.information.title.contribution,
+        description: translations.projects.information.iqmk.contribution,
       },
       {
-        title: "Tools",
-        description:
-          "Utilized Figma for wireframing, prototyping, and designing the interface.",
+        title: translations.projects.information.title.tools,
+        description: translations.projects.information.iqmk.tools,
       },
+
       {
-        title: "Challange",
-        description:
-          "Ensured design clarity while preserving brand consistency and maintaining a cohesive color scheme across the platform.",
+        title: translations.projects.information.title.challenge,
+        description: translations.projects.information.iqmk.challenge,
       },
     ],
     sectionId: "iqmk-app",
   },
   // Logistic
   {
-    title: "Logistic",
-    role: "UI/UX Designer",
-    desciption:
-      "Logistics Solutions offer businesses and customers a streamlined way to manage the transportation of goods and resources. The platform is designed to optimize delivery efficiency, simplifying the complex tasks associated with coordinating shipments and managing inventory. With secure tracking systems, users can ensure that their deliveries are safe, on-time, and well-monitored. The platform eliminates time-consuming manual processes, making logistics management seamless and more efficient. Ultimately, it enhances operational efficiency and helps businesses save both time and resources.. Users can discover a wide range of natural remedies, supplements, and wellness tools, ensuring they have access to high-quality, plant-based resources for optimal health.",
+    title: translations.projects.logistic.title,
+    role: translations.projects.logistic.role,
+    desciption: translations.projects.logistic.description,
     information: [
       {
-        title: "Contribution",
-        description:
-          "As the UI/UX Designer, I gathered project requirements and analyzed user needs to create an intuitive, efficient design. I focused on ensuring the interface met the needs of logistics professionals, prioritizing simplicity and easy navigation. I also designed wireframes and prototypes in Figma, delivering a practical and visually engaging solution for complex logistics tasks.",
+        title: translations.projects.information.title.contribution,
+        description: translations.projects.information.logistic.contribution,
       },
       {
-        title: "Tools",
-        description:
-          "For this project, I used Figma to design wireframes, develop interactive prototypes, and optimize the user interface, ensuring an intuitive experience for logistics management.",
+        title: translations.projects.information.title.tools,
+        description: translations.projects.information.logistic.tools,
       },
+
       {
-        title: "Challange",
-        description:
-          "To address these challenges, I designed a clean, intuitive interface that makes real-time shipment tracking and monitoring easy for users. I integrated all logistics systems—inventory management, shipment coordination, and order processing—into a seamless platform that eliminates confusion and reduces the risk of delays. The interface was optimized to display large amounts of data in a clear, digestible format, making complex logistics operations more manageable. Advanced tracking and security features were incorporated, ensuring users could monitor the safety and status of their shipments at all times. By consolidating these features in one platform, I provided a more streamlined, efficient experience for users managing multiple shipments and schedules.To address these challenges, I designed a clean, intuitive interface that makes real-time shipment tracking and monitoring easy for users. I integrated all logistics systems—inventory management, shipment coordination, and order processing—into a seamless platform that eliminates confusion and reduces the risk of delays. The interface was optimized to display large amounts of data in a clear, digestible format, making complex logistics operations more manageable. Advanced tracking and security features were incorporated, ensuring users could monitor the safety and status of their shipments at all times. By consolidating these features in one platform, I provided a more streamlined, efficient experience for users managing multiple shipments and schedules.",
+        title: translations.projects.information.title.challenge,
+        description: translations.projects.information.logistic.challenge,
       },
     ],
     sectionId: "logistic",
   },
   // SC Claims
   {
-    title: "SC Claims",
-    role: "UI/UX Designer/ Systems Analyst",
-    desciption:
-      "The SC Claims App is a desktop-based solution that automates the validation and computation of senior citizen discounts on products sold to eligible customers. By streamlining this process, the app helps ensure accuracy and efficiency, reducing the time and effort previously required for manual computations.The new solution consolidates multiple files into a single, easy-to-manage system, improving both efficiency and accuracy, while ensuring timely reimbursements for senior citizen discounts.",
+    title: translations.projects.scClaims.title,
+    role: translations.projects.scClaims.role,
+    desciption: translations.projects.scClaims.description,
     information: [
       {
-        title: "Contribution",
-        description:
-          "As a System Analyst and UI/UX Designer, I played a key role in gathering requirements, organizing client meetings, and documenting the project through Functional Specification Documents (FSD). I worked closely with the development team to ensure clear communication and understanding of the project goals, while also contributing to QA testing to ensure a smooth and error-free implementation.",
+        title: translations.projects.information.title.contribution,
+        description: translations.projects.information.scClaims.contribution,
       },
       {
-        title: "Tools",
-        description:
-          "For the design and documentation of the project, I utilized tools such as mock-ups, Microsoft Excel, and Word for specifications, data organization, and documentation.",
+        title: translations.projects.information.title.tools,
+        description: translations.projects.information.scClaims.tools,
       },
+
       {
-        title: "Challange",
-        description:
-          "One of the biggest challenges was the previous manual process, which involved lengthy validation and often resulted in errors due to human oversight and the management of multiple files. By transitioning to an automated system, we aimed to eliminate these issues, significantly reducing the time needed for processing and improving accuracy across the board.",
+        title: translations.projects.information.title.challenge,
+        description: translations.projects.information.scClaims.challenge,
       },
     ],
     sectionId: "sc-claims",
