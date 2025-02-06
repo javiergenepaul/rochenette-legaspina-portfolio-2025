@@ -75,7 +75,7 @@ export default function ProjectFormat({
           <InfoCard
             key={index}
             className={
-              information.length === 3 && index === 2 ? "col-span-2" : ""
+              information.length === 3 && index === 2 ? "MD:col-span-2 col-span-1" : ""
             }
             {...info}
           />
