@@ -89,7 +89,7 @@ export default function Footer() {
                   "text-large transition-transform ease-in-out",
                   pathname === link.to
                     ? "text-amethyst-500 font-bold"
-                    : "text-woodsmoke-500 dark:text-woodsmoke-200 font-normal"
+                    : "text-woodsmoke-500 hover:text-woodsmoke-800 dark:hover:text-woodsmoke-200 dark:text-woodsmoke-300 font-normal"
                 )}
               >
                 {link.label}
