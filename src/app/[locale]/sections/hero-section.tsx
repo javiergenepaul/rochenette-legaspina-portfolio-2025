@@ -5,12 +5,15 @@ import "./hero.css";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
 import { twMerge } from "tailwind-merge";
-import { style } from "@/config";
+import { locale, style } from "@/config";
 import { Button } from "@/components/ui/button";
 import OrbitComponent from "./components/orbit-component";
 import { motion } from "framer-motion";
+import { PATH } from "@/config/path";
+import Link from "next/link";
 
 export default function HeroSection() {
+
   return (
     <section
       id="hero-section"
@@ -41,11 +44,13 @@ export default function HeroSection() {
           <p className="LG:text-h5 MD:text-large text-normal LG:font-medium font-normal mt-4 text-woodsmoke-500 dark:text-woodsmoke-300 SM:text-start text-center">
             {translate(useTranslations(), "home.hero.slogan.subtitle")}
           </p>
-          <Button className="mt-16 py-4 SM:px-20 px-28 bg-amethyst-500 ">
-            <span className=" text-amethyst-50 XL:text-large text-regular">
-              {translate(useTranslations(), "home.hero.slogan.button")}
-            </span>
-          </Button>
+          <Link href={PATH.CONTACT.getPath(locale)} passHref>
+            <Button className="mt-16 py-4 SM:px-20 px-28 bg-amethyst-500 hover:bg-amethyst-400 focus:bg-amethyst-800">
+              <span className="text-amethyst-50 XL:text-large text-regular">
+                {translate(useTranslations(), "home.hero.slogan.button")}
+              </span>
+            </Button>
+          </Link>
         </motion.div>
 
         {/* Orbbiting Circle */}

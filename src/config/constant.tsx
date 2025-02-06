@@ -11,7 +11,7 @@ import {
   SocialLinksInterface,
 } from "./types";
 
-const locale =
+export const locale =
   typeof window !== "undefined" ? navigator.language.split("-")[0] : "en";
 
 const getTranslations = () => {
