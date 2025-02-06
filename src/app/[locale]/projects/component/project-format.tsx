@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { InfoInterface, ProjectInterface } from "@/config";
+import { translate } from "@/lib";
+import { useTranslations } from "next-intl";
 import { twMerge } from "tailwind-merge";
 
 const InfoCard = ({
@@ -54,17 +56,16 @@ export default function ProjectFormat({
         aria-label="Placeholder image with background color"
         role="img"
       />
-
       <div className="space-y-6 mb-20">
         <header data-test="project-header" className="text-center space-y-2">
-          <h1 className="font-bold text-h2 text-woodsmoke-600 dark:text-woodsmoke-50">
+          <h2 className="font-bold XL:text-h2 LG:text-h3 MD:text-h4 text-h5 text-woodsmoke-600 dark:text-woodsmoke-50">
             {title}
-          </h1>
-          <p className="text-large text-woodsmoke-600 dark:text-woodsmoke-50">
-            Role: {role}
+          </h2>
+          <p className="XL:text-large text-normal LG:font-normal font-medium text-woodsmoke-600 dark:text-woodsmoke-50">
+            {translate(useTranslations(), "project.role", { role: role })}
           </p>
         </header>
-        <p className="text-large text-woodsmoke-500 text-justify dark:text-woodsmoke-300">
+        <p className="XL:text-large text-normal text-woodsmoke-500 text-justify dark:text-woodsmoke-300">
           {desciption}
         </p>
       </div>
@@ -101,17 +102,18 @@ export default function ProjectFormat({
 
       <div className="rounded-lg bg-amethyst-200 w-full flex justify-between items-center p-6">
         <div className="space-y-2 flex-1">
-          <h5 className="font-bold text-h5 text-woodsmoke-950">Get in Touch</h5>
+          <h5 className="font-bold text-h5 text-woodsmoke-950">
+            {translate(useTranslations(), "project.banner.title")}
+          </h5>
           <p className="text-normal text-woodsmoke-800">
-            Whether you’re looking for information or have a project in mind,
-            drop me a message below, and I’ll get back to you as soon as I can.
+            {translate(useTranslations(), "project.banner.description")}
           </p>
         </div>
         <Button
           variant={"default"}
           className="bg-amethyst-500 px-20 py-4 dark:text-white"
         >
-          Let’s Talk
+          {translate(useTranslations(), "project.button")}
         </Button>
       </div>
     </section>
