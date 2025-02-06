@@ -7,7 +7,7 @@ export default function page() {
   return (
     <div className="flex flex-col">
       <ProjectHeader />
-      <div className="flex flex-col gap-32">
+      <div className="flex flex-col gap-32 pb-10">
         {PROJECTS.map((project, index) => (
           <ProjectFormat key={index} {...project} />
         ))}
