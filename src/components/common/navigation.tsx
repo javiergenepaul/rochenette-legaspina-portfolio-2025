@@ -48,8 +48,8 @@ export default function Navigation() {
                 className={twMerge(
                   "XL:text-large LG:text-normal transition-transform ease-in-out",
                   pathname === link.to
-                    ? "text-scorpion-950 dark:text-amethyst-500 font-bold translate-y-[-0.125rem]"
-                    : "text-scorpion-500 dark:text-woodsmoke-200 font-normal"
+                    ? "text-amethyst-500 font-bold translate-y-[-0.125rem]"
+                    : "text-woodsmoke-500 hover:text-woodsmoke-800 dark:hover:text-woodsmoke-200 dark:text-woodsmoke-300 font-normal"
                 )}
               >
                 {link.label}
