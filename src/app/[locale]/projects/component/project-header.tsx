@@ -1,13 +1,15 @@
 "use client";
 
+import { style } from "@/config";
 import { translate } from "@/lib";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import React from "react";
+import { twMerge } from "tailwind-merge";
 
 export default function ProjectHeader() {
   return (
-    <motion.h1
+    <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{
@@ -15,9 +17,11 @@ export default function ProjectHeader() {
         type: "spring",
         bounce: 0.5,
       }}
-      className="text-center text-h1 text-woodsmoke-600 dark:text-woodsmoke-50 font-bold"
+      className={style.sectionContainerPaddingX}
     >
-      {translate(useTranslations(), "project.title")}
-    </motion.h1>
+      <h1 className="text-center text-h1 text-woodsmoke-600 dark:text-woodsmoke-50 font-bold">
+        {translate(useTranslations(), "project.title")}
+      </h1>
+    </motion.div>
   );
 }

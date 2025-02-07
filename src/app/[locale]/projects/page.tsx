@@ -1,17 +1,30 @@
 import React from "react";
 import { ProjectFormat } from "./component";
-import { PROJECTS } from "@/config";
+import { PROJECTS, style } from "@/config";
 import ProjectHeader from "./component/project-header";
+import { LetstalkSection } from "@/components";
+import { twMerge } from "tailwind-merge";
 
 export default function page() {
   return (
     <div className="flex flex-col">
       <ProjectHeader />
-      <div className="flex flex-col pb-10">
+      <div
+        className={twMerge(
+          "flex flex-col pb-10",
+          style.sectionContainerPaddingX
+        )}
+      >
         {PROJECTS.map((project, index) => (
-          <ProjectFormat key={index} {...project} />
+          <ProjectFormat
+            key={index}
+            {...project}
+            index={index}
+            maxLength={PROJECTS.length}
+          />
         ))}
       </div>
+      <LetstalkSection />
     </div>
   );
 }
