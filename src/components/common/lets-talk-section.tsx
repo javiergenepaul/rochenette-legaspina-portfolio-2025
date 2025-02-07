@@ -38,7 +38,7 @@ export default function LetsTalkSection() {
         </div>
         <div className="flex MD:gap-6 gap-5 MD:flex-row flex-col items-center SM:w-6/12 xs:w-8/12 w-full">
           <Button
-            className="XL:px-20 LG:px-14 MD:px-20 w-full XL:py-5 SM:py-3.5 bg-amethyst-500 text-normal text-scorpion-50"
+            className="XL:px-20 LG:px-14 MD:px-20 w-full XL:py-5 SM:py-3.5 bg-amethyst-500 text-normal text-scorpion-50 hover:bg-amethyst-400 focus:bg-amethyst-800"
             variant={"default"}
             onClick={() => {
               window.open(
@@ -52,7 +52,7 @@ export default function LetsTalkSection() {
             </span>
           </Button>
           <Button
-            className="XL:px-14 px-5 MD:px-14 XL:py-5 xs:py-3.5 w-full text-normal text-scorpion-700 border-scorpion-700 dark:border-amethyst-500 bg-transparent"
+            className="group XL:px-14 px-5 MD:px-14 XL:py-5 xs:py-3.5 w-full text-normal text-scorpion-700 border-scorpion-700 dark:border-amethyst-500 bg-transparent group-hover:bg-woodsmoke-100 active:bg-transparent active:border-amethyst-500 active:border-2"
             variant={"outline"}
             onClick={() => {
               const resumeFile =
@@ -65,7 +65,7 @@ export default function LetsTalkSection() {
               );
             }}
           >
-            <span className="XL:text-large xs:text-normal text-button dark:text-woodsmoke-50">
+            <span className="XL:text-large xs:text-normal text-button dark:text-woodsmoke-50 hover:text-woodsmoke-900 active:text-woodsmoke-900">
               {translate(
                 useTranslations(),
                 "about.letsTalk.button.downloadMyCV"

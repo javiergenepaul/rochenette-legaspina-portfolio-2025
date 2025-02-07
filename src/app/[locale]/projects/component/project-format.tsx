@@ -58,9 +58,11 @@ export default function ProjectFormat({
   role,
   desciption,
   information,
-}: ProjectInterface) {
+  index,
+  maxLength,
+}: ProjectInterface & { index: number; maxLength: number }) {
   return (
-    <div className="space-y-32 mt-32">
+    <div className="space-y-32 mt-20">
       <section id={sectionId} className="h-full space-y-20">
         <div className="space-y-6 mb-20">
           <header data-test="project-header" className="text-center space-y-2">
@@ -169,7 +171,7 @@ export default function ProjectFormat({
           />
         </div>
       </section>
-      <Separator />
+      {index < maxLength - 1 && <Separator />}
     </div>
   );
 }
