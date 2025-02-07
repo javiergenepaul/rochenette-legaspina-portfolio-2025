@@ -1,7 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { translate } from "@/lib";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 interface ProjectContainerInterface {
@@ -46,7 +48,14 @@ export default function ProjectContainer({
                 {description}
               </p>
             </div>
-            <Button variant={"outline"}>Know More</Button>
+            <Button
+              className="border-woodsmoke-400 bg-transparent hover:bg-woodsmoke-100 focus:bg-transparent focus:border-amethyst-500 focus:border-2"
+              variant={"outline"}
+            >
+              <span className="text-large font-medium text-woodsmoke-600 hover:text-woodsmoke-900 focus:text-woodsmoke-900">
+                {translate(useTranslations(), "home.project.knowMore")}
+              </span>
+            </Button>
           </div>
         </motion.div>
       ) : (
@@ -70,7 +79,14 @@ export default function ProjectContainer({
                 {description}
               </p>
             </div>
-            <Button variant={"outline"}>Know More</Button>
+            <Button
+              className="group border-woodsmoke-400 bg-transparent hover:bg-woodsmoke-100 focus:bg-transparent focus:border-amethyst-500 focus:border-2"
+              variant={"outline"}
+            >
+              <span className="text-large font-medium text-woodsmoke-600 group-hover:text-woodsmoke-900 group-focus:text-woodsmoke-900">
+                {translate(useTranslations(), "home.project.knowMore")}
+              </span>
+            </Button>
           </div>
           {/* Gradient Component */}
           <div className="basis-1/2 flex gap-6 SM:h-auto">
