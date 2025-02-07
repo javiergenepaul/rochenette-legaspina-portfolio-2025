@@ -17,6 +17,8 @@ export default function ProjectContainer({
   description,
   index,
 }: ProjectContainerInterface) {
+  const t = useTranslations();
+
   return (
     <>
       {index % 2 === 0 ? (
@@ -53,7 +55,7 @@ export default function ProjectContainer({
               variant={"outline"}
             >
               <span className="text-large font-medium text-woodsmoke-600 hover:text-woodsmoke-900 active:text-woodsmoke-900">
-                {translate(useTranslations(), "home.project.knowMore")}
+                {translate(t, "home.project.knowMore")}
               </span>
             </Button>
           </div>
@@ -84,7 +86,7 @@ export default function ProjectContainer({
               variant={"outline"}
             >
               <span className="text-large font-medium text-woodsmoke-600 group-hover:text-woodsmoke-900 active:text-woodsmoke-900">
-                {translate(useTranslations(), "home.project.knowMore")}
+                {translate(t, "home.project.knowMore")}
               </span>
             </Button>
           </div>
