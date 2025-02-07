@@ -5,7 +5,6 @@ import { translate } from "@/lib";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import React from "react";
-import { twMerge } from "tailwind-merge";
 
 export default function ProjectHeader() {
   return (
