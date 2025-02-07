@@ -49,10 +49,10 @@ export default function ProjectContainer({
               </p>
             </div>
             <Button
-              className="border-woodsmoke-400 bg-transparent hover:bg-woodsmoke-100 focus:bg-transparent focus:border-amethyst-500 focus:border-2"
+              className="group border-woodsmoke-400 bg-transparent group-hover:bg-woodsmoke-100 active:bg-transparent active:border-amethyst-500 active:border-2"
               variant={"outline"}
             >
-              <span className="text-large font-medium text-woodsmoke-600 hover:text-woodsmoke-900 focus:text-woodsmoke-900">
+              <span className="text-large font-medium text-woodsmoke-600 hover:text-woodsmoke-900 active:text-woodsmoke-900">
                 {translate(useTranslations(), "home.project.knowMore")}
               </span>
             </Button>
@@ -80,10 +80,10 @@ export default function ProjectContainer({
               </p>
             </div>
             <Button
-              className="group border-woodsmoke-400 bg-transparent hover:bg-woodsmoke-100 focus:bg-transparent focus:border-amethyst-500 focus:border-2"
+              className="group border-woodsmoke-400 bg-transparent group-hover:bg-woodsmoke-100 active:bg-transparent active:border-amethyst-500 active:border-2"
               variant={"outline"}
             >
-              <span className="text-large font-medium text-woodsmoke-600 group-hover:text-woodsmoke-900 group-focus:text-woodsmoke-900">
+              <span className="text-large font-medium text-woodsmoke-600 group-hover:text-woodsmoke-900 active:text-woodsmoke-900">
                 {translate(useTranslations(), "home.project.knowMore")}
               </span>
             </Button>

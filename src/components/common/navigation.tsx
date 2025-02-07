@@ -1,12 +1,12 @@
 "use client";
 
+import Link from "next/link";
+import Image from "next/image";
 import { NAV_LINKS, style } from "@/config";
 import { twMerge } from "tailwind-merge";
 import { usePathname } from "next/navigation";
 import { MenuIcon } from "@/assets";
 import { ThemeToggleSwitch } from "./theme-toggle-switch";
-import Link from "next/link";
-import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -33,7 +33,10 @@ export default function Navigation() {
             drag
             dragSnapToOrigin
             aria-label="dot image"
-            className={twMerge("h-[2.75rem] w-[2.75rem] bg-amethyst-500 rounded-full justify-center flex items-center text-scorpion-200 text-large font-bold cursor-grab", grabbingIcon ? "cursor-grabbing" : "cursor-grab")}
+            className={twMerge(
+              "h-[2.75rem] w-[2.75rem] bg-amethyst-500 rounded-full justify-center flex items-center text-scorpion-200 text-large font-bold cursor-grab",
+              grabbingIcon ? "cursor-grabbing" : "cursor-grab"
+            )}
             onDragStart={() => setGrabbingIcon(true)}
             onDragEnd={() => setGrabbingIcon(false)}
           >
