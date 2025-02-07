@@ -1,6 +1,9 @@
+"use client";
+
 import { Separator } from "@/components/ui/separator";
 import { InfoInterface, ProjectInterface } from "@/config";
 import { translate } from "@/lib";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { twMerge } from "tailwind-merge";
 
@@ -10,7 +13,14 @@ const InfoCard = ({
   className,
 }: InfoInterface & { className?: string }) => {
   return (
-    <article
+    <motion.article
+      initial={{ opacity: 0, scale: 0.5 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        type: "spring",
+        bounce: 0.2,
+      }}
       className={twMerge(
         "MD:p-8 XS:p-6 p-5 border border-woodsmoke-400 dark:border-woodsmoke-400 rounded-lg flex flex-col SM:items-start items-center gap-6",
         className
@@ -38,7 +48,7 @@ const InfoCard = ({
       <p className="XL:text-large text-normal text-woodsmoke-500 text-wrap text-justify dark:text-woodsmoke-300">
         {description}
       </p>
-    </article>
+    </motion.article>
   );
 };
 
@@ -54,19 +64,53 @@ export default function ProjectFormat({
       <section id={sectionId} className="h-full space-y-20">
         <div className="space-y-6 mb-20">
           <header data-test="project-header" className="text-center space-y-2">
-            <h2 className="font-bold XL:text-h2 LG:text-h3 MD:text-h4 text-h5 text-woodsmoke-600 dark:text-woodsmoke-50">
+            <motion.h2
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                type: "spring",
+                bounce: 0.5,
+              }}
+              className="font-bold XL:text-h2 LG:text-h3 MD:text-h4 text-h5 text-woodsmoke-600 dark:text-woodsmoke-50"
+            >
               {title}
-            </h2>
-            <p className="XL:text-large text-normal LG:font-normal font-medium text-woodsmoke-600 dark:text-woodsmoke-50">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                type: "spring",
+                bounce: 0.5,
+              }}
+              className="XL:text-large text-normal LG:font-normal font-medium text-woodsmoke-600 dark:text-woodsmoke-50"
+            >
               {translate(useTranslations(), "project.role", { role: role })}
-            </p>
+            </motion.p>
           </header>
-          <p className="XL:text-large text-normal text-woodsmoke-500 text-justify dark:text-woodsmoke-300">
+          <motion.p
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              type: "spring",
+              bounce: 0.5,
+            }}
+            className="XL:text-large text-normal text-woodsmoke-500 text-justify dark:text-woodsmoke-300"
+          >
             {desciption}
-          </p>
+          </motion.p>
         </div>
 
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.8,
+            type: "spring",
+            bounce: 0.5,
+          }}
           className="relative bg-amethyst-950 XL:h-[722px] XL:w-[722px] LG:h-[647px] LG:w-[556px] MD:h-[538px] MD:w-[542px] SM:h-[514px] SM:w-[450px] XS:h-[451px] XS:w-[420px] w-full h-[484px] justify-self-center rounded-lg"
           aria-label="Placeholder image with background color"
           role="img"
@@ -87,17 +131,38 @@ export default function ProjectFormat({
         </div>
 
         <div className="grid MD:grid-cols-3 grid-cols-1 gap-6">
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              type: "spring",
+              bounce: 0.2,
+            }}
             className="bg-amethyst-950 XL:h-[540px] LG:h-[533px] SM:h-[488px] XS:h-[541px] h-[598px] w-full rounded-lg"
             aria-label="Placeholder image with background color"
             role="img"
           />
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              type: "spring",
+              bounce: 0.2,
+            }}
             className="bg-amethyst-950 XL:h-[540px] LG:h-[533px] SM:h-[488px] XS:h-[541px] h-[598px] w-full rounded-lg"
             aria-label="Placeholder image with background color"
             role="img"
           />
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              type: "spring",
+              bounce: 0.2,
+            }}
             className="bg-amethyst-950 XL:h-[540px] LG:h-[533px] SM:h-[488px] XS:h-[541px] h-[598px] w-full rounded-lg"
             aria-label="Placeholder image with background color"
             role="img"
