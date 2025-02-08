@@ -1,15 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { NAV_LINKS, style } from "@/config";
 import { twMerge } from "tailwind-merge";
 import { usePathname } from "next/navigation";
-import { MenuIcon } from "@/assets";
 import { ThemeToggleSwitch } from "./theme-toggle-switch";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Button } from "../ui/button";
+import Sidebar from "./sidebar/sidebar";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -81,7 +81,7 @@ export default function Navigation() {
           R
         </div>
         <div className="p-2 overflow-hidden">
-          <Image src={MenuIcon} alt="menu icon" />
+          <Sidebar />
         </div>
       </nav>
     </>
