@@ -73,7 +73,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-        <Separator className="SM:hidden block" />
+        <Separator className="SM:hidden block bg-woodsmoke-200 dark:bg-woodsmoke-600" />
         <ul
           id="nav-link"
           className="flex justify-between SM:flex-row gap-2 flex-col SM:w-6/12 XL:w-4/12 MD:w-5/12 SM:mx-auto"

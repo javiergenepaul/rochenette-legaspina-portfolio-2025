@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import React from "react";
 
 export interface NavLinksInterface {
   label: string;
@@ -17,6 +18,8 @@ export interface SkillsAndToolsInterface {
 export interface SocialLinksInterface {
   name: string;
   image: StaticImageData;
+  sidebarIcon: React.ReactNode;
+  darkSidebarIcon: React.ReactNode;
   url: string;
   alt: string;
 }

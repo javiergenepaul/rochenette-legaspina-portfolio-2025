@@ -171,7 +171,9 @@ export default function ProjectFormat({
           />
         </div>
       </section>
-      {index < maxLength - 1 && <Separator />}
+      {index < maxLength - 1 && (
+        <Separator className="bg-woodsmoke-200 dark:bg-woodsmoke-600" />
+      )}
     </div>
   );
 }
