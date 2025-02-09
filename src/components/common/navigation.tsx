@@ -8,7 +8,6 @@ import { ThemeToggleSwitch } from "./theme-toggle-switch";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "../ui/button";
 import Sidebar from "./sidebar/sidebar";
 
 export default function Navigation() {
