@@ -1,6 +1,6 @@
+import ProjectContainer from "./components/project-container";
 import { style } from "@/config";
 import { twMerge } from "tailwind-merge";
-import ProjectContainer from "./components/project-container";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
 
