@@ -50,9 +50,9 @@ export default function Footer() {
           <h3 className="XL:text-h2 LG:text-h3 SM:text-h4 text-h5 MD:font-semibold SM:w-[347px] MD:w-full font-semibold text-scorpion-500 dark:text-woodsmoke-50">
             {translate(useTranslations(), "footer.slogan")}
           </h3>
-          <ul className="flex gap-8">
+          <ul className="flex items-center gap-6">
             {SOCIAL_LINKS.map((link, index) => (
-              <li key={index}>
+              <li className="w-11 h-11" key={index}>
                 <AnimatedTooltip
                   key={index}
                   items={[
@@ -78,7 +78,7 @@ export default function Footer() {
           id="nav-link"
           className="flex justify-between SM:flex-row gap-2 flex-col SM:w-6/12 XL:w-4/12 MD:w-5/12 SM:mx-auto"
         >
-          <strong className="text-large font-medium text-[#464646] dark:text-woodsmoke-50 pt-2 SM:hidden block">
+          <strong className="text-normal font-medium text-woodsmoke-600 dark:text-woodsmoke-50 pt-2 SM:hidden block">
             {translate(useTranslations(), "navigation.menu")}
           </strong>
           {NAV_LINKS.map((link, index) => (
@@ -98,17 +98,17 @@ export default function Footer() {
           ))}
         </ul>
         <div className="flex MD:flex-row flex-col items-center justify-center gap-2">
-          <p
+          <span
             id="copyright"
-            className="text-center text-woodsmoke-400 dark:text-woodsmoke-300 text-normal"
+            className="text-center text-woodsmoke-400 dark:text-woodsmoke-300 XL:text-normal text-caption"
           >
             {translate(useTranslations(), "footer.copyright")}
-          </p>
-          <span>
+          </span>
+          <span className="font-bold text-amethyst-500 dark:text-amethyst-500 XL:text-normal text-caption">
             <LinkPreview
               target="_blank"
               url="https://paul-javier-portfolio.netlify.app"
-              className="font-bold text-amethyst-500 dark:text-amethyst-500"
+              className="font-bold text-amethyst-500 dark:text-amethyst-500 XL:text-normal text-caption"
               theme={resolvedTheme}
             >
               {translate(useTranslations(), "footer.developer")}
