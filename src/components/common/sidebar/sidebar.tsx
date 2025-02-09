@@ -1,5 +1,5 @@
-import React from "react";
 import Link from "next/link";
+import React, { useState } from "react";
 import { Drawer } from "vaul";
 import { Button } from "@/components/ui/button";
 import { twMerge } from "tailwind-merge";
@@ -16,10 +16,13 @@ export default function Sidebar() {
   const pathname = usePathname();
   const t = useTranslations();
 
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
-    <Drawer.Root direction="right">
+    <Drawer.Root open={isOpen} direction="right">
       <Drawer.Trigger>
         <svg
+          onClick={() => setIsOpen(!isOpen)}
           className="stroke-woodsmoke-600 dark:stroke-woodsmoke-50"
           width="24"
           height="24"
@@ -37,8 +40,11 @@ export default function Sidebar() {
         </svg>
       </Drawer.Trigger>
       <Drawer.Portal>
-        <Drawer.Overlay className="fixed inset-0 bg-[#0E0D0F]/40 dark:bg-transparent" />
-        <Drawer.Content className="bg-woodsmoke-50 dark:bg-woodsmoke-900 py-6 px-4 flex flex-col gap-10 h-screen w-[320px] fixed top-0 right-0 outline-none z-[99999999999999]">
+        <Drawer.Overlay
+          onClick={() => setIsOpen(!isOpen)}
+          className="fixed inset-0 bg-[#0E0D0F]/40 dark:bg-transparent"
+        />
+        <Drawer.Content className="pb-24 bg-woodsmoke-50 dark:bg-woodsmoke-900 py-6 px-4 flex flex-col gap-10 h-screen w-[320px] fixed top-0 right-0 outline-none z-[99999999999999] overflow-y-auto">
           <div className="flex justify-between items-center">
             <ThemeToggleSwitch
               checked={resolvedTheme === "dark"}
@@ -48,6 +54,7 @@ export default function Sidebar() {
             />
             <Drawer.Close>
               <svg
+                onClick={() => setIsOpen(!isOpen)}
                 className="stroke-woodsmoke-600 dark:stroke-woodsmoke-50"
                 width="24"
                 height="24"
@@ -66,11 +73,11 @@ export default function Sidebar() {
           </div>
           <nav className="user-select-none">
             <ul className="flex flex-col gap-4">
-              <Drawer.Title className="text-normal text-woodsmoke-900 dark:text-amethyst-50">
+              <Drawer.Title className="text-normal text-woodsmoke-900 dark:text-amethyst-50 mb-2">
                 {translate(useTranslations(), "navigation.menu")}
               </Drawer.Title>
               {NAV_LINKS.map((link, index) => (
-                <li key={index}>
+                <li key={index} onClick={() => setIsOpen(!isOpen)}>
                   <Link
                     href={link.to}
                     className={twMerge(
