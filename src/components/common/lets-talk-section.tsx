@@ -57,8 +57,8 @@ export default function LetsTalkSection() {
             onClick={() => {
               const resumeFile =
                 resolvedTheme === "dark"
-                  ? "rochenette-legaspina-2024-resume-dark.pdf"
-                  : "rochenette-legaspina-2024-resume-light.pdf";
+                  ? "rochenette-legaspina-2025-resume-dark.pdf"
+                  : "rochenette-legaspina-2025-resume-light.pdf";
               window.open(
                 `${window.location.origin}/2025/resume/${resumeFile}`,
                 "_blank"
