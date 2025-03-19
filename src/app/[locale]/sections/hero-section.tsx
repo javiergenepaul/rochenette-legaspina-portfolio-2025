@@ -44,7 +44,7 @@ export default function HeroSection() {
           <p className="LG:text-h5 MD:text-large text-normal LG:font-medium font-normal mt-4 text-woodsmoke-500 dark:text-woodsmoke-300 SM:text-start text-center">
             {translate(useTranslations(), "home.hero.slogan.subtitle")}
           </p>
-          <Link href={PATH.CONTACT.getPath(locale)} passHref>
+          <Link href={PATH.ABOUT.getPath(locale)} passHref>
             <Button className="mt-16 py-4 SM:px-20 px-28 bg-amethyst-500 hover:bg-amethyst-400 focus:bg-amethyst-800">
               <span className="text-amethyst-50 XL:text-large text-regular">
                 {translate(useTranslations(), "home.hero.slogan.button")}
