@@ -10,12 +10,28 @@ import {
   SkillsAndToolsInterface,
   SocialLinksInterface,
 } from "./types";
+import { TxKeyPath } from "@/i18n";
+import { title } from "process";
 
 export const locale =
   typeof window !== "undefined" ? navigator.language.split("-")[0] : "en";
 
 const getTranslations = () => {
   const t = createTranslator({ locale, messages: EN });
+
+  const getProjectInformationDescription = (
+    project: "countryScape" | "scClaims" | "iqmk" | "yoo",
+    section: "contribution" | "tools" | "challenge",
+    count: number
+  ) => {
+    return Array.from({ length: count }, (_, i) =>
+      translate(
+        t,
+        `project.information.${[project]}.${section}.${i + 1}` as TxKeyPath
+      )
+    );
+  };
+
   return {
     work: {
       alliance: {
@@ -158,81 +174,71 @@ const getTranslations = () => {
           contribution: translate(t, "project.information.title.contribution"),
           tools: translate(t, "project.information.title.tools"),
           challenge: translate(t, "project.information.title.challenge"),
-          solution: translate(t, "project.information.title.solution"),
+        },
+        scClaims: {
+          challenge: getProjectInformationDescription(
+            "scClaims",
+            "challenge",
+            2
+          ),
+          contribution: getProjectInformationDescription(
+            "scClaims",
+            "contribution",
+            5
+          ),
+          tools: getProjectInformationDescription("scClaims", "tools", 2),
+        },
+        yoo: {
+          constribution: getProjectInformationDescription(
+            "yoo",
+            "contribution",
+            5
+          ),
+          challenge: getProjectInformationDescription("yoo", "challenge", 2),
+          tools: getProjectInformationDescription("yoo", "tools", 1),
         },
         countryScape: {
-          contribution: translate(
-            t,
-            "project.information.countryScape.contribution"
+          contribution: getProjectInformationDescription(
+            "countryScape",
+            "contribution",
+            4
           ),
-          tools: translate(t, "project.information.countryScape.tools"),
-          challenge: translate(t, "project.information.countryScape.challenge"),
-          solution: translate(t, "project.information.countryScape.solution"),
-        },
-        foodDeliveryApp: {
-          contribution: translate(
-            t,
-            "project.information.foodDeliveryApp.contribution"
-          ),
-          tools: translate(t, "project.information.foodDeliveryApp.tools"),
-          challenge: translate(
-            t,
-            "project.information.foodDeliveryApp.challenge"
-          ),
-          solution: translate(
-            t,
-            "project.information.foodDeliveryApp.solution"
+          tools: getProjectInformationDescription("countryScape", "tools", 1),
+          challenge: getProjectInformationDescription(
+            "countryScape",
+            "challenge",
+            4
           ),
         },
         iqmk: {
-          contribution: translate(t, "project.information.iqmk.contribution"),
-          tools: translate(t, "project.information.iqmk.tools"),
-          challenge: translate(t, "project.information.iqmk.challenge"),
-        },
-        logistic: {
-          contribution: translate(
-            t,
-            "project.information.logistic.contribution"
+          contribution: getProjectInformationDescription(
+            "iqmk",
+            "contribution",
+            4
           ),
-          tools: translate(t, "project.information.logistic.tools"),
-          challenge: translate(t, "project.information.logistic.challenge"),
+          tools: getProjectInformationDescription("iqmk", "tools", 1),
+          challenge: getProjectInformationDescription("iqmk", "challenge", 3),
         },
-        scClaims: {
-          contribution: translate(
-            t,
-            "project.information.scClaims.contribution"
-          ),
-          tools: translate(t, "project.information.scClaims.tools"),
-          challenge: translate(t, "project.information.scClaims.challenge"),
-        },
+      },
+      scClaims: {
+        title: translate(t, "project.projects.scClaims.title"),
+        role: translate(t, "project.projects.scClaims.role"),
+        description: translate(t, "project.projects.scClaims.description"),
+      },
+      yoo: {
+        title: translate(t, "project.projects.yoo.title"),
+        role: translate(t, "project.projects.yoo.role"),
+        description: translate(t, "project.projects.yoo.description"),
       },
       countryScape: {
         title: translate(t, "project.projects.countryScape.title"),
         role: translate(t, "project.projects.countryScape.role"),
         description: translate(t, "project.projects.countryScape.description"),
       },
-      foodDeliveryApp: {
-        title: translate(t, "project.projects.foodDeliveryApp.title"),
-        role: translate(t, "project.projects.foodDeliveryApp.role"),
-        description: translate(
-          t,
-          "project.projects.foodDeliveryApp.description"
-        ),
-      },
       iqmk: {
         title: translate(t, "project.projects.iqmk.title"),
         role: translate(t, "project.projects.iqmk.role"),
         description: translate(t, "project.projects.iqmk.description"),
-      },
-      logistic: {
-        title: translate(t, "project.projects.logistic.title"),
-        role: translate(t, "project.projects.logistic.role"),
-        description: translate(t, "project.projects.logistic.description"),
-      },
-      scClaims: {
-        title: translate(t, "project.projects.scClaims.title"),
-        role: translate(t, "project.projects.scClaims.role"),
-        description: translate(t, "project.projects.scClaims.description"),
       },
     },
   };
@@ -512,60 +518,61 @@ export const NAV_LINKS: NavLinksInterface[] = [
 ];
 
 export const PROJECTS: ProjectInterface[] = [
-  // Country Scapes
+  // SC Claims
   {
-    title: translations.projects.countryScape.title,
-    role: translations.projects.countryScape.role,
-    desciption: translations.projects.countryScape.description,
+    title: translations.projects.scClaims.title,
+    role: translations.projects.scClaims.role,
+    desciption: translations.projects.scClaims.description,
     information: [
       {
-        title: translations.projects.information.title.contribution,
-        description:
-          translations.projects.information.countryScape.contribution,
+        title: translations.projects.information.title.challenge,
+        description: translations.projects.information.scClaims.challenge,
       },
       {
         title: translations.projects.information.title.tools,
-        description: translations.projects.information.countryScape.tools,
-      },
-
-      {
-        title: translations.projects.information.title.challenge,
-        description: translations.projects.information.countryScape.challenge,
+        description: translations.projects.information.scClaims.tools,
       },
       {
-        title: translations.projects.information.title.solution,
-        description: translations.projects.information.countryScape.solution,
+        title: translations.projects.information.title.contribution,
+        description: translations.projects.information.scClaims.contribution,
       },
     ],
     sectionId: "sc-claims",
+    mockup: ASSETS.ScClaimsMockup,
+    mockupAlt: "SC Claims Mockup",
+    mockups: [
+      { image: ASSETS.ScClaimsMockup1, alt: "SC Claims Mockup 1" },
+      { image: ASSETS.ScClaimsMockup2, alt: "SC Claims Mockup 2" },
+      { image: ASSETS.ScClaimsMockup1, alt: "SC Claims Mockup 3" },
+    ],
   },
-  // Transport service and Food Delivery App
+  // yoo
   {
-    title: translations.projects.foodDeliveryApp.title,
-    role: translations.projects.foodDeliveryApp.role,
-    desciption: translations.projects.foodDeliveryApp.description,
+    title: translations.projects.yoo.title,
+    role: translations.projects.yoo.role,
+    desciption: translations.projects.yoo.description,
     information: [
       {
-        title: translations.projects.information.title.contribution,
-        description:
-          translations.projects.information.foodDeliveryApp.contribution,
+        title: translations.projects.information.title.challenge,
+        description: translations.projects.information.yoo.challenge,
       },
       {
         title: translations.projects.information.title.tools,
-        description: translations.projects.information.foodDeliveryApp.tools,
-      },
-
-      {
-        title: translations.projects.information.title.challenge,
-        description:
-          translations.projects.information.foodDeliveryApp.challenge,
+        description: translations.projects.information.yoo.tools,
       },
       {
-        title: translations.projects.information.title.solution,
-        description: translations.projects.information.foodDeliveryApp.solution,
+        title: translations.projects.information.title.contribution,
+        description: translations.projects.information.yoo.constribution,
       },
     ],
-    sectionId: "food-delivery-app",
+    sectionId: "yoo",
+    mockup: ASSETS.YooMockup,
+    mockupAlt: "YOO Mockup",
+    mockups: [
+      { image: ASSETS.YooMockup1, alt: "YOO Mockup 1" },
+      { image: ASSETS.YooMockup2, alt: "YOO Mockup 2" },
+      { image: ASSETS.YooMockup3, alt: "YOO Mockup 3" },
+    ],
   },
   // IQMK
   {
@@ -588,49 +595,43 @@ export const PROJECTS: ProjectInterface[] = [
       },
     ],
     sectionId: "iqmk-app",
+    mockup: ASSETS.IQMKMockUp,
+    mockupAlt: "IQMK Mockup",
+    mockups: [
+      { image: ASSETS.IQMKMockUp1, alt: "IQMK Mockup 1" },
+      { image: ASSETS.IQMKMockUp2, alt: "IQMK Mockup 2" },
+      { image: ASSETS.IQMKMockUp3, alt: "IQMK Mockup 3" },
+    ],
   },
-  // Logistic
+
+  // Country Scapes
   {
-    title: translations.projects.logistic.title,
-    role: translations.projects.logistic.role,
-    desciption: translations.projects.logistic.description,
+    title: translations.projects.countryScape.title,
+    role: translations.projects.countryScape.role,
+    desciption: translations.projects.countryScape.description,
     information: [
       {
         title: translations.projects.information.title.contribution,
-        description: translations.projects.information.logistic.contribution,
+        description:
+          translations.projects.information.countryScape.contribution,
       },
       {
         title: translations.projects.information.title.tools,
-        description: translations.projects.information.logistic.tools,
+        description: translations.projects.information.countryScape.tools,
       },
 
       {
         title: translations.projects.information.title.challenge,
-        description: translations.projects.information.logistic.challenge,
+        description: translations.projects.information.countryScape.challenge,
       },
     ],
-    sectionId: "logistic",
-  },
-  // SC Claims
-  {
-    title: translations.projects.scClaims.title,
-    role: translations.projects.scClaims.role,
-    desciption: translations.projects.scClaims.description,
-    information: [
-      {
-        title: translations.projects.information.title.contribution,
-        description: translations.projects.information.scClaims.contribution,
-      },
-      {
-        title: translations.projects.information.title.tools,
-        description: translations.projects.information.scClaims.tools,
-      },
-
-      {
-        title: translations.projects.information.title.challenge,
-        description: translations.projects.information.scClaims.challenge,
-      },
+    sectionId: "countryscape",
+    mockup: ASSETS.CountryScapeMockup,
+    mockupAlt: "CountryScape Mockup",
+    mockups: [
+      { image: ASSETS.CountryScapeMockup1, alt: "CountryScape Mockup 1" },
+      { image: ASSETS.CountryScapeMockup2, alt: "CountryScape Mockup 2" },
+      { image: ASSETS.CountryScapeMockup3, alt: "CoutryScape Mockup 3" },
     ],
-    sectionId: "sc-claims",
   },
 ];

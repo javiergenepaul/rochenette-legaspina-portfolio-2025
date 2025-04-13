@@ -36,7 +36,7 @@ export interface AboutMeContentInterface {
 
 export interface InfoInterface {
   title: string;
-  description: string;
+  description: string[];
 }
 
 export interface ProjectInterface {
@@ -45,4 +45,7 @@ export interface ProjectInterface {
   desciption: string;
   information: InfoInterface[];
   sectionId: string;
+  mockup: StaticImageData;
+  mockupAlt: string;
+  mockups: { image: StaticImageData; alt: string }[];
 }

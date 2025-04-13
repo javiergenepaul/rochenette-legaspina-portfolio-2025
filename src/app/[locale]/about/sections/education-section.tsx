@@ -19,7 +19,7 @@ export default function EducationSection() {
       <motion.h3 className="XL:text-h2 LG:text-h3 SM:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center">
         {translate(useTranslations(), "about.education.title")}
       </motion.h3>
-      <div className="grid MD:grid-cols-2 grid-cols-1 gap-6">
+      <div className="grid MD:grid-cols-1 grid-cols-1 gap-6 XL:w-8/12 LG:w-9/12 w-full  mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}

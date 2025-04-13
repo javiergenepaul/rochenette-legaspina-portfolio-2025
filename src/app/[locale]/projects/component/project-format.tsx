@@ -5,6 +5,8 @@ import { InfoInterface, ProjectInterface } from "@/config";
 import { translate } from "@/lib";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import Image, { StaticImageData } from "next/image";
+import React from "react";
 import { twMerge } from "tailwind-merge";
 
 const InfoCard = ({
@@ -26,28 +28,22 @@ const InfoCard = ({
         className
       )}
     >
-      <svg
-        className="stroke-woodsmoke-600 dark:stroke-woodsmoke-50"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-label={`${title} icon`}
-      >
-        <path
-          d="M11 17H19M5 12H19M11 7H19"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
       <h3 className="text-woodsmoke-600 font-bold XL:text-h3 LG:text-h4 text-h5 dark:text-woodsmoke-50">
         {title}
       </h3>
-      <p className="XL:text-large text-normal text-woodsmoke-500 text-wrap text-justify dark:text-woodsmoke-300">
-        {description}
-      </p>
+
+      <ul className="list-disc">
+        {description.map((value: string, index: React.Key) => {
+          return (
+            <li
+              key={index}
+              className="XL:text-large text-normal text-woodsmoke-500 text-wrap text-justify dark:text-woodsmoke-300"
+            >
+              {value}
+            </li>
+          );
+        })}
+      </ul>
     </motion.article>
   );
 };
@@ -60,11 +56,14 @@ export default function ProjectFormat({
   information,
   index,
   maxLength,
+  mockup,
+  mockups,
+  mockupAlt,
 }: ProjectInterface & { index: number; maxLength: number }) {
   return (
     <div className="space-y-32 mt-20">
       <section id={sectionId} className="h-full space-y-20">
-        <div className="space-y-6 mb-20">
+        <div className="flex flex-col space-y-6 mb-20 items-center text-center">
           <header data-test="project-header" className="text-center space-y-2">
             <motion.h2
               initial={{ opacity: 0, scale: 0.5 }}
@@ -99,13 +98,13 @@ export default function ProjectFormat({
               type: "spring",
               bounce: 0.5,
             }}
-            className="XL:text-large text-normal text-woodsmoke-500 text-justify dark:text-woodsmoke-300"
+            className="XL:text-large text-normal text-woodsmoke-500 text-justify dark:text-woodsmoke-300 w-4/12"
           >
             {desciption}
           </motion.p>
         </div>
-
         <motion.div
+          className="relative"
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{
@@ -113,10 +112,13 @@ export default function ProjectFormat({
             type: "spring",
             bounce: 0.5,
           }}
-          className="relative bg-amethyst-950 XL:h-[722px] XL:w-[722px] LG:h-[647px] LG:w-[556px] MD:h-[538px] MD:w-[542px] SM:h-[514px] SM:w-[450px] XS:h-[451px] XS:w-[420px] w-full h-[484px] justify-self-center rounded-lg"
-          aria-label="Placeholder image with background color"
-          role="img"
-        />
+        >
+          <Image
+            src={mockup}
+            alt={mockupAlt}
+            className="relative object-contain w-1/2 justify-self-center rounded-lg"
+          />
+        </motion.div>
 
         <div className="grid MD:grid-cols-2 grid-cols-1 gap-x-6 gap-y-10">
           {information.map((info, index) => (
@@ -133,42 +135,27 @@ export default function ProjectFormat({
         </div>
 
         <div className="grid MD:grid-cols-3 grid-cols-1 gap-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.8,
-              type: "spring",
-              bounce: 0.2,
-            }}
-            className="bg-amethyst-950 XL:h-[540px] LG:h-[533px] SM:h-[488px] XS:h-[541px] h-[598px] w-full rounded-lg"
-            aria-label="Placeholder image with background color"
-            role="img"
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.8,
-              type: "spring",
-              bounce: 0.2,
-            }}
-            className="bg-amethyst-950 XL:h-[540px] LG:h-[533px] SM:h-[488px] XS:h-[541px] h-[598px] w-full rounded-lg"
-            aria-label="Placeholder image with background color"
-            role="img"
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.8,
-              type: "spring",
-              bounce: 0.2,
-            }}
-            className="bg-amethyst-950 XL:h-[540px] LG:h-[533px] SM:h-[488px] XS:h-[541px] h-[598px] w-full rounded-lg"
-            aria-label="Placeholder image with background color"
-            role="img"
-          />
+          {mockups.map(
+            (
+              value: { image: StaticImageData; alt: string },
+              key: React.Key
+            ) => {
+              return (
+                <motion.div
+                  key={key}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.8,
+                    type: "spring",
+                    bounce: 0.2,
+                  }}
+                >
+                  <Image src={value.image} alt={value.alt} />
+                </motion.div>
+              );
+            }
+          )}
         </div>
       </section>
       {index < maxLength - 1 && (

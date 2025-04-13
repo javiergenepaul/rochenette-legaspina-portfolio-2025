@@ -84,8 +84,9 @@
     "intro": {
       "title": "Journey Highlights",
       "paragraph": {
-        "1": "I’m Rochenette Legaspina, a UI/UX designer from the Philippines with a Bachelor’s degree in Computer Engineering. My design approach combines creativity with a focus on user-centered solutions. My journey into UI/UX design began in college, where I joined a student organization passionate about the gaming industry. I started as a 3D modeler, then expanded my skills to 3D texturing and retopology, which sparked my fascination with the technical aspects of design. A pivotal moment was meeting a mentor who introduced me to UI/UX design. Inspired by their guidance, I shifted my focus to creating functional and visually compelling user interfaces and experiences.",
-        "2": "After graduating, I gained real-world experience as a UI/UX designer at a software company. Seeking a broader understanding of the development process, I later worked as a Systems Analyst, collaborating closely with clients and team members. This role helped me bridge the gap between design and development, with the goal of creating designs that are both visually appealing and purpose-driven, solving real user problems."
+        "1": "I’m Rochenette Legaspina, a UI/UX designer from the Philippines with a Bachelor's degree in Computer Engineering. My design approach combines creativity with a focus on user-centered solutions.",
+        "2": "I started my career in the gaming industry, working as a 3D modeler, and later expanded to 3D texturing and re-topology while I was in college. A colleague introduced me to UI/UX design, which sparked my interest in creating user-friendly, creative designs.",
+        "3": "After graduating college, I gained real experience as a UI/UX designer at a software company. Seeking a broader understanding of the development process, I later worked as a Systems Analyst, collaborating closely with clients and team members. This role helped me bridge the gap between design and development, with the goal of creating designs that are both visually appealing and purpose-driven, solving real user problems."
       }
     },
     "work": {
@@ -95,11 +96,11 @@
           "title": "System Analyst and a UI/UX Designer",
           "companyName": "Alliance",
           "description": {
-            "1": "Documented Functional Specifications (FSD) and ensured complete requirements capture.",
-            "2": "Delivered effective solutions to enhance user experience and functionality.",
-            "3": "Analyzed client needs and new feature requirements.",
+            "1": "Documented Functional Specifications (FSD) and captured all requirements.",
+            "2": "Delivered solutions to improve user experience and functionality.",
+            "3": "Analyzed client needs and new feature requests.",
             "4": "Provided detailed functionality to the development team.",
-            "5": "Ensured timely resolution of support requests."
+            "5": "Ensured timely resolution of support ticket requests."
           },
           "imageAlt": "Alliance Logo"
         },
@@ -107,10 +108,10 @@
           "title": "UI/UX Designer",
           "companyName": "Mach95",
           "description": {
-            "1": "Designed UI/UX for e-commerce platforms, web apps, and logistics systems.",
-            "2": "Created user-centric, visually appealing designs to enhance functionality and user experience.",
-            "3": "Developed logos and branding materials to align with company identities.",
-            "4": "Collaborated closely with clients to understand and meet design requirements."
+            "1": "Designed UI/UX for e-commerce platforms, web apps, and logistics.",
+            "2": "Created user-friendly, visually appealing designs to improve UX.",
+            "3": "Developed logos and branding materials to align with company identity.",
+            "4": "Collaborated with clients to meet design needs and requirements."
           },
           "imageAlt": "Mach 95 Logo"
         },
@@ -118,9 +119,9 @@
           "title": "3D Modeller & Substance Painter",
           "companyName": "Exodia",
           "description": {
-            "1": "Created 3D models of various objects for use in a VR platform",
-            "2": "Learned and applied retopology techniques to optimize models for performance",
-            "3": "Utilized Substance Painter for 3D texturing to enhance visual quality team.",
+            "1": "Created 3D models for a VR platform.",
+            "2": "Applied retopology to optimize model performance.",
+            "3": "Used Substance Painter for 3D texturing to improve visuals.",
             "4": "Ensured timely resolution of support requests."
           },
           "imageAlt": "Exodia Game Development Outsourcing Logo"
@@ -135,8 +136,8 @@
           "school": "University of Cebu",
           "description": {
             "1": "Graduated with a Bachelor of Science in Computer Engineering.",
-            "2": "Approved thesis project focused on VR for condos and townhouses.",
-            "3": "Contributed to a game development startup, creating VR experiences for Casa Gorordo Museum."
+            "2": "Approved thesis project on a VR platform for condos and townhouses.",
+            "3": "Contributed to a game development startup project, creating a VR experience for the Casa Gorordo Museum in Cebu City, Philippines."
           },
           "imageAlt": "University of Cebu Logo"
         }
@@ -243,62 +244,95 @@
       "title": {
         "contribution": "Contribution",
         "tools": "Tools",
-        "challenge": "Challenge",
-        "solution": "Solution"
+        "challenge": "Challenge"
       },
       "countryScape": {
-        "contribution": "As the UI/UX Designer, I was responsible for gathering the requirements and specifications to ensure the platform's user interface aligned with the target user needs. I worked closely with stakeholders to identify key user pain points and organized the design process for a smooth user journey. Additionally, I ensured that the interface was intuitive and aesthetically pleasing while facilitating easy navigation.",
-        "tools": "For this project, I utilized Figma to design the user interface and create wireframes that captured the seamless experience for the users",
-        "challenge": "Many online booking websites can be difficult to navigate and often provide limited information on hotels, which can frustrate users. Additionally, the overwhelming amount of options and the cluttered design on some platforms can make the booking process feel cumbersome. Users often struggle to find detailed, relevant information when making decisions about their stays.",
-        "solution": "To tackle these challenges, I focused on creating a clean and user-friendly interface that highlighted key hotel details in an easily digestible format. By simplifying the booking process and ensuring clear, concise information about each property, users could make decisions with confidence. A robust filtering system was introduced to allow users to quickly find accommodations that best matched their preferences. I also incorporated visually striking imagery and engaging content to enhance the user’s experience. Ultimately, the new design empowered users to make informed decisions quickly and efficiently, improving overall satisfaction."
-      },
-      "foodDeliveryApp": {
-        "contribution": "As the UI/UX Designer, I was responsible for gathering project specifications and understanding user requirements to ensure the app was intuitive and user-friendly. I collaborated with stakeholders to refine the design, focusing on ease of use and efficient navigation for both food delivery and transportation services. Additionally, I created wireframes and prototypes to communicate the design vision and supported the development team in implementing the app’s features.",
-        "tools": "For this project, I used Figma to create wireframes, design prototypes, and refine the user interface for both food delivery and transportation services.",
-        "challenge": "Food delivery apps often face issues with cluttered interfaces, which can overwhelm users and make it difficult to find what they need quickly. Navigating between different services, such as ordering food and scheduling transportation, can be confusing and cause frustration. Many users also report difficulties in tracking their orders in real-time, leading to uncertainty about delivery times. Providing accurate and detailed information about delivery times, food items, and service options can be challenging with limited space on mobile screens. Additionally, ensuring consistency in service quality and delivery reliability can be a hurdle when managing a variety of third-party partners.",
-        "solution": "To overcome these challenges, I focused on simplifying the app’s design and creating a user-friendly experience for both food delivery and transportation services. I introduced clear, easily navigable sections for each service, reducing clutter and improving access to information. Real-time tracking was integrated, providing users with live updates about their food delivery or transportation status. The interface was optimized for mobile devices, ensuring that users could quickly view and select their options without feeling overwhelmed. By consolidating food delivery and transportation services under a unified platform, the app offers a seamless experience that saves time and improves satisfaction."
-      },
-      "iqmk": {
-        "contribution": "As the UI/UX Designer, I worked with stakeholders to gather user needs and simplify the design process. My goal was to create a clean, user-friendly interface with easy navigation for a smooth overall experience.",
-        "tools": "Utilized Figma for wireframing, prototyping, and designing the interface.",
-        "challenge": "Ensured design clarity while preserving brand consistency and maintaining a cohesive color scheme across the platform."
-      },
-      "logistic": {
-        "contribution": "As the UI/UX Designer, I gathered project requirements and analyzed user needs to create an intuitive, efficient design. I focused on ensuring the interface met the needs of logistics professionals, prioritizing simplicity and easy navigation. I also designed wireframes and prototypes in Figma, delivering a practical and visually engaging solution for complex logistics tasks.",
-        "tools": "For this project, I used Figma to design wireframes, develop interactive prototypes, and optimize the user interface, ensuring an intuitive experience for logistics management.",
-        "challenge": "To address these challenges, I designed a clean, intuitive interface that makes real-time shipment tracking and monitoring easy for users. I integrated all logistics systems—inventory management, shipment coordination, and order processing—into a seamless platform that eliminates confusion and reduces the risk of delays. The interface was optimized to display large amounts of data in a clear, digestible format, making complex logistics operations more manageable. Advanced tracking and security features were incorporated, ensuring users could monitor the safety and status of their shipments at all times. By consolidating these features in one platform, I provided a more streamlined, efficient experience for users managing multiple shipments and schedules.To address these challenges, I designed a clean, intuitive interface that makes real-time shipment tracking and monitoring easy for users. I integrated all logistics systems—inventory management, shipment coordination, and order processing—into a seamless platform that eliminates confusion and reduces the risk of delays. The interface was optimized to display large amounts of data in a clear, digestible format, making complex logistics operations more manageable. Advanced tracking and security features were incorporated, ensuring users could monitor the safety and status of their shipments at all times. By consolidating these features in one platform, I provided a more streamlined, efficient experience for users managing multiple shipments and schedules."
+        "contribution": {
+          "1": "Gathered requirements to align the UI with user needs.",
+          "2": "Collaborated with stakeholders to identify key user pain points and challenges.",
+          "3": "Streamlined the design process to create a smooth and intuitive user journey.",
+          "4": "Focused on designing an aesthetically pleasing and easy-to-navigate interface."
+        },
+        "tools": {
+          "1": "Figma"
+        },
+        "challenge": {
+          "1": "Online booking websites can be difficult to navigate.",
+          "2": "Limited hotel information can frustrate users.",
+          "3": "Overwhelming options and cluttered designs complicate booking.",
+          "4": "Users struggle to find detailed, relevant information for decisions."
+        }
       },
       "scClaims": {
-        "contribution": "As a System Analyst and UI/UX Designer, I played a key role in gathering requirements, organizing client meetings, and documenting the project through Functional Specification Documents (FSD). I worked closely with the development team to ensure clear communication and understanding of the project goals, while also contributing to QA testing to ensure a smooth and error-free implementation.",
-        "tools": "For the design and documentation of the project, I utilized tools such as mock-ups, Microsoft Excel, and Word for specifications, data organization, and documentation.",
-        "challenge": "One of the biggest challenges was the previous manual process, which involved lengthy validation and often resulted in errors due to human oversight and the management of multiple files. By transitioning to an automated system, we aimed to eliminate these issues, significantly reducing the time needed for processing and improving accuracy across the board."
+        "contribution": {
+          "1": "Served as the System Analyst for the project.",
+          "2": "Gathered and analyzed client specifications .",
+          "3": "Ensured all features were properly documented.",
+          "4": "Worked as the UI/UX Designer to create a user-friendly interface.",
+          "5": "Performed QA testing to ensure the system functioned smoothly and met requirements."
+        },
+        "tools": {
+          "1": "Moqups",
+          "2": "Figma"
+        },
+        "challenge": {
+          "1": "The client wanted to replace the old manual process to avoid mistakes in discount calculations.",
+          "2": "The goal was to shorten the long workflow, making the process faster and more accurate."
+        }
+      },
+      "yoo": {
+        "contribution": {
+          "1": "Assigned as the UI/UX Designer for the project.",
+          "2": "Created system flow and wireframes from scratch.",
+          "3": "Conducted research on food delivery and transport apps for design ideas.",
+          "4": "Provided thorough documentation for the design process.",
+          "5": "Provided high-fidelity designs to ensure an intuitive user experience."
+        },
+        "challenge": {
+          "1": "Managing multiple features and ensuring users could easily navigate between them without confusion.",
+          "2": "Maintaining consistency in design"
+        },
+        "tools": {
+          "1": "Figma"
+        }
+      },
+      "iqmk": {
+        "contribution": {
+          "1": "Assigned to redesign the website to make it more visually appealing and user-friendly.",
+          "2": "Created a clear system flow from enrollment to package selection and account access",
+          "3": "Incorporated the client’s requested design elements to meet their specifications.",
+          "4": "Focused on improving the overall user experience and navigation for seamless interaction"
+        },
+        "tools": {
+          "1": "Figma"
+        },
+        "challenge": {
+          "1": "Ensuring design clarity while preserving the brand's identity and visual style.",
+          "2": "Maintaining a cohesive color scheme across the platform without compromising usability.",
+          "3": "Balancing client design requests with the need for a user-friendly and intuitive interface."
+        }
       }
     },
     "projects": {
+      "scClaims": {
+        "title": "Senior Citizen Discount Claims System",
+        "role": "UI/UX Designer",
+        "description": "SC Claims is a web-based platform that streamlines senior citizen discount validation by allowing users to upload Excel records with SKU details. The system automatically validates these records based on pre-set criteria, ensuring accurate and quick reimbursements to pharmacies and hospitals. By automating this process, SC Claims reduces manual effort, saves time, and ensures a smooth, error-free reimbursement workflow."
+      },
+      "yoo": {
+        "title": "YOO",
+        "role": "UI/UX Designer",
+        "description": "This app combines food delivery and transportation services in one platform. It offers secure deliveries and reliable transportation for personal needs. With an easy-to-use interface, managing errands and travel is simple."
+      },
       "countryScape": {
         "title": "CountryScape",
         "role": "UI/UX Designer",
-        "description": "The SC Claims App is a desktop-based solution that automates the validation and computation of senior citizen discounts on products sold to eligible customers. By streamlining this process, the app helps ensure accuracy and efficiency, reducing the time and effort previously required for manual computations.The new solution consolidates multiple files into a single, easy-to-manage system, improving both efficiency and accuracy, while ensuring timely reimbursements for senior citizen discounts."
-      },
-      "foodDeliveryApp": {
-        "title": "Transport service and Food Delivery App",
-        "role": "UI/UX Designer",
-        "description": "This app combines food delivery and transportation services into one seamless platform. It allows users to manage their time more efficiently by eliminating the need to leave their home, office, or school for everyday tasks like shopping or picking up items. The app provides secure, well-monitored deliveries for both food and goods, ensuring peace of mind for every transaction. Users can also enjoy safe and reliable transportation to destinations, whether for personal or business needs. With the app’s easy-to-use interface, managing your daily errands and travel has never been more convenient."
+        "description": "Countryscape offers hotels with breathtaking views for every mood. Whether you're seeking peace, adventure, or relaxation. Easy booking ensures a stress-free vacation, creating lasting memories."
       },
       "iqmk": {
         "title": "IQMK",
         "role": "UI/UX Designer",
-        "description": "The website offers a curated collection of premium herbal medicines, exclusively available through the platform. With a focus on holistic health, each product is thoughtfully selected to enhance well-being and support a balanced lifestyle. Users can discover a wide range of natural remedies, supplements, and wellness tools, ensuring they have access to high-quality, plant-based resources for optimal health."
-      },
-      "logistic": {
-        "title": "Logistic",
-        "role": "UI/UX Designer & System Analyst",
-        "description": "Logistics Solutions offer businesses and customers a streamlined way to manage the transportation of goods and resources. The platform is designed to optimize delivery efficiency, simplifying the complex tasks associated with coordinating shipments and managing inventory. With secure tracking systems, users can ensure that their deliveries are safe, on-time, and well-monitored. The platform eliminates time-consuming manual processes, making logistics management seamless and more efficient. Ultimately, it enhances operational efficiency and helps businesses save both time and resources.. Users can discover a wide range of natural remedies, supplements, and wellness tools, ensuring they have access to high-quality, plant-based resources for optimal health."
-      },
-      "scClaims": {
-        "title": "SC Claims",
-        "role": "System Analyst & UI/UX Designer",
-        "description": "The SC Claims App is a desktop-based solution that automates the validation and computation of senior citizen discounts on products sold to eligible customers. By streamlining this process, the app helps ensure accuracy and efficiency, reducing the time and effort previously required for manual computations.The new solution consolidates multiple files into a single, easy-to-manage system, improving both efficiency and accuracy, while ensuring timely reimbursements for senior citizen discounts."
+        "description": "IQMK Global is an app that supports people in achieving their wellness and financial goals. It offers premium Muscadine grape products, including the flagship MusNatural, known for its health benefits. The app provides a low-risk business opportunity through direct sales, e-commerce, and a network marketing plan, helping users achieve health, financial freedom, and a better lifestyle."
       }
     },
     "role": "Role: {role}",
