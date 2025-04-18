@@ -54,7 +54,11 @@ export default function Navigation() {
                     ? "text-amethyst-500 font-bold translate-y-[-0.125rem]"
                     : "text-woodsmoke-500 hover:text-woodsmoke-800 dark:hover:text-woodsmoke-200 dark:text-woodsmoke-300 font-normal"
                 )}
-                onClick={() => setLoading(true)}
+                onClick={() => {
+                  if (pathname !== link.to) {
+                    setLoading(true);
+                  }
+                }}
               >
                 {link.label}
               </Link>
