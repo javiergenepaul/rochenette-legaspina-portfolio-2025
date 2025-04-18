@@ -3,6 +3,7 @@ import { style } from "@/config";
 import { twMerge } from "tailwind-merge";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
+import * as ASSETS from "@/assets";
 
 export default function ProjectSection() {
   const PROJECTS = [
@@ -12,6 +13,8 @@ export default function ProjectSection() {
         useTranslations(),
         "home.project.projects.1.description"
       ),
+      img: ASSETS.ScClaimsPreview,
+      imgAlt: "SC Claims Preview",
     },
     {
       title: translate(useTranslations(), "home.project.projects.2.title"),
@@ -19,6 +22,8 @@ export default function ProjectSection() {
         useTranslations(),
         "home.project.projects.2.description"
       ),
+      img: ASSETS.YooPreview,
+      imgAlt: "Yoo Preview",
     },
     {
       title: translate(useTranslations(), "home.project.projects.3.title"),
@@ -26,6 +31,8 @@ export default function ProjectSection() {
         useTranslations(),
         "home.project.projects.3.description"
       ),
+      img: ASSETS.IQMKPreview,
+      imgAlt: "IQMK Preview",
     },
     {
       title: translate(useTranslations(), "home.project.projects.4.title"),
@@ -33,6 +40,8 @@ export default function ProjectSection() {
         useTranslations(),
         "home.project.projects.4.description"
       ),
+      img: ASSETS.CountryScapePreview,
+      imgAlt: "CountryScape Preview",
     },
   ];
 
@@ -53,6 +62,8 @@ export default function ProjectSection() {
           key={index}
           title={project.title}
           description={project.description}
+          img={project.img}
+          imgAlt={project.imgAlt}
           index={index}
         />
       ))}

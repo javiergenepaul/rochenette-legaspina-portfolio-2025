@@ -27,6 +27,10 @@ import {
   CountryScapeMockup1,
   CountryScapeMockup2,
   CountryScapeMockup3,
+  CountryScapePreview,
+  IQMKPreview,
+  ScClaimsPreview,
+  YooPreview,
 } from "./projects";
 
 export {
@@ -56,4 +60,8 @@ export {
   CountryScapeMockup1,
   CountryScapeMockup2,
   CountryScapeMockup3,
+  CountryScapePreview,
+  IQMKPreview,
+  ScClaimsPreview,
+  YooPreview,
 };

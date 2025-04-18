@@ -13,8 +13,16 @@ import CountryScapeMockup from "./countryscape-mockup.png";
 import CountryScapeMockup1 from "./countryscape-mockup-1.png";
 import CountryScapeMockup2 from "./countryscape-mockup-2.png";
 import CountryScapeMockup3 from "./countryscape-mockup-3.png";
+import CountryScapePreview from "./country-scape-preview.png";
+import IQMKPreview from "./iqmk-preview.png";
+import ScClaimsPreview from "./sc-claims-preview.png";
+import YooPreview from "./yoo-preview.png";
 
 export {
+  CountryScapePreview,
+  IQMKPreview,
+  ScClaimsPreview,
+  YooPreview,
   ScClaimsMockup,
   ScClaimsMockup1,
   ScClaimsMockup2,
