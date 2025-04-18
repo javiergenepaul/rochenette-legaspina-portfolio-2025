@@ -4,8 +4,16 @@ import { translate } from "@/lib";
 import ContactForm from "./components/contact-form";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { useLoadingStore } from "@/store";
 
 export default function Page() {
+  const { setLoading } = useLoadingStore();
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+  
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}

@@ -6,6 +6,7 @@ import { getMessages } from "next-intl/server";
 import { ThemeProviders } from "./theme-providers";
 import { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
+import LoadingMask from "../loading-mask";
 
 export const metadata: Metadata = {
   title: "Rochenette Legaspina - Home",
@@ -20,6 +21,7 @@ export default async function LocaleLayout({
   params: { locale: string };
 }>) {
   const { locale } = await params;
+
   const messages = await getMessages();
 
   return (
@@ -27,7 +29,7 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <ThemeProviders>
-            <div hidden className="fixed h-screen w-screen bg-black/10 cursor-wait  z-[9999999]"></div>
+            <LoadingMask />
             <div className="antialiased overflow-x-hidden relative pb-[32px] font-inter bg-scorpion-50 dark:bg-woodsmoke-950 selection:bg-amethyst-400 selection:text-amethyst-50 dark:selection:bg-amethyst-800">
               <Navigation />
               {children}
