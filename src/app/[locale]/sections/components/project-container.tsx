@@ -4,16 +4,12 @@ import { Button } from "@/components/ui/button";
 import { translate } from "@/lib";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import React from "react";
-
-interface ProjectContainerInterface {
-  title: string;
-  description: string;
-  index: number;
-  img: StaticImageData;
-  imgAlt: string;
-}
+import { ProjectContainerInterface } from "../project-section";
+import { NAV_LINKS } from "@/config";
+import { useRouter } from "next/navigation";
+import { useLoadingStore } from "@/store";
 
 export default function ProjectContainer({
   title,
@@ -21,8 +17,11 @@ export default function ProjectContainer({
   index,
   img,
   imgAlt,
-}: ProjectContainerInterface) {
+  sectionId,
+}: ProjectContainerInterface & { index: number }) {
   const t = useTranslations();
+  const router = useRouter();
+  const { setLoading } = useLoadingStore();
 
   return (
     <>
@@ -50,6 +49,10 @@ export default function ProjectContainer({
             <Button
               className="group border-woodsmoke-400 dark:border-woodsmoke-300 bg-transparent group-hover:bg-woodsmoke-100 active:bg-transparent active:border-amethyst-500 active:border-2"
               variant={"outline"}
+              onClick={() => {
+                setLoading(true);
+                router.push(`${NAV_LINKS[2].to}#${sectionId}`);
+              }}
             >
               <span className="text-large font-medium text-woodsmoke-600 dark:text-woodsmoke-50 hover:text-woodsmoke-900 active:text-woodsmoke-900">
                 {translate(t, "home.project.knowMore")}
@@ -90,9 +93,14 @@ export default function ProjectContainer({
                 {description}
               </p>
             </div>
+
             <Button
               className="group border-woodsmoke-400 dark:border-woodsmoke-300 bg-transparent group-hover:bg-woodsmoke-100 active:bg-transparent active:border-amethyst-500 active:border-2"
               variant={"outline"}
+              onClick={() => {
+                setLoading(true);
+                router.push(`${NAV_LINKS[2].to}#${sectionId}`);
+              }}
             >
               <span className="text-large font-medium text-woodsmoke-600 dark:text-woodsmoke-50 hover:text-woodsmoke-900 active:text-woodsmoke-900">
                 {translate(t, "home.project.knowMore")}

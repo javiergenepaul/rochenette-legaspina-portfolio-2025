@@ -61,8 +61,8 @@ export default function ProjectFormat({
   mockupAlt,
 }: ProjectInterface & { index: number; maxLength: number }) {
   return (
-    <div className="space-y-32 mt-20">
-      <section id={sectionId} className="h-full space-y-20">
+    <section id={sectionId} className="space-y-32 pt-32">
+      <div className="h-full space-y-20">
         <div className="flex flex-col space-y-6 mb-20 items-center text-center">
           <header data-test="project-header" className="text-center space-y-2">
             <motion.h2
@@ -157,10 +157,10 @@ export default function ProjectFormat({
             }
           )}
         </div>
-      </section>
+      </div>
       {index < maxLength - 1 && (
         <Separator className="bg-woodsmoke-200 dark:bg-woodsmoke-600" />
       )}
-    </div>
+    </section>
   );
 }
