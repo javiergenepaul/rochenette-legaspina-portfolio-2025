@@ -8,7 +8,7 @@ export default function LoadingMask() {
   return (
     <div
       hidden={!loading}
-      className="fixed h-screen w-screen bg-black/10 cursor-wait  z-[9999999]"
+      className="fixed h-screen w-screen bg-black/10 cursor-wait select-none  z-[9999999]"
     />
   );
 }
