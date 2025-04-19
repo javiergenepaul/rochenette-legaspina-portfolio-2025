@@ -12,10 +12,10 @@ import { useEffect } from "react";
 
 export default function Page() {
   const { setLoading } = useLoadingStore();
-  
+
   useEffect(() => {
     setLoading(false);
-  }, []);
+  }, [setLoading]);
 
   return (
     <>

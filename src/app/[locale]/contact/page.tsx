@@ -14,7 +14,7 @@ export default function Page() {
 
   useEffect(() => {
     setLoading(false);
-  }, []);
+  }, [setLoading]);
 
   return (
     <motion.div

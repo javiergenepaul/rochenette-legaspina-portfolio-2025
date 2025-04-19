@@ -17,7 +17,6 @@ export default function Navigation() {
   const [mounted, setMounted] = useState<boolean>(false);
   const { setTheme, resolvedTheme } = useTheme();
   const { setLoading } = useLoadingStore();
-  const [grabbingIcon, setGrabbingIcon] = useState<boolean>(false);
 
   useEffect(() => {
     setMounted(true);

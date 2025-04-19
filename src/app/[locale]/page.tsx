@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     setLoading(false);
-  }, []);
+  }, [setLoading]);
 
   return (
     <div className="flex flex-col gap-20 pb-20">

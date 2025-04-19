@@ -11,7 +11,6 @@ import {
   SocialLinksInterface,
 } from "./types";
 import { TxKeyPath } from "@/i18n";
-import { title } from "process";
 
 export const locale =
   typeof window !== "undefined" ? navigator.language.split("-")[0] : "en";
