@@ -10,6 +10,8 @@ import {
   BlenderLogo,
   WordLogo,
   ExcelLogo,
+  RlLogoDark,
+  RlLogoLight,
 } from "./logo";
 import {
   ScClaimsMockup,
@@ -64,4 +66,6 @@ export {
   IQMKPreview,
   ScClaimsPreview,
   YooPreview,
+  RlLogoDark,
+  RlLogoLight,
 };
