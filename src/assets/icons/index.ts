@@ -12,6 +12,10 @@ import RulerIcon from "./ruler-icon.svg";
 import MoveIcon from "./move-icon.svg";
 import TextIcon from "./text-icon.svg";
 import FrenchFriesIcon from "./french-fries-icon.svg";
+import RLLogoLight from "./rochenette-legaspina-logo-light.svg";
+import RLLogoDark from "./rochenette-legaspina-logo-dark.svg";
+import UpworkIcon from "./upwork-icon.svg";
+import BehanceIcon from "./behance-icon.svg";
 
 export {
   LightMode,
@@ -27,5 +31,9 @@ export {
   RulerIcon,
   MoveIcon,
   TextIcon,
-  FrenchFriesIcon
+  FrenchFriesIcon,
+  RLLogoDark,
+  RLLogoLight,
+  UpworkIcon,
+  BehanceIcon,
 };

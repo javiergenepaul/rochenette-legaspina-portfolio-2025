@@ -7,15 +7,16 @@ import { usePathname } from "next/navigation";
 import { ThemeToggleSwitch } from "./theme-toggle-switch";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import Sidebar from "./sidebar/sidebar";
+import { useLoadingStore } from "@/store";
+import Image from "next/image";
+import { RLLogoDark, RLLogoLight } from "@/assets";
 
 export default function Navigation() {
   const pathname = usePathname();
   const [mounted, setMounted] = useState<boolean>(false);
   const { setTheme, resolvedTheme } = useTheme();
-
-  const [grabbingIcon, setGrabbingIcon] = useState<boolean>(false);
+  const { setLoading } = useLoadingStore();
 
   useEffect(() => {
     setMounted(true);
@@ -28,19 +29,16 @@ export default function Navigation() {
       {/* Navigation Links */}
       <nav className="select-none bg-scorpion-50 dark:bg-woodsmoke-900 justify-self-center w-8/12 justify-between px-8 py-2 rounded-full items-center shadow-[0_0_14px_rgba(57,7,75,0.14)] fixed inset-x-0  top-[32px] z-[9999] SM:flex hidden">
         <div className="flex gap-2 items-center">
-          <motion.div
-            drag
-            dragSnapToOrigin
-            aria-label="dot image"
-            className={twMerge(
-              "h-[2.75rem] w-[2.75rem] bg-amethyst-500 rounded-full justify-center flex items-center text-scorpion-200 text-large font-bold cursor-grab",
-              grabbingIcon ? "cursor-grabbing" : "cursor-grab"
-            )}
-            onDragStart={() => setGrabbingIcon(true)}
-            onDragEnd={() => setGrabbingIcon(false)}
-          >
-            R
-          </motion.div>
+          <Image
+            className="dark:hidden"
+            src={RLLogoLight}
+            alt="Rochenette Legaspina Logo"
+          />
+          <Image
+            className="dark:block hidden"
+            src={RLLogoDark}
+            alt="Rochenette Legaspina Logo"
+          />
         </div>
         <ul className="flex gap-6">
           {NAV_LINKS.map((link, index) => (
@@ -53,6 +51,11 @@ export default function Navigation() {
                     ? "text-amethyst-500 font-bold translate-y-[-0.125rem]"
                     : "text-woodsmoke-500 hover:text-woodsmoke-800 dark:hover:text-woodsmoke-200 dark:text-woodsmoke-300 font-normal"
                 )}
+                onClick={() => {
+                  if (pathname !== link.to) {
+                    setLoading(true);
+                  }
+                }}
               >
                 {link.label}
               </Link>
@@ -73,12 +76,13 @@ export default function Navigation() {
           style.sectionContainerPaddingX
         )}
       >
-        <div
+        <Image src={RLLogoLight} alt="Rochenette Legaspina Logo" />
+        {/* <div
           aria-label="dot image"
           className="h-[2.75rem] w-[2.75rem] bg-amethyst-500 rounded-full justify-center flex items-center text-scorpion-200 text-large font-bold"
         >
           R
-        </div>
+        </div> */}
         <div className="p-2 overflow-hidden">
           <Sidebar />
         </div>

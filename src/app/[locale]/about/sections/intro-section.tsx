@@ -1,6 +1,8 @@
 "use client";
 
-import { RochenetteLegaspinaImage } from "@/assets";
+import {
+  RocheetteLegaspinaDarkImage,
+} from "@/assets";
 import { TxKeyPath } from "@/i18n";
 import { translate } from "@/lib";
 import { motion } from "framer-motion";
@@ -34,17 +36,15 @@ export default function IntroSection() {
           type: "spring",
           bounce: 0.5,
         }}
-        className="flex LG:flex-row flex-col gap-4 items-center"
+        className="flex XL:flex-row flex-col gap-4 justify-center items-center"
       >
-        <div className="XL:basis-3/12 LG:basis-5/12 LG:w-full h-full MD:w-6/12 XS:w-4/12 w-6/12 flex justify-center LG:block">
-          <Image
-            className="object-fill"
-            src={RochenetteLegaspinaImage}
-            alt="Rochenette Legaspina"
-          />
-        </div>
-        <div className="LG:basis-7/12 XL:basis-9/12">
-          {Array.from({ length: 2 }, (_, i) =>
+        <Image
+          className="object-fill rounded-lg shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] bg-[#EBD2FC] dark:shadow-none dark:bg-transparent dark:rounded-none"
+          src={RocheetteLegaspinaDarkImage}
+          alt="Rochenette Legaspina"
+        />
+        <div className="LG:basis-7/12 XL:basis-9/12 XL:w-full LG:w-6/12 XS:w-8/12 w-full">
+          {Array.from({ length: 3 }, (_, i) =>
             translate(t, `about.intro.paragraph.${i + 1}` as TxKeyPath)
           ).map((paragraph, index) => (
             <p

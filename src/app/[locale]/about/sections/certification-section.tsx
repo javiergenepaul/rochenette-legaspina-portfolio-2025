@@ -28,7 +28,7 @@ export default function CertificationSection() {
       >
         {translate(useTranslations(), "about.certificate.title")}
       </motion.h3>
-      <div className="grid MD:grid-cols-2 grid-cols-1 gap-6">
+      <div className="grid MD:grid-cols-1 grid-cols-1 gap-6 XL:w-8/12 LG:w-9/12 w-full mx-auto">
         {CERTIFICATION_EXPERIENCE.map((cert, index) => (
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}

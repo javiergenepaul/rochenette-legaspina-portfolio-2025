@@ -1,3 +1,4 @@
+import { Moment } from "moment";
 import { StaticImageData } from "next/image";
 import React from "react";
 
@@ -32,11 +33,13 @@ export interface AboutMeContentInterface {
   imageAlt: string;
   backgroundColor?: string;
   url?: string;
+  endDate?: Moment;
+  startDate?: Moment;
 }
 
 export interface InfoInterface {
   title: string;
-  description: string;
+  description: string[];
 }
 
 export interface ProjectInterface {
@@ -45,4 +48,7 @@ export interface ProjectInterface {
   desciption: string;
   information: InfoInterface[];
   sectionId: string;
+  mockup: StaticImageData;
+  mockupAlt: string;
+  mockups: { image: StaticImageData; alt: string }[];
 }

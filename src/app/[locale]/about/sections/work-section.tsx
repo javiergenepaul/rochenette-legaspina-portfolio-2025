@@ -28,7 +28,7 @@ export default function WorkSection() {
       >
         {translate(useTranslations(), "about.work.title")}
       </motion.h3>
-      <div className="grid MD:grid-cols-2 grid-cols-1 gap-6">
+      <div className="grid MD:grid-cols-1 grid-cols-1 gap-6 XL:w-8/12 LG:w-9/12 w-full mx-auto">
         {WORK_EXPERIENCE.map((experience, index) => (
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -58,7 +58,10 @@ export default function WorkSection() {
                 {experience.title}
               </span>
               <span className="XL:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-[1.1875rem]">
-                {experience.subTitle}
+                {experience.subTitle}{" "}
+                {`(${experience.startDate?.format(
+                  "YYYY"
+                )} - ${experience.endDate?.format("YYYY")})`}
               </span>
               <ul className="list-disc pl-6 flex flex-col gap-2">
                 {experience.description.map((item, itemIndex) => (

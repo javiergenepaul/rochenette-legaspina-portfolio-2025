@@ -1,4 +1,4 @@
-import RochenetteLegaspinaImage from "./rochenette-legaspina.png";
+import RocheetteLegaspinaDarkImage from "./rochenette-legaspina-dark.png";
 import {
   AllianceLogo,
   Mach95Logo,
@@ -9,11 +9,36 @@ import {
   FigmaLogo,
   BlenderLogo,
   WordLogo,
-  ExcelLogo
+  ExcelLogo,
+  RlLogoDark,
+  RlLogoLight,
+  PsLogo,
+  AiLogo,
 } from "./logo";
+import {
+  ScClaimsMockup,
+  ScClaimsMockup1,
+  ScClaimsMockup2,
+  YooMockup,
+  YooMockup1,
+  YooMockup2,
+  YooMockup3,
+  IQMKMockUp,
+  IQMKMockUp1,
+  IQMKMockUp2,
+  IQMKMockUp3,
+  CountryScapeMockup,
+  CountryScapeMockup1,
+  CountryScapeMockup2,
+  CountryScapeMockup3,
+  CountryScapePreview,
+  IQMKPreview,
+  ScClaimsPreview,
+  YooPreview,
+} from "./projects";
 
 export {
-  RochenetteLegaspinaImage,
+  RocheetteLegaspinaDarkImage,
   AllianceLogo,
   Mach95Logo,
   ExodiaLogo,
@@ -23,6 +48,28 @@ export {
   FigmaLogo,
   BlenderLogo,
   WordLogo,
-  ExcelLogo
-
+  ExcelLogo,
+  ScClaimsMockup,
+  ScClaimsMockup1,
+  ScClaimsMockup2,
+  YooMockup,
+  YooMockup1,
+  YooMockup2,
+  YooMockup3,
+  IQMKMockUp,
+  IQMKMockUp1,
+  IQMKMockUp2,
+  IQMKMockUp3,
+  CountryScapeMockup,
+  CountryScapeMockup1,
+  CountryScapeMockup2,
+  CountryScapeMockup3,
+  CountryScapePreview,
+  IQMKPreview,
+  ScClaimsPreview,
+  YooPreview,
+  RlLogoDark,
+  RlLogoLight,
+  PsLogo,
+  AiLogo,
 };

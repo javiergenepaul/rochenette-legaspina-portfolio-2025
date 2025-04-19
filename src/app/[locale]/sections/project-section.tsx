@@ -3,15 +3,28 @@ import { style } from "@/config";
 import { twMerge } from "tailwind-merge";
 import { translate } from "@/lib";
 import { useTranslations } from "next-intl";
+import * as ASSETS from "@/assets";
+import { StaticImageData } from "next/image";
+
+export interface ProjectContainerInterface {
+  title: string;
+  description: string;
+  img: StaticImageData;
+  imgAlt: string;
+  sectionId: string;
+}
 
 export default function ProjectSection() {
-  const PROJECTS = [
+  const PROJECTS: ProjectContainerInterface[] = [
     {
       title: translate(useTranslations(), "home.project.projects.1.title"),
       description: translate(
         useTranslations(),
         "home.project.projects.1.description"
       ),
+      img: ASSETS.ScClaimsPreview,
+      imgAlt: "SC Claims Preview",
+      sectionId: "sc-claims",
     },
     {
       title: translate(useTranslations(), "home.project.projects.2.title"),
@@ -19,6 +32,9 @@ export default function ProjectSection() {
         useTranslations(),
         "home.project.projects.2.description"
       ),
+      img: ASSETS.YooPreview,
+      imgAlt: "Yoo Preview",
+      sectionId: "yoo",
     },
     {
       title: translate(useTranslations(), "home.project.projects.3.title"),
@@ -26,6 +42,9 @@ export default function ProjectSection() {
         useTranslations(),
         "home.project.projects.3.description"
       ),
+      img: ASSETS.IQMKPreview,
+      imgAlt: "IQMK Preview",
+      sectionId: "iqmk-app",
     },
     {
       title: translate(useTranslations(), "home.project.projects.4.title"),
@@ -33,6 +52,9 @@ export default function ProjectSection() {
         useTranslations(),
         "home.project.projects.4.description"
       ),
+      img: ASSETS.CountryScapePreview,
+      imgAlt: "CountryScape Preview",
+      sectionId: "countryscape",
     },
   ];
 
@@ -49,12 +71,7 @@ export default function ProjectSection() {
       </h1>
 
       {PROJECTS.map((project, index) => (
-        <ProjectContainer
-          key={index}
-          title={project.title}
-          description={project.description}
-          index={index}
-        />
+        <ProjectContainer key={index} {...project} index={index} />
       ))}
     </section>
   );
