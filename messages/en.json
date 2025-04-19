@@ -150,23 +150,23 @@
           "title": "Data Analytics Course",
           "organization": "Speaker: CIT-U",
           "description": {
-            "1": "Completed a UI/UX Design course focused on fundamentals and principles.",
-            "2": "Applied course concepts to create mobile and web designs.",
-            "3": "Gained hands-on experience in user-centered design processes.",
-            "4": "Developed skills in wireframing, prototyping, and user flow creation.",
-            "5": "Enhanced understanding of visual design, usability, and interaction principles."
-          },
-          "imageAlt": "CIT Logo"
-        },
-        "systemAnalyst": {
-          "title": "System Analyst and a UI/UX Desginer",
-          "organization": "Udemy",
-          "description": {
             "1": "Attended an 8-hour seminar at Alliance Software focused on Data Analytics.",
             "2": "Contributed to team discussions and translated insights into dashboard analytics.",
             "3": "Gained practical skills in data visualization and analysis.",
             "4": "Collaborated on creating impactful, data-driven dashboards for business solutions.",
             "5": "Enhanced understanding of analytics tools and their application in real-world scenarios."
+          },
+          "imageAlt": "CIT Logo"
+        },
+        "systemAnalyst": {
+          "title": "System Analyst and a UI/UX Desginer",
+          "organization": "Speaker: CIT-U",
+          "description": {
+            "1": "Completed a UI/UX Design course focused on fundamentals and principles.",
+            "2": "Applied course concepts to create mobile and web designs.",
+            "3": "Gained hands-on experience in user-centered design processes.",
+            "4": "Developed skills in wireframing, prototyping, and user flow creation.",
+            "5": "Enhanced understanding of visual design, usability, and interaction principles."
           },
           "imageAlt": "Udemy Logo"
         }

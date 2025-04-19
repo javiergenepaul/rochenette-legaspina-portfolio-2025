@@ -42,7 +42,7 @@ export default function LetsTalkSection() {
             variant={"default"}
             onClick={() => {
               window.open(
-                "https://calendar.app.google/t3SJ1W9s6HMtSPiK9",
+                "https://calendar.app.google/Gij4Kb5yDv9YU7Q29",
                 "_blank"
               );
             }}

@@ -12,6 +12,8 @@ import {
   ExcelLogo,
   RlLogoDark,
   RlLogoLight,
+  PsLogo,
+  AiLogo,
 } from "./logo";
 import {
   ScClaimsMockup,
@@ -68,4 +70,6 @@ export {
   YooPreview,
   RlLogoDark,
   RlLogoLight,
+  PsLogo,
+  AiLogo,
 };
