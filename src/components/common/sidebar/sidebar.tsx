@@ -107,7 +107,8 @@ export default function Sidebar() {
                 className="w-full bg-transparent border-woodsmoke-500 dark:border-woodsmoke-300"
                 onClick={() => {
                   window.open(
-                    "https://calendar.app.google/t3SJ1W9s6HMtSPiK9",
+                    // "https://calendar.app.google/t3SJ1W9s6HMtSPiK9",
+                    "https://calendar.app.google/Gij4Kb5yDv9YU7Q29",
                     "_blank"
                   );
                 }}

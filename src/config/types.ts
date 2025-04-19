@@ -1,3 +1,4 @@
+import { Moment } from "moment";
 import { StaticImageData } from "next/image";
 import React from "react";
 
@@ -32,6 +33,8 @@ export interface AboutMeContentInterface {
   imageAlt: string;
   backgroundColor?: string;
   url?: string;
+  endDate?: Moment;
+  startDate?: Moment;
 }
 
 export interface InfoInterface {

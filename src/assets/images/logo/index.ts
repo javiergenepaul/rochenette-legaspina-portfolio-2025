@@ -10,6 +10,8 @@ import WordLogo from "./word-logo.png";
 import BlenderLogo from "./blender-logo.png";
 import RlLogoLight from "./rochenette-legaspona-logo-light.png";
 import RlLogoDark from "./rochenette-legaspina-logo-dark.png";
+import PsLogo from "./ps-logo.png";
+import AiLogo from "./ai-logo.png";
 
 export {
   AllianceLogo,
@@ -23,5 +25,7 @@ export {
   WordLogo,
   BlenderLogo,
   RlLogoLight,
-  RlLogoDark
+  RlLogoDark,
+  PsLogo,
+  AiLogo
 };

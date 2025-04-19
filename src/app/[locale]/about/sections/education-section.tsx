@@ -41,7 +41,10 @@ export default function EducationSection() {
               {EDUCATION_EXPERIENCE[0].title}
             </span>
             <span className="XL:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-[1.1875rem]">
-              {EDUCATION_EXPERIENCE[0].subTitle}
+              {EDUCATION_EXPERIENCE[0].subTitle}{" "}
+              {`(${EDUCATION_EXPERIENCE[0].startDate?.format(
+                "YYYY"
+              )} - ${EDUCATION_EXPERIENCE[0].endDate?.format("YYYY")})`}
             </span>
             <ul className="list-disc pl-6 flex flex-col gap-2">
               {EDUCATION_EXPERIENCE[0].description.map((item, index) => (

@@ -58,7 +58,10 @@ export default function WorkSection() {
                 {experience.title}
               </span>
               <span className="XL:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-[1.1875rem]">
-                {experience.subTitle}
+                {experience.subTitle}{" "}
+                {`(${experience.startDate?.format(
+                  "YYYY"
+                )} - ${experience.endDate?.format("YYYY")})`}
               </span>
               <ul className="list-disc pl-6 flex flex-col gap-2">
                 {experience.description.map((item, itemIndex) => (
