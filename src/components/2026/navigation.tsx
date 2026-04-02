@@ -227,7 +227,9 @@ export default function Navigation2026() {
 
           {/* CTA */}
           <a
-            href="#contact"
+            href="https://calendar.app.google/Gij4Kb5yDv9YU7Q29"
+            target="_blank"
+            rel="noopener noreferrer"
             className={cn(
               "hidden md:flex items-center gap-1.5 px-4 py-2 rounded-full",
               "font-poppins font-bold text-[0.78rem] text-white no-underline",
@@ -281,7 +283,9 @@ export default function Navigation2026() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="https://calendar.app.google/Gij4Kb5yDv9YU7Q29"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={closeMobileMenu}
             className={cn(
               "mt-1 flex items-center justify-center gap-2 py-2.5 rounded-xl",

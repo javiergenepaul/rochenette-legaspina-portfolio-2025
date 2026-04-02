@@ -44,8 +44,8 @@ const CONTACT_LINKS = [
   {
     Icon: Linkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/rochenette-legaspina",
-    href: "https://linkedin.com/in/rochenette-legaspina",
+    value: "linkedin.com/in/rochenette-legaspina-677a64263",
+    href: "https://www.linkedin.com/in/rochenette-legaspina-677a64263/",
     sub: "Connect professionally",
   },
   {
