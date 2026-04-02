@@ -18,93 +18,41 @@ const PREVIEW_W = 160;
 const PREVIEW_H = 100;
 const SCALE = PREVIEW_W / IFRAME_W;
 
-// ─── Prev year card with iframe preview (bottom-left) ────────────────────────
+// ─── Compact pill (mobile) ────────────────────────────────────────────────────
 
-function PrevYearCard({ year, locale }: { year: Year; locale: string }) {
+function PillButton({
+  year,
+  locale,
+  dir,
+}: {
+  year: Year;
+  locale: string;
+  dir: "prev" | "next";
+}) {
   const router = useRouter();
-  const [hovered, setHovered] = useState(false);
-  const href = `/${year}/${locale}`;
-
   return (
-    <div className="fixed bottom-8 left-8 z-9998">
-      <div className="relative" style={{ width: PREVIEW_W, height: PREVIEW_H }}>
-        {/* Label */}
-        <div
-          className={`absolute -top-6 left-0 flex items-center gap-1.5 transition-opacity duration-200 ${
-            hovered ? "opacity-100" : "opacity-60"
-          }`}
-        >
-          <span
-            className={`text-xs text-amethyst-400 transition-transform duration-200 ${
-              hovered ? "-translate-x-1" : "translate-x-0"
-            }`}
-          >
-            ←
-          </span>
-          <span className="text-xs font-semibold text-amethyst-500 dark:text-amethyst-400 tracking-widest uppercase">
-            {YEAR_LABELS[year]}
-          </span>
-        </div>
-
-        {/* Glow */}
-        <div
-          className={`absolute inset-0 rounded-xl pointer-events-none transition-all duration-300 ${
-            hovered
-              ? "shadow-[0_0_32px_6px_rgba(99,102,241,0.4)]"
-              : "shadow-[0_0_14px_2px_rgba(99,102,241,0.15)]"
-          }`}
-        />
-
-        {/* Card */}
-        <div
-          className={`relative w-full h-full rounded-xl overflow-hidden cursor-pointer transition-all duration-300 border ${
-            hovered
-              ? "border-amethyst-400/70 scale-[1.04]"
-              : "border-amethyst-500/20 scale-100"
-          }`}
-          onClick={() => router.push(href)}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-        >
-          <div
-            style={{
-              width: IFRAME_W,
-              height: IFRAME_H,
-              transform: `scale(${SCALE})`,
-              transformOrigin: "top left",
-              pointerEvents: "none",
-            }}
-          >
-            <iframe
-              src={href}
-              width={IFRAME_W}
-              height={IFRAME_H}
-              scrolling="no"
-              tabIndex={-1}
-              aria-hidden="true"
-              style={{ border: "none", display: "block" }}
-            />
-          </div>
-
-          {/* Hover overlay */}
-          <div
-            className={`absolute inset-0 flex items-end justify-center pb-2 bg-linear-to-t from-amethyst-950/70 via-transparent to-transparent transition-opacity duration-300 ${
-              hovered ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <span className="text-[10px] font-semibold text-amethyst-50 tracking-wide bg-amethyst-500 px-3 py-1 rounded-full">
-              {`Visit ${year} →`}
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <button
+      onClick={() => router.push(`/${year}/${locale}`)}
+      className="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[0.72rem] font-semibold tracking-widest uppercase border border-amethyst-500/30 bg-white/80 dark:bg-woodsmoke-900/80 backdrop-blur-sm text-amethyst-500 dark:text-amethyst-400 shadow-sm active:scale-95 transition-transform"
+    >
+      {dir === "prev" && <span>←</span>}
+      {YEAR_LABELS[year]}
+      {dir === "next" && <span>→</span>}
+    </button>
   );
 }
 
-// ─── Next year card with iframe preview (bottom-right) ───────────────────────
+// ─── Full preview card (desktop) ─────────────────────────────────────────────
 
-function NextYearCard({ year, locale }: { year: Year; locale: string }) {
+function PreviewCard({
+  year,
+  locale,
+  dir,
+}: {
+  year: Year;
+  locale: string;
+  dir: "prev" | "next";
+}) {
   const router = useRouter();
   const [hovered, setHovered] = useState(false);
   const href = `/${year}/${locale}`;
@@ -113,20 +61,31 @@ function NextYearCard({ year, locale }: { year: Year; locale: string }) {
     <div className="relative" style={{ width: PREVIEW_W, height: PREVIEW_H }}>
       {/* Label */}
       <div
-        className={`absolute -top-6 left-0 flex items-center gap-1.5 transition-opacity duration-200 ${
+        className={`absolute -top-6 ${dir === "next" ? "left-0" : "left-0"} flex items-center gap-1.5 transition-opacity duration-200 ${
           hovered ? "opacity-100" : "opacity-60"
         }`}
       >
+        {dir === "prev" && (
+          <span
+            className={`text-xs text-amethyst-400 transition-transform duration-200 ${
+              hovered ? "-translate-x-1" : "translate-x-0"
+            }`}
+          >
+            ←
+          </span>
+        )}
         <span className="text-xs font-semibold text-amethyst-500 dark:text-amethyst-400 tracking-widest uppercase">
           {YEAR_LABELS[year]}
         </span>
-        <span
-          className={`text-xs text-amethyst-400 transition-transform duration-200 ${
-            hovered ? "translate-x-1" : "translate-x-0"
-          }`}
-        >
-          →
-        </span>
+        {dir === "next" && (
+          <span
+            className={`text-xs text-amethyst-400 transition-transform duration-200 ${
+              hovered ? "translate-x-1" : "translate-x-0"
+            }`}
+          >
+            →
+          </span>
+        )}
       </div>
 
       {/* Glow */}
@@ -198,11 +157,31 @@ export default function YearNavigator() {
 
   return (
     <>
-      {prevYear && <PrevYearCard year={prevYear} locale={locale} />}
+      {/* ── Left / Prev ── */}
+      {prevYear && (
+        <div className="fixed bottom-8 left-4 sm:left-8 z-9998">
+          {/* Mobile: pill */}
+          <div className="md:hidden">
+            <PillButton year={prevYear} locale={locale} dir="prev" />
+          </div>
+          {/* Desktop: preview card */}
+          <div className="hidden md:block">
+            <PreviewCard year={prevYear} locale={locale} dir="prev" />
+          </div>
+        </div>
+      )}
 
+      {/* ── Right / Next ── */}
       {nextYear && (
-        <div className="fixed bottom-8 right-8 z-9998">
-          <NextYearCard year={nextYear} locale={locale} />
+        <div className="fixed bottom-8 right-4 sm:right-8 z-9998">
+          {/* Mobile: pill */}
+          <div className="md:hidden">
+            <PillButton year={nextYear} locale={locale} dir="next" />
+          </div>
+          {/* Desktop: preview card */}
+          <div className="hidden md:block">
+            <PreviewCard year={nextYear} locale={locale} dir="next" />
+          </div>
         </div>
       )}
     </>
