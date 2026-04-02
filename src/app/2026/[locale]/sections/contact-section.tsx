@@ -97,7 +97,7 @@ export default function ContactSection2026() {
         love to hear from you.
       </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-16 items-start">
         {/* Left — contact links */}
         <div>
           <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.92rem] leading-[1.75] mb-7">
@@ -148,7 +148,7 @@ export default function ContactSection2026() {
         {/* Right — form */}
         <div
           className={cn(
-            "rounded-[20px] p-8 border",
+            "rounded-[20px] p-5 sm:p-8 border",
             "bg-white dark:bg-woodsmoke-800",
             "border-woodsmoke-200 dark:border-woodsmoke-700",
             "shadow-[0_4px_16px_rgba(0,0,0,.06)]",

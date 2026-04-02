@@ -23,12 +23,12 @@ export default function HeroSection2026() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center px-[7%] overflow-hidden bg-[#260000]"
+      className="relative min-h-dvh flex items-center px-[7%] overflow-hidden bg-[#260000]"
     >
       <HeroBackground />
 
       {/* Content */}
-      <div className="relative z-10 max-w-175">
+      <div className="relative z-10 w-full max-w-175 py-28 sm:py-20 lg:py-0">
         {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 bg-white/7 border border-white/15 text-white/75 px-4 py-1.5 rounded-full text-caption font-semibold tracking-[0.8px] mb-6 font-poppins">
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse shrink-0" />
@@ -116,7 +116,7 @@ export default function HeroSection2026() {
         </div>
 
         {/* Stats */}
-        <div className="flex flex-wrap gap-8 mt-10 pt-8 border-t border-white/10">
+        <div className="flex flex-wrap gap-4 sm:gap-8 mt-10 pt-8 border-t border-white/10">
           {[
             { val: "3+", label: "Disciplines" },
             { val: "5+", label: "Projects" },
@@ -139,21 +139,26 @@ export default function HeroSection2026() {
       </div>
 
       {/* Scroll indicator */}
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
-        style={{ animation: "scroll-bob 2.4s ease-in-out infinite" }}
-      >
-        <span className="text-white/60 text-[0.68rem] font-poppins font-semibold uppercase tracking-[2px]">
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10">
+        {/* Label + mouse — hidden on mobile */}
+        <span className="hidden sm:block text-white/60 text-[0.68rem] font-poppins font-semibold uppercase tracking-[2px]">
           Scroll
         </span>
-        {/* Mouse-shaped scroll indicator */}
-        <div className="w-5 h-8 rounded-full border-2 border-white/50 flex justify-center pt-1.5">
-          <div
-            className="w-0.5 h-1.5 rounded-full bg-white/80"
-            style={{ animation: "scroll-bob 2.4s ease-in-out infinite" }}
-          />
+        <div
+          className="hidden sm:flex w-5 h-8 rounded-full border-2 border-white/50 justify-center pt-1.5"
+          style={{ animation: "scroll-bob 2.4s ease-in-out infinite" }}
+        >
+          <div className="w-0.5 h-1.5 rounded-full bg-white/80" />
         </div>
-        <ChevronDown size={14} strokeWidth={2.5} className="text-white/50 -mt-1" />
+
+        {/* Chevrons — visible on all sizes, stacked bounce */}
+        <div
+          className="flex flex-col items-center -space-y-1.5"
+          style={{ animation: "scroll-bob 2.4s ease-in-out infinite" }}
+        >
+          <ChevronDown size={14} strokeWidth={2.5} className="text-white/30" />
+          <ChevronDown size={14} strokeWidth={2.5} className="text-white/55" />
+        </div>
       </div>
     </section>
   );
