@@ -1,6 +1,6 @@
 import "../../globals.css";
 
-import { Footer, Navigation } from "@/components";
+import { Navigation, Footer } from "@/components/2026";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { ThemeProviders } from "./theme-providers";
@@ -11,9 +11,10 @@ import LoadingMask from "../../loading-mask";
 export const metadata: Metadata = {
   title: "Rochenette Legaspina - 2026",
   description: "Rochenette Legaspina Portfolio 2026",
+  icons: { icon: "/favicon-2026.svg" },
 };
 
-export default async function LocaleLayout({
+export default async function LocaleLayout2026({
   children,
   params,
 }: Readonly<{
@@ -21,11 +22,10 @@ export default async function LocaleLayout({
   params: { locale: string };
 }>) {
   const { locale } = await params;
-
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} data-year="2026" suppressHydrationWarning>
       <body>
         <NextIntlClientProvider messages={messages}>
           <ThemeProviders>

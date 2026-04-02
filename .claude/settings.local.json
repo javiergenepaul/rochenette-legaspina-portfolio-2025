@@ -8,7 +8,8 @@
       "Bash(cp -r \"src/app/2025/[locale]\" \"src/app/2026/[locale]\")",
       "Bash(pnpm run:*)",
       "Bash(pnpm install:*)",
-      "Bash(pnpm add:*)"
+      "Bash(pnpm add:*)",
+      "Bash(node -e ':*)"
     ]
   }
 }

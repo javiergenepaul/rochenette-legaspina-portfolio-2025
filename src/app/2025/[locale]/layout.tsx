@@ -10,8 +10,9 @@ import LoadingMask from "../../loading-mask";
 import YearSwitcher2026 from "@/components/common/year-switcher-2026";
 
 export const metadata: Metadata = {
-  title: "Rochenette Legaspina - Home",
-  description: "Rochenette Home",
+  title: "Rochenette Legaspina - 2025",
+  description: "Rochenette Legaspina Portfolio 2025",
+  icons: { icon: "/favicon-2025.svg" },
 };
 
 export default async function LocaleLayout({
@@ -26,7 +27,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} data-year="2025" suppressHydrationWarning>
       <body>
         <NextIntlClientProvider messages={messages}>
           <ThemeProviders>

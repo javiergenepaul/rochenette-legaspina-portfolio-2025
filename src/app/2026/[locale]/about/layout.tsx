@@ -1,20 +1,5 @@
-import { LetstalkSection } from "@/components";
 import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Rochenette Legaspina - About Me",
-  description: "Rochenette About Me",
-};
-
-export default function AboutLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <main className="flex flex-col SM:pt-32 pt-12 pb-20 gap-20">
-      {children}
-      <LetstalkSection />
-    </main>
-  );
+export const metadata: Metadata = { title: "Rochenette Legaspina 2026 - About" };
+export default function AboutLayout2026({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }

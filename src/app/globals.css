@@ -118,3 +118,54 @@
 img {
   @apply select-none;
 }
+
+/* ─── 2026 Theme ────────────────────────────────────────────────────────────
+   Override the same CSS custom properties so every Tailwind utility
+   (amethyst-*, scorpion-*, woodsmoke-*) automatically picks up 2026 colours.
+   Swap these values for whatever palette you design for 2026.
+   ────────────────────────────────────────────────────────────────────────── */
+[data-year="2026"] {
+  /* Accent — teal/cyan replacing amethyst */
+  --amethyst-50:  #f0fdfa;
+  --amethyst-100: #ccfbf1;
+  --amethyst-200: #99f6e4;
+  --amethyst-300: #5eead4;
+  --amethyst-400: #2dd4bf;
+  --amethyst-500: #14b8a6;
+  --amethyst-600: #0d9488;
+  --amethyst-700: #0f766e;
+  --amethyst-800: #115e59;
+  --amethyst-900: #134e4a;
+  --amethyst-950: #042f2e;
+
+  /* Surface — slate replacing scorpion */
+  --scorpion-50:  #f8fafc;
+  --scorpion-100: #f1f5f9;
+  --scorpion-200: #e2e8f0;
+  --scorpion-300: #cbd5e1;
+  --scorpion-400: #94a3b8;
+  --scorpion-500: #64748b;
+  --scorpion-600: #475569;
+  --scorpion-700: #334155;
+  --scorpion-800: #1e293b;
+  --scorpion-900: #0f172a;
+  --scorpion-950: #020617;
+
+  /* Neutral — zinc replacing woodsmoke */
+  --woodsmoke-50:  #fafafa;
+  --woodsmoke-100: #f4f4f5;
+  --woodsmoke-200: #e4e4e7;
+  --woodsmoke-300: #d4d4d8;
+  --woodsmoke-400: #a1a1aa;
+  --woodsmoke-500: #71717a;
+  --woodsmoke-600: #52525b;
+  --woodsmoke-700: #3f3f46;
+  --woodsmoke-800: #27272a;
+  --woodsmoke-900: #18181b;
+  --woodsmoke-950: #09090b;
+}
+
+[data-year="2026"].dark {
+  --background: 222 47% 5%;
+  --foreground: 210 40% 98%;
+}
