@@ -1,9 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import React from "react";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Send, Mail, Linkedin, Github, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
 
+// ─── Validation schema (mirrors 2025) ────────────────────────────────────────
+const FormSchema = z.object({
+  firstName: z
+    .string()
+    .min(2, { message: "First name must be at least 2 characters." })
+    .max(50, { message: "First name must be at most 50 characters." }),
+  lastName: z
+    .string()
+    .min(2, { message: "Last name must be at least 2 characters." })
+    .max(50, { message: "Last name must be at most 50 characters." })
+    .min(1, { message: "Last name is required." }),
+  email: z
+    .string()
+    .email({ message: "Please enter a valid email address." })
+    .min(10, { message: "Email must be at least 10 characters." })
+    .max(50, { message: "Email must be at most 50 characters." }),
+  message: z
+    .string()
+    .max(250, { message: "Message must be at most 250 characters." })
+    .min(1, { message: "Message is required." }),
+});
+
+type FormValues = z.infer<typeof FormSchema>;
+
+// ─── Contact links ────────────────────────────────────────────────────────────
 const CONTACT_LINKS = [
   {
     Icon: Mail,
@@ -28,18 +57,23 @@ const CONTACT_LINKS = [
   },
 ] as const;
 
+// ─── Section ──────────────────────────────────────────────────────────────────
 export default function ContactSection2026() {
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-  const [sent, setSent] = useState(false);
+  const { toast } = useToast();
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-  }
+  const form = useForm<FormValues>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: { firstName: "", lastName: "", email: "", message: "" },
+  });
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    // TODO: wire up real send logic
-    setSent(true);
+  function onSubmit(data: FormValues) {
+    if (data.email && data.message) {
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      form.reset();
+    }
   }
 
   return (
@@ -63,7 +97,7 @@ export default function ContactSection2026() {
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 items-start">
-        {/* Left — links */}
+        {/* Left — contact links */}
         <div>
           <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.92rem] leading-[1.75] mb-7">
             I&apos;m currently open to freelance projects, full-time roles, and collaborations in
@@ -94,7 +128,7 @@ export default function ContactSection2026() {
                   </strong>
                   <small className="text-[0.73rem] text-woodsmoke-400">{sub}</small>
                 </div>
-                <ChevronRight size={14} className="text-woodsmoke-300 dark:text-woodsmoke-600 shrink-0 transition-all duration-200 group-hover:text-amethyst-500 group-hover:translate-x-1" />
+                <ChevronRight size={14} className="text-woodsmoke-300 dark:text-woodsmoke-600 shrink-0" />
               </a>
             ))}
           </div>
@@ -112,107 +146,131 @@ export default function ContactSection2026() {
             Send a Message
           </h3>
 
-          {sent ? (
-            <div className="flex flex-col items-center justify-center gap-3 py-12 text-center">
-              <div className="w-14 h-14 rounded-full bg-amethyst-50 dark:bg-amethyst-500/15 flex items-center justify-center">
-                <Send size={24} className="text-amethyst-500" strokeWidth={1.75} />
-              </div>
-              <p className="font-poppins font-bold text-woodsmoke-900 dark:text-woodsmoke-50">Message sent!</p>
-              <p className="text-[0.85rem] text-woodsmoke-400">I&apos;ll get back to you as soon as possible.</p>
-              <button
-                onClick={() => { setSent(false); setForm({ name: "", email: "", subject: "", message: "" }); }}
-                className="mt-2 text-[0.8rem] text-amethyst-500 font-semibold underline"
-              >
-                Send another
-              </button>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-3.5">
+            {/* First + Last name */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <Field
+                label="First Name"
+                placeholder="Your first name"
+                type="text"
+                maxLength={50}
+                error={form.formState.errors.firstName?.message}
+                {...form.register("firstName")}
+              />
+              <Field
+                label="Last Name"
+                placeholder="Your last name"
+                type="text"
+                maxLength={50}
+                error={form.formState.errors.lastName?.message}
+                {...form.register("lastName")}
+              />
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
-              {/* Name + Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                <Field label="Name" name="name" type="text" value={form.name} onChange={handleChange} required placeholder="Your name" />
-                <Field label="Email" name="email" type="email" value={form.email} onChange={handleChange} required placeholder="your@email.com" />
-              </div>
-              <Field label="Subject" name="subject" type="text" value={form.subject} onChange={handleChange} required placeholder="Project enquiry, collaboration…" />
-              <FieldArea label="Message" name="message" value={form.message} onChange={handleChange} required placeholder="Tell me about your project or idea…" />
 
-              <button
-                type="submit"
-                className={cn(
-                  "w-full flex items-center justify-center gap-2 py-3 rounded-xl",
-                  "font-poppins font-bold text-[0.88rem] text-white border-none cursor-pointer",
-                  "bg-linear-to-br from-amethyst-500 to-amethyst-700",
-                  "shadow-[0_4px_14px_rgba(211,47,47,.3)]",
-                  "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(211,47,47,.42)]"
-                )}
-              >
-                <Send size={16} strokeWidth={1.75} />
-                Send Message
-              </button>
-            </form>
-          )}
+            <Field
+              label="Email"
+              placeholder="your@email.com"
+              type="email"
+              maxLength={50}
+              error={form.formState.errors.email?.message}
+              {...form.register("email")}
+            />
+
+            <FieldArea
+              label="Message"
+              placeholder="Tell me about your project or idea…"
+              maxLength={250}
+              error={form.formState.errors.message?.message}
+              {...form.register("message")}
+            />
+
+            <button
+              type="submit"
+              className={cn(
+                "w-full flex items-center justify-center gap-2 py-3 rounded-xl",
+                "font-poppins font-bold text-[0.88rem] text-white border-none cursor-pointer",
+                "bg-linear-to-br from-amethyst-500 to-amethyst-700",
+                "shadow-[0_4px_14px_rgba(211,47,47,.3)]",
+                "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(211,47,47,.42)]"
+              )}
+            >
+              <Send size={16} strokeWidth={1.75} />
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
     </section>
   );
 }
 
-// ── Field helpers ──────────────────────────────────────────────────────────────
+// ─── Field primitives ─────────────────────────────────────────────────────────
 
-function Field({
-  label, name, type, value, onChange, required, placeholder,
-}: {
-  label: string; name: string; type: string;
-  value: string; onChange: React.ChangeEventHandler<HTMLInputElement>;
-  required?: boolean; placeholder?: string;
-}) {
-  return (
-    <div>
-      <label className="block font-poppins font-bold text-[0.73rem] text-woodsmoke-900 dark:text-woodsmoke-100 mb-1.5 tracking-[0.3px]">
-        {label}
-      </label>
-      <input
-        name={name} type={type} value={value} onChange={onChange}
-        required={required} placeholder={placeholder}
-        className={cn(
-          "w-full px-4 py-2.5 rounded-[10px] text-[0.83rem] font-roboto outline-none",
-          "border-[1.5px] transition-all duration-200",
-          "text-woodsmoke-900 dark:text-woodsmoke-50",
-          "bg-woodsmoke-50 dark:bg-woodsmoke-900",
-          "border-woodsmoke-200 dark:border-woodsmoke-700",
-          "placeholder:text-woodsmoke-300 dark:placeholder:text-woodsmoke-600",
-          "focus:border-amethyst-500 focus:shadow-[0_0_0_3px_rgba(211,47,47,.1)]"
-        )}
-      />
-    </div>
-  );
+interface FieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  error?: string;
 }
 
-function FieldArea({
-  label, name, value, onChange, required, placeholder,
-}: {
-  label: string; name: string;
-  value: string; onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
-  required?: boolean; placeholder?: string;
-}) {
-  return (
-    <div>
-      <label className="block font-poppins font-bold text-[0.73rem] text-woodsmoke-900 dark:text-woodsmoke-100 mb-1.5 tracking-[0.3px]">
-        {label}
-      </label>
-      <textarea
-        name={name} value={value} onChange={onChange}
-        required={required} placeholder={placeholder} rows={4}
-        className={cn(
-          "w-full px-4 py-2.5 rounded-[10px] text-[0.83rem] font-roboto outline-none resize-y",
-          "border-[1.5px] transition-all duration-200",
-          "text-woodsmoke-900 dark:text-woodsmoke-50",
-          "bg-woodsmoke-50 dark:bg-woodsmoke-900",
-          "border-woodsmoke-200 dark:border-woodsmoke-700",
-          "placeholder:text-woodsmoke-300 dark:placeholder:text-woodsmoke-600",
-          "focus:border-amethyst-500 focus:shadow-[0_0_0_3px_rgba(211,47,47,.1)]"
+const Field = React.forwardRef<HTMLInputElement, FieldProps>(
+  function Field({ label, error, ...props }, ref) {
+    return (
+      <div>
+        <label className="block font-poppins font-bold text-[0.73rem] text-woodsmoke-900 dark:text-woodsmoke-100 mb-1.5 tracking-[0.3px]">
+          {label}
+        </label>
+        <input
+          ref={ref}
+          {...props}
+          className={cn(
+            "w-full px-4 py-2.5 rounded-[10px] text-[0.83rem] font-roboto outline-none",
+            "border-[1.5px] transition-all duration-200",
+            "text-woodsmoke-900 dark:text-woodsmoke-50",
+            "bg-woodsmoke-50 dark:bg-woodsmoke-900",
+            "placeholder:text-woodsmoke-300 dark:placeholder:text-woodsmoke-600",
+            error
+              ? "border-red-500 focus:shadow-[0_0_0_3px_rgba(239,68,68,.15)]"
+              : "border-woodsmoke-200 dark:border-woodsmoke-700 focus:border-amethyst-500 focus:shadow-[0_0_0_3px_rgba(211,47,47,.1)]"
+          )}
+        />
+        {error && (
+          <p className="mt-1 text-[0.7rem] text-red-500 font-medium">{error}</p>
         )}
-      />
-    </div>
-  );
+      </div>
+    );
+  }
+);
+
+interface FieldAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  label: string;
+  error?: string;
 }
+
+const FieldArea = React.forwardRef<HTMLTextAreaElement, FieldAreaProps>(
+  function FieldArea({ label, error, ...props }, ref) {
+    return (
+      <div>
+        <label className="block font-poppins font-bold text-[0.73rem] text-woodsmoke-900 dark:text-woodsmoke-100 mb-1.5 tracking-[0.3px]">
+          {label}
+        </label>
+        <textarea
+          ref={ref}
+          rows={4}
+          {...props}
+          className={cn(
+            "w-full px-4 py-2.5 rounded-[10px] text-[0.83rem] font-roboto outline-none resize-y",
+            "border-[1.5px] transition-all duration-200",
+            "text-woodsmoke-900 dark:text-woodsmoke-50",
+            "bg-woodsmoke-50 dark:bg-woodsmoke-900",
+            "placeholder:text-woodsmoke-300 dark:placeholder:text-woodsmoke-600",
+            error
+              ? "border-red-500 focus:shadow-[0_0_0_3px_rgba(239,68,68,.15)]"
+              : "border-woodsmoke-200 dark:border-woodsmoke-700 focus:border-amethyst-500 focus:shadow-[0_0_0_3px_rgba(211,47,47,.1)]"
+          )}
+        />
+        {error && (
+          <p className="mt-1 text-[0.7rem] text-red-500 font-medium">{error}</p>
+        )}
+      </div>
+    );
+  }
+);

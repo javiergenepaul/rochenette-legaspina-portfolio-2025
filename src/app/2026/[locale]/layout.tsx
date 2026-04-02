@@ -2,9 +2,9 @@ import "../../globals.css";
 
 import { Poppins, Roboto } from "next/font/google";
 import { Navigation, Footer } from "@/components/2026";
+import { Toaster2026 } from "@/components/2026/toaster";
 import I18nProvider from "@/components/2025/common/i18n-provider";
 import { Metadata } from "next";
-import { Toaster } from "@/components/2025/ui/toaster";
 import LoadingMask from "../../loading-mask";
 import HtmlAttributes from "@/components/common/html-attributes";
 import YearNavigator from "@/components/common/year-navigator";
@@ -50,7 +50,7 @@ export default async function LocaleLayout2026({
           <Navigation />
           {children}
           <Footer />
-          <Toaster />
+          <Toaster2026 />
         </div>
         <YearNavigator />
       </I18nProvider>
