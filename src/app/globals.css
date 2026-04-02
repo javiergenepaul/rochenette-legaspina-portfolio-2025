@@ -117,47 +117,50 @@
      Override the CSS vars — Tailwind utilities pick up the change automatically
      via @theme inline references below.
      ───────────────────────────────────────────────────────────────────────── */
+  /* ─── 2026 theme — crimson red primary, dark-navy neutrals ──────────────── */
   [data-year="2026"] {
-    --amethyst-50:  #f0fdfa;
-    --amethyst-100: #ccfbf1;
-    --amethyst-200: #99f6e4;
-    --amethyst-300: #5eead4;
-    --amethyst-400: #2dd4bf;
-    --amethyst-500: #14b8a6;
-    --amethyst-600: #0d9488;
-    --amethyst-700: #0f766e;
-    --amethyst-800: #115e59;
-    --amethyst-900: #134e4a;
-    --amethyst-950: #042f2e;
+    /* Red mapped into the amethyst slot */
+    --amethyst-50:  #FFF0F0;
+    --amethyst-100: #FFCDD2;
+    --amethyst-200: #EF9A9A;
+    --amethyst-300: #E57373;
+    --amethyst-400: #EF5350;
+    --amethyst-500: #D32F2F;
+    --amethyst-600: #C62828;
+    --amethyst-700: #B71C1C;
+    --amethyst-800: #8B1A1A;
+    --amethyst-900: #651313;
+    --amethyst-950: #3A0000;
 
-    --scorpion-50:  #f8fafc;
-    --scorpion-100: #f1f5f9;
-    --scorpion-200: #e2e8f0;
-    --scorpion-300: #cbd5e1;
-    --scorpion-400: #94a3b8;
-    --scorpion-500: #64748b;
-    --scorpion-600: #475569;
-    --scorpion-700: #334155;
-    --scorpion-800: #1e293b;
-    --scorpion-900: #0f172a;
-    --scorpion-950: #020617;
+    /* Navy-tinted neutrals */
+    --woodsmoke-50:  #FAFAFA;
+    --woodsmoke-100: #F5F5F5;
+    --woodsmoke-200: #E8E8F0;
+    --woodsmoke-300: #D0D0D8;
+    --woodsmoke-400: #9090A8;
+    --woodsmoke-500: #666680;
+    --woodsmoke-600: #4A4A60;
+    --woodsmoke-700: #2A2A3E;
+    --woodsmoke-800: #1a1a2a;
+    --woodsmoke-900: #13131f;
+    --woodsmoke-950: #0d0d14;
 
-    --woodsmoke-50:  #fafafa;
-    --woodsmoke-100: #f4f4f5;
-    --woodsmoke-200: #e4e4e7;
-    --woodsmoke-300: #d4d4d8;
-    --woodsmoke-400: #a1a1aa;
-    --woodsmoke-500: #71717a;
-    --woodsmoke-600: #52525b;
-    --woodsmoke-700: #3f3f46;
-    --woodsmoke-800: #27272a;
-    --woodsmoke-900: #18181b;
-    --woodsmoke-950: #09090b;
+    --scorpion-50:  #F5F5F5;
+    --scorpion-100: #EBEBEB;
+    --scorpion-200: #E0E0E0;
+    --scorpion-300: #BDBDBD;
+    --scorpion-400: #9E9E9E;
+    --scorpion-500: #757575;
+    --scorpion-600: #616161;
+    --scorpion-700: #424242;
+    --scorpion-800: #212121;
+    --scorpion-900: #111111;
+    --scorpion-950: #080808;
   }
 
   [data-year="2026"].dark {
-    --background: 222 47% 5%;
-    --foreground: 210 40% 98%;
+    --background: 240 30% 5%;
+    --foreground: 240 100% 98%;
   }
 
   /* ─── 2027 theme — indigo / cosmic ───────────────────────────────────────── */
@@ -297,6 +300,8 @@ img {
 
   /* Typography */
   --font-inter: "Inter", sans-serif;
+  --font-poppins: var(--font-poppins), 'Poppins', system-ui, sans-serif;
+  --font-roboto: var(--font-roboto), 'Roboto', system-ui, sans-serif;
 
   --text-h1:      4.188rem;
   --text-h2:      3.188rem;
@@ -319,6 +324,20 @@ img {
 
   /* Animations */
   --animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
+}
+
+/* ─── 2026 animations ────────────────────────────────────────────────────────*/
+@keyframes drift-orb {
+  0%,100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-28px) scale(1.04); }
+}
+@keyframes scroll-bob {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(8px); }
+}
+@keyframes fade-down {
+  from { opacity:0; transform:translateY(-6px); }
+  to   { opacity:1; transform:translateY(0); }
 }
 
 @keyframes orbit {

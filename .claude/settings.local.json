@@ -28,7 +28,11 @@
       "Bash(sed -i 's|import HtmlAttributes from \"@/components/common/html-attributes\";|import HtmlAttributes from \"@/components/common/html-attributes\";\\\\nimport YearNavigator from \"@/components/common/year-navigator\";|' \"src/app/2026/[locale]/layout.tsx\")",
       "Bash(sed -i 's|      </I18nProvider>|        <YearNavigator />\\\\n      </I18nProvider>|' \"src/app/2026/[locale]/layout.tsx\")",
       "Bash(node -e \"require\\('sharp'\\)\")",
-      "Bash(node scripts/generate-favicon.mjs)"
+      "Bash(node scripts/generate-favicon.mjs)",
+      "Bash(node -e \"const p = require\\('c:/Users/User/Documents/development/rochenette-legaspina-portfolio-2025/node_modules/lucide-react/package.json'\\); console.log\\(p.version\\)\")",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/next-themes/package.json'\\).version\\)\")",
+      "Bash(npm view:*)",
+      "Bash(node -e \"const v=JSON.parse\\(require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\)\\); console.log\\(v.slice\\(-5\\).join\\(', '\\)\\)\")"
     ]
   }
 }

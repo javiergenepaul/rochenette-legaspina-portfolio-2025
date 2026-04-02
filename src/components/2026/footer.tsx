@@ -1,13 +1,75 @@
 "use client";
 
-// 2026 Footer — build this fresh for the 2026 design
+import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
+
+const SOCIAL = [
+  { href: "mailto:rochenette@email.com",               Icon: Mail,     label: "Email" },
+  { href: "https://linkedin.com/in/rochenette-legaspina", Icon: Linkedin, label: "LinkedIn" },
+  { href: "https://github.com/rochenette",              Icon: Github,   label: "GitHub" },
+] as const;
 
 export default function Footer2026() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+  const isDark = mounted && theme === "dark";
+
   return (
-    <footer className="flex items-center justify-center py-6 border-t border-woodsmoke-200 dark:border-woodsmoke-800">
-      <span className="text-caption text-woodsmoke-400 dark:text-woodsmoke-500">
-        © {new Date().getFullYear()} Rochenette Legaspina
-      </span>
+    <footer
+      className={cn(
+        "border-t text-center py-8 px-[7%] text-small",
+        isDark
+          ? "bg-woodsmoke-950 border-woodsmoke-700 text-woodsmoke-500"
+          : "bg-woodsmoke-50 border-woodsmoke-200 text-woodsmoke-500"
+      )}
+    >
+      {/* Logo */}
+      <div className="flex items-center justify-center gap-2 mb-3">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="31" fill="#D32F2F"/>
+          <text
+            x="32" y="40"
+            textAnchor="middle"
+            fontFamily="'Poppins',system-ui"
+            fontSize="20" fontWeight="500"
+            fill="white" letterSpacing="-1"
+          >RL</text>
+        </svg>
+        <span className="font-poppins font-semibold text-small text-woodsmoke-600 dark:text-woodsmoke-400">
+          Rochenette Legaspina
+        </span>
+      </div>
+
+      {/* Social links */}
+      <div className="flex items-center justify-center gap-2 my-3">
+        {SOCIAL.map(({ href, Icon, label }) => (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label}
+            className={cn(
+              "w-8 h-8 rounded-lg border inline-flex items-center justify-center",
+              "transition-all duration-300 hover:-translate-y-0.5",
+              isDark
+                ? "bg-woodsmoke-900 border-woodsmoke-700 text-woodsmoke-400 hover:border-amethyst-500 hover:text-amethyst-400 hover:bg-amethyst-500/10"
+                : "bg-woodsmoke-100 border-woodsmoke-200 text-woodsmoke-400 hover:border-amethyst-500 hover:text-amethyst-500 hover:bg-amethyst-50"
+            )}
+          >
+            <Icon size={15} strokeWidth={1.75} />
+          </a>
+        ))}
+      </div>
+
+      <p className="text-caption">
+        © {new Date().getFullYear()} Rochenette Legaspina — Built with{" "}
+        <Heart size={11} className="inline text-amethyst-500 fill-amethyst-500" />{" "}
+        &amp; lots of coffee
+      </p>
     </footer>
   );
 }
