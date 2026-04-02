@@ -32,7 +32,7 @@ export default function Navigation() {
   return (
     <>
       {/* Navigation Links */}
-      <nav className="select-none bg-scorpion-50 dark:bg-woodsmoke-900 justify-self-center w-8/12 justify-between px-8 py-2 rounded-full items-center shadow-[0_0_14px_rgba(57,7,75,0.14)] fixed inset-x-0  top-[32px] z-[9999] sm:flex hidden">
+      <nav className="select-none bg-scorpion-50 dark:bg-woodsmoke-900 justify-self-center w-8/12 justify-between px-8 py-2 rounded-full items-center shadow-[0_0_14px_rgba(57,7,75,0.14)] fixed inset-x-0  top-8 z-9999 sm:flex hidden">
         <div className="flex gap-2 items-center">
           <Image
             className="dark:hidden"
@@ -53,7 +53,7 @@ export default function Navigation() {
                 className={twMerge(
                   "xl:text-large lg:text-normal transition-transform ease-in-out",
                   pathname === link.to
-                    ? "text-amethyst-500 font-bold translate-y-[-0.125rem]"
+                    ? "text-amethyst-500 font-bold -translate-y-0.5"
                     : "text-woodsmoke-500 hover:text-woodsmoke-800 dark:hover:text-woodsmoke-200 dark:text-woodsmoke-300 font-normal"
                 )}
                 onClick={() => {

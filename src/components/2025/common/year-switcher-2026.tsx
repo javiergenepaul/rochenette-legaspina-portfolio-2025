@@ -21,7 +21,7 @@ export default function YearSwitcher2026() {
 
   return (
     <div
-      className="fixed bottom-8 right-8 z-[9998]"
+      className="fixed bottom-8 right-8 z-9998"
       style={{ width: PREVIEW_W, height: PREVIEW_H }}
     >
       {/* Label bar */}
@@ -85,7 +85,7 @@ export default function YearSwitcher2026() {
 
         {/* Hover overlay with CTA */}
         <div
-          className={`absolute inset-0 flex items-end justify-center pb-4 bg-gradient-to-t from-amethyst-950/60 via-transparent to-transparent transition-opacity duration-300 ${
+          className={`absolute inset-0 flex items-end justify-center pb-4 bg-linear-to-t from-amethyst-950/60 via-transparent to-transparent transition-opacity duration-300 ${
             hovered ? "opacity-100" : "opacity-0"
           }`}
         >

@@ -68,7 +68,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
       <div
         id={id}
         style={{ height: props.fixedHeight }}
-        className={`${hiddenClass} relative h-[${height}] md:w-full sm:w-[500px] xs:w-[400px] w-[350px] flex-col items-center justify-center`}
+        className={`${hiddenClass} relative h-[${height}] md:w-full sm:w-125 xs:w-100 w-87.5 flex-col items-center justify-center`}
       >
         <BannerTitle />
 
