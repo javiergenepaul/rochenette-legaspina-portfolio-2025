@@ -87,6 +87,7 @@ export const PROJECTS: {
   description: string;
   stack: string[];
   gradient: string;
+  mockups: { label: string; image?: string }[];
   link?: string;
 }[] = [
   {
@@ -97,7 +98,12 @@ export const PROJECTS: {
       "End-to-end clinic management system covering patient records, appointments, billing, and reporting.",
     stack: ["Next.js", "PostgreSQL", "Tailwind", "Zustand"],
     gradient: "from-red-700 to-red-400",
-    link: "#",
+    mockups: [
+      { label: "Dashboard Overview" },
+      { label: "Patient Records" },
+      { label: "Appointment Scheduler" },
+      { label: "Billing Module" },
+    ],
   },
   {
     title: "Lumina — E-Commerce Redesign",
@@ -107,7 +113,12 @@ export const PROJECTS: {
       "Full UX audit and redesign of an e-commerce platform, reducing cart abandonment by 34% in A/B testing.",
     stack: ["Figma", "User Research", "Prototyping"],
     gradient: "from-rose-800 to-red-500",
-    link: "#",
+    mockups: [
+      { label: "Homepage Redesign" },
+      { label: "Product Detail Page" },
+      { label: "Cart & Checkout Flow" },
+      { label: "Mobile View" },
+    ],
   },
   {
     title: "ArchViz Studio — 3D Product Render",
@@ -117,7 +128,12 @@ export const PROJECTS: {
       "Photorealistic 3D product visualizations for a furniture brand — modeled, textured, and rendered in Blender.",
     stack: ["Blender", "Cycles", "Substance Painter"],
     gradient: "from-red-900 to-orange-600",
-    link: "#",
+    mockups: [
+      { label: "Living Room Scene" },
+      { label: "Chair Close-up" },
+      { label: "Material Detail" },
+      { label: "Studio Lighting" },
+    ],
   },
   {
     title: "FlowMap — Business Process Analyzer",
@@ -127,7 +143,12 @@ export const PROJECTS: {
       "Mapped and documented AS-IS / TO-BE processes for a logistics firm, identifying 6 bottlenecks and reducing cycle time by 22%.",
     stack: ["Visio", "BPMN 2.0", "Power BI", "Confluence"],
     gradient: "from-purple-900 to-red-700",
-    link: "#",
+    mockups: [
+      { label: "AS-IS Process Map" },
+      { label: "TO-BE Flow Diagram" },
+      { label: "Power BI Dashboard" },
+      { label: "Bottleneck Analysis" },
+    ],
   },
   {
     title: "Portfolio 2025 — Personal Site",
@@ -137,7 +158,12 @@ export const PROJECTS: {
       "Designed and built my 2025 portfolio using Next.js 15, Tailwind v4, and a custom multi-year routing architecture.",
     stack: ["Next.js", "Tailwind v4", "TypeScript", "Zustand"],
     gradient: "from-red-700 to-pink-700",
-    link: "#",
+    mockups: [
+      { label: "Hero Section" },
+      { label: "Projects Page" },
+      { label: "Dark Mode" },
+      { label: "Mobile Responsive" },
+    ],
   },
 ];
 
