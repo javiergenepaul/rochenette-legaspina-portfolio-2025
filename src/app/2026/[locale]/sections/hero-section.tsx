@@ -12,6 +12,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { HeroBackground } from "@/components/2026/hero-background";
 
 export default function HeroSection2026() {
   const { setLoading } = useLoadingStore();
@@ -22,37 +23,9 @@ export default function HeroSection2026() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center px-[7%] overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(150deg,#1a0000 0%,#3d0000 45%,#1a0510 100%)",
-      }}
+      className="relative min-h-screen flex items-center px-[7%] overflow-hidden bg-[#260000]"
     >
-      {/* Ambient orbs */}
-      <div
-        className="absolute -top-30 -right-15 w-125 h-125 rounded-full pointer-events-none"
-        style={{
-          background: "rgba(211,47,47,.4)",
-          filter: "blur(90px)",
-          animation: "drift-orb 10s ease-in-out infinite",
-        }}
-      />
-      <div
-        className="absolute -bottom-15 left-[6%] w-75 h-75 rounded-full pointer-events-none"
-        style={{
-          background: "rgba(229,115,115,.25)",
-          filter: "blur(90px)",
-          animation: "drift-orb 10s ease-in-out infinite 4s",
-        }}
-      />
-      <div
-        className="absolute top-[40%] left-[35%] w-45 h-45 rounded-full pointer-events-none"
-        style={{
-          background: "rgba(183,28,28,.3)",
-          filter: "blur(90px)",
-          animation: "drift-orb 10s ease-in-out infinite 7s",
-        }}
-      />
+      <HeroBackground />
 
       {/* Content */}
       <div className="relative z-10 max-w-175">

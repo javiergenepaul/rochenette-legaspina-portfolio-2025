@@ -2,6 +2,7 @@ import "../../globals.css";
 
 import { Poppins, Roboto } from "next/font/google";
 import { Navigation, Footer } from "@/components/2026";
+import { CursorGlow } from "@/components/2026/cursor-glow";
 import { Toaster2026 } from "@/components/2026/toaster";
 import I18nProvider from "@/components/2025/common/i18n-provider";
 import { Metadata } from "next";
@@ -53,6 +54,7 @@ export default async function LocaleLayout2026({
         <div
           className={`antialiased overflow-x-hidden relative font-roboto bg-woodsmoke-50 dark:bg-woodsmoke-950 ${poppins.variable} ${roboto.variable}`}
         >
+          <CursorGlow />
           <Navigation />
           {children}
           <Footer />

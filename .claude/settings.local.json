@@ -33,7 +33,9 @@
       "Bash(node -e \"console.log\\(require\\('./node_modules/next-themes/package.json'\\).version\\)\")",
       "Bash(npm view:*)",
       "Bash(node -e \"const v=JSON.parse\\(require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\)\\); console.log\\(v.slice\\(-5\\).join\\(', '\\)\\)\")",
-      "Bash(xargs grep:*)"
+      "Bash(xargs grep:*)",
+      "Bash(grep -E \"amethyst|scorpion|woodsmoke\" tailwind.config.*)",
+      "Bash(ls tailwind*)"
     ]
   }
 }
