@@ -42,7 +42,7 @@ export default function Page() {
           src={RlLogoLight}
           alt="roch"
         />
-        <h1 className="xl:text-h1 lg:text-h2 sm:text-h3 text-h4 items-self-start font-bold text-woodsmoke-700 dark:text-woodsmoke-50 xl:leading-[81px] lg:leading-[61.7px] md:leading-[46px]">
+        <h1 className="xl:text-h1 lg:text-h2 sm:text-h3 text-h4 items-self-start font-bold text-woodsmoke-700 dark:text-woodsmoke-50 xl:leading-20.25 lg:leading-[61.7px] md:leading-11.5">
           {translate(t, "contact.banner.title")}
         </h1>
         <p className="xl:text-large text-normal text-woodsmoke-500 dark:text-woodsmoke-200">
