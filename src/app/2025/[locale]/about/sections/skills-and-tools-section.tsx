@@ -1,18 +1,19 @@
 "use client";
 
-import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+import { AnimatedTooltip } from "@/components/2025/ui/animated-tooltip";
 import { SKILLS_AND_TOOLS, style } from "@/config";
 import { translate } from "@/lib";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 import { twMerge } from "tailwind-merge";
 
 export default function SkillsAndToolsSection() {
+  const { t } = useTranslation();
   return (
     <section
       id="skills-and-tools-section"
       className={twMerge(
-        "flex flex-col LG:gap-10 gap-8",
+        "flex flex-col lg:gap-10 gap-8",
         style.sectionContainerPaddingX
       )}
     >
@@ -24,9 +25,9 @@ export default function SkillsAndToolsSection() {
           type: "spring",
           bounce: 0.5,
         }}
-        className="XL:text-h2 LG:text-h3 MD:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center"
+        className="xl:text-h2 lg:text-h3 md:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center"
       >
-        {translate(useTranslations(), "about.skillAndTools.title")}
+        {translate(t, "about.skillAndTools.title")}
       </motion.h3>
       <div className="flex gap-6 mx-auto">
         {SKILLS_AND_TOOLS.map((skill, index) => (
@@ -49,7 +50,7 @@ export default function SkillsAndToolsSection() {
                   designation: skill.designation,
                   image: skill.image as unknown as string,
                   className:
-                    "XL:h-28 XL:w-28 MD:h-20 MD:w-20 SM:h-16 SM:w-16 h-14 w-14 object-contain",
+                    "xl:h-28 xl:w-28 md:h-20 md:w-20 sm:h-16 sm:w-16 h-14 w-14 object-contain",
                   leftClass: "left-[-15px]",
                   imageAlt: skill.alt,
                   url: skill.url,

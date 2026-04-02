@@ -1,4 +1,4 @@
 export const style = {
   sectionContainerPaddingX:
-    "XL:px-[200px] LG:px-[150px] MD:px-[100px] SM:px-[80px] XS:px-[32px] px-[16px]",
+    "xl:px-[200px] lg:px-[150px] md:px-[100px] sm:px-[80px] xs:px-[32px] px-[16px]",
 };

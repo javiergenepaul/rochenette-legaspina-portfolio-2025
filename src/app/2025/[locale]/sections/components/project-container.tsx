@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/2025/ui/button";
 import { translate } from "@/lib";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 import Image from "next/image";
 import React from "react";
 import { ProjectContainerInterface } from "../project-section";
@@ -19,7 +19,7 @@ export default function ProjectContainer({
   imgAlt,
   sectionId,
 }: ProjectContainerInterface & { index: number }) {
-  const t = useTranslations();
+  const { t } = useTranslation();
   const router = useRouter();
   const { setLoading } = useLoadingStore();
   const pathname = usePathname();
@@ -39,15 +39,15 @@ export default function ProjectContainer({
             type: "spring",
             bounce: 0.5,
           }}
-          className="flex gap-6 SM:flex-row flex-col-reverse"
+          className="flex gap-6 sm:flex-row flex-col-reverse"
         >
           {/* Text Component */}
-          <div className="basis-1/2 space-y-12 bg-amethyst-100 dark:bg-woodsmoke-900 p-8 rounded-2xl h-fit LG:mt-auto">
+          <div className="basis-1/2 space-y-12 bg-amethyst-100 dark:bg-woodsmoke-900 p-8 rounded-2xl h-fit lg:mt-auto">
             <div className="space-y-4">
-              <h2 className="XL:text-h3 LG:text-h4 text-h5 font-semibold text-woodsmoke-600 dark:text-woodsmoke-50">
+              <h2 className="xl:text-h3 lg:text-h4 text-h5 font-semibold text-woodsmoke-600 dark:text-woodsmoke-50">
                 {title}
               </h2>
-              <p className="XL:text-large text-normal font-normal text-woodsmoke-500 dark:text-woodsmoke-300 LG:line-clamp-none line-clamp-5">
+              <p className="xl:text-large text-normal font-normal text-woodsmoke-500 dark:text-woodsmoke-300 lg:line-clamp-none line-clamp-5">
                 {description}
               </p>
             </div>
@@ -66,7 +66,7 @@ export default function ProjectContainer({
           </div>
           {/* Image Component */}
           <Image
-            className="basis-auto SM:basis-1/2 XL:h-[500px] LG:h-[380px] MD:h-[267px] SM:h-[195px] XS:h-[321px] h-[220px] w-full rounded-2xl"
+            className="basis-auto sm:basis-1/2 xl:h-[500px] lg:h-[380px] md:h-[267px] sm:h-[195px] xs:h-[321px] h-[220px] w-full rounded-2xl"
             src={img}
             alt={imgAlt}
           />
@@ -80,21 +80,21 @@ export default function ProjectContainer({
             type: "spring",
             bounce: 0.5,
           }}
-          className="flex gap-6 SM:flex-row flex-col"
+          className="flex gap-6 sm:flex-row flex-col"
         >
           {/* Image Component */}
           <Image
-            className="basis-auto SM:basis-1/2 XL:h-[500px] LG:h-[380px] MD:h-[267px] SM:h-[195px] XS:h-[321px] h-[220px] w-full rounded-2xl"
+            className="basis-auto sm:basis-1/2 xl:h-[500px] lg:h-[380px] md:h-[267px] sm:h-[195px] xs:h-[321px] h-[220px] w-full rounded-2xl"
             src={img}
             alt={imgAlt}
           />
           {/* Text Component */}
           <div className="basis-1/2 space-y-12 bg-amethyst-100 dark:bg-woodsmoke-900 p-8 rounded-2xl h-fit">
             <div className="space-y-4">
-              <h2 className="XL:text-h3 LG:text-h4 text-h5 font-semibold text-woodsmoke-600 dark:text-woodsmoke-50">
+              <h2 className="xl:text-h3 lg:text-h4 text-h5 font-semibold text-woodsmoke-600 dark:text-woodsmoke-50">
                 {title}
               </h2>
-              <p className="XL:text-large text-normal font-normal text-woodsmoke-500 dark:text-woodsmoke-300 MD:line-clamp-none SM:line-clamp-5 line-clamp-none">
+              <p className="xl:text-large text-normal font-normal text-woodsmoke-500 dark:text-woodsmoke-300 md:line-clamp-none sm:line-clamp-5 line-clamp-none">
                 {description}
               </p>
             </div>

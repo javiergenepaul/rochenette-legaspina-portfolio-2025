@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { ProjectFormat } from "./component";
 import { PROJECTS, style } from "@/config";
 import ProjectHeader from "./component/project-header";
-import { LetstalkSection } from "@/components";
+import { LetstalkSection } from "@/components/2025";
 import { twMerge } from "tailwind-merge";
 import { useLoadingStore } from "@/store";
 

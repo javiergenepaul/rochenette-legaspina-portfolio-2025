@@ -1,7 +1,7 @@
 "use client";
 
 // 2026 Navigation — build this fresh for the 2026 design
-// Imports from @/components/ui/* are available (shared primitives)
+// Imports from @/components/2025/ui/* are available (shared primitives)
 
 export default function Navigation2026() {
   return (

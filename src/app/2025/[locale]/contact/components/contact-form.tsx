@@ -1,26 +1,26 @@
 "use client";
 
 import React from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/2025/ui/button";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+} from "@/components/2025/ui/form";
+import { Input } from "@/components/2025/ui/input";
+import { Textarea } from "@/components/2025/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { translate } from "@/lib";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 
 export default function ContactForm() {
   const { toast } = useToast();
-  const t = useTranslations();
+  const { t } = useTranslation();
 
   const FormSchema = z.object({
     email: z
@@ -97,7 +97,7 @@ export default function ContactForm() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-4 mb-16">
-          <div className="flex SM:gap-6 gap-4 SM:flex-row flex-col">
+          <div className="flex sm:gap-6 gap-4 sm:flex-row flex-col">
             <FormField
               control={form.control}
               name="firstName"

@@ -1,6 +1,6 @@
 "use client";
 
-import { LetstalkSection } from "@/components";
+import { LetstalkSection } from "@/components/2025";
 import { HeroSection, ProjectSection } from "./sections";
 import { useLoadingStore } from "@/store";
 import { useEffect } from "react";

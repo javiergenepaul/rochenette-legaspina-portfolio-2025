@@ -1,3 +1,4 @@
+@import "tailwindcss";
 @import "@fontsource/inter";
 @import "@fontsource/inter/100.css";
 @import "@fontsource/inter/200.css";
@@ -9,13 +10,19 @@
 @import "@fontsource/inter/800.css";
 @import "@fontsource/inter/900.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@plugin "tailwindcss-animate";
 
+/* Dark mode triggered by .dark class on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── CSS custom properties ─────────────────────────────────────────────────
+   Defined here so @theme inline can reference them, and so they can be
+   overridden per year via [data-year="2026"].
+   ─────────────────────────────────────────────────────────────────────────── */
 @layer base {
   :root {
-    --amethyst-50: #fbf4ff;
+    /* 2025 — amethyst / scorpion / woodsmoke palette */
+    --amethyst-50:  #fbf4ff;
     --amethyst-100: #f5e9fe;
     --amethyst-200: #ebd2fc;
     --amethyst-300: #dfaef9;
@@ -27,7 +34,7 @@
     --amethyst-900: #5c1e71;
     --amethyst-950: #39074b;
 
-    --scorpion-50: #f7f7f8;
+    --scorpion-50:  #f7f7f8;
     --scorpion-100: #efefef;
     --scorpion-200: #dbdbdc;
     --scorpion-300: #bdbbbe;
@@ -39,7 +46,7 @@
     --scorpion-900: #3e3c3e;
     --scorpion-950: #282829;
 
-    --woodsmoke-50: #f7f7f8;
+    --woodsmoke-50:  #f7f7f8;
     --woodsmoke-100: #efeef0;
     --woodsmoke-200: #dcd9de;
     --woodsmoke-300: #bbb7c2;
@@ -51,7 +58,7 @@
     --woodsmoke-900: #3d3941;
     --woodsmoke-950: #0e0d0f;
 
-    /* SHADCN */
+    /* Shadcn */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -78,6 +85,7 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -104,12 +112,58 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-@layer base {
+  /* ─── 2026 theme ──────────────────────────────────────────────────────────
+     Override the CSS vars — Tailwind utilities pick up the change automatically
+     via @theme inline references below.
+     ───────────────────────────────────────────────────────────────────────── */
+  [data-year="2026"] {
+    --amethyst-50:  #f0fdfa;
+    --amethyst-100: #ccfbf1;
+    --amethyst-200: #99f6e4;
+    --amethyst-300: #5eead4;
+    --amethyst-400: #2dd4bf;
+    --amethyst-500: #14b8a6;
+    --amethyst-600: #0d9488;
+    --amethyst-700: #0f766e;
+    --amethyst-800: #115e59;
+    --amethyst-900: #134e4a;
+    --amethyst-950: #042f2e;
+
+    --scorpion-50:  #f8fafc;
+    --scorpion-100: #f1f5f9;
+    --scorpion-200: #e2e8f0;
+    --scorpion-300: #cbd5e1;
+    --scorpion-400: #94a3b8;
+    --scorpion-500: #64748b;
+    --scorpion-600: #475569;
+    --scorpion-700: #334155;
+    --scorpion-800: #1e293b;
+    --scorpion-900: #0f172a;
+    --scorpion-950: #020617;
+
+    --woodsmoke-50:  #fafafa;
+    --woodsmoke-100: #f4f4f5;
+    --woodsmoke-200: #e4e4e7;
+    --woodsmoke-300: #d4d4d8;
+    --woodsmoke-400: #a1a1aa;
+    --woodsmoke-500: #71717a;
+    --woodsmoke-600: #52525b;
+    --woodsmoke-700: #3f3f46;
+    --woodsmoke-800: #27272a;
+    --woodsmoke-900: #18181b;
+    --woodsmoke-950: #09090b;
+  }
+
+  [data-year="2026"].dark {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+  }
+
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -119,53 +173,121 @@ img {
   @apply select-none;
 }
 
-/* ─── 2026 Theme ────────────────────────────────────────────────────────────
-   Override the same CSS custom properties so every Tailwind utility
-   (amethyst-*, scorpion-*, woodsmoke-*) automatically picks up 2026 colours.
-   Swap these values for whatever palette you design for 2026.
-   ────────────────────────────────────────────────────────────────────────── */
-[data-year="2026"] {
-  /* Accent — teal/cyan replacing amethyst */
-  --amethyst-50:  #f0fdfa;
-  --amethyst-100: #ccfbf1;
-  --amethyst-200: #99f6e4;
-  --amethyst-300: #5eead4;
-  --amethyst-400: #2dd4bf;
-  --amethyst-500: #14b8a6;
-  --amethyst-600: #0d9488;
-  --amethyst-700: #0f766e;
-  --amethyst-800: #115e59;
-  --amethyst-900: #134e4a;
-  --amethyst-950: #042f2e;
-
-  /* Surface — slate replacing scorpion */
-  --scorpion-50:  #f8fafc;
-  --scorpion-100: #f1f5f9;
-  --scorpion-200: #e2e8f0;
-  --scorpion-300: #cbd5e1;
-  --scorpion-400: #94a3b8;
-  --scorpion-500: #64748b;
-  --scorpion-600: #475569;
-  --scorpion-700: #334155;
-  --scorpion-800: #1e293b;
-  --scorpion-900: #0f172a;
-  --scorpion-950: #020617;
-
-  /* Neutral — zinc replacing woodsmoke */
-  --woodsmoke-50:  #fafafa;
-  --woodsmoke-100: #f4f4f5;
-  --woodsmoke-200: #e4e4e7;
-  --woodsmoke-300: #d4d4d8;
-  --woodsmoke-400: #a1a1aa;
-  --woodsmoke-500: #71717a;
-  --woodsmoke-600: #52525b;
-  --woodsmoke-700: #3f3f46;
-  --woodsmoke-800: #27272a;
-  --woodsmoke-900: #18181b;
-  --woodsmoke-950: #09090b;
+/* ─── Breakpoints ────────────────────────────────────────────────────────────
+   Tailwind v4 requires lowercase variant names.
+   ─────────────────────────────────────────────────────────────────────────── */
+@theme {
+  --breakpoint-xs: 40rem;
+  --breakpoint-sm: 48rem;
+  --breakpoint-md: 64rem;
+  --breakpoint-lg: 90rem;
+  --breakpoint-xl: 120rem;
 }
 
-[data-year="2026"].dark {
-  --background: 222 47% 5%;
-  --foreground: 210 40% 98%;
+/* ─── Tailwind v4 theme ──────────────────────────────────────────────────────
+   @theme inline: values reference CSS variables so per-year overrides work.
+   ─────────────────────────────────────────────────────────────────────────── */
+@theme inline {
+  /* Colors */
+  --color-amethyst-50:  var(--amethyst-50);
+  --color-amethyst-100: var(--amethyst-100);
+  --color-amethyst-200: var(--amethyst-200);
+  --color-amethyst-300: var(--amethyst-300);
+  --color-amethyst-400: var(--amethyst-400);
+  --color-amethyst-500: var(--amethyst-500);
+  --color-amethyst-600: var(--amethyst-600);
+  --color-amethyst-700: var(--amethyst-700);
+  --color-amethyst-800: var(--amethyst-800);
+  --color-amethyst-900: var(--amethyst-900);
+  --color-amethyst-950: var(--amethyst-950);
+
+  --color-scorpion-50:  var(--scorpion-50);
+  --color-scorpion-100: var(--scorpion-100);
+  --color-scorpion-200: var(--scorpion-200);
+  --color-scorpion-300: var(--scorpion-300);
+  --color-scorpion-400: var(--scorpion-400);
+  --color-scorpion-500: var(--scorpion-500);
+  --color-scorpion-600: var(--scorpion-600);
+  --color-scorpion-700: var(--scorpion-700);
+  --color-scorpion-800: var(--scorpion-800);
+  --color-scorpion-900: var(--scorpion-900);
+  --color-scorpion-950: var(--scorpion-950);
+
+  --color-woodsmoke-50:  var(--woodsmoke-50);
+  --color-woodsmoke-100: var(--woodsmoke-100);
+  --color-woodsmoke-200: var(--woodsmoke-200);
+  --color-woodsmoke-300: var(--woodsmoke-300);
+  --color-woodsmoke-400: var(--woodsmoke-400);
+  --color-woodsmoke-500: var(--woodsmoke-500);
+  --color-woodsmoke-600: var(--woodsmoke-600);
+  --color-woodsmoke-700: var(--woodsmoke-700);
+  --color-woodsmoke-800: var(--woodsmoke-800);
+  --color-woodsmoke-900: var(--woodsmoke-900);
+  --color-woodsmoke-950: var(--woodsmoke-950);
+
+  /* Shadcn semantic tokens */
+  --color-background:         hsl(var(--background));
+  --color-foreground:         hsl(var(--foreground));
+  --color-card:               hsl(var(--card));
+  --color-card-foreground:    hsl(var(--card-foreground));
+  --color-popover:            hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary:            hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary:          hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted:              hsl(var(--muted));
+  --color-muted-foreground:   hsl(var(--muted-foreground));
+  --color-accent:             hsl(var(--accent));
+  --color-accent-foreground:  hsl(var(--accent-foreground));
+  --color-destructive:        hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border:             hsl(var(--border));
+  --color-input:              hsl(var(--input));
+  --color-ring:               hsl(var(--ring));
+  --color-chart-1:            hsl(var(--chart-1));
+  --color-chart-2:            hsl(var(--chart-2));
+  --color-chart-3:            hsl(var(--chart-3));
+  --color-chart-4:            hsl(var(--chart-4));
+  --color-chart-5:            hsl(var(--chart-5));
+
+  /* Typography */
+  --font-inter: "Inter", sans-serif;
+
+  --text-h1:      4.188rem;
+  --text-h2:      3.188rem;
+  --text-h3:      2.375rem;
+  --text-h4:      1.75rem;
+  --text-h5:      1.313rem;
+  --text-button:  1rem;
+  --text-normal:  1rem;
+  --text-large:   1.125rem;
+  --text-small:   0.875rem;
+  --text-caption: 0.75rem;
+
+  /* Border radius */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Shadows */
+  --shadow-content-card: 0 0 7.4px rgba(13, 8, 8, 0.12);
+
+  /* Animations */
+  --animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
+}
+
+@keyframes orbit {
+  0% {
+    transform:
+      rotate(calc(var(--angle) * 1deg))
+      translateY(calc(var(--radius) * 1px))
+      rotate(calc(var(--angle) * -1deg));
+  }
+  100% {
+    transform:
+      rotate(calc(var(--angle) * 1deg + 360deg))
+      translateY(calc(var(--radius) * 1px))
+      rotate(calc((var(--angle) * -1deg) - 360deg));
+  }
 }

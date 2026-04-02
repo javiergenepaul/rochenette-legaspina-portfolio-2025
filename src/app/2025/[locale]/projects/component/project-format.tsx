@@ -1,10 +1,10 @@
 "use client";
 
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/2025/ui/separator";
 import { InfoInterface, ProjectInterface } from "@/config";
 import { translate } from "@/lib";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import { twMerge } from "tailwind-merge";
@@ -24,11 +24,11 @@ const InfoCard = ({
         bounce: 0.2,
       }}
       className={twMerge(
-        "MD:p-8 XS:p-6 p-5 border border-woodsmoke-400 dark:border-woodsmoke-400 rounded-lg flex flex-col SM:items-start items-center gap-6",
+        "md:p-8 xs:p-6 p-5 border border-woodsmoke-400 dark:border-woodsmoke-400 rounded-lg flex flex-col sm:items-start items-center gap-6",
         className
       )}
     >
-      <h3 className="text-woodsmoke-600 font-bold XL:text-h3 LG:text-h4 text-h5 dark:text-woodsmoke-50">
+      <h3 className="text-woodsmoke-600 font-bold xl:text-h3 lg:text-h4 text-h5 dark:text-woodsmoke-50">
         {title}
       </h3>
 
@@ -37,7 +37,7 @@ const InfoCard = ({
           return (
             <li
               key={index}
-              className="XL:text-large text-normal text-woodsmoke-500 text-wrap text-justify dark:text-woodsmoke-300"
+              className="xl:text-large text-normal text-woodsmoke-500 text-wrap text-justify dark:text-woodsmoke-300"
             >
               {value}
             </li>
@@ -60,6 +60,7 @@ export default function ProjectFormat({
   mockups,
   mockupAlt,
 }: ProjectInterface & { index: number; maxLength: number }) {
+  const { t } = useTranslation();
   return (
     <section id={sectionId} className="space-y-32 pt-32">
       <div className="h-full space-y-20">
@@ -73,7 +74,7 @@ export default function ProjectFormat({
                 type: "spring",
                 bounce: 0.5,
               }}
-              className="font-bold XL:text-h2 LG:text-h3 MD:text-h4 text-h5 text-woodsmoke-600 dark:text-woodsmoke-50"
+              className="font-bold xl:text-h2 lg:text-h3 md:text-h4 text-h5 text-woodsmoke-600 dark:text-woodsmoke-50"
             >
               {title}
             </motion.h2>
@@ -85,9 +86,9 @@ export default function ProjectFormat({
                 type: "spring",
                 bounce: 0.5,
               }}
-              className="XL:text-large text-normal LG:font-normal font-medium text-woodsmoke-600 dark:text-woodsmoke-50"
+              className="xl:text-large text-normal lg:font-normal font-medium text-woodsmoke-600 dark:text-woodsmoke-50"
             >
-              {translate(useTranslations(), "project.role", { role: role })}
+              {translate(t, "project.role", { role: role })}
             </motion.p>
           </header>
           <motion.p
@@ -98,7 +99,7 @@ export default function ProjectFormat({
               type: "spring",
               bounce: 0.5,
             }}
-            className="XL:text-large text-normal text-woodsmoke-500 text-justify dark:text-woodsmoke-300 w-4/12"
+            className="xl:text-large text-normal text-woodsmoke-500 text-justify dark:text-woodsmoke-300 w-4/12"
           >
             {desciption}
           </motion.p>
@@ -120,13 +121,13 @@ export default function ProjectFormat({
           />
         </motion.div>
 
-        <div className="grid MD:grid-cols-2 grid-cols-1 gap-x-6 gap-y-10">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-10">
           {information.map((info, index) => (
             <InfoCard
               key={index}
               className={
                 information.length === 3 && index === 2
-                  ? "MD:col-span-2 col-span-1"
+                  ? "md:col-span-2 col-span-1"
                   : ""
               }
               {...info}
@@ -134,7 +135,7 @@ export default function ProjectFormat({
           ))}
         </div>
 
-        <div className="grid MD:grid-cols-3 grid-cols-1 gap-6">
+        <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
           {mockups.map(
             (
               value: { image: StaticImageData; alt: string },

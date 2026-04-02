@@ -1,20 +1,20 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { Drawer } from "vaul";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/2025/ui/button";
 import { twMerge } from "tailwind-merge";
 import { useTheme } from "next-themes";
 import { getNavLinks, SOCIAL_LINKS } from "@/config";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/2025/ui/separator";
 import { translate } from "@/lib";
 import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 import { ThemeToggleSwitch } from "../theme-toggle-switch";
 
 export default function Sidebar() {
   const { setTheme, resolvedTheme } = useTheme();
   const pathname = usePathname();
-  const t = useTranslations();
+  const { t } = useTranslation();
 
   const pathParts = pathname.split("/");
   const year = pathParts[1] ?? "2026";
@@ -79,7 +79,7 @@ export default function Sidebar() {
           <nav className="user-select-none">
             <ul className="flex flex-col gap-4">
               <Drawer.Title className="text-normal text-woodsmoke-900 dark:text-amethyst-50 mb-2">
-                {translate(useTranslations(), "navigation.menu")}
+                {translate(t, "navigation.menu")}
               </Drawer.Title>
               {NAV_LINKS.map((link, index) => (
                 <li key={index} onClick={() => setIsOpen(!isOpen)}>

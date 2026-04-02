@@ -1,7 +1,6 @@
 import * as ASSETS from "@/assets";
 import { translate } from "@/lib";
-import { createTranslator } from "next-intl";
-import { EN } from "../../messages";
+import i18n from "@/i18n/server";
 import { PATH } from "./path";
 import {
   AboutMeContentInterface,
@@ -17,7 +16,7 @@ export const locale =
   typeof window !== "undefined" ? navigator.language.split("-")[0] : "en";
 
 const getTranslations = () => {
-  const t = createTranslator({ locale, messages: EN });
+  const t = i18n.t.bind(i18n);
 
   const getProjectInformationDescription = (
     project: "countryScape" | "scClaims" | "iqmk" | "yoo",

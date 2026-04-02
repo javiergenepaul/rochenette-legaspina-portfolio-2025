@@ -9,7 +9,22 @@
       "Bash(pnpm run:*)",
       "Bash(pnpm install:*)",
       "Bash(pnpm add:*)",
-      "Bash(node -e ':*)"
+      "Bash(node -e ':*)",
+      "Bash(pnpm view:*)",
+      "Bash(mkdir -p 2025)",
+      "Bash(mv common:*)",
+      "Bash(mv ui:*)",
+      "Bash(mv index.ts 2025/index.ts)",
+      "Bash(node -e \"const p = require\\('./node_modules/.pnpm/next-intl@3.26.3/node_modules/next-intl/package.json'\\); console.log\\(p.version\\)\")",
+      "Bash(node -e \"const v=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\);const arr=JSON.parse\\(v\\);console.log\\(arr.slice\\(-5\\).join\\('\\\\n'\\)\\)\")",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/next-intl/package.json'\\).version\\)\")",
+      "Bash(node -e \"const m=require\\('./node_modules/next-intl/server'\\);console.log\\(Object.keys\\(m\\).filter\\(k=>k.toLowerCase\\(\\).includes\\('locale'\\)||k.toLowerCase\\(\\).includes\\('request'\\)\\)\\)\")",
+      "Bash(node -e \"const m=require\\('./node_modules/next-intl/server'\\);console.log\\(Object.keys\\(m\\)\\)\")",
+      "Bash(ls \"c:/Users/User/Documents/development/rochenette-legaspina-portfolio-2025/node_modules/next-intl/plugin\"*)",
+      "Bash(node -e \"const path=require\\('path'\\);console.log\\(path.resolve\\('c:/Users/User/Documents/development/rochenette-legaspina-portfolio-2025','src/i18n/request.ts'\\).replace\\(/\\\\\\\\\\\\\\\\/g,'/'\\)\\)\")",
+      "Bash(pnpm remove:*)",
+      "Bash(node -e \"console.log\\('/2025/en/about'.split\\('/'\\)[1]\\)\")",
+      "Bash(npx tsc:*)"
     ]
   }
 }

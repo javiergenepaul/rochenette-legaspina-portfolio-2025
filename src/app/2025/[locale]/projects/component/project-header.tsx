@@ -3,10 +3,11 @@
 import { style } from "@/config";
 import { translate } from "@/lib";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 import React from "react";
 
 export default function ProjectHeader() {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
@@ -19,7 +20,7 @@ export default function ProjectHeader() {
       className={style.sectionContainerPaddingX}
     >
       <h1 className="text-center text-h1 text-woodsmoke-600 dark:text-woodsmoke-50 font-bold">
-        {translate(useTranslations(), "project.title")}
+        {translate(t, "project.title")}
       </h1>
     </motion.div>
   );

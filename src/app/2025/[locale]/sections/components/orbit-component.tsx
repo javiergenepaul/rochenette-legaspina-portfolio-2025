@@ -1,12 +1,12 @@
 "use client";
 
 import * as Icon from "@/assets";
-import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
-import { FlipWords } from "@/components/ui/flip-words";
-import { OrbitingCircles } from "@/components/ui/orbiting-circles";
+import { AnimatedTooltip } from "@/components/2025/ui/animated-tooltip";
+import { FlipWords } from "@/components/2025/ui/flip-words";
+import { OrbitingCircles } from "@/components/2025/ui/orbiting-circles";
 import { TxKeyPath } from "@/i18n";
 import { translate } from "@/lib";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 import React from "react";
 
 interface OrbitComponentInterface {
@@ -39,7 +39,7 @@ interface OrbitComponentInterface {
 }
 
 const BannerTitle = () => {
-  const t = useTranslations();
+  const { t } = useTranslation();
 
   const words = [];
   words.push(translate(t, `home.hero.banner.title.1` as TxKeyPath));
@@ -50,9 +50,9 @@ const BannerTitle = () => {
   words.push(translate(t, `home.hero.banner.title.6` as TxKeyPath));
 
   return (
-    <span className="pointer-events-none select-none whitespace-pre-wrap bg-clip-text text-center XL:text-[89.25px] LG:text-[66.76px] XS:text-[48.03px] text-[39.26px] font-semibold text-woodsmoke-400 dark:text-woodsmoke-300 z-30">
+    <span className="pointer-events-none select-none whitespace-pre-wrap bg-clip-text text-center xl:text-[89.25px] lg:text-[66.76px] xs:text-[48.03px] text-[39.26px] font-semibold text-woodsmoke-400 dark:text-woodsmoke-300 z-30">
       <FlipWords
-        className="text-center XL:text-[89.25px] LG:text-[66.76px] XS:text-[48.03px] text-[39.26px] font-semibold text-woodsmoke-400 dark:text-woodsmoke-300"
+        className="text-center xl:text-[89.25px] lg:text-[66.76px] xs:text-[48.03px] text-[39.26px] font-semibold text-woodsmoke-400 dark:text-woodsmoke-300"
         words={words}
       />
     </span>
@@ -60,6 +60,7 @@ const BannerTitle = () => {
 };
 
 export default function OrbitComponent(props: OrbitComponentInterface) {
+  const { t } = useTranslation();
   const { id, height, hiddenClass, orbitProperties } = props;
 
   return (
@@ -67,7 +68,7 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
       <div
         id={id}
         style={{ height: props.fixedHeight }}
-        className={`${hiddenClass} relative h-[${height}] MD:w-full SM:w-[500px] XS:w-[400px] w-[350px] flex-col items-center justify-center`}
+        className={`${hiddenClass} relative h-[${height}] md:w-full sm:w-[500px] xs:w-[400px] w-[350px] flex-col items-center justify-center`}
       >
         <BannerTitle />
 
@@ -83,11 +84,11 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
               {
                 id: 1,
                 name: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.edit.title"
                 ),
                 designation: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.edit.designation"
                 ),
                 image: Icon.EditIcon,
@@ -119,11 +120,11 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
               {
                 id: 1,
                 name: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.crop.title"
                 ),
                 designation: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.crop.designation"
                 ),
                 image: Icon.CropIcon,
@@ -141,11 +142,11 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
               {
                 id: 1,
                 name: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.copyLink.title"
                 ),
                 designation: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.copyLink.designation"
                 ),
                 image: Icon.CopyLinkIcon,
@@ -163,11 +164,11 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
               {
                 id: 1,
                 name: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.component.title"
                 ),
                 designation: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.component.designation"
                 ),
                 image: Icon.ComponentIcon,
@@ -192,11 +193,11 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
               {
                 id: 1,
                 name: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.move.title"
                 ),
                 designation: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.move.designation"
                 ),
                 image: Icon.MoveIcon,
@@ -214,11 +215,11 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
               {
                 id: 1,
                 name: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.text.title"
                 ),
                 designation: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.text.designation"
                 ),
                 image: Icon.TextIcon,
@@ -236,11 +237,11 @@ export default function OrbitComponent(props: OrbitComponentInterface) {
               {
                 id: 1,
                 name: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.ruler.title"
                 ),
                 designation: translate(
-                  useTranslations(),
+                  t,
                   "home.hero.banner.icons.ruler.designation"
                 ),
                 image: Icon.RulerIcon,

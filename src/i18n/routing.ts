@@ -1,15 +1,6 @@
-import { defineRouting } from "next-intl/routing";
-import { createNavigation } from "next-intl/navigation";
+// Legacy file — next-intl routing replaced by i18next + custom middleware.
+// Re-export standard Next.js navigation so any stale imports still compile.
+export { default as Link } from "next/link";
+export { redirect, usePathname, useRouter } from "next/navigation";
 
-export const routing = defineRouting({
-  // A list of all locales that are supported
-  locales: ["en", "de", "fr"],
-
-  // Used when no locale matches
-  defaultLocale: "en",
-});
-
-// Lightweight wrappers around Next.js' navigation APIs
-// that will consider the routing configuration
-export const { Link, redirect, usePathname, useRouter, getPathname } =
-  createNavigation(routing);
+export const getPathname = (args: { href: string }) => args.href;

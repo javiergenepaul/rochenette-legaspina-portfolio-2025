@@ -3,10 +3,10 @@
 import "./hero.css";
 
 import { translate } from "@/lib";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 import { twMerge } from "tailwind-merge";
 import { style } from "@/config";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/2025/ui/button";
 import OrbitComponent from "./components/orbit-component";
 import { motion } from "framer-motion";
 import { PATH } from "@/config/path";
@@ -14,6 +14,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function HeroSection() {
+  const { t } = useTranslation();
   const pathname = usePathname();
   const pathParts = pathname.split("/");
   const year = pathParts[1] ?? "2026";
@@ -23,11 +24,11 @@ export default function HeroSection() {
     <section
       id="hero-section"
       className={twMerge(
-        "h-full min-h-dvh flex flex-col XL:pt-44 SM:pt-20 pt-12 gap-20 items-center",
+        "h-full min-h-dvh flex flex-col xl:pt-44 sm:pt-20 pt-12 gap-20 items-center",
         style.sectionContainerPaddingX
       )}
     >
-      <div className="flex MD:flex-row flex-col items-center gap-6">
+      <div className="flex md:flex-row flex-col items-center gap-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -36,23 +37,23 @@ export default function HeroSection() {
             type: "spring",
             bounce: 0.5,
           }}
-          className="MD:basis-1/2 flex flex-col SM:items-start items-center justify-center h-full w-full"
+          className="md:basis-1/2 flex flex-col sm:items-start items-center justify-center h-full w-full"
         >
-          <h1 className="font-bold SM:text-start text-center">
-            <span className="text-amethyst-500 XL:text-h1 LG:text-h2 XS:text-h3 text-h4">
-              {translate(useTranslations(), "home.hero.slogan.title.1")}
+          <h1 className="font-bold sm:text-start text-center">
+            <span className="text-amethyst-500 xl:text-h1 lg:text-h2 xs:text-h3 text-h4">
+              {translate(t, "home.hero.slogan.title.1")}
             </span>
-            <span className="text-woodsmoke-500 dark:text-woodsmoke-50 XL:text-h1 LG:text-h2 XS:text-h3 text-h4">
-              {translate(useTranslations(), "home.hero.slogan.title.2")}
+            <span className="text-woodsmoke-500 dark:text-woodsmoke-50 xl:text-h1 lg:text-h2 xs:text-h3 text-h4">
+              {translate(t, "home.hero.slogan.title.2")}
             </span>
           </h1>
-          <p className="LG:text-h5 MD:text-large text-normal LG:font-medium font-normal mt-4 text-woodsmoke-500 dark:text-woodsmoke-300 SM:text-start text-center">
-            {translate(useTranslations(), "home.hero.slogan.subtitle")}
+          <p className="lg:text-h5 md:text-large text-normal lg:font-medium font-normal mt-4 text-woodsmoke-500 dark:text-woodsmoke-300 sm:text-start text-center">
+            {translate(t, "home.hero.slogan.subtitle")}
           </p>
           <Link href={PATH.ABOUT.getPath(year, locale)} passHref>
-            <Button className="mt-16 py-4 SM:px-20 px-28 bg-amethyst-500 hover:bg-amethyst-400 focus:bg-amethyst-800">
-              <span className="text-amethyst-50 XL:text-large text-regular">
-                {translate(useTranslations(), "home.hero.slogan.button")}
+            <Button className="mt-16 py-4 sm:px-20 px-28 bg-amethyst-500 hover:bg-amethyst-400 focus:bg-amethyst-800">
+              <span className="text-amethyst-50 xl:text-large text-regular">
+                {translate(t, "home.hero.slogan.button")}
               </span>
             </Button>
           </Link>
@@ -67,14 +68,14 @@ export default function HeroSection() {
             type: "spring",
             bounce: 0.5,
           }}
-          className="MD:basis-1/2 basis-full"
+          className="md:basis-1/2 basis-full"
         >
           {/* XL */}
           <OrbitComponent
             id={"orbit-XL"}
             height={"800px"}
             fixedHeight="750px"
-            hiddenClass={"XL:flex LG:hidden hidden"}
+            hiddenClass={"xl:flex lg:hidden hidden"}
             orbitProperties={{
               1: {
                 iconSize: 50,
@@ -104,7 +105,7 @@ export default function HeroSection() {
             id={"orbit-LG"}
             height={"650px"}
             fixedHeight="650px"
-            hiddenClass={"LG:flex XL:hidden hidden"}
+            hiddenClass={"lg:flex xl:hidden hidden"}
             orbitProperties={{
               1: {
                 iconSize: 40,
@@ -132,7 +133,7 @@ export default function HeroSection() {
             id={"orbit-MD"}
             height={"650px"}
             fixedHeight="650px"
-            hiddenClass={"MD:flex SM:hidden LG:hidden hidden"}
+            hiddenClass={"md:flex sm:hidden lg:hidden hidden"}
             orbitProperties={{
               1: {
                 iconSize: 25,
@@ -160,7 +161,7 @@ export default function HeroSection() {
             id={"orbit-SM"}
             height={"650px"}
             fixedHeight="400px"
-            hiddenClass={"SM:flex MD:hidden LG:hidden hidden"}
+            hiddenClass={"sm:flex md:hidden lg:hidden hidden"}
             orbitProperties={{
               1: {
                 iconSize: 40,
@@ -187,7 +188,7 @@ export default function HeroSection() {
             id={"orbit-XS"}
             height={"650px"}
             fixedHeight="400px"
-            hiddenClass={"XS:flex SM:hidden MD:hidden LG:hidden hidden"}
+            hiddenClass={"xs:flex sm:hidden md:hidden lg:hidden hidden"}
             orbitProperties={{
               1: {
                 iconSize: 30,
@@ -214,7 +215,7 @@ export default function HeroSection() {
             id={"orbit-XS"}
             height={"650px"}
             fixedHeight="350px"
-            hiddenClass={"flex XS:hidden SM:hidden MD:hidden LG:hidden"}
+            hiddenClass={"flex xs:hidden sm:hidden md:hidden lg:hidden"}
             orbitProperties={{
               1: {
                 iconSize: 30,

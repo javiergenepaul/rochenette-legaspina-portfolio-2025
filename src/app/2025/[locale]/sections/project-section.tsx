@@ -2,7 +2,7 @@ import ProjectContainer from "./components/project-container";
 import { style } from "@/config";
 import { twMerge } from "tailwind-merge";
 import { translate } from "@/lib";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 import * as ASSETS from "@/assets";
 import { StaticImageData } from "next/image";
 
@@ -15,11 +15,12 @@ export interface ProjectContainerInterface {
 }
 
 export default function ProjectSection() {
+  const { t } = useTranslation();
   const PROJECTS: ProjectContainerInterface[] = [
     {
-      title: translate(useTranslations(), "home.project.projects.1.title"),
+      title: translate(t, "home.project.projects.1.title"),
       description: translate(
-        useTranslations(),
+        t,
         "home.project.projects.1.description"
       ),
       img: ASSETS.ScClaimsPreview,
@@ -27,9 +28,9 @@ export default function ProjectSection() {
       sectionId: "sc-claims",
     },
     {
-      title: translate(useTranslations(), "home.project.projects.2.title"),
+      title: translate(t, "home.project.projects.2.title"),
       description: translate(
-        useTranslations(),
+        t,
         "home.project.projects.2.description"
       ),
       img: ASSETS.YooPreview,
@@ -37,9 +38,9 @@ export default function ProjectSection() {
       sectionId: "yoo",
     },
     {
-      title: translate(useTranslations(), "home.project.projects.3.title"),
+      title: translate(t, "home.project.projects.3.title"),
       description: translate(
-        useTranslations(),
+        t,
         "home.project.projects.3.description"
       ),
       img: ASSETS.IQMKPreview,
@@ -47,9 +48,9 @@ export default function ProjectSection() {
       sectionId: "iqmk-app",
     },
     {
-      title: translate(useTranslations(), "home.project.projects.4.title"),
+      title: translate(t, "home.project.projects.4.title"),
       description: translate(
-        useTranslations(),
+        t,
         "home.project.projects.4.description"
       ),
       img: ASSETS.CountryScapePreview,
@@ -67,7 +68,7 @@ export default function ProjectSection() {
       )}
     >
       <h1 className="text-h2 text-woodsmoke-600 dark:text-woodsmoke-50 text-center font-bold">
-        {translate(useTranslations(), "home.project.title")}
+        {translate(t, "home.project.title")}
       </h1>
 
       {PROJECTS.map((project, index) => (

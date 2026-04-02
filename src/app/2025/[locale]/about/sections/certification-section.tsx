@@ -2,17 +2,18 @@
 
 import { CERTIFICATION_EXPERIENCE, style } from "@/config";
 import { translate } from "@/lib";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 import { twMerge } from "tailwind-merge";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function CertificationSection() {
+  const { t } = useTranslation();
   return (
     <section
       id="certification-section"
       className={twMerge(
-        "flex flex-col LG:gap-10 gap-8",
+        "flex flex-col lg:gap-10 gap-8",
         style.sectionContainerPaddingX
       )}
     >
@@ -24,11 +25,11 @@ export default function CertificationSection() {
           type: "spring",
           bounce: 0.5,
         }}
-        className="XL:text-h2 LG:text-h3 SM:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center"
+        className="xl:text-h2 lg:text-h3 sm:text-h4 text-h5 font-semibold text-scorpion-600 dark:text-woodsmoke-50 text-center"
       >
-        {translate(useTranslations(), "about.certificate.title")}
+        {translate(t, "about.certificate.title")}
       </motion.h3>
-      <div className="grid MD:grid-cols-1 grid-cols-1 gap-6 XL:w-8/12 LG:w-9/12 w-full mx-auto">
+      <div className="grid md:grid-cols-1 grid-cols-1 gap-6 xl:w-8/12 lg:w-9/12 w-full mx-auto">
         {CERTIFICATION_EXPERIENCE.map((cert, index) => (
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -39,28 +40,28 @@ export default function CertificationSection() {
               bounce: 0.2,
             }}
             key={index}
-            className={`flex XL:flex-row LG:flex-row MD:flex-col SM:flex-row XS:flex-col flex-col SM:items-start items-center gap-6 p-6 rounded-lg dark:bg-woodsmoke-900 shadow-content-card hover:border-amethyst-500 dark:border-woodsmoke-900 cursor-pointer hover:dark:border-amethyst-50 ${
+            className={`flex xl:flex-row lg:flex-row md:flex-col sm:flex-row xs:flex-col flex-col sm:items-start items-center gap-6 p-6 rounded-lg dark:bg-woodsmoke-900 shadow-content-card hover:border-amethyst-500 dark:border-woodsmoke-900 cursor-pointer hover:dark:border-amethyst-50 ${
               index === 0
                 ? "bg-[#EFCFFC] border border-[#EFCFFC]"
                 : "bg-[#FDEEBA] border border-[#FDEEBA]"
             }`}
           >
             <Image
-              className="object-contain XL:h-36 XL:w-36 LG:h-28 LG:w-28 MD:h-24 MD:w-24 SM:h-20 SM:w-20 w-16 h-16 shadow-[0_0_14.98px_rgba(0,0,0,0.14)] rounded-2xl bg-scorpion-50 leading-[1.1875rem]"
+              className="object-contain xl:h-36 xl:w-36 lg:h-28 lg:w-28 md:h-24 md:w-24 sm:h-20 sm:w-20 w-16 h-16 shadow-[0_0_14.98px_rgba(0,0,0,0.14)] rounded-2xl bg-scorpion-50 leading-[1.1875rem]"
               src={cert.image}
               alt={cert.imageAlt}
             />
-            <div className="flex flex-col gap-2 items-center MD:items-start mt-6">
-              <span className="XL:text-large text-normal font-bold text-scorpion-700 dark:text-woodsmoke-50">
+            <div className="flex flex-col gap-2 items-center md:items-start mt-6">
+              <span className="xl:text-large text-normal font-bold text-scorpion-700 dark:text-woodsmoke-50">
                 {cert.title}
               </span>
-              <span className="XL:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-[1.1875rem]">
+              <span className="xl:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-[1.1875rem]">
                 {cert.subTitle}
               </span>
               <ul className="list-disc pl-6 flex flex-col gap-2">
                 {cert.description.map((item, descIndex) => (
                   <li
-                    className="XL:text-large text-normal text-scorpion-500 dark:text-woodsmoke-300 leading-[1.1875rem] text-center XS:text-left"
+                    className="xl:text-large text-normal text-scorpion-500 dark:text-woodsmoke-300 leading-[1.1875rem] text-center xs:text-left"
                     key={descIndex}
                   >
                     {item}

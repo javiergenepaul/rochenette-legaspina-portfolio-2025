@@ -1,17 +1,10 @@
 import { TxKeyPath } from "@/i18n";
-import { useTranslations } from "next-intl";
+import { TFunction } from "i18next";
 
-/**
- * Translates text.
- *
- * @param t The translation function.
- * @param key The i18n key.
- * @param options The options object containing dynamic values.
- */
 export const translate = (
-  t: ReturnType<typeof useTranslations>,
+  t: TFunction,
   key: TxKeyPath,
   options?: Record<string, string | number>
-) => {
-  return key ? t(key, options) : "";
+): string => {
+  return key ? String(t(key, options as never)) : "";
 };

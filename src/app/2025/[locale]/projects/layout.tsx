@@ -11,7 +11,7 @@ export default function ProjectLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex flex-col SM:pt-32 pt-12 pb-20 gap-20">
+    <main className="flex flex-col sm:pt-32 pt-12 pb-20 gap-20">
       {children}
     </main>
   );
