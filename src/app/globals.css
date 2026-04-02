@@ -160,6 +160,50 @@
     --foreground: 210 40% 98%;
   }
 
+  /* ─── 2027 theme — indigo / cosmic ───────────────────────────────────────── */
+  [data-year="2027"] {
+    --amethyst-50:  #eef2ff;
+    --amethyst-100: #e0e7ff;
+    --amethyst-200: #c7d2fe;
+    --amethyst-300: #a5b4fc;
+    --amethyst-400: #818cf8;
+    --amethyst-500: #6366f1;
+    --amethyst-600: #4f46e5;
+    --amethyst-700: #4338ca;
+    --amethyst-800: #3730a3;
+    --amethyst-900: #312e81;
+    --amethyst-950: #1e1b4b;
+
+    --scorpion-50:  #f5f3ff;
+    --scorpion-100: #ede9fe;
+    --scorpion-200: #ddd6fe;
+    --scorpion-300: #c4b5fd;
+    --scorpion-400: #a78bfa;
+    --scorpion-500: #8b5cf6;
+    --scorpion-600: #7c3aed;
+    --scorpion-700: #6d28d9;
+    --scorpion-800: #5b21b6;
+    --scorpion-900: #4c1d95;
+    --scorpion-950: #2e1065;
+
+    --woodsmoke-50:  #f8fafc;
+    --woodsmoke-100: #f1f5f9;
+    --woodsmoke-200: #e2e8f0;
+    --woodsmoke-300: #cbd5e1;
+    --woodsmoke-400: #94a3b8;
+    --woodsmoke-500: #64748b;
+    --woodsmoke-600: #475569;
+    --woodsmoke-700: #334155;
+    --woodsmoke-800: #1e293b;
+    --woodsmoke-900: #0f172a;
+    --woodsmoke-950: #020617;
+  }
+
+  [data-year="2027"].dark {
+    --background: 234 47% 4%;
+    --foreground: 226 100% 97%;
+  }
+
   * {
     @apply border-border;
   }

@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import { Toaster } from "@/components/2025/ui/toaster";
 import LoadingMask from "../../loading-mask";
 import HtmlAttributes from "@/components/common/html-attributes";
+import YearNavigator from "@/components/common/year-navigator";
 
 export const metadata: Metadata = {
   title: "Rochenette Legaspina - 2026",
@@ -34,6 +35,7 @@ export default async function LocaleLayout2026({
           <Footer />
           <Toaster />
         </div>
+        <YearNavigator />
       </I18nProvider>
     </>
   );

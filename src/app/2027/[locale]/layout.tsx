@@ -1,20 +1,18 @@
 import "../../globals.css";
 
-import { Footer, Navigation } from "@/components/2025";
 import I18nProvider from "@/components/2025/common/i18n-provider";
 import { Metadata } from "next";
-import { Toaster } from "@/components/2025/ui/toaster";
 import LoadingMask from "../../loading-mask";
 import HtmlAttributes from "@/components/common/html-attributes";
 import YearNavigator from "@/components/common/year-navigator";
 
 export const metadata: Metadata = {
-  title: "Rochenette Legaspina - 2025",
-  description: "Rochenette Legaspina Portfolio 2025",
-  icons: { icon: "/favicon-2025.svg" },
+  title: "Rochenette Legaspina - 2027",
+  description: "Rochenette Legaspina Portfolio 2027 — Coming Soon",
+  icons: { icon: "/favicon-2026.svg" },
 };
 
-export default async function LocaleLayout({
+export default async function LocaleLayout2027({
   children,
   params,
 }: Readonly<{
@@ -26,15 +24,10 @@ export default async function LocaleLayout({
 
   return (
     <>
-      <HtmlAttributes year="2025" lang={validLocale} />
+      <HtmlAttributes year="2027" lang={validLocale} />
       <I18nProvider locale={validLocale}>
         <LoadingMask />
-        <div className="antialiased overflow-x-hidden relative pb-8 font-inter bg-scorpion-50 dark:bg-woodsmoke-950 selection:bg-amethyst-400 selection:text-amethyst-50 dark:selection:bg-amethyst-800">
-          <Navigation />
-          {children}
-          <Footer />
-          <Toaster />
-        </div>
+        {children}
         <YearNavigator />
       </I18nProvider>
     </>
