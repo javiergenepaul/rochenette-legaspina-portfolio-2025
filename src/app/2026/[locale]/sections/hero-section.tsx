@@ -140,14 +140,20 @@ export default function HeroSection2026() {
 
       {/* Scroll indicator */}
       <div
-        className="absolute bottom-8 left-1/2 flex flex-col items-center gap-1.5 text-white/30 text-[0.7rem] z-10 font-poppins"
-        style={{
-          animation: "scroll-bob 2.4s ease-in-out infinite",
-          transform: "translateX(-50%)",
-        }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+        style={{ animation: "scroll-bob 2.4s ease-in-out infinite" }}
       >
-        <span>Scroll</span>
-        <ChevronDown size={14} strokeWidth={2} />
+        <span className="text-white/60 text-[0.68rem] font-poppins font-semibold uppercase tracking-[2px]">
+          Scroll
+        </span>
+        {/* Mouse-shaped scroll indicator */}
+        <div className="w-5 h-8 rounded-full border-2 border-white/50 flex justify-center pt-1.5">
+          <div
+            className="w-0.5 h-1.5 rounded-full bg-white/80"
+            style={{ animation: "scroll-bob 2.4s ease-in-out infinite" }}
+          />
+        </div>
+        <ChevronDown size={14} strokeWidth={2.5} className="text-white/50 -mt-1" />
       </div>
     </section>
   );
