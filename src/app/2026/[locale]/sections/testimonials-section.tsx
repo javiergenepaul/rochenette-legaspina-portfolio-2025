@@ -24,7 +24,7 @@ export default function TestimonialsSection2026() {
         pleasure of working with.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
         {TESTIMONIALS.map(
           ({ text, name, role, initials, avatarColor, stars }) => (
             <div

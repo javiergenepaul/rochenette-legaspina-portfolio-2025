@@ -65,7 +65,7 @@ export default function AboutSection2026() {
         what makes my perspective unique.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.7fr] gap-16 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.7fr] gap-8 md:gap-16 items-center">
         {/* Photo */}
         <div>
           <div
