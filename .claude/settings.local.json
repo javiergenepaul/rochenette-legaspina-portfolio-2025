@@ -26,7 +26,9 @@
       "Bash(node -e \"console.log\\('/2025/en/about'.split\\('/'\\)[1]\\)\")",
       "Bash(npx tsc:*)",
       "Bash(sed -i 's|import HtmlAttributes from \"@/components/common/html-attributes\";|import HtmlAttributes from \"@/components/common/html-attributes\";\\\\nimport YearNavigator from \"@/components/common/year-navigator\";|' \"src/app/2026/[locale]/layout.tsx\")",
-      "Bash(sed -i 's|      </I18nProvider>|        <YearNavigator />\\\\n      </I18nProvider>|' \"src/app/2026/[locale]/layout.tsx\")"
+      "Bash(sed -i 's|      </I18nProvider>|        <YearNavigator />\\\\n      </I18nProvider>|' \"src/app/2026/[locale]/layout.tsx\")",
+      "Bash(node -e \"require\\('sharp'\\)\")",
+      "Bash(node scripts/generate-favicon.mjs)"
     ]
   }
 }
