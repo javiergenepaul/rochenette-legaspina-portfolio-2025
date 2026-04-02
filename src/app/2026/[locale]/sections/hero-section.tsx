@@ -18,7 +18,7 @@ export default function HeroSection2026() {
     >
       {/* Ambient orbs */}
       <div
-        className="absolute top-[-120px] right-[-60px] w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="absolute -top-30 -right-15 w-125 h-125 rounded-full pointer-events-none"
         style={{
           background: "rgba(211,47,47,.4)",
           filter: "blur(90px)",

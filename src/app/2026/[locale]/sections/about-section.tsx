@@ -87,7 +87,7 @@ export default function AboutSection2026() {
             <div className="absolute bottom-0 right-0 bg-amethyst-500 text-white px-4 py-3 rounded-[20px_0_20px_0] font-poppins font-bold text-[0.72rem] leading-normal flex flex-col gap-1">
               <Typewriter
                 words={["3D Artist", "UI/UX Designer", "Systems Analyst"]}
-                className="min-w-[100px] inline-block"
+                className="min-w-25 inline-block"
               />
               <span className="opacity-70 text-[0.65rem]">
                 Design · Analysis

@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FolderOpen, User2, Tag, Layers, ExternalLink, X, ChevronRight,
+  FolderOpen, User2, Tag, Layers, X, ChevronRight, ChevronLeft, Monitor,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PROJECTS } from "../data/portfolio-data";
@@ -20,7 +21,139 @@ function thumbBg(gradient: string) {
   return THUMB_GRADIENTS[gradient] ?? "linear-gradient(135deg,#D32F2F,#b71c1c)";
 }
 
-const SPRING = { type: "spring", stiffness: 340, damping: 34 };
+const SPRING = { type: "spring" as const, stiffness: 340, damping: 34 };
+
+function MockupCarousel({
+  mockups,
+  gradient,
+}: {
+  mockups: { label: string; image?: string }[];
+  gradient: string;
+}) {
+  const [slide, setSlide] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const total = mockups.length;
+
+  function go(next: number) {
+    setDirection(next > slide ? 1 : -1);
+    setSlide(next);
+  }
+  function prev() { go((slide - 1 + total) % total); }
+  function next() { go((slide + 1) % total); }
+
+  const variants = {
+    enter: (d: number) => ({ x: d > 0 ? "100%" : "-100%", opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (d: number) => ({ x: d > 0 ? "-100%" : "100%", opacity: 0 }),
+  };
+
+  const current = mockups[slide];
+
+  return (
+    <div className="flex flex-col gap-3">
+      <p className="text-[0.68rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide">
+        Mockups &amp; Screenshots
+      </p>
+
+      {/* Slide area */}
+      <div className="relative rounded-[14px] overflow-hidden bg-woodsmoke-950 aspect-video select-none">
+        <AnimatePresence custom={direction} mode="popLayout">
+          <motion.div
+            key={slide}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
+            className="absolute inset-0"
+          >
+            {current.image ? (
+              <Image
+                src={current.image}
+                alt={current.label}
+                fill
+                className="object-cover"
+              />
+            ) : (
+              /* Placeholder mockup */
+              <div
+                className="w-full h-full flex flex-col"
+                style={{ background: thumbBg(gradient) }}
+              >
+                {/* Fake browser chrome */}
+                <div className="flex items-center gap-1.5 px-3 py-2 bg-black/30 shrink-0">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
+                  <div className="ml-2 flex-1 h-4 rounded bg-white/10 max-w-45" />
+                </div>
+                {/* Fake content skeleton */}
+                <div className="flex-1 p-4 flex flex-col gap-3 opacity-60">
+                  <div className="h-5 rounded bg-white/25 w-2/5" />
+                  <div className="grid grid-cols-3 gap-2 flex-1">
+                    <div className="rounded-lg bg-white/15 col-span-2" />
+                    <div className="flex flex-col gap-2">
+                      <div className="rounded-lg bg-white/15 flex-1" />
+                      <div className="rounded-lg bg-white/10 flex-1" />
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <div className="h-3 rounded bg-white/20 w-1/3" />
+                    <div className="h-3 rounded bg-white/15 w-1/4" />
+                  </div>
+                </div>
+                {/* Label overlay */}
+                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                  <Monitor size={10} className="text-white/70" />
+                  <span className="text-white/80 font-poppins font-semibold text-[0.65rem]">
+                    {current.label}
+                  </span>
+                </div>
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Arrows */}
+        {total > 1 && (
+          <>
+            <button
+              onClick={prev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-black/40 backdrop-blur-sm border border-white/15 text-white flex items-center justify-center hover:bg-black/60 transition-colors"
+            >
+              <ChevronLeft size={14} strokeWidth={2} />
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-black/40 backdrop-blur-sm border border-white/15 text-white flex items-center justify-center hover:bg-black/60 transition-colors"
+            >
+              <ChevronRight size={14} strokeWidth={2} />
+            </button>
+          </>
+        )}
+      </div>
+
+      {/* Dots */}
+      {total > 1 && (
+        <div className="flex items-center justify-center gap-1.5">
+          {mockups.map((m, i) => (
+            <button
+              key={m.label}
+              onClick={() => go(i)}
+              className={cn(
+                "transition-all duration-200 rounded-full",
+                i === slide
+                  ? "w-5 h-1.5 bg-amethyst-500"
+                  : "w-1.5 h-1.5 bg-woodsmoke-300 dark:bg-woodsmoke-600 hover:bg-amethyst-300"
+              )}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ProjectsSection2026() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -44,7 +177,7 @@ export default function ProjectsSection2026() {
       >
         Selected <span className="text-amethyst-500">Work</span>
       </h2>
-      <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.95rem] leading-[1.75] max-w-[560px] mb-12">
+      <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.95rem] leading-[1.75] max-w-140 mb-12">
         A cross-disciplinary portfolio spanning systems analysis, UX design, and 3D visualization.
       </p>
 
@@ -70,7 +203,7 @@ export default function ProjectsSection2026() {
             >
                 {/* Thumbnail */}
                 <div
-                  className="h-[175px] relative flex items-center justify-center overflow-hidden"
+                  className="h-43.75 relative flex items-center justify-center overflow-hidden"
                   style={{ background: thumbBg(project.gradient) }}
                 >
                   <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
@@ -99,7 +232,7 @@ export default function ProjectsSection2026() {
                     <button
                       onClick={() => setSelectedIndex(i)}
                       className={cn(
-                        "inline-flex items-center gap-1.5 text-[0.75rem] font-poppins font-bold",
+                        "inline-flex items-center gap-1.5 text-caption font-poppins font-bold",
                         "px-3 py-1.5 rounded-full border transition-all duration-200",
                         "text-amethyst-500 bg-amethyst-50 border-amethyst-100",
                         "dark:text-amethyst-300 dark:bg-amethyst-500/12 dark:border-amethyst-500/25",
@@ -138,43 +271,42 @@ export default function ProjectsSection2026() {
                 "shadow-[0_16px_56px_rgba(211,47,47,.18)]"
               )}
             >
-              {/* Expanded thumbnail */}
+              {/* Header bar with type badge + close */}
               <div
-                className="h-[240px] relative flex items-center justify-center overflow-hidden"
+                className="flex items-center justify-between px-5 py-3 shrink-0"
                 style={{ background: thumbBg(selected.gradient) }}
               >
-                <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
-                <FolderOpen size={72} className="text-white/50 relative z-10" strokeWidth={1} />
-                <div className="absolute top-4 left-4 z-20 flex items-center gap-1 bg-white/18 backdrop-blur-sm border border-white/28 text-white px-3 py-1.5 rounded-full text-[0.73rem] font-poppins font-bold">
-                  <Tag size={12} strokeWidth={2} />
+                <div className="flex items-center gap-1.5 bg-white/18 backdrop-blur-sm border border-white/28 text-white px-3 py-1 rounded-full text-[0.68rem] font-poppins font-bold">
+                  <Tag size={11} strokeWidth={2} />
                   {selected.type}
                 </div>
                 <button
                   onClick={() => setSelectedIndex(null)}
-                  className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-black/50 transition-colors duration-200"
+                  className="w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-black/50 transition-colors duration-200"
                 >
-                  <X size={16} strokeWidth={2} />
+                  <X size={15} strokeWidth={2} />
                 </button>
               </div>
 
               {/* Expanded body — fades in after the card moves */}
               <motion.div
-                className="p-7 flex flex-col gap-4"
+                className="p-6 flex flex-col gap-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.22, duration: 0.3 }}
               >
-                <h3 className="font-poppins font-bold text-woodsmoke-900 dark:text-woodsmoke-50" style={{ fontSize: "clamp(1.1rem,2vw,1.4rem)" }}>
+                <h3 className="font-poppins font-bold text-woodsmoke-900 dark:text-woodsmoke-50" style={{ fontSize: "clamp(1.1rem,2vw,1.3rem)" }}>
                   {selected.title}
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                <div className="grid grid-cols-2 gap-3">
                   <div className="flex items-start gap-2">
                     <div className="w-7 h-7 rounded-lg bg-amethyst-50 dark:bg-amethyst-500/15 flex items-center justify-center shrink-0 mt-0.5">
                       <User2 size={13} className="text-amethyst-500" strokeWidth={2} />
                     </div>
                     <div>
-                      <p className="text-[0.68rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-0.5">Role</p>
-                      <p className="text-[0.83rem] text-woodsmoke-700 dark:text-woodsmoke-200 font-medium">{selected.role}</p>
+                      <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-0.5">Role</p>
+                      <p className="text-[0.8rem] text-woodsmoke-700 dark:text-woodsmoke-200 font-medium leading-snug">{selected.role}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
@@ -182,41 +314,34 @@ export default function ProjectsSection2026() {
                       <Layers size={13} className="text-amethyst-500" strokeWidth={2} />
                     </div>
                     <div>
-                      <p className="text-[0.68rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-0.5">Type</p>
-                      <p className="text-[0.83rem] text-woodsmoke-700 dark:text-woodsmoke-200 font-medium">{selected.type}</p>
+                      <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-0.5">Type</p>
+                      <p className="text-[0.8rem] text-woodsmoke-700 dark:text-woodsmoke-200 font-medium leading-snug">{selected.type}</p>
                     </div>
                   </div>
                 </div>
+
                 <div>
-                  <p className="text-[0.68rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-1.5">About this project</p>
-                  <p className="text-[0.88rem] text-woodsmoke-600 dark:text-woodsmoke-300 leading-[1.75]">
+                  <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-1">About</p>
+                  <p className="text-[0.84rem] text-woodsmoke-600 dark:text-woodsmoke-300 leading-[1.7]">
                     {selected.description}
                   </p>
                 </div>
+
                 <div>
-                  <p className="text-[0.68rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-2">Tech &amp; Tools</p>
-                  <div className="flex flex-wrap gap-2">
+                  <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-2">Tech &amp; Tools</p>
+                  <div className="flex flex-wrap gap-1.5">
                     {selected.stack.map((s) => (
-                      <span key={s} className="bg-amethyst-50 text-amethyst-500 dark:bg-amethyst-500/15 dark:text-amethyst-300 px-3 py-1 rounded-full text-[0.75rem] font-poppins font-bold">
+                      <span key={s} className="bg-amethyst-50 text-amethyst-500 dark:bg-amethyst-500/15 dark:text-amethyst-300 px-2.5 py-0.5 rounded-full text-[0.72rem] font-poppins font-bold">
                         {s}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="pt-2 border-t border-woodsmoke-100 dark:border-woodsmoke-700 flex items-center gap-3">
-                  <a
-                    href={selected.link ?? "#"}
-                    className={cn(
-                      "inline-flex items-center gap-1.5 text-[0.78rem] font-poppins font-bold no-underline",
-                      "px-4 py-2 rounded-full border transition-all duration-200",
-                      "text-amethyst-500 bg-amethyst-50 border-amethyst-100",
-                      "dark:text-amethyst-300 dark:bg-amethyst-500/12 dark:border-amethyst-500/25",
-                      "hover:bg-amethyst-500 hover:text-white hover:border-amethyst-500"
-                    )}
-                  >
-                    <ExternalLink size={13} strokeWidth={2} />
-                    View Project
-                  </a>
+
+                {/* Mockup carousel */}
+                <MockupCarousel mockups={selected.mockups} gradient={selected.gradient} />
+
+                <div className="pt-1 border-t border-woodsmoke-100 dark:border-woodsmoke-700">
                   <button
                     onClick={() => setSelectedIndex(null)}
                     className="text-[0.78rem] font-poppins font-semibold text-woodsmoke-400 hover:text-woodsmoke-600 dark:hover:text-woodsmoke-200 transition-colors duration-200"
@@ -252,7 +377,7 @@ export default function ProjectsSection2026() {
                       transition={{ delay: 0.12 + i * 0.07, ...SPRING }}
                       onClick={() => setSelectedIndex(originalIndex)}
                       className={cn(
-                        "absolute w-full rounded-[16px] overflow-hidden border cursor-pointer",
+                        "absolute w-full rounded-2xl overflow-hidden border cursor-pointer",
                         "bg-white dark:bg-woodsmoke-800",
                         "border-woodsmoke-200 dark:border-woodsmoke-700",
                         "hover:-translate-y-1 transition-transform duration-200"
