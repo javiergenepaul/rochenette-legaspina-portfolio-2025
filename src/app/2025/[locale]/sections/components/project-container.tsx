@@ -7,8 +7,8 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
 import { ProjectContainerInterface } from "../project-section";
-import { NAV_LINKS } from "@/config";
-import { useRouter } from "next/navigation";
+import { getNavLinks } from "@/config";
+import { useRouter, usePathname } from "next/navigation";
 import { useLoadingStore } from "@/store";
 
 export default function ProjectContainer({
@@ -22,6 +22,11 @@ export default function ProjectContainer({
   const t = useTranslations();
   const router = useRouter();
   const { setLoading } = useLoadingStore();
+  const pathname = usePathname();
+  const pathParts = pathname.split("/");
+  const year = pathParts[1] ?? "2026";
+  const locale = pathParts[2] ?? "en";
+  const NAV_LINKS = getNavLinks(year, locale);
 
   return (
     <>

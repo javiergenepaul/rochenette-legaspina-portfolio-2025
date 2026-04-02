@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p src/app/2025)",
+      "Bash(cp -r \"src/app/[locale]\" \"src/app/2025/[locale]\")",
+      "Bash(rm -rf \"src/app/[locale]\")",
+      "Bash(mkdir -p \"src/app/2026\")",
+      "Bash(cp -r \"src/app/2025/[locale]\" \"src/app/2026/[locale]\")",
+      "Bash(pnpm run:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm add:*)"
+    ]
+  }
+}

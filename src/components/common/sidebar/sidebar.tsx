@@ -4,7 +4,7 @@ import { Drawer } from "vaul";
 import { Button } from "@/components/ui/button";
 import { twMerge } from "tailwind-merge";
 import { useTheme } from "next-themes";
-import { NAV_LINKS, SOCIAL_LINKS } from "@/config";
+import { getNavLinks, SOCIAL_LINKS } from "@/config";
 import { Separator } from "@/components/ui/separator";
 import { translate } from "@/lib";
 import { usePathname } from "next/navigation";
@@ -15,6 +15,11 @@ export default function Sidebar() {
   const { setTheme, resolvedTheme } = useTheme();
   const pathname = usePathname();
   const t = useTranslations();
+
+  const pathParts = pathname.split("/");
+  const year = pathParts[1] ?? "2026";
+  const locale = pathParts[2] ?? "en";
+  const NAV_LINKS = getNavLinks(year, locale);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -126,7 +131,7 @@ export default function Sidebar() {
                       ? "rochenette-legaspina-2025-resume-dark.pdf"
                       : "rochenette-legaspina-2025-resume-light.pdf";
                   window.open(
-                    `${window.location.origin}/2025/resume/${resumeFile}`,
+                    `${window.location.origin}/${year}/resume/${resumeFile}`,
                     "_blank"
                   );
                 }}

@@ -1,25 +1,25 @@
 export interface PathInterface {
   [key: string]: {
     name: string;
-    getPath: (locale: string) => string;
+    getPath: (year: string, locale: string) => string;
   };
 }
 
 export const PATH: PathInterface = {
   HOME: {
     name: "Home",
-    getPath: (locale: string) => `/${locale}`,
+    getPath: (year: string, locale: string) => `/${year}/${locale}`,
   },
   ABOUT: {
     name: "About",
-    getPath: (locale: string) => `/${locale}/about`,
+    getPath: (year: string, locale: string) => `/${year}/${locale}/about`,
   },
   PROJECT: {
     name: "Project",
-    getPath: (locale: string) => `/${locale}/projects`,
+    getPath: (year: string, locale: string) => `/${year}/${locale}/projects`,
   },
   CONTACT: {
     name: "Contact Me",
-    getPath: (locale: string) => `/${locale}/contact`,
+    getPath: (year: string, locale: string) => `/${year}/${locale}/contact`,
   },
 };

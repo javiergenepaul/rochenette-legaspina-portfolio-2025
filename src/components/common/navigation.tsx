@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { NAV_LINKS, style } from "@/config";
+import { getNavLinks, style } from "@/config";
 import { twMerge } from "tailwind-merge";
 import { usePathname } from "next/navigation";
 import { ThemeToggleSwitch } from "./theme-toggle-switch";
@@ -17,6 +17,11 @@ export default function Navigation() {
   const [mounted, setMounted] = useState<boolean>(false);
   const { setTheme, resolvedTheme } = useTheme();
   const { setLoading } = useLoadingStore();
+
+  const pathParts = pathname.split("/");
+  const year = pathParts[1] ?? "2026";
+  const locale = pathParts[2] ?? "en";
+  const NAV_LINKS = getNavLinks(year, locale);
 
   useEffect(() => {
     setMounted(true);

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { NAV_LINKS, SOCIAL_LINKS, style } from "@/config";
+import { getNavLinks, SOCIAL_LINKS, style } from "@/config";
 import { twMerge } from "tailwind-merge";
 import { usePathname } from "next/navigation";
 import { translate } from "@/lib";
@@ -17,6 +17,11 @@ export default function Footer() {
   const pathname = usePathname();
   const { resolvedTheme } = useTheme();
   const [grabbingIcon, setGrabbingIcon] = useState<boolean>(false);
+
+  const pathParts = pathname.split("/");
+  const year = pathParts[1] ?? "2026";
+  const locale = pathParts[2] ?? "en";
+  const NAV_LINKS = getNavLinks(year, locale);
 
   return (
     <motion.footer

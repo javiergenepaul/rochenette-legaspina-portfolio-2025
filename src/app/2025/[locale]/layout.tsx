@@ -1,4 +1,4 @@
-import "../globals.css";
+import "../../globals.css";
 
 import { Footer, Navigation } from "@/components";
 import { NextIntlClientProvider } from "next-intl";
@@ -6,7 +6,8 @@ import { getMessages } from "next-intl/server";
 import { ThemeProviders } from "./theme-providers";
 import { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
-import LoadingMask from "../loading-mask";
+import LoadingMask from "../../loading-mask";
+import YearSwitcher2026 from "@/components/common/year-switcher-2026";
 
 export const metadata: Metadata = {
   title: "Rochenette Legaspina - Home",
@@ -35,6 +36,7 @@ export default async function LocaleLayout({
               {children}
               <Footer />
               <Toaster />
+              <YearSwitcher2026 />
             </div>
           </ThemeProviders>
         </NextIntlClientProvider>

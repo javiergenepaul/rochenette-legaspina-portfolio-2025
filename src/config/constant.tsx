@@ -537,23 +537,11 @@ export const SOCIAL_LINKS: SocialLinksInterface[] = [
   },
 ];
 
-export const NAV_LINKS: NavLinksInterface[] = [
-  {
-    label: PATH.HOME.name,
-    to: PATH.HOME.getPath(locale),
-  },
-  {
-    label: PATH.ABOUT.name,
-    to: PATH.ABOUT.getPath(locale),
-  },
-  {
-    label: PATH.PROJECT.name,
-    to: PATH.PROJECT.getPath(locale),
-  },
-  {
-    label: PATH.CONTACT.name,
-    to: PATH.CONTACT.getPath(locale),
-  },
+export const getNavLinks = (year: string, locale: string): NavLinksInterface[] => [
+  { label: PATH.HOME.name, to: PATH.HOME.getPath(year, locale) },
+  { label: PATH.ABOUT.name, to: PATH.ABOUT.getPath(year, locale) },
+  { label: PATH.PROJECT.name, to: PATH.PROJECT.getPath(year, locale) },
+  { label: PATH.CONTACT.name, to: PATH.CONTACT.getPath(year, locale) },
 ];
 
 export const PROJECTS: ProjectInterface[] = [
