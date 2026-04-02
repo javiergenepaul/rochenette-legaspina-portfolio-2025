@@ -119,6 +119,7 @@
      ───────────────────────────────────────────────────────────────────────── */
   /* ─── 2026 theme — crimson red primary, dark-navy neutrals ──────────────── */
   [data-year="2026"] {
+    scroll-behavior: smooth;
     /* Red mapped into the amethyst slot */
     --amethyst-50:  #FFF0F0;
     --amethyst-100: #FFCDD2;

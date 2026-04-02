@@ -41,6 +41,12 @@ export default async function LocaleLayout2026({
 
   return (
     <>
+      {/* Set data-year synchronously before first paint to avoid theme flash */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `document.documentElement.setAttribute('data-year','2026');document.documentElement.setAttribute('lang','${validLocale}');`,
+        }}
+      />
       <HtmlAttributes year="2026" lang={validLocale} />
       <I18nProvider locale={validLocale}>
         <LoadingMask />

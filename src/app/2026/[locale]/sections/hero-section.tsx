@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useLoadingStore } from "@/store";
 import { useEffect } from "react";
 import { Send, Briefcase, Monitor, Wrench, ChevronRight, ChevronDown } from "lucide-react";
@@ -91,7 +92,7 @@ export default function HeroSection2026() {
 
         {/* CTAs */}
         <div className="flex flex-wrap gap-4">
-          <a
+          <Link
             href="#projects"
             className={cn(
               "inline-flex items-center gap-2 px-7 py-3 rounded-xl font-poppins font-bold text-[0.88rem] text-white no-underline",
@@ -102,8 +103,8 @@ export default function HeroSection2026() {
           >
             <Briefcase size={15} strokeWidth={1.75} />
             View My Work
-          </a>
-          <a
+          </Link>
+          <Link
             href="#contact"
             className={cn(
               "inline-flex items-center gap-2 px-7 py-3 rounded-xl font-poppins font-semibold text-[0.88rem] text-white no-underline",
@@ -113,7 +114,7 @@ export default function HeroSection2026() {
           >
             <Send size={15} strokeWidth={1.75} />
             Get in Touch
-          </a>
+          </Link>
         </div>
 
         {/* Stats */}
