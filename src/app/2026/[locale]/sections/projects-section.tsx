@@ -4,17 +4,24 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FolderOpen, User2, Tag, Layers, X, ChevronRight, ChevronLeft, Monitor,
+  FolderOpen,
+  User2,
+  Tag,
+  Layers,
+  X,
+  ChevronRight,
+  ChevronLeft,
+  Monitor,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PROJECTS } from "../data/portfolio-data";
 
 const THUMB_GRADIENTS: Record<string, string> = {
-  "from-red-700 to-red-400":    "linear-gradient(135deg,#b71c1c,#ef5350)",
-  "from-rose-800 to-red-500":   "linear-gradient(135deg,#880e2e,#D32F2F)",
+  "from-red-700 to-red-400": "linear-gradient(135deg,#b71c1c,#ef5350)",
+  "from-rose-800 to-red-500": "linear-gradient(135deg,#880e2e,#D32F2F)",
   "from-red-900 to-orange-600": "linear-gradient(135deg,#D32F2F,#e65100)",
   "from-purple-900 to-red-700": "linear-gradient(135deg,#6a1b9a,#D32F2F)",
-  "from-red-700 to-pink-700":   "linear-gradient(135deg,#D32F2F,#880e4f)",
+  "from-red-700 to-pink-700": "linear-gradient(135deg,#D32F2F,#880e4f)",
 };
 
 function thumbBg(gradient: string) {
@@ -38,8 +45,12 @@ function MockupCarousel({
     setDirection(next > slide ? 1 : -1);
     setSlide(next);
   }
-  function prev() { go((slide - 1 + total) % total); }
-  function next() { go((slide + 1) % total); }
+  function prev() {
+    go((slide - 1 + total) % total);
+  }
+  function next() {
+    go((slide + 1) % total);
+  }
 
   const variants = {
     enter: (d: number) => ({ x: d > 0 ? "100%" : "-100%", opacity: 0 }),
@@ -145,7 +156,7 @@ function MockupCarousel({
                 "transition-all duration-200 rounded-full",
                 i === slide
                   ? "w-5 h-1.5 bg-amethyst-500"
-                  : "w-1.5 h-1.5 bg-woodsmoke-300 dark:bg-woodsmoke-600 hover:bg-amethyst-300"
+                  : "w-1.5 h-1.5 bg-woodsmoke-300 dark:bg-woodsmoke-600 hover:bg-amethyst-300",
               )}
             />
           ))}
@@ -178,7 +189,8 @@ export default function ProjectsSection2026() {
         Selected <span className="text-amethyst-500">Work</span>
       </h2>
       <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.95rem] leading-[1.75] max-w-140 mb-12">
-        A cross-disciplinary portfolio spanning systems analysis, UX design, and 3D visualization.
+        A cross-disciplinary portfolio spanning systems analysis, UX design, and
+        3D visualization.
       </p>
 
       {/* ── Grid view ──────────────────────────────────────────────────────── */}
@@ -191,59 +203,69 @@ export default function ProjectsSection2026() {
               style={{ borderRadius: 20 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -6, boxShadow: "0 12px 36px rgba(211,47,47,.15)" }}
+              whileHover={{
+                y: -6,
+                boxShadow: "0 12px 36px rgba(211,47,47,.15)",
+              }}
               transition={{ ...SPRING, delay: i * 0.06 }}
               onClick={() => setSelectedIndex(i)}
               className={cn(
                 "flex flex-col overflow-hidden border cursor-pointer",
                 "bg-white dark:bg-woodsmoke-800",
                 "border-woodsmoke-200 dark:border-woodsmoke-700",
-                "shadow-[0_4px_16px_rgba(0,0,0,.06)]"
+                "shadow-[0_4px_16px_rgba(0,0,0,.06)]",
               )}
             >
-                {/* Thumbnail */}
-                <div
-                  className="h-43.75 relative flex items-center justify-center overflow-hidden"
-                  style={{ background: thumbBg(project.gradient) }}
-                >
-                  <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
-                  <FolderOpen size={48} className="text-white/65 relative z-10" strokeWidth={1.25} />
-                  <div className="absolute top-3 left-3 z-20 flex items-center gap-1 bg-white/18 backdrop-blur-sm border border-white/28 text-white px-2.5 py-1 rounded-full text-[0.68rem] font-poppins font-bold">
-                    <Tag size={11} strokeWidth={2} />
-                    {project.type}
-                  </div>
+              {/* Thumbnail */}
+              <div
+                className="h-43.75 relative flex items-center justify-center overflow-hidden"
+                style={{ background: thumbBg(project.gradient) }}
+              >
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
+                <FolderOpen
+                  size={48}
+                  className="text-white/65 relative z-10"
+                  strokeWidth={1.25}
+                />
+                <div className="absolute top-3 left-3 z-20 flex items-center gap-1 bg-white/18 backdrop-blur-sm border border-white/28 text-white px-2.5 py-1 rounded-full text-[0.68rem] font-poppins font-bold">
+                  <Tag size={11} strokeWidth={2} />
+                  {project.type}
                 </div>
-                {/* Body */}
-                <div className="flex flex-col gap-2.5 p-5 flex-1">
-                  <h3 className="font-poppins font-bold text-[0.9rem] text-woodsmoke-900 dark:text-woodsmoke-50">
-                    {project.title}
-                  </h3>
-                  <p className="text-[0.8rem] text-woodsmoke-500 dark:text-woodsmoke-400 leading-[1.6] line-clamp-2">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 mt-1">
-                    {project.stack.slice(0, 3).map((s) => (
-                      <span key={s} className="bg-amethyst-50 text-amethyst-500 dark:bg-amethyst-500/15 dark:text-amethyst-300 px-2 py-0.5 rounded-full text-[0.68rem] font-poppins font-bold">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-auto pt-3 border-t border-woodsmoke-200 dark:border-woodsmoke-700">
-                    <button
-                      onClick={() => setSelectedIndex(i)}
-                      className={cn(
-                        "inline-flex items-center gap-1.5 text-caption font-poppins font-bold",
-                        "px-3 py-1.5 rounded-full border transition-all duration-200",
-                        "text-amethyst-500 bg-amethyst-50 border-amethyst-100",
-                        "dark:text-amethyst-300 dark:bg-amethyst-500/12 dark:border-amethyst-500/25",
-                        "hover:bg-amethyst-500 hover:text-white hover:border-amethyst-500"
-                      )}
+              </div>
+              {/* Body */}
+              <div className="flex flex-col gap-2.5 p-5 flex-1">
+                <h3 className="font-poppins font-bold text-[0.9rem] text-woodsmoke-900 dark:text-woodsmoke-50">
+                  {project.title}
+                </h3>
+                <p className="text-[0.8rem] text-woodsmoke-500 dark:text-woodsmoke-400 leading-[1.6] line-clamp-2">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5 mt-1">
+                  {project.stack.slice(0, 3).map((s) => (
+                    <span
+                      key={s}
+                      className="bg-amethyst-50 text-amethyst-500 dark:bg-amethyst-500/15 dark:text-amethyst-300 px-2 py-0.5 rounded-full text-[0.68rem] font-poppins font-bold"
                     >
-                      <ChevronRight size={12} strokeWidth={2.5} />
-                      Find out more
-                    </button>
-                  </div>
+                      {s}
+                    </span>
+                  ))}
                 </div>
+                <div className="mt-auto pt-3 border-t border-woodsmoke-200 dark:border-woodsmoke-700">
+                  <button
+                    onClick={() => setSelectedIndex(i)}
+                    className={cn(
+                      "inline-flex items-center gap-1.5 text-caption font-poppins font-bold",
+                      "px-3 py-1.5 rounded-full border transition-all duration-200",
+                      "text-amethyst-500 bg-amethyst-50 border-amethyst-100",
+                      "dark:text-amethyst-300 dark:bg-amethyst-500/12 dark:border-amethyst-500/25",
+                      "hover:bg-amethyst-500 hover:text-white hover:border-amethyst-500",
+                    )}
+                  >
+                    <ChevronRight size={12} strokeWidth={2.5} />
+                    Find out more
+                  </button>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -268,7 +290,7 @@ export default function ProjectsSection2026() {
                 "lg:w-[58%] w-full overflow-hidden border",
                 "bg-white dark:bg-woodsmoke-800",
                 "border-woodsmoke-200 dark:border-woodsmoke-700",
-                "shadow-[0_16px_56px_rgba(211,47,47,.18)]"
+                "shadow-[0_16px_56px_rgba(211,47,47,.18)]",
               )}
             >
               {/* Header bar with type badge + close */}
@@ -295,43 +317,69 @@ export default function ProjectsSection2026() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.22, duration: 0.3 }}
               >
-                <h3 className="font-poppins font-bold text-woodsmoke-900 dark:text-woodsmoke-50" style={{ fontSize: "clamp(1.1rem,2vw,1.3rem)" }}>
+                <h3
+                  className="font-poppins font-bold text-woodsmoke-900 dark:text-woodsmoke-50"
+                  style={{ fontSize: "clamp(1.1rem,2vw,1.3rem)" }}
+                >
                   {selected.title}
                 </h3>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div className="flex items-start gap-2">
                     <div className="w-7 h-7 rounded-lg bg-amethyst-50 dark:bg-amethyst-500/15 flex items-center justify-center shrink-0 mt-0.5">
-                      <User2 size={13} className="text-amethyst-500" strokeWidth={2} />
+                      <User2
+                        size={13}
+                        className="text-amethyst-500"
+                        strokeWidth={2}
+                      />
                     </div>
                     <div>
-                      <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-0.5">Role</p>
-                      <p className="text-[0.8rem] text-woodsmoke-700 dark:text-woodsmoke-200 font-medium leading-snug">{selected.role}</p>
+                      <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-0.5">
+                        Role
+                      </p>
+                      <p className="text-[0.8rem] text-woodsmoke-700 dark:text-woodsmoke-200 font-medium leading-snug">
+                        {selected.role}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-7 h-7 rounded-lg bg-amethyst-50 dark:bg-amethyst-500/15 flex items-center justify-center shrink-0 mt-0.5">
-                      <Layers size={13} className="text-amethyst-500" strokeWidth={2} />
+                      <Layers
+                        size={13}
+                        className="text-amethyst-500"
+                        strokeWidth={2}
+                      />
                     </div>
                     <div>
-                      <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-0.5">Type</p>
-                      <p className="text-[0.8rem] text-woodsmoke-700 dark:text-woodsmoke-200 font-medium leading-snug">{selected.type}</p>
+                      <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-0.5">
+                        Type
+                      </p>
+                      <p className="text-[0.8rem] text-woodsmoke-700 dark:text-woodsmoke-200 font-medium leading-snug">
+                        {selected.type}
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-1">About</p>
+                  <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-1">
+                    About
+                  </p>
                   <p className="text-[0.84rem] text-woodsmoke-600 dark:text-woodsmoke-300 leading-[1.7]">
                     {selected.description}
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-2">Tech &amp; Tools</p>
+                  <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-2">
+                    Tech &amp; Tools
+                  </p>
                   <div className="flex flex-wrap gap-1.5">
                     {selected.stack.map((s) => (
-                      <span key={s} className="bg-amethyst-50 text-amethyst-500 dark:bg-amethyst-500/15 dark:text-amethyst-300 px-2.5 py-0.5 rounded-full text-[0.72rem] font-poppins font-bold">
+                      <span
+                        key={s}
+                        className="bg-amethyst-50 text-amethyst-500 dark:bg-amethyst-500/15 dark:text-amethyst-300 px-2.5 py-0.5 rounded-full text-[0.72rem] font-poppins font-bold"
+                      >
                         {s}
                       </span>
                     ))}
@@ -339,7 +387,10 @@ export default function ProjectsSection2026() {
                 </div>
 
                 {/* Mockup carousel */}
-                <MockupCarousel mockups={selected.mockups} gradient={selected.gradient} />
+                <MockupCarousel
+                  mockups={selected.mockups}
+                  gradient={selected.gradient}
+                />
 
                 <div className="pt-1 border-t border-woodsmoke-100 dark:border-woodsmoke-700">
                   <button
@@ -380,7 +431,7 @@ export default function ProjectsSection2026() {
                         "absolute w-full rounded-2xl overflow-hidden border cursor-pointer",
                         "bg-white dark:bg-woodsmoke-800",
                         "border-woodsmoke-200 dark:border-woodsmoke-700",
-                        "hover:-translate-y-1 transition-transform duration-200"
+                        "hover:-translate-y-1 transition-transform duration-200",
                       )}
                       style={{
                         top: `${i * 56}px`,
@@ -394,7 +445,11 @@ export default function ProjectsSection2026() {
                           className="w-11 h-11 rounded-[10px] flex items-center justify-center shrink-0"
                           style={{ background: thumbBg(project.gradient) }}
                         >
-                          <FolderOpen size={18} className="text-white/80" strokeWidth={1.5} />
+                          <FolderOpen
+                            size={18}
+                            className="text-white/80"
+                            strokeWidth={1.5}
+                          />
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="font-poppins font-bold text-[0.8rem] text-woodsmoke-900 dark:text-woodsmoke-50 truncate">
@@ -404,7 +459,11 @@ export default function ProjectsSection2026() {
                             {project.role}
                           </p>
                         </div>
-                        <ChevronRight size={14} className="text-woodsmoke-300 dark:text-woodsmoke-600 shrink-0" strokeWidth={2} />
+                        <ChevronRight
+                          size={14}
+                          className="text-woodsmoke-300 dark:text-woodsmoke-600 shrink-0"
+                          strokeWidth={2}
+                        />
                       </div>
                     </motion.div>
                   );
