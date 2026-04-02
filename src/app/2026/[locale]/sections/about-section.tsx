@@ -1,8 +1,10 @@
+import Image from "next/image";
 import {
   User, Clock, TrendingUp, MapPin,
   Lightbulb, Smile, RefreshCw, Users, Search, Star,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { RochenetteLegaspina2026 } from "@/assets/2026";
 
 const CHAPTERS = [
   {
@@ -57,15 +59,18 @@ export default function AboutSection2026() {
           <div
             className={cn(
               "relative rounded-[20px] overflow-hidden aspect-[4/5]",
-              "bg-linear-to-br from-amethyst-100 to-amethyst-200",
-              "dark:from-amethyst-900 dark:to-amethyst-800",
               "shadow-[0_12px_36px_rgba(211,47,47,.13)]"
             )}
           >
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-              <User size={64} className="text-amethyst-500/35" strokeWidth={1.25} />
-              <p className="text-amethyst-400 text-[0.78rem] font-medium">Your Photo Here</p>
-            </div>
+            <Image
+              src={RochenetteLegaspina2026}
+              alt="Rochenette Legaspina"
+              fill
+              className="object-cover object-top select-none"
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 500px"
+              quality={100}
+              priority
+            />
             {/* Badge */}
             <div className="absolute bottom-0 right-0 bg-amethyst-500 text-white px-4 py-3 rounded-[20px_0_20px_0] font-poppins font-bold text-[0.72rem] leading-[1.5] flex flex-col gap-1">
               <span>Systems Analyst</span>
