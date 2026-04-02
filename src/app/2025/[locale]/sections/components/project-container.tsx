@@ -66,7 +66,7 @@ export default function ProjectContainer({
           </div>
           {/* Image Component */}
           <Image
-            className="basis-auto sm:basis-1/2 xl:h-[500px] lg:h-[380px] md:h-[267px] sm:h-[195px] xs:h-[321px] h-[220px] w-full rounded-2xl"
+            className="basis-auto sm:basis-1/2 xl:h-125 lg:h-95 md:h-66.75 sm:h-48.75 xs:h-80.25 h-55 w-full rounded-2xl"
             src={img}
             alt={imgAlt}
           />
@@ -84,7 +84,7 @@ export default function ProjectContainer({
         >
           {/* Image Component */}
           <Image
-            className="basis-auto sm:basis-1/2 xl:h-[500px] lg:h-[380px] md:h-[267px] sm:h-[195px] xs:h-[321px] h-[220px] w-full rounded-2xl"
+            className="basis-auto sm:basis-1/2 xl:h-125 lg:h-95 md:h-66.75 sm:h-48.75 xs:h-80.25 h-55 w-full rounded-2xl"
             src={img}
             alt={imgAlt}
           />

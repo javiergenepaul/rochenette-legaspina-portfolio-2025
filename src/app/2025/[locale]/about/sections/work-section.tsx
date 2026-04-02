@@ -50,7 +50,7 @@ export default function WorkSection() {
             onClick={() => window.open(experience.url, "_blank")}
           >
             <Image
-              className="object-contain xl:h-36 xl:w-36 lg:h-28 lg:w-28 md:h-24 md:w-24 sm:h-20 sm:w-20 w-16 h-16 shadow-[0_0_14.98px_rgba(0,0,0,0.14)] rounded-2xl bg-scorpion-50 leading-[1.1875rem]"
+              className="object-contain xl:h-36 xl:w-36 lg:h-28 lg:w-28 md:h-24 md:w-24 sm:h-20 sm:w-20 w-16 h-16 shadow-[0_0_14.98px_rgba(0,0,0,0.14)] rounded-2xl bg-scorpion-50 leading-4.75"
               src={experience.image}
               alt={experience.imageAlt}
             />
@@ -58,7 +58,7 @@ export default function WorkSection() {
               <span className="xl:text-large text-normal font-bold text-scorpion-700 dark:text-woodsmoke-50">
                 {experience.title}
               </span>
-              <span className="xl:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-[1.1875rem]">
+              <span className="xl:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-4.75">
                 {experience.subTitle}{" "}
                 {`(${experience.startDate?.format(
                   "YYYY"
@@ -67,7 +67,7 @@ export default function WorkSection() {
               <ul className="list-disc pl-6 flex flex-col gap-2">
                 {experience.description.map((item, itemIndex) => (
                   <li
-                    className="xl:text-large text-normal text-scorpion-500 dark:text-woodsmoke-300 leading-[1.1875rem] text-center xs:text-left"
+                    className="xl:text-large text-normal text-scorpion-500 dark:text-woodsmoke-300 leading-4.75 text-center xs:text-left"
                     key={itemIndex}
                   >
                     {item}

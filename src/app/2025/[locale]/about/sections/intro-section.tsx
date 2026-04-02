@@ -14,7 +14,7 @@ export default function IntroSection() {
   return (
     <section
       id="intro-section"
-      className="w-full h-full flex flex-col lg:gap-10 gap-8 xl:px-[200px] lg:px-[150px] md:px-[100px] sm:px-[80px] xs:px-[32px] px-[16px]"
+      className="w-full h-full flex flex-col lg:gap-10 gap-8 xl:px-50 lg:px-37.5 md:px-25 sm:px-20 xs:px-8 px-4"
     >
       <motion.h2
         initial={{ opacity: 0, scale: 0.5 }}
@@ -49,7 +49,7 @@ export default function IntroSection() {
           ).map((paragraph, index) => (
             <p
               key={index}
-              className="mb-6 text-justify lg:text-normal xl:text-large text-woodsmoke-500 dark:text-woodsmoke-300 lg:leading-[1.21rem] xl:leading-[1.375rem]"
+              className="mb-6 text-justify lg:text-normal xl:text-large text-woodsmoke-500 dark:text-woodsmoke-300 lg:leading-[1.21rem] xl:leading-5.5"
             >
               {paragraph}
             </p>
