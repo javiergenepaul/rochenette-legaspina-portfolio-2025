@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#14b8a6"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3d0000"/>
+      <stop offset="100%" stop-color="#D32F2F"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="url(#bg)"/>
   <text x="50%" y="54%" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">RL</text>
 </svg>

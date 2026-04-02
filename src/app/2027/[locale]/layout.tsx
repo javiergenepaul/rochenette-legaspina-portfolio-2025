@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   title: "Rochenette Legaspina - 2027",
   description: "Rochenette Legaspina Portfolio 2027 — Coming Soon",
   icons: { icon: "/favicon-2026.svg" },
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#1e1e2e" },
+    { media: "(prefers-color-scheme: dark)",  color: "#0f0f17" },
+  ],
 };
 
 export default async function LocaleLayout2027({
