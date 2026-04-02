@@ -66,25 +66,34 @@ export default function AboutSection2026() {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1.7fr] gap-16 items-center">
-        {/* Photo placeholder */}
+        {/* Photo */}
         <div>
           <div
             className={cn(
-              "relative rounded-[20px] overflow-hidden aspect-4/5",
+              "group relative rounded-[20px] overflow-hidden aspect-4/5 cursor-pointer",
               "shadow-[0_12px_36px_rgba(211,47,47,.13)]",
+              "transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_56px_rgba(211,47,47,.28)]",
             )}
           >
+            {/* Image — scales on hover */}
             <Image
               src={RochenetteLegaspina2026}
               alt="Rochenette Legaspina"
               fill
-              className="object-cover object-top select-none"
+              className="object-cover object-top select-none transition-transform duration-700 ease-out group-hover:scale-[1.06]"
               sizes="(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 500px"
               quality={100}
               priority
             />
+
+            {/* Red tint overlay */}
+            <div className="absolute inset-0 bg-amethyst-500/0 group-hover:bg-amethyst-500/15 transition-colors duration-500 rounded-[20px]" />
+
+            {/* Shine sweep */}
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-linear-to-r from-transparent via-white/12 to-transparent pointer-events-none" />
+
             {/* Badge */}
-            <div className="absolute bottom-0 right-0 bg-amethyst-500 text-white px-4 py-3 rounded-[20px_0_20px_0] font-poppins font-bold text-[0.72rem] leading-normal flex flex-col gap-1">
+            <div className="absolute bottom-0 right-0 bg-amethyst-500 text-white px-4 py-3 rounded-[20px_0_20px_0] font-poppins font-bold text-[0.72rem] leading-normal flex flex-col gap-1 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:-translate-x-0.5">
               <Typewriter
                 words={["3D Artist", "UI/UX Designer", "Systems Analyst"]}
                 className="min-w-25 inline-block"
