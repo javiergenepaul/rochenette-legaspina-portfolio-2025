@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -168,12 +168,23 @@ function MockupCarousel({
 
 export default function ProjectsSection2026() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const selectProject = useCallback((index: number | null) => {
+    setSelectedIndex(index);
+    // Anchor the viewport to the section top on the next frame so the
+    // layout reflow never disorients the user regardless of where they scrolled.
+    requestAnimationFrame(() => {
+      sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, []);
 
   const selected = selectedIndex !== null ? PROJECTS[selectedIndex] : null;
   const rest = PROJECTS.filter((_, i) => i !== selectedIndex);
 
   return (
     <section
+      ref={sectionRef}
       id="projects"
       className="py-24 px-[7%] bg-woodsmoke-100 dark:bg-woodsmoke-900"
     >
@@ -208,7 +219,7 @@ export default function ProjectsSection2026() {
                 boxShadow: "0 12px 36px rgba(211,47,47,.15)",
               }}
               transition={{ ...SPRING, delay: i * 0.06 }}
-              onClick={() => setSelectedIndex(i)}
+              onClick={() => selectProject(i)}
               className={cn(
                 "flex flex-col overflow-hidden border cursor-pointer",
                 "bg-white dark:bg-woodsmoke-800",
@@ -252,7 +263,7 @@ export default function ProjectsSection2026() {
                 </div>
                 <div className="mt-auto pt-3 border-t border-woodsmoke-200 dark:border-woodsmoke-700">
                   <button
-                    onClick={() => setSelectedIndex(i)}
+                    onClick={() => selectProject(i)}
                     className={cn(
                       "inline-flex items-center gap-1.5 text-caption font-poppins font-bold",
                       "px-3 py-1.5 rounded-full border transition-all duration-200",
@@ -303,7 +314,7 @@ export default function ProjectsSection2026() {
                   {selected.type}
                 </div>
                 <button
-                  onClick={() => setSelectedIndex(null)}
+                  onClick={() => selectProject(null)}
                   className="w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-black/50 transition-colors duration-200"
                 >
                   <X size={15} strokeWidth={2} />
@@ -394,7 +405,7 @@ export default function ProjectsSection2026() {
 
                 <div className="pt-1 border-t border-woodsmoke-100 dark:border-woodsmoke-700">
                   <button
-                    onClick={() => setSelectedIndex(null)}
+                    onClick={() => selectProject(null)}
                     className="text-[0.78rem] font-poppins font-semibold text-woodsmoke-400 hover:text-woodsmoke-600 dark:hover:text-woodsmoke-200 transition-colors duration-200"
                   >
                     ← Back to all
@@ -426,7 +437,7 @@ export default function ProjectsSection2026() {
                       initial={{ opacity: 0, x: 30 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.12 + i * 0.07, ...SPRING }}
-                      onClick={() => setSelectedIndex(originalIndex)}
+                      onClick={() => selectProject(originalIndex)}
                       className={cn(
                         "absolute w-full rounded-2xl overflow-hidden border cursor-pointer",
                         "bg-white dark:bg-woodsmoke-800",
