@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { useLoadingStore } from "@/store";
 
 const YEARS = ["2025", "2026", "2027"] as const;
 type Year = (typeof YEARS)[number];
@@ -24,15 +25,16 @@ function PillButton({
   year,
   locale,
   dir,
+  onNavigate,
 }: {
   year: Year;
   locale: string;
   dir: "prev" | "next";
+  onNavigate: (href: string) => void;
 }) {
-  const router = useRouter();
   return (
     <button
-      onClick={() => router.push(`/${year}/${locale}`)}
+      onClick={() => onNavigate(`/${year}/${locale}`)}
       className="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[0.72rem] font-semibold tracking-widest uppercase border border-amethyst-500/30 bg-white/80 dark:bg-woodsmoke-900/80 backdrop-blur-sm text-amethyst-500 dark:text-amethyst-400 shadow-sm active:scale-95 transition-transform"
     >
       {dir === "prev" && <span>←</span>}
@@ -48,12 +50,13 @@ function PreviewCard({
   year,
   locale,
   dir,
+  onNavigate,
 }: {
   year: Year;
   locale: string;
   dir: "prev" | "next";
+  onNavigate: (href: string) => void;
 }) {
-  const router = useRouter();
   const [hovered, setHovered] = useState(false);
   const href = `/${year}/${locale}`;
 
@@ -104,7 +107,7 @@ function PreviewCard({
             ? "border-amethyst-400/70 scale-[1.04]"
             : "border-amethyst-500/20 scale-100"
         }`}
-        onClick={() => router.push(href)}
+        onClick={() => onNavigate(href)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -146,7 +149,10 @@ function PreviewCard({
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export default function YearNavigator() {
+  const router = useRouter();
   const pathname = usePathname();
+  const { setLoading } = useLoadingStore();
+
   const parts = pathname.split("/");
   const currentYear = (YEARS.find((y) => y === parts[1]) ?? "2026") as Year;
   const locale = parts[2] ?? "en";
@@ -155,6 +161,16 @@ export default function YearNavigator() {
   const prevYear = currentIndex > 0 ? YEARS[currentIndex - 1] : null;
   const nextYear = currentIndex < YEARS.length - 1 ? YEARS[currentIndex + 1] : null;
 
+  // Clear loading once the new page pathname is active
+  useEffect(() => {
+    setLoading(false);
+  }, [pathname, setLoading]);
+
+  const handleNavigate = (href: string) => {
+    setLoading(true);
+    router.push(href);
+  };
+
   return (
     <>
       {/* ── Left / Prev ── */}
@@ -162,11 +178,11 @@ export default function YearNavigator() {
         <div className="fixed bottom-8 left-4 sm:left-8 z-9998">
           {/* Mobile: pill */}
           <div className="md:hidden">
-            <PillButton year={prevYear} locale={locale} dir="prev" />
+            <PillButton year={prevYear} locale={locale} dir="prev" onNavigate={handleNavigate} />
           </div>
           {/* Desktop: preview card */}
           <div className="hidden md:block">
-            <PreviewCard year={prevYear} locale={locale} dir="prev" />
+            <PreviewCard year={prevYear} locale={locale} dir="prev" onNavigate={handleNavigate} />
           </div>
         </div>
       )}
@@ -176,11 +192,11 @@ export default function YearNavigator() {
         <div className="fixed bottom-8 right-4 sm:right-8 z-9998">
           {/* Mobile: pill */}
           <div className="md:hidden">
-            <PillButton year={nextYear} locale={locale} dir="next" />
+            <PillButton year={nextYear} locale={locale} dir="next" onNavigate={handleNavigate} />
           </div>
           {/* Desktop: preview card */}
           <div className="hidden md:block">
-            <PreviewCard year={nextYear} locale={locale} dir="next" />
+            <PreviewCard year={nextYear} locale={locale} dir="next" onNavigate={handleNavigate} />
           </div>
         </div>
       )}

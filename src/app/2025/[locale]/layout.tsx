@@ -9,6 +9,7 @@ import HtmlAttributes from "@/components/common/html-attributes";
 import YearNavigator from "@/components/common/year-navigator";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rochenette-legaspina-portfolio.vercel.app"),
   title: "Rochenette Legaspina - 2025",
   description: "Rochenette Legaspina Portfolio 2025",
   icons: { icon: "/favicon-2025.svg" },
@@ -16,6 +17,13 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: light)", color: "#ae3ee6" },
     { media: "(prefers-color-scheme: dark)",  color: "#5c1e71" },
   ],
+  openGraph: {
+    title: "Rochenette Legaspina - 2025",
+    description: "Rochenette Legaspina Portfolio 2025",
+    url: "https://rochenette-legaspina-portfolio.vercel.app/2025/en",
+    siteName: "Rochenette Legaspina Portfolio",
+    type: "website",
+  },
 };
 
 export default async function LocaleLayout({

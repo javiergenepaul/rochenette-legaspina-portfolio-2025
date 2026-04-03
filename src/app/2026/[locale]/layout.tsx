@@ -25,6 +25,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rochenette-legaspina-portfolio.vercel.app"),
   title: "Rochenette Legaspina - 2026",
   description: "Rochenette Legaspina Portfolio 2026",
   icons: { icon: "/favicon-2026.svg" },
@@ -32,6 +33,14 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: light)", color: "#D32F2F" },
     { media: "(prefers-color-scheme: dark)",  color: "#3d0000" },
   ],
+  openGraph: {
+    title: "Rochenette Legaspina - 2026",
+    description: "Rochenette Legaspina Portfolio 2026",
+    url: "https://rochenette-legaspina-portfolio.vercel.app/2026/en",
+    siteName: "Rochenette Legaspina Portfolio",
+    images: [{ url: "/og-image-2026.jpg", width: 1200, height: 630 }],
+    type: "website",
+  },
 };
 
 export default async function LocaleLayout2026({

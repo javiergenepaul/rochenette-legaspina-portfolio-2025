@@ -355,3 +355,12 @@ img {
       rotate(calc((var(--angle) * -1deg) - 360deg));
   }
 }
+
+@keyframes year-progress {
+  0%   { width: 0%;   margin-left: 0; }
+  50%  { width: 60%;  margin-left: 20%; }
+  100% { width: 0%;   margin-left: 100%; }
+}
+.animate-year-progress {
+  animation: year-progress 1.2s ease-in-out infinite;
+}
