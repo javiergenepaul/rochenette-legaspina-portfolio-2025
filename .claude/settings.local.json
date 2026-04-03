@@ -38,7 +38,10 @@
       "Bash(ls tailwind*)",
       "Bash(cat c:/Users/User/Documents/development/rochenette-legaspina-portfolio-2025/.env*)",
       "Bash(ls c:/Users/User/Documents/development/rochenette-legaspina-portfolio-2025/*.json)",
-      "Bash(grep -rn \"animate-\\\\|keyframes\" c:/Users/User/Documents/development/rochenette-legaspina-portfolio-2025/tailwind.config.*)"
+      "Bash(grep -rn \"animate-\\\\|keyframes\" c:/Users/User/Documents/development/rochenette-legaspina-portfolio-2025/tailwind.config.*)",
+      "Bash(ls -la /c/Users/User/Documents/development/rochenette-legaspina-portfolio-2025/src/app/2025/[locale]/sections/)",
+      "Bash(ls -la /c/Users/User/Documents/development/rochenette-legaspina-portfolio-2025/src/app/2025/[locale]/about/sections/)",
+      "Bash(pnpm typecheck:*)"
     ]
   }
 }

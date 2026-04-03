@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { PATH } from "@/config/path";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ResumeBuilderModal } from "@/components/resume/ResumeBuilderModal";
 
 export default function HeroSection() {
   const { t } = useTranslation();
@@ -50,13 +51,27 @@ export default function HeroSection() {
           <p className="lg:text-h5 md:text-large text-normal lg:font-medium font-normal mt-4 text-woodsmoke-500 dark:text-woodsmoke-300 sm:text-start text-center">
             {translate(t, "home.hero.slogan.subtitle")}
           </p>
-          <Link href={PATH.ABOUT.getPath(year, locale)} passHref>
-            <Button className="mt-16 py-4 sm:px-20 px-28 bg-amethyst-500 hover:bg-amethyst-400 focus:bg-amethyst-800">
-              <span className="text-amethyst-50 xl:text-large text-regular">
-                {translate(t, "home.hero.slogan.button")}
-              </span>
-            </Button>
-          </Link>
+          <div className="mt-16 flex sm:flex-row flex-col items-center gap-3">
+            <ResumeBuilderModal
+              trigger={
+                <Button className="py-4 sm:px-12 px-20 bg-amethyst-500 hover:bg-amethyst-400 focus:bg-amethyst-800">
+                  <span className="text-amethyst-50 xl:text-large text-regular">
+                    Build My Resume
+                  </span>
+                </Button>
+              }
+            />
+            <Link href={PATH.ABOUT.getPath(year, locale)} passHref>
+              <Button
+                variant="outline"
+                className="py-4 sm:px-12 px-20 border-amethyst-500/40 text-amethyst-500 hover:bg-amethyst-500/10"
+              >
+                <span className="xl:text-large text-regular">
+                  {translate(t, "home.hero.slogan.button")}
+                </span>
+              </Button>
+            </Link>
+          </div>
         </motion.div>
 
         {/* Orbbiting Circle */}

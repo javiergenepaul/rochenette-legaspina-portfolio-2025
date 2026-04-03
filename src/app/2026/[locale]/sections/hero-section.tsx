@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLoadingStore } from "@/store";
+import { ResumeBuilderModal } from "@/components/resume/ResumeBuilderModal";
 import { useEffect } from "react";
 import {
   Send,
@@ -102,17 +103,20 @@ export default function HeroSection2026() {
             <Briefcase size={15} strokeWidth={1.75} />
             View My Work
           </Link>
-          <Link
-            href="#contact"
-            className={cn(
-              "inline-flex items-center gap-2 px-7 py-3 rounded-xl font-poppins font-semibold text-[0.88rem] text-white no-underline",
-              "border border-white/22 bg-transparent",
-              "transition-all duration-300 hover:bg-white/8 hover:-translate-y-0.5",
-            )}
-          >
-            <Send size={15} strokeWidth={1.75} />
-            Get in Touch
-          </Link>
+          <ResumeBuilderModal
+            trigger={
+              <button
+                className={cn(
+                  "inline-flex items-center gap-2 px-7 py-3 rounded-xl font-poppins font-semibold text-[0.88rem] text-white",
+                  "border border-white/22 bg-transparent",
+                  "transition-all duration-300 hover:bg-white/8 hover:-translate-y-0.5",
+                )}
+              >
+                <Send size={15} strokeWidth={1.75} />
+                Build My Resume
+              </button>
+            }
+          />
         </div>
 
         {/* Stats — hidden on very small screens to keep everything above the fold */}
