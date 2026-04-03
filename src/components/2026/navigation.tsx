@@ -72,6 +72,13 @@ export default function Navigation2026() {
   const currentLocale = parts[2] ?? "en";
   const activeLocale = LOCALES.find((l) => l.code === currentLocale) ?? LOCALES[0];
 
+  // On sub-pages (e.g. /2026/en/projects/slug) hash links must be absolute
+  const rootPath = `/2026/${currentLocale}`;
+  const isRoot = pathname === rootPath || pathname === `${rootPath}/`;
+  function navHref(hash: string) {
+    return isRoot ? hash : `${rootPath}${hash}`;
+  }
+
   const langRef = useRef<HTMLDivElement>(null);
 
   // Close lang dropdown on outside click
@@ -108,7 +115,7 @@ export default function Navigation2026() {
         )}
       >
         {/* Logo */}
-        <a href="#hero" className="shrink-0">
+        <a href={navHref("#hero")} className="shrink-0">
           <svg width="40" height="40" viewBox="0 0 64 64" fill="none">
             <circle cx="32" cy="32" r="31" fill="#D32F2F"/>
             <circle cx="32" cy="32" r="25" stroke="rgba(255,255,255,0.25)" strokeWidth="0.75"/>
@@ -128,7 +135,7 @@ export default function Navigation2026() {
           {NAV_LINKS.map(({ href, label, Icon }) => (
             <li key={href}>
               <a
-                href={href}
+                href={navHref(href)}
                 className={cn(
                   "group flex items-center gap-1 font-poppins font-medium text-[0.8rem] no-underline",
                   "relative pb-0.5 transition-colors duration-300",
@@ -268,7 +275,7 @@ export default function Navigation2026() {
           {NAV_LINKS.map(({ href, label, Icon }) => (
             <a
               key={href}
-              href={href}
+              href={navHref(href)}
               onClick={closeMobileMenu}
               className={cn(
                 "flex items-center gap-2 py-1.5 border-b font-semibold text-[0.9rem] no-underline",
