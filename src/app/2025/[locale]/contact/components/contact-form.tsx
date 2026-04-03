@@ -16,7 +16,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { translate } from "@/lib";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 export default function ContactForm() {
   const { toast } = useToast();
@@ -115,7 +115,7 @@ export default function ContactForm() {
                       {...field}
                       placeholder={translate(
                         t,
-                        "contact.form.input.firstName.placeholder"
+                        "contact.form.input.firstName.placeholder",
                       )}
                     />
                   </FormControl>
@@ -140,7 +140,7 @@ export default function ContactForm() {
                       {...field}
                       placeholder={translate(
                         t,
-                        "contact.form.input.lastName.placeholder"
+                        "contact.form.input.lastName.placeholder",
                       )}
                     />
                   </FormControl>
@@ -166,7 +166,7 @@ export default function ContactForm() {
                     {...field}
                     placeholder={translate(
                       t,
-                      "contact.form.input.email.placeholder"
+                      "contact.form.input.email.placeholder",
                     )}
                   />
                 </FormControl>
@@ -190,7 +190,7 @@ export default function ContactForm() {
                     {...field}
                     placeholder={translate(
                       t,
-                      "contact.form.input.message.placeholder"
+                      "contact.form.input.message.placeholder",
                     )}
                     autoCapitalize="none"
                     autoComplete="off"
@@ -202,7 +202,10 @@ export default function ContactForm() {
             )}
           />
         </div>
-        <Button className="w-full py-5 bg-amethyst-500 dark:text-white hover:bg-amethyst-400 focus:bg-amethyst-800" type="submit">
+        <Button
+          className="w-full py-5 bg-amethyst-500 dark:text-white hover:bg-amethyst-400 focus:bg-amethyst-800"
+          type="submit"
+        >
           {translate(t, "contact.form.button")}
         </Button>
       </form>

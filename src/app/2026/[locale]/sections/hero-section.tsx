@@ -28,7 +28,7 @@ export default function HeroSection2026() {
       <HeroBackground />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-175 py-28 sm:py-20 lg:py-0">
+      <div className="relative z-10 w-full max-w-175 pt-20 pb-20 sm:pt-8 sm:pb-16 lg:pt-0 lg:pb-0">
         {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 bg-white/7 border border-white/15 text-white/75 px-4 py-1.5 rounded-full text-caption font-semibold tracking-[0.8px] mb-6 font-poppins">
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse shrink-0" />
@@ -115,8 +115,8 @@ export default function HeroSection2026() {
           </Link>
         </div>
 
-        {/* Stats */}
-        <div className="flex flex-wrap gap-4 sm:gap-8 mt-10 pt-8 border-t border-white/10">
+        {/* Stats — hidden on very small screens to keep everything above the fold */}
+        <div className="hidden sm:flex flex-wrap gap-4 sm:gap-8 mt-10 pt-8 border-t border-white/10">
           {[
             { val: "3+", label: "Disciplines" },
             { val: "5+", label: "Projects" },

@@ -81,6 +81,7 @@ export const EDUCATION = [
 export type ProjectType = "Web App" | "UI/UX" | "3D / Visualization" | "Systems" | "Full-Stack";
 
 export const PROJECTS: {
+  slug: string;
   title: string;
   type: ProjectType;
   role: string;
@@ -91,6 +92,7 @@ export const PROJECTS: {
   link?: string;
 }[] = [
   {
+    slug: "clinictrack",
     title: "ClinicTrack — Hospital Management System",
     type: "Web App",
     role: "Systems Analyst & Frontend Dev",
@@ -106,6 +108,7 @@ export const PROJECTS: {
     ],
   },
   {
+    slug: "lumina",
     title: "Lumina — E-Commerce Redesign",
     type: "UI/UX",
     role: "Lead UX Designer",
@@ -121,6 +124,7 @@ export const PROJECTS: {
     ],
   },
   {
+    slug: "archviz-studio",
     title: "ArchViz Studio — 3D Product Render",
     type: "3D / Visualization",
     role: "3D Artist",
@@ -136,6 +140,7 @@ export const PROJECTS: {
     ],
   },
   {
+    slug: "flowmap",
     title: "FlowMap — Business Process Analyzer",
     type: "Systems",
     role: "Business Analyst",
@@ -151,6 +156,7 @@ export const PROJECTS: {
     ],
   },
   {
+    slug: "portfolio-2025",
     title: "Portfolio 2025 — Personal Site",
     type: "Full-Stack",
     role: "Developer & Designer",
