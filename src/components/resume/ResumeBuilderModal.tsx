@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { X, Download, FileText } from "lucide-react";
+import { X, Download, FileText, SlidersHorizontal, Eye } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   RESUME_SECTIONS,
@@ -12,14 +12,12 @@ import {
 } from "@/config/resumeData";
 import { ResumePreview } from "./ResumePreview";
 
-// ---------------------------------------------------------------------------
-// Types & constants
-// ---------------------------------------------------------------------------
+// ─── Constants ────────────────────────────────────────────────────────────────
 
 const CATEGORIES: { value: ResumeCategory; label: string }[] = [
   { value: "general", label: "General" },
-  { value: "uiux", label: "UI/UX" },
-  { value: "3d", label: "3D" },
+  { value: "uiux",    label: "UI/UX"   },
+  { value: "3d",      label: "3D"      },
   { value: "systems", label: "Systems" },
 ];
 
@@ -28,27 +26,19 @@ const THEMES: { value: ResumeTheme; label: string }[] = [
   { value: "modern", label: "Modern" },
 ];
 
-// ---------------------------------------------------------------------------
-// Sub-components
-// ---------------------------------------------------------------------------
+// ─── Small pieces ─────────────────────────────────────────────────────────────
 
 function SidebarLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[11px] font-semibold uppercase tracking-widest text-amethyst-400 mb-2">
+    <p className="text-[10px] font-bold uppercase tracking-widest text-amethyst-400 mb-2">
       {children}
     </p>
   );
 }
 
 function PillButton({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
+  active, onClick, children,
+}: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
     <button
       onClick={onClick}
@@ -56,7 +46,7 @@ function PillButton({
         "px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-150 border",
         active
           ? "bg-amethyst-500 text-white border-amethyst-500"
-          : "border-amethyst-500/30 text-amethyst-500 hover:border-amethyst-500/60 hover:bg-amethyst-500/5"
+          : "border-amethyst-500/30 text-amethyst-500 hover:border-amethyst-500/60 hover:bg-amethyst-500/5",
       )}
     >
       {children}
@@ -64,61 +54,139 @@ function PillButton({
   );
 }
 
-// ---------------------------------------------------------------------------
-// Main Modal
-// ---------------------------------------------------------------------------
+// ─── Settings panel ───────────────────────────────────────────────────────────
+
+function SettingsPanel({
+  category, setCategory,
+  theme, setTheme,
+  mode, setMode,
+  visibleSections, toggleSection,
+  isDownloading, onDownload,
+}: {
+  category: ResumeCategory;  setCategory: (v: ResumeCategory) => void;
+  theme: ResumeTheme;        setTheme: (v: ResumeTheme) => void;
+  mode: ResumeMode;          setMode: (v: ResumeMode) => void;
+  visibleSections: string[]; toggleSection: (key: string) => void;
+  isDownloading: boolean;    onDownload: () => void;
+}) {
+  const categorySections = RESUME_SECTIONS.filter((s) => s.categories.includes(category));
+
+  return (
+    <div className="flex flex-col gap-5 p-5 flex-1 overflow-y-auto">
+      <div>
+        <SidebarLabel>Category</SidebarLabel>
+        <div className="flex flex-wrap gap-2">
+          {CATEGORIES.map((c) => (
+            <PillButton key={c.value} active={category === c.value} onClick={() => setCategory(c.value)}>
+              {c.label}
+            </PillButton>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <SidebarLabel>Theme</SidebarLabel>
+        <div className="flex gap-2">
+          {THEMES.map((t) => (
+            <PillButton key={t.value} active={theme === t.value} onClick={() => setTheme(t.value)}>
+              {t.label}
+            </PillButton>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <SidebarLabel>Mode</SidebarLabel>
+        <div className="flex gap-2">
+          {(["light", "dark"] as ResumeMode[]).map((m) => (
+            <PillButton key={m} active={mode === m} onClick={() => setMode(m)}>
+              {m === "light" ? "☀ Light" : "☾ Dark"}
+            </PillButton>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <SidebarLabel>Sections</SidebarLabel>
+        <div className="flex flex-col gap-2">
+          {categorySections.map((section) => {
+            const checked = visibleSections.includes(section.key);
+            return (
+              <label key={section.key} className="flex items-center gap-2.5 cursor-pointer group">
+                <div className="relative flex items-center justify-center shrink-0">
+                  <input type="checkbox" checked={checked} onChange={() => toggleSection(section.key)} className="sr-only" />
+                  <div className={cn(
+                    "w-4 h-4 rounded border transition-all duration-150 flex items-center justify-center",
+                    checked ? "bg-amethyst-500 border-amethyst-500" : "border-amethyst-500/40 group-hover:border-amethyst-500/70",
+                  )}>
+                    {checked && (
+                      <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                        <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+                <span className="text-xs text-amethyst-200 group-hover:text-white transition-colors">
+                  {section.label}
+                </span>
+              </label>
+            );
+          })}
+        </div>
+      </div>
+
+      <button
+        onClick={onDownload}
+        disabled={isDownloading}
+        className={cn(
+          "mt-auto flex items-center justify-center gap-2 px-4 py-3 rounded-xl",
+          "bg-amethyst-500 hover:bg-amethyst-600 active:bg-amethyst-700 text-white font-bold text-sm",
+          "transition-all duration-150 disabled:opacity-60 disabled:cursor-not-allowed",
+        )}
+      >
+        <Download size={15} />
+        {isDownloading ? "Generating PDF…" : "Download PDF"}
+      </button>
+    </div>
+  );
+}
+
+// ─── Main modal ───────────────────────────────────────────────────────────────
 
 interface ResumeBuilderModalProps {
-  /** Trigger element that opens the modal */
   trigger?: React.ReactNode;
-  /** Controlled open state (optional) */
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
 
-export function ResumeBuilderModal({
-  trigger,
-  open: controlledOpen,
-  onOpenChange,
-}: ResumeBuilderModalProps) {
-  // Internal state (used when uncontrolled)
+export function ResumeBuilderModal({ trigger, open: controlledOpen, onOpenChange }: ResumeBuilderModalProps) {
   const [internalOpen, setInternalOpen] = useState(false);
+  const isOpen  = controlledOpen !== undefined ? controlledOpen : internalOpen;
+  const setOpen = useCallback((val: boolean) => { setInternalOpen(val); onOpenChange?.(val); }, [onOpenChange]);
 
-  const isOpen = controlledOpen !== undefined ? controlledOpen : internalOpen;
-  const setOpen = useCallback(
-    (val: boolean) => {
-      setInternalOpen(val);
-      onOpenChange?.(val);
-    },
-    [onOpenChange]
-  );
+  const [category, setCategory]               = useState<ResumeCategory>("general");
+  const [theme, setTheme]                     = useState<ResumeTheme>("modern");
+  const [mode, setMode]                       = useState<ResumeMode>("light");
+  const [visibleSections, setVisibleSections] = useState<string[]>(RESUME_SECTIONS.map((s) => s.key));
+  const [isDownloading, setIsDownloading]     = useState(false);
+  const [mobileTab, setMobileTab]             = useState<"settings" | "preview">("preview");
 
-  // Resume builder state
-  const [category, setCategory] = useState<ResumeCategory>("general");
-  const [theme, setTheme] = useState<ResumeTheme>("modern");
-  const [mode, setMode] = useState<ResumeMode>("light");
-  const [visibleSections, setVisibleSections] = useState<string[]>(
-    RESUME_SECTIONS.map((s) => s.key)
-  );
-  const [isDownloading, setIsDownloading] = useState(false);
-
-  const toggleSection = (key: string) => {
+  const toggleSection = useCallback((key: string) => {
     setVisibleSections((prev) =>
-      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key],
     );
-  };
+  }, []);
 
-  const handleDownload = async () => {
+  const handleDownload = useCallback(async () => {
     setIsDownloading(true);
     try {
       const html2pdf = (await import("html2pdf.js")).default;
-      const element = document.getElementById("resume-content");
+      const element  = document.getElementById("resume-content");
       if (!element) return;
-      const filename = `rochenette-legaspina-${category}-resume.pdf`;
       await html2pdf()
         .set({
           margin: 0,
-          filename,
+          filename: `rochenette-legaspina-${category}-resume.pdf`,
           image: { type: "jpeg", quality: 0.98 },
           html2canvas: { scale: 2, useCORS: true },
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
@@ -130,213 +198,117 @@ export function ResumeBuilderModal({
     } finally {
       setIsDownloading(false);
     }
-  };
+  }, [category]);
 
-  // Sections available for the current category
-  const categorySections = RESUME_SECTIONS.filter((s) =>
-    s.categories.includes(category)
-  );
+  const settingsProps = {
+    category, setCategory, theme, setTheme, mode, setMode,
+    visibleSections, toggleSection, isDownloading, onDownload: handleDownload,
+  };
 
   return (
     <Dialog.Root open={isOpen} onOpenChange={setOpen}>
       {trigger && <Dialog.Trigger asChild>{trigger}</Dialog.Trigger>}
 
       <Dialog.Portal>
-        {/* Overlay */}
-        <Dialog.Overlay
-          style={{
-            position: "fixed",
-            inset: 0,
-            backgroundColor: "rgba(0,0,0,0.72)",
-            backdropFilter: "blur(4px)",
-            zIndex: 9999,
-          }}
-        />
+        {/* Backdrop — slightly lighter on mobile so the drawer stands out */}
+        <Dialog.Overlay className="fixed inset-0 bg-black/60 md:bg-black/75 backdrop-blur-sm z-9999" />
 
-        {/* Content */}
+        {/* ── Content ─────────────────────────────────────────────────────── */}
         <Dialog.Content
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 10000,
-            display: "flex",
-            overflow: "hidden",
-          }}
           aria-describedby={undefined}
+          className={cn(
+            // Base
+            "fixed z-10000 flex flex-col bg-woodsmoke-950 overflow-hidden",
+            // Mobile: bottom drawer — slides up, rounded top, 92dvh
+            "inset-x-0 bottom-0 h-[92dvh] rounded-t-2xl",
+            "data-[state=open]:animate-drawer-up data-[state=closed]:animate-drawer-down",
+            // Desktop: full screen, no rounding, no animation
+            "md:inset-0 md:h-auto md:rounded-none md:data-[state=open]:animate-none md:data-[state=closed]:animate-none",
+          )}
         >
-          {/* ── Sidebar ─────────────────────────────────────────────────── */}
-          <aside
-            className="border-r border-amethyst-500/20 bg-woodsmoke-950"
-            style={{
-              width: "280px",
-              flexShrink: 0,
-              display: "flex",
-              flexDirection: "column",
-              overflowY: "auto",
-            }}
-          >
-            {/* Sidebar header */}
-            <div className="flex items-center justify-between p-5 border-b border-amethyst-900/40">
-              <div className="flex items-center gap-2">
-                <FileText size={16} className="text-amethyst-400" />
-                <Dialog.Title className="text-sm font-bold text-white tracking-wide">
-                  Build My Resume
-                </Dialog.Title>
-              </div>
-              <Dialog.Close asChild>
-                <button
-                  className="text-amethyst-400 hover:text-white transition-colors"
-                  aria-label="Close"
-                >
-                  <X size={18} />
-                </button>
-              </Dialog.Close>
+          {/* ── Mobile drag handle ───────────────────────────────────────── */}
+          <div className="md:hidden flex justify-center pt-3 pb-1 shrink-0">
+            <div className="w-10 h-1 rounded-full bg-white/20" />
+          </div>
+
+          {/* ── Header bar ───────────────────────────────────────────────── */}
+          <div className="flex items-center justify-between px-4 py-3 border-b border-amethyst-500/20 shrink-0">
+            <div className="flex items-center gap-2">
+              <FileText size={15} className="text-amethyst-400" />
+              <Dialog.Title className="text-sm font-bold text-white tracking-wide">
+                Build My Resume
+              </Dialog.Title>
             </div>
 
-            {/* Sidebar body */}
-            <div className="flex flex-col gap-6 p-5 flex-1">
-              {/* Category */}
-              <div>
-                <SidebarLabel>Category</SidebarLabel>
-                <div className="flex flex-wrap gap-2">
-                  {CATEGORIES.map((c) => (
-                    <PillButton
-                      key={c.value}
-                      active={category === c.value}
-                      onClick={() => setCategory(c.value)}
-                    >
-                      {c.label}
-                    </PillButton>
-                  ))}
-                </div>
-              </div>
-
-              {/* Theme */}
-              <div>
-                <SidebarLabel>Theme</SidebarLabel>
-                <div className="flex gap-2">
-                  {THEMES.map((t) => (
-                    <PillButton
-                      key={t.value}
-                      active={theme === t.value}
-                      onClick={() => setTheme(t.value)}
-                    >
-                      {t.label}
-                    </PillButton>
-                  ))}
-                </div>
-              </div>
-
-              {/* Mode */}
-              <div>
-                <SidebarLabel>Mode</SidebarLabel>
-                <div className="flex items-center gap-3">
-                  <button
-                    onClick={() => setMode("light")}
-                    className={cn(
-                      "flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-150",
-                      mode === "light"
-                        ? "bg-amethyst-500 text-white border-amethyst-500"
-                        : "border-amethyst-500/30 text-amethyst-500 hover:border-amethyst-500/60"
-                    )}
-                  >
-                    ☀ Light
-                  </button>
-                  <button
-                    onClick={() => setMode("dark")}
-                    className={cn(
-                      "flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-150",
-                      mode === "dark"
-                        ? "bg-amethyst-500 text-white border-amethyst-500"
-                        : "border-amethyst-500/30 text-amethyst-500 hover:border-amethyst-500/60"
-                    )}
-                  >
-                    ☾ Dark
-                  </button>
-                </div>
-              </div>
-
-              {/* Section visibility */}
-              <div>
-                <SidebarLabel>Sections</SidebarLabel>
-                <div className="flex flex-col gap-2">
-                  {categorySections.map((section) => {
-                    const checked = visibleSections.includes(section.key);
-                    return (
-                      <label
-                        key={section.key}
-                        className="flex items-center gap-2.5 cursor-pointer group"
-                      >
-                        <div className="relative flex items-center justify-center">
-                          <input
-                            type="checkbox"
-                            checked={checked}
-                            onChange={() => toggleSection(section.key)}
-                            className="sr-only"
-                          />
-                          <div
-                            className={cn(
-                              "w-4 h-4 rounded border transition-all duration-150 flex items-center justify-center",
-                              checked
-                                ? "bg-amethyst-500 border-amethyst-500"
-                                : "border-amethyst-500/40 group-hover:border-amethyst-500/70"
-                            )}
-                          >
-                            {checked && (
-                              <svg
-                                width="10"
-                                height="8"
-                                viewBox="0 0 10 8"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M1 4L3.5 6.5L9 1"
-                                  stroke="white"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            )}
-                          </div>
-                        </div>
-                        <span className="text-xs text-amethyst-200 group-hover:text-white transition-colors">
-                          {section.label}
-                        </span>
-                      </label>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            {/* Download button */}
-            <div className="p-5 border-t border-amethyst-900/40">
+            {/* Desktop: icon-only X */}
+            <Dialog.Close asChild>
               <button
-                onClick={handleDownload}
-                disabled={isDownloading}
+                className="hidden md:flex text-amethyst-400 hover:text-white transition-colors p-1"
+                aria-label="Close"
+              >
+                <X size={18} />
+              </button>
+            </Dialog.Close>
+
+            {/* Mobile: labelled "Close" text button — clear intent */}
+            <Dialog.Close asChild>
+              <button className="md:hidden text-xs font-semibold text-amethyst-400 hover:text-white transition-colors px-2 py-1 rounded-lg hover:bg-amethyst-500/10">
+                Close
+              </button>
+            </Dialog.Close>
+          </div>
+
+          {/* ── Body ─────────────────────────────────────────────────────── */}
+          <div className="flex flex-1 overflow-hidden">
+            {/* Desktop sidebar */}
+            <aside className="hidden md:flex flex-col w-65 shrink-0 border-r border-amethyst-500/20 overflow-y-auto">
+              <SettingsPanel {...settingsProps} />
+            </aside>
+
+            {/* Preview pane */}
+            <div className={cn(
+              "flex-1 overflow-hidden",
+              "md:flex",
+              mobileTab === "preview" ? "flex" : "hidden",
+            )}>
+              <ResumePreview
+                category={category}
+                theme={theme}
+                mode={mode}
+                visibleSections={visibleSections}
+                onDownload={handleDownload}
+              />
+            </div>
+
+            {/* Settings pane (mobile only) */}
+            <div className={cn(
+              "flex-1 overflow-hidden md:hidden",
+              mobileTab === "settings" ? "flex flex-col" : "hidden",
+            )}>
+              <SettingsPanel {...settingsProps} />
+            </div>
+          </div>
+
+          {/* ── Mobile bottom tab bar ────────────────────────────────────── */}
+          <div className="md:hidden flex border-t border-amethyst-500/20 shrink-0">
+            {([
+              { id: "preview",  Icon: Eye,              label: "Preview"  },
+              { id: "settings", Icon: SlidersHorizontal, label: "Settings" },
+            ] as const).map(({ id, Icon, label }) => (
+              <button
+                key={id}
+                onClick={() => setMobileTab(id)}
                 className={cn(
-                  "w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg",
-                  "bg-amethyst-500 hover:bg-amethyst-600 text-white font-semibold text-sm",
-                  "transition-all duration-150 disabled:opacity-60 disabled:cursor-not-allowed"
+                  "flex-1 flex flex-col items-center justify-center gap-1 py-3 text-[11px] font-semibold transition-colors",
+                  mobileTab === id
+                    ? "text-amethyst-400 border-t-2 border-amethyst-500 -mt-px"
+                    : "text-white/40 hover:text-white/70",
                 )}
               >
-                <Download size={16} />
-                {isDownloading ? "Generating PDF…" : "Download PDF"}
+                <Icon size={16} />
+                {label}
               </button>
-            </div>
-          </aside>
-
-          {/* ── Preview area ─────────────────────────────────────────────── */}
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
-            <ResumePreview
-              category={category}
-              theme={theme}
-              mode={mode}
-              visibleSections={visibleSections}
-              onDownload={handleDownload}
-            />
+            ))}
           </div>
         </Dialog.Content>
       </Dialog.Portal>
