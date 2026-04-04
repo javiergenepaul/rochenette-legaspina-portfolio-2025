@@ -364,3 +364,15 @@ img {
 .animate-year-progress {
   animation: year-progress 1.2s ease-in-out infinite;
 }
+
+/* ── Resume builder drawer (mobile) ─────────────────────────────────────────*/
+@keyframes drawer-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0);    }
+}
+@keyframes drawer-down {
+  from { transform: translateY(0);    }
+  to   { transform: translateY(100%); }
+}
+.animate-drawer-up   { animation: drawer-up   0.35s cubic-bezier(0.32, 0.72, 0, 1) both; }
+.animate-drawer-down { animation: drawer-down 0.25s cubic-bezier(0.32, 0.72, 0, 1) both; }
